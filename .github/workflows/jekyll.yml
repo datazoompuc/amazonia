@@ -37,14 +37,11 @@ jobs:
         uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
         with:
           ruby-version: '3.1'
-          bundler-cache: false  # desliga o cache automático
+          bundler-cache: true  # desliga o cache automático
 
       - name: Add Linux platform to bundler
         run: bundle lock --add-platform x86_64-linux
 
-      - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3
-            
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
