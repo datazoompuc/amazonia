@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Data Zoom Amazônia
+title: Termos de Uso
 lang: pt
 ---
 <h1 class="entry-title">Termos de Uso</h1>
