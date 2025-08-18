@@ -3,7 +3,7 @@ layout: default
 title: Termos de Uso
 lang: pt
 ---
-<h1 class="entry-title" style="font-size: 3em; text-align: left;">Termos de Uso</h1>
+<h1 class="entry-title" style="font-size: 3em; text-align: left !important;">Termos de Uso</h1>
 <br>
 
 <div style="text-align: left; font-size: 1em;">
@@ -85,6 +85,6 @@ lang: pt
 
 <p>Agradecemos os seus comentários ou perguntas sobre estes termos. Você pode nos contatar por escrito por meio do nosso <a rel="noreferrer noopener" href="https://web.archive.org/web/20250613070552/https://github.com/datazoompuc/datazoom.amazonia/issues" data-type="URL" data-id="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank">GitHub.</a></p>
 
-
+</div>
 
 <p></p>
