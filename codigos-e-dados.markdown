@@ -31,7 +31,6 @@ permalink: /codigos-e-dados/
 <div class="grid two-col" style="max-width:1100px; margin: 2rem auto; display:grid; grid-template-columns: repeat(12, 1fr); gap: 24px;">
   <div style="grid-column: span 4;">
     <a href="https://github.com/datazoompuc/datazoom.amazonia">
-      <img src="{{ site.baseurl }}/assets/img/DZAM-HexSticker_3x_AF.png" alt="datazoom.amazonia hex sticker" style="max-width:100%; height:auto;">
     </a>
   </div>
 
@@ -54,8 +53,9 @@ permalink: /codigos-e-dados/
 <!-- INSTALAÇÃO NO R -->
 <div class="grid two-col" style="max-width:1100px; margin: 0 auto 2rem auto; display:grid; grid-template-columns: repeat(12, 1fr); gap: 24px;">
   <div style="grid-column: span 4;">
-    <h4 id="instalacao">INSTALAÇÃO NO R</h4>
+    <h4 class="has-text-align-left wp-block-heading" id="inpe-prodes">INSTALAÇÃO NO R</h4>
   </div>
+  
 
   <div style="grid-column: span 8;" markdown="1">
     Você pode instalar a versão estável do **datazoom.amazonia** do
