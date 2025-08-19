@@ -35,25 +35,26 @@ permalink: /codigos-e-dados/
   .dzam-figure img{max-width:100%;height:auto;display:block}
   .dzam-title{margin:0}
   .dzam-code{background:#f6f8fa;border:1px solid #e1e4e8;border-radius:8px;padding:12px;overflow:auto}
-  .dzam-buttons{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
-  .dzam-btn{display:inline-block;padding:.6rem 1rem;border-radius:999px;border:1px solid #cfd8dc;text-decoration:none}
 </style>
 
 <!-- Bloco 1: imagem + descrição -->
 <section class="dzam-grid">
   <figure class="dzam-figure">
     <a href="https://github.com/datazoompuc/datazoom.amazonia" target="_blank" rel="noreferrer noopener">
-      <img src="https://web.archive.org/web/20250206232656im_/http://datazoomamazonia.com.br/wp-content/uploads/2021/12/DZAM-HexSticker_3x_AF.png" alt="Logotipo do Data Zoom Amazônia">
+      <img src="https://raw.githubusercontent.com/datazoompuc/datazoom.amazonia/master/logo.png"
+           alt="Logotipo do Data Zoom Amazônia" loading="lazy" decoding="async">
     </a>
   </figure>
 
   <div>
     <p>O projeto <strong>Data Zoom Amazônia</strong> foi desenvolvido pelo Departamento de Economia da PUC-Rio com o objetivo de disponibilizar gratuitamente o acesso a bases de dados sobre a Amazônia Legal. O Data Zoom Amazônia visa facilitar e agilizar pesquisas acadêmicas sobre a região por meio do pacote <code>datazoom.amazonia</code> em <code>R</code>. Com uma abordagem focada na simplicidade e na organização, os usuários não precisam dedicar tempo à preparação das bases de dados. O pacote disponibiliza as bases limpas e intuitivas, poupando trabalho manual dos pesquisadores.</p>
+  </div>
+</section>
 
 <!-- Bloco 2: título + instruções de instalação -->
 <section class="dzam-grid">
   <div>
-    <h3 class="dzam-title" id="instalacao-r"><strong>INSTALAÇÃO NO R</strong></h3>
+    <h4 class="dzam-title" id="instalacao-r">INSTALAÇÃO NO R</h4>
   </div>
 
   <div>
