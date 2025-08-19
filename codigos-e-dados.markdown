@@ -7,7 +7,7 @@ permalink: /codigos-e-dados/
 
 <header class="entry-header has-text-align-center header-footer-group">
   <div class="entry-header-inner section-inner medium">
-    <h1 class="entry-title">Códigos e Dados</h1>
+    <h1 class="entry-title"><strong>Códigos e Dados</strong></h1>
   </div>
 </header>
 
@@ -50,18 +50,12 @@ permalink: /codigos-e-dados/
   <div>
     <p>O projeto <strong>Data Zoom Amazônia</strong> foi desenvolvido pelo Departamento de Economia da PUC-Rio com o objetivo de disponibilizar gratuitamente o acesso a bases de dados sobre a Amazônia Legal. O Data Zoom Amazônia visa facilitar e agilizar pesquisas acadêmicas sobre a região por meio do pacote <code>datazoom.amazonia</code> em <code>R</code>. Com uma abordagem focada na simplicidade e na organização, os usuários não precisam dedicar tempo à preparação das bases de dados. O pacote disponibiliza as bases limpas e intuitivas, poupando trabalho manual dos pesquisadores.</p>
 
-    <div class="dzam-buttons">
-      <a class="dzam-btn" href="https://github.com/datazoompuc/datazoom.amazonia" target="_blank" rel="noreferrer noopener">acesso ao repositório</a>
-      <a class="dzam-btn" href="https://cran.r-project.org/web/packages/datazoom.amazonia/index.html" target="_blank" rel="noreferrer noopener">página no CRAN</a>
-      <a class="dzam-btn" href="https://datazoompuc.github.io/website_dzam/" target="_blank" rel="noreferrer noopener">site / documentação</a>
-    </div>
-  </div>
 </section>
 
 <!-- Bloco 2: título + instruções de instalação -->
 <section class="dzam-grid">
   <div>
-    <h4 class="dzam-title" id="instalacao-r">INSTALAÇÃO NO R</h4>
+    <h3 class="dzam-title" id="instalacao-r"><strong>INSTALAÇÃO NO R</strong></h3>
   </div>
 
   <div>
