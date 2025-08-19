@@ -25,54 +25,7 @@ permalink: /codigos-e-dados/
   </div>
 </div>
 
-<!-- ATUALIZAÇÕES DE CÓDIGOS -->
-<section style="background-color:#73c172; color:#fff; padding: 2rem 1rem; margin: 0;">
-  <h3 class="has-text-align-center" id="atualizacoes-de-codigos" style="text-align:center;">Atualizações de Códigos</h3>
 
-  <div class="updates" style="max-width:1100px; margin: 0 auto; display:grid; gap:20px;">
-    <article>
-      <div class="cat-links">
-        <a style="color:#fff;" href="https://datazoomamazonia.com.br/category/atualizacao-de-base/">Atualização de Base</a>
-      </div>
-      <h4 class="entry-title">
-        <a style="color:#fff; text-decoration:underline;" href="https://datazoomamazonia.com.br/2021/12/07/nova-funcao-para-dados-do-cempre/" rel="bookmark">Nova função para dados do CEMPRE</a>
-      </h4>
-      <p>Na sua nova versão 0.10.0.9000, o pacote datazoom.amazonia no R possibilita baixar dados do CEMPRE. O CEMPRE permite acompanhar empresas e unidades locais inscritas no Cadastro Nacional de Pessoas Jurídicas.</p>
-      <div class="entry-meta">
-        <time class="entry-date published" datetime="2021-12-07">7 de dezembro de 2021</time>
-        <time class="updated" datetime="2021-12-09"> — atualizado em 9 de dezembro de 2021</time>
-      </div>
-    </article>
-
-    <article>
-      <div class="cat-links">
-        <a style="color:#fff;" href="https://datazoomamazonia.com.br/category/atualizacao-de-base/">Atualização de Base</a>
-      </div>
-      <h4 class="entry-title">
-        <a style="color:#fff; text-decoration:underline;" href="https://datazoomamazonia.com.br/2021/12/07/nova-funcao-para-dados-da-seeg/" rel="bookmark">Nova função para dados da SIGMINE</a>
-      </h4>
-      <p>Na versão 0.9.0.9000, o pacote datazoom.amazonia no R possibilita baixar dados da SIGMINE, que permite acompanhar minas legalmente exploradas no Brasil.</p>
-      <div class="entry-meta">
-        <time class="entry-date published" datetime="2021-12-07">7 de dezembro de 2021</time>
-        <time class="updated" datetime="2021-12-09"> — atualizado em 9 de dezembro de 2021</time>
-      </div>
-    </article>
-
-    <article>
-      <div class="cat-links">
-        <a style="color:#fff;" href="https://datazoomamazonia.com.br/category/atualizacao-de-base/">Atualização de Base</a>
-      </div>
-      <h4 class="entry-title">
-        <a style="color:#fff; text-decoration:underline;" href="https://datazoomamazonia.com.br/2021/02/11/nova-funcao-para-dados-do-deter-inpe/" rel="bookmark">Nova função para dados do DETER – INPE</a>
-      </h4>
-      <p>Na versão 0.7.0.9000, o pacote datazoom.amazonia no R possibilita baixar dados do projeto DETER-INPE, que usa vigilância por satélite para monitorar mudanças na cobertura florestal da Amazônia.</p>
-      <div class="entry-meta">
-        <time class="entry-date published" datetime="2021-02-11">11 de fevereiro de 2021</time>
-        <time class="updated" datetime="2023-03-07"> — atualizado em 7 de março de 2023</time>
-      </div>
-    </article>
-  </div>
-</section>
 
 <!-- GRID: imagem + descrição -->
 <div class="grid two-col" style="max-width:1100px; margin: 2rem auto; display:grid; grid-template-columns: repeat(12, 1fr); gap: 24px;">
