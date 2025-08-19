@@ -35,9 +35,20 @@ permalink: /codigos-e-dados/
     </a>
   </div>
 
-  <div style="grid-column: span 8;">
-    <p>O projeto <strong>Data Zoom Amazônia</strong> foi desenvolvido pelo Departamento de Economia da PUC-Rio com o objetivo de disponibilizar gratuitamente bases de dados sobre a Amazônia Legal. O pacote <code>datazoom.amazonia</code> no <code>R</code> oferece todas as bases limpas e intuitivas, poupando o trabalho manual dos pesquisadores.</p>
-  </div>
+  <div class="wp-block-jetpack-layout-grid-column wp-block-jetpack-layout-grid__padding-none">
+<p>O projeto<strong> Data Zoom Amazônia</strong> foi desenvolvido pelo Departamento de Economia da PUC-Rio com o objetivo de disponibilizar gratuitamente o acesso à bases de dados sobre a Amazônia Legal. O Data Zoom Amazônia visa facilitar e agilizar pesquisas acadêmicas sobre a região com a criação do pacote <code>datazoom.amazonia</code> no <code>R</code>. Com uma abordagem focada na simplicidade e organização, os usuários não precisarão dedicar o seu tempo na preparação das bases de dados. O pacote disponibiliza todas as bases limpas e intuitivas, poupando o trabalho manual dos pesquisadores.</p>
+
+
+
+<p></p>
+
+
+
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex"></div>
+
+
+
+<div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
 </div>
 
 <!-- INSTALAÇÃO NO R -->
