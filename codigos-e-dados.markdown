@@ -28,26 +28,35 @@ permalink: /codigos-e-dados/
 
 
 <!-- GRID: imagem + descrição -->
-<div class="grid two-col" style="max-width:1100px; margin: 2rem auto; display:grid; grid-template-columns: repeat(12, 1fr); gap: 24px;">
-  <div style="grid-column: span 4;">
-    <a href="https://github.com/datazoompuc/datazoom.amazonia">
-    </a>
+<div class="wp-block-jetpack-layout-grid alignfull column1-desktop-grid__span-3 column1-desktop-grid__start-3 column1-desktop-grid__row-1 column2-desktop-grid__span-4 column2-desktop-grid__start-6 column2-desktop-grid__row-1 column1-tablet-grid__span-3 column1-tablet-grid__row-1 column2-tablet-grid__span-5 column2-tablet-grid__start-4 column2-tablet-grid__row-1 column1-mobile-grid__span-4 column1-mobile-grid__row-1 column2-mobile-grid__span-4 column2-mobile-grid__row-2">
+  <div class="wp-block-jetpack-layout-grid-column wp-block-jetpack-layout-grid__padding-none is-vertically-aligned-top">
+    <figure class="wp-block-image size-large">
+      <a href="https://web.archive.org/web/20250206232656/https://github.com/datazoompuc/datazoom.amazonia">
+        <img decoding="async" src="https://web.archive.org/web/20250206232656im_/http://datazoomamazonia.com.br/wp-content/uploads/2021/12/DZAM-HexSticker_3x_AF.png" alt="Logotipo do Data Zoom Amazônia">
+      </a>
+    </figure>
   </div>
 
   <div class="wp-block-jetpack-layout-grid-column wp-block-jetpack-layout-grid__padding-none">
-<p>O projeto<strong> Data Zoom Amazônia</strong> foi desenvolvido pelo Departamento de Economia da PUC-Rio com o objetivo de disponibilizar gratuitamente o acesso à bases de dados sobre a Amazônia Legal. O Data Zoom Amazônia visa facilitar e agilizar pesquisas acadêmicas sobre a região com a criação do pacote <code>datazoom.amazonia</code> no <code>R</code>. Com uma abordagem focada na simplicidade e organização, os usuários não precisarão dedicar o seu tempo na preparação das bases de dados. O pacote disponibiliza todas as bases limpas e intuitivas, poupando o trabalho manual dos pesquisadores.</p>
+    <p>O projeto <strong>Data Zoom Amazônia</strong> foi desenvolvido pelo Departamento de Economia da PUC-Rio com o objetivo de disponibilizar gratuitamente o acesso a bases de dados sobre a Amazônia Legal. O Data Zoom Amazônia visa facilitar e agilizar pesquisas acadêmicas sobre a região por meio do pacote <code>datazoom.amazonia</code> em <code>R</code>. Com uma abordagem focada na simplicidade e na organização, os usuários não precisarão dedicar tempo à preparação das bases de dados. O pacote disponibiliza as bases limpas e intuitivas, poupando trabalho manual dos pesquisadores.</p>
 
+    <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex"></div>
+    <div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+  </div>
+</div>
 
+<div class="wp-block-jetpack-layout-grid alignfull column1-desktop-grid__span-3 column1-desktop-grid__start-3 column1-desktop-grid__row-1 column2-desktop-grid__span-4 column2-desktop-grid__start-6 column2-desktop-grid__row-1 column1-tablet-grid__span-3 column1-tablet-grid__row-1 column2-tablet-grid__span-5 column2-tablet-grid__start-4 column2-tablet-grid__row-1 column1-mobile-grid__span-4 column1-mobile-grid__row-1 column2-mobile-grid__span-4 column2-mobile-grid__row-2">
+  <div class="wp-block-jetpack-layout-grid-column wp-block-jetpack-layout-grid__padding-none is-vertically-aligned-top">
+    <h4 class="has-text-align-left wp-block-heading" id="inpe-prodes">INSTALAÇÃO NO R</h4>
+  </div>
 
-<p></p>
+  <div class="wp-block-jetpack-layout-grid-column wp-block-jetpack-layout-grid__padding-none">
+    <p>Você pode instalar a versão estável do <strong>datazoom.amazonia</strong> pelo <a rel="noreferrer noopener" href="https://web.archive.org/web/20250206232656/https://cran.r-project.org/web/packages/datazoom.amazonia/index.html" target="_blank">CRAN</a> executando no console do <strong>R</strong>:</p>
+    <p><code>install.packages("datazoom.amazonia")</code></p>
 
-
-
-<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex"></div>
-
-
-
-<div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+    <p>Alternativamente, é possível instalar a versão de desenvolvimento a partir do <a rel="noreferrer noopener" href="https://web.archive.org/web/20250206232656/https://github.com/datazoompuc/datazoom.amazonia" target="_blank">GitHub</a>. É preciso instalar o pacote <strong>devtools</strong> e, em seguida, executar no console do <strong>R</strong>:</p>
+    <p><code>devtools::install_github("datazoompuc/datazoom.amazonia")</code></p>
+  </div>
 </div>
 
 <!-- INSTALAÇÃO NO R -->
