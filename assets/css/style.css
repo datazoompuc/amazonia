@@ -342,3 +342,16 @@ html {
   display: block;
   text-align: center;
 }
+
+.capa_sobre {
+            background-image: url("https://web.archive.org/web/20250514204043im_/https://datazoomamazonia.com.br/wp-content/uploads/2021/11/CapaSobre.png");
+            background-position: 45% 50%; /* Same as your reference */
+            background-size: cover; /* Maintains proportions while covering the area */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Optional: parallax effect */}
+
+.capa_sobre_content {
+                     font-family: 'Inter', sans-serif !important;
+                     font-size: 1em;
+                     font-weight: 400;
+                     line-height: 137% !important;}
