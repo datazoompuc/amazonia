@@ -325,3 +325,17 @@ html {
     word-break: break-word;
     word-wrap: break-word;
 }
+
+
+/* ===========================
+   PÁGINA SOBRE (ABOUT)
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+.title-about {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 3.75em;
+  font-weight: 600;
+  line-height: 107% !important;
+}
