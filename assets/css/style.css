@@ -354,4 +354,8 @@ html {
                      font-family: 'Inter', sans-serif !important;
                      font-size: 1em;
                      font-weight: 400;
-                     line-height: 137% !important;}
+                     line-height: 137% !important;color: #fff;
+                     font-weight: bold;
+                     text-align: center;
+                     padding: 2px 0;
+                     }
