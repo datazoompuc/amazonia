@@ -346,7 +346,7 @@ html {
 .capa_sobre {
             background-image: url("https://web.archive.org/web/20250514204043im_/https://datazoomamazonia.com.br/wp-content/uploads/2021/11/CapaSobre.png");
             background-position: 45% 50%; /* Same as your reference */
-            background-size: cover; /* Maintains proportions while covering the area */
+            background-size: contain; /* Maintains proportions while covering the area */
             background-repeat: no-repeat;
             background-attachment: fixed; /* Optional: parallax effect */}
 
