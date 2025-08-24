@@ -349,7 +349,7 @@ html {
             background-size: contain; /* Maintains proportions while covering the area */
             background-repeat: no-repeat;
             min-height: 1080px;
-            width: 4106px;
+            width: 100%;
             background-attachment: fixed; /* Optional: parallax effect */}
 
 .capa_sobre_content {
