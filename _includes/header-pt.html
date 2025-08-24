@@ -1,32 +1,87 @@
-<header class="row">
-  <!-- Logo -->
-  <img id="logo" height="100px" alt="datazoom" 
-       src="{{ site.baseurl }}/assets/img/banner_dzam.png" 
-       class="center-img">
-</header>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>DataZoom</title>
 
-<!-- 🔽 MENU AQUI, logo embaixo da faixa branca -->
-<nav>
-  <ul class="menu">
-    <li><a class="menu-item" href="index.html">Início</a></li>
-    <li><a class="menu-item" href="sobre.html">Sobre</a></li>
-    <li><a class="menu-item" href="contato.html">Contato</a></li>
-    <li><a class="menu-item" href="projetos.html">Projetos</a></li>
-  </ul>
-</nav>
-
-<!-- Script para marcar link ativo -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const menuItems = document.querySelectorAll('.menu-item');
-    menuItems.forEach(item => item.classList.remove('active'));
-    const currentLink = document.querySelector(`a[href="${currentPage}"]`);
-    if (currentLink) {
-        currentLink.classList.add('active');
+  <!-- 🔽 CSS direto no HTML -->
+  <style>
+    /* Estilo do menu */
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center; /* centraliza os botões */
+      gap: 15px; /* espaço entre eles */
+      background-color: #f2f6fa; /* fundo do menu */
+      padding: 10px 0;
     }
-});
-</script>
+
+    .menu li {
+      display: inline-block;
+    }
+
+    .menu-item {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      background: white;
+      border-radius: 6px;
+      color: #004080;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .menu-item:hover {
+      background: #dce9f9;
+    }
+
+    .menu-item.active {
+      background: #004080;
+      color: white;
+    }
+
+    /* Opcional: centralizar logo */
+    .center-img {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header com logo -->
+  <header class="row">
+    <img id="logo" height="100px" alt="datazoom" 
+         src="{{ site.baseurl }}/assets/img/banner_dzam.png" 
+         class="center-img">
+  </header>
+
+  <!-- 🔽 MENU logo embaixo da faixa branca -->
+  <nav>
+    <ul class="menu">
+      <li><a class="menu-item" href="index.html">Início</a></li>
+      <li><a class="menu-item" href="sobre.html">Sobre</a></li>
+      <li><a class="menu-item" href="contato.html">Contato</a></li>
+      <li><a class="menu-item" href="projetos.html">Projetos</a></li>
+    </ul>
+  </nav>
+
+  <!-- Script para marcar link ativo -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const menuItems = document.querySelectorAll('.menu-item');
+      menuItems.forEach(item => item.classList.remove('active'));
+      const currentLink = document.querySelector(`a[href="${currentPage}"]`);
+      if (currentLink) {
+        currentLink.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
+
 </header>
 <div class="row">
 </div>
