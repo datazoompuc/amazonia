@@ -359,5 +359,6 @@ html {
                      line-height: 137% !important;color: #fff;
                      font-weight: bold;
                      text-align: center;
-                     padding: 2px 0;
+                     position: relative;   
+                     z-index: 1;
                      }
