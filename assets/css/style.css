@@ -380,13 +380,11 @@ html {
   margin: 0 auto;
   max-width: 600px;
   color: #ffffff;
-  font-weight: bold;
 }
 
 .capa_sobre_content a {
   color: #ffffff;           /* força o link branco */
   text-decoration: underline;
-  font-weight: bold;
 }
 
 /* opcional: muda a cor ao passar o mouse */
