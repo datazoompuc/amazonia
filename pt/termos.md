@@ -1,4 +1,4 @@
-pt/---
+---
 layout: default
 title: Termos de Uso
 lang: pt
