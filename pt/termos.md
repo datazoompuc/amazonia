@@ -7,8 +7,9 @@ lang: pt
 <br>
 <h1 class="title-about">Termos de Uso</h1>
 <br>
+<br>
 
-<div style="text-align: left; font-size: 0.9em;">
+<div class="texto_livre">
 <p><strong>1 – TERMOS DE USO E CONDIÇÕES</strong></p>
 
 
