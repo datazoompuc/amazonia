@@ -381,3 +381,13 @@ html {
   #padding-left: 100px;
   color: #fff;
 }
+
+.capa_sobre_content a {
+  color: #fff;           /* força o link branco */
+  text-decoration: underline; /* sublinha o link */
+}
+
+/* opcional: muda a cor ao passar o mouse */
+.capa_sobre_content a:hover {
+  color: #ddd;           /* cor levemente diferente no hover */
+}
