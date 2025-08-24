@@ -6,6 +6,8 @@ lang: pt
 
 <link rel="stylesheet" href="style.css">
 
+<br>
+
 <h1 class="title-about">Sobre</h1>
 
 <br>
