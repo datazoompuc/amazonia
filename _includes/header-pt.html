@@ -4,85 +4,122 @@
   <meta charset="UTF-8">
   <title>DataZoom</title>
 
-  <!-- 🔽 CSS direto no HTML -->
   <style>
-    /* Estilo do menu */
-    .menu {
-      list-style: none;
+    body {
       margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center; /* centraliza os botões */
-      gap: 15px; /* espaço entre eles */
-      background-color: #f2f6fa; /* fundo do menu */
-      padding: 10px 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background-color: #fff;
     }
 
-    .menu li {
-      display: inline-block;
+    /* Header: logo centralizada */
+    header {
+      text-align: center;
+      padding: 10px 0 0;
     }
-
-.menu-item {
-  display: block;
-  padding: 10px 20px;
-  text-decoration: none;
-  background: white;
-  border-radius: 6px;
-  color: #77C478;          
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.menu-item:hover {
-  background: #77C478;     
-  color: white;            
-}
-
-    .menu-item.active {
-      background: #77C478;
-      color: white;
-    }
-
-    /* Opcional: centralizar logo */
-    .center-img {
+    #logo {
+      height: 100px;
       display: block;
       margin: 0 auto;
+    }
+
+    /* Botão hamburguer (3 barras) */
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+      width: 34px;
+      margin: 10px auto;
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+    .menu-toggle:focus {
+      outline: 2px solid #77C478;
+      outline-offset: 4px;
+    }
+    .menu-toggle .bar {
+      display: block;
+      width: 100%;
+      height: 4px;
+      margin: 6px 0;
+      background-color: #77C478;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Menu vertical escondido por padrão */
+    nav {
+      background-color: #f2f6fa;
+    }
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;              /* abre com .show */
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .menu.show { display: flex; }
+
+    .menu li { width: 100%; }
+
+    .menu-item {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #77C478;
+      font-weight: 700;
+      background: #fff;
+      border-bottom: 1px solid #e6e6e6;
+      transition: background 0.2s, color 0.2s;
+      text-align: center;
+    }
+    .menu-item:hover,
+    .menu-item.active {
+      background: #77C478;
+      color: #fff;
     }
   </style>
 </head>
 <body>
   <!-- Header com logo -->
-  <header class="row">
-    <img id="logo" height="100px" alt="datazoom" 
-         src="{{ site.baseurl }}/assets/img/banner_dzam.png" 
-         class="center-img">
+  <header>
+    <img id="logo" alt="DataZoom"
+         src="{{ site.baseurl }}/assets/img/banner_dzam.png">
   </header>
 
-  <!-- 🔽 MENU logo embaixo da faixa branca -->
+  <!-- Botão hamburguer -->
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- Menu vertical -->
   <nav>
-    <ul class="menu">
+    <ul class="menu" id="menu">
       <li><a class="menu-item" href="index.html">Início</a></li>
       <li><a class="menu-item" href="sobre.html">Sobre</a></li>
       <li><a class="menu-item" href="contato.html">Citação</a></li>
-      <li><a class="menu-item" href="projetos.html">Vizualizações</a></li>
+      <li><a class="menu-item" href="projetos.html">Visualizações</a></li>
     </ul>
   </nav>
 
-  <!-- Script para marcar link ativo -->
   <script>
+    // abre/fecha o menu ao clicar no hamburguer
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('show');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // destaca a página atual
     document.addEventListener('DOMContentLoaded', function() {
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      const menuItems = document.querySelectorAll('.menu-item');
-      menuItems.forEach(item => item.classList.remove('active'));
       const currentLink = document.querySelector(`a[href="${currentPage}"]`);
-      if (currentLink) {
-        currentLink.classList.add('active');
-      }
+      if (currentLink) currentLink.classList.add('active');
     });
   </script>
 </body>
 </html>
-
-</header>
-<div class="row">
-</div>
