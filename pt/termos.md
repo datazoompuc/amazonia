@@ -7,10 +7,10 @@ lang: pt
 <br>
 <h1 class="title-about">Termos de Uso</h1>
 <br>
-<br>
+
 
 <div class="texto_livre">
-<p><strong>1 – TERMOS DE USO E CONDIÇÕES</strong></p>
+<br><p><strong>1 – TERMOS DE USO E CONDIÇÕES</strong></p>
 
 
 
@@ -18,7 +18,7 @@ lang: pt
 
 
 
-<p><strong>2 – SERVIÇOS E OBJETIVOS</strong></p>
+<br><p><strong>2 – SERVIÇOS E OBJETIVOS</strong></p>
 
 
 
@@ -26,7 +26,7 @@ lang: pt
 
 
 
-<p><strong>3 – SERVIÇOS DE TERCEIROS</strong></p>
+<br><p><strong>3 – SERVIÇOS DE TERCEIROS</strong></p>
 
 
 
@@ -34,7 +34,7 @@ lang: pt
 
 
 
-<p><strong>4 – USOS PROIBIDOS E PROPRIEDADE INTELECTUAL</strong></p>
+<br><p><strong>4 – USOS PROIBIDOS E PROPRIEDADE INTELECTUAL</strong></p>
 
 
 
@@ -42,7 +42,7 @@ lang: pt
 
 
 
-<p><strong>5 – MATERIAIS DO DATA ZOOM AMAZÔNIA</strong></p>
+<br><p><strong>5 – MATERIAIS DO DATA ZOOM AMAZÔNIA</strong></p>
 
 
 
@@ -50,7 +50,7 @@ lang: pt
 
 
 
-<p><strong>6 – ISENÇÃO DE CERTAS RESPONSABILIDADES</strong></p>
+<br><p><strong>6 – ISENÇÃO DE CERTAS RESPONSABILIDADES</strong></p>
 
 
 
@@ -58,7 +58,7 @@ lang: pt
 
 
 
-<p><strong>7 – INDENIZAÇÃO</strong></p>
+<br><p><strong>7 – INDENIZAÇÃO</strong></p>
 
 
 
@@ -66,7 +66,7 @@ lang: pt
 
 
 
-<p><strong>8 – DIVERSOS</strong></p>
+<br><p><strong>8 – DIVERSOS</strong></p>
 
 
 
@@ -74,7 +74,7 @@ lang: pt
 
 
 
-<p><strong> 9– RECLAMAÇÕES</strong></p>
+<br><p><strong> 9– RECLAMAÇÕES</strong></p>
 
 
 
@@ -82,7 +82,7 @@ lang: pt
 
 
 
-<p><strong>10 – INFORMAÇÃO DE CONTATO</strong></p>
+<br><p><strong>10 – INFORMAÇÃO DE CONTATO</strong></p>
 
 
 
