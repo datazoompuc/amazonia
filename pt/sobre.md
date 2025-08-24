@@ -34,6 +34,7 @@ lang: pt
 </div>
 <br>
 <br>
+<br>
 
 <h2 class="fale_conosco">Fale Conosco</h2><br>
 
@@ -47,5 +48,6 @@ lang: pt
     <a href="https://www.linkedin.com/company/data-zoom/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
   </p>
 
+<br>
 <br>
 <br>
