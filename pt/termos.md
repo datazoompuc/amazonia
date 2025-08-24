@@ -3,6 +3,8 @@ layout: default
 title: Termos de Uso
 lang: pt
 ---
+<br>
+<br>
 <h1 class="title-about">Termos de Uso</h1>
 <br>
 
