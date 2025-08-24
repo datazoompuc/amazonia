@@ -11,7 +11,7 @@ lang: pt
 
 
 
-<p>Os termos e condições descrevem como&nbsp;o&nbsp;<strong>Data Zoom Amazônia</strong>&nbsp;regula o uso deste website https://datazoomamazonia.com.br.<br>Por favor leia as informações a seguir com cuidado de forma a entender as nossas práticas referentes ao uso do website. Recomenda-se a verificação do website periodicamente para eventuais atualizações e modificações dos termos.</p>
+<p>Os termos e condições descrevem como&nbsp;o&nbsp;<strong>Data Zoom Amazônia</strong>&nbsp;regula o uso deste website.<br>Por favor leia as informações a seguir com cuidado de forma a entender as nossas práticas referentes ao uso do website. Recomenda-se a verificação do website periodicamente para eventuais atualizações e modificações dos termos.</p>
 
 
 
