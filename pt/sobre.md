@@ -35,12 +35,16 @@ lang: pt
 <br>
 <br>
 
-<h2 class="title-about">Fale Conosco</h2><br>
-<p><a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">GitHub</a><br>
-<a rel="noreferrer noopener" href="https://goo.gl/maps/9boi7X8siQfE3j8DA" data-type="URL" data-id="https://goo.gl/maps/9boi7X8siQfE3j8DA" target="_blank">Endereço: Rua Marquês de São Vicente, 225, sala 210F &#8211; Gávea<br>
-Rio de Janeiro - RJ, 22451-900<br>
-Brasil</a><br>
-<a rel="noreferrer noopener" href="mailto:datazoom@econ.puc-rio.br" target="_blank">datazoom@econ.puc-rio.br</a><br>
-<a rel="noreferrer noopener" href="tel:5135271078" data-type="tel" data-id="tel: 5135271078" target="_blank">+55 21 3527 1078</a></p>
+<h2 class="fale_conosco">Fale Conosco</h2><br>
+
+<div class=contato>
+  <p><a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">GitHub</a><br>
+    <a rel="noreferrer noopener" href="https://goo.gl/maps/9boi7X8siQfE3j8DA" data-type="URL" data-id="https://goo.gl/maps/9boi7X8siQfE3j8DA" target="_blank">Endereço: 
+    Rua Marquês de São Vicente, 225, sala 210F &#8211; Gávea<br>
+    Rio de Janeiro - RJ, 22451-900<br>
+    Brasil</a><br>
+    <a rel="noreferrer noopener" href="mailto:datazoom@econ.puc-rio.br" target="_blank">datazoom@econ.puc-rio.br</a><br>
+    <a rel="noreferrer noopener" href="tel:5135271078" data-type="tel" data-id="tel: 5135271078" target="_blank">+55 21 3527 1078</a>
+  </p>
 
 
