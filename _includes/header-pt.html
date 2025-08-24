@@ -1,21 +1,32 @@
 <header class="row">
-  <img id="logo" height = 100px alt="datazoom" src="{{ site.baseurl }}/assets/img/banner_dzam.png" class = "center-img">
-  <script>
+  <!-- Logo -->
+  <img id="logo" height="100px" alt="datazoom" 
+       src="{{ site.baseurl }}/assets/img/banner_dzam.png" 
+       class="center-img">
+</header>
+
+<!-- 🔽 MENU AQUI, logo embaixo da faixa branca -->
+<nav>
+  <ul class="menu">
+    <li><a class="menu-item" href="index.html">Início</a></li>
+    <li><a class="menu-item" href="sobre.html">Sobre</a></li>
+    <li><a class="menu-item" href="contato.html">Contato</a></li>
+    <li><a class="menu-item" href="projetos.html">Projetos</a></li>
+  </ul>
+</nav>
+
+<!-- Script para marcar link ativo -->
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Get current page filename
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
-    // Remove active class from all menu items
     const menuItems = document.querySelectorAll('.menu-item');
     menuItems.forEach(item => item.classList.remove('active'));
-    
-    // Add active class to current page link
     const currentLink = document.querySelector(`a[href="${currentPage}"]`);
     if (currentLink) {
         currentLink.classList.add('active');
     }
 });
-  </script>
+</script>
 </header>
 <div class="row">
 </div>
