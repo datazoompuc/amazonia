@@ -3,7 +3,7 @@ layout: default
 title: Termos de Uso
 lang: pt
 ---
-<h1 class="entry-title" style="font-size: 3.5em; text-align: left !important;">Termos de Uso</h1>
+<h1 class="title-about">Termos de Uso</h1>
 <br>
 
 <div style="text-align: left; font-size: 0.9em;">
