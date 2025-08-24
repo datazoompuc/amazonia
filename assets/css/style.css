@@ -139,7 +139,7 @@ Specificity: (0,0,1)
 
 
 @media screen and (min-height: 600px) {
-    header {
+    #site-header {
         position: sticky;
         top: 0;
         z-index: 10;
@@ -207,7 +207,8 @@ Specificity: (0,1,0)
  {
     --viridis-pessoas-color: #D7E150;
     --viridis-matas-color: #73C373;
-    --viridis-aguas-color: #41878C --viridis-sociedade-color: #411E69;
+    --viridis-aguas-color: #41878C 
+    --viridis-sociedade-color: #411E69;
     --viridis-dados-color: #323232;
     --custom-white-color: #ffffff;
     --custom-gray1-color: #f2f2f2;
