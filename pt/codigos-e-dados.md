@@ -2,7 +2,7 @@
 layout: default
 title: Códigos e Dados
 lang: pt
-permalink: /codigos-e-dados/
+permalink: pt/codigos-e-dados/
 ---
 
 <header class="entry-header has-text-align-center header-footer-group">
