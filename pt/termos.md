@@ -14,7 +14,7 @@ lang: pt
 
 
 
-<p>Os termos e condições descrevem como&nbsp;o&nbsp;<strong>Data Zoom Amazônia</strong>&nbsp;regula o uso deste website.<br>Por favor leia as informações a seguir com cuidado de forma a entender as nossas práticas referentes ao uso do website. Recomenda-se a verificação do website periodicamente para eventuais atualizações e modificações dos termos.</p>
+<p>Os termos e condições descrevem como o <strong>Data Zoom Amazônia</strong> regula o uso deste website.<br>Por favor leia as informações a seguir com cuidado de forma a entender as nossas práticas referentes ao uso do website. Recomenda-se a verificação do website periodicamente para eventuais atualizações e modificações dos termos.</p>
 
 
 
@@ -22,7 +22,7 @@ lang: pt
 
 
 
-<p>A plataforma disponibiliza de forma&nbsp;gratuita o acesso visualizações de gráficos, mapas, tabelas e publicações sobre a Amazônia Legal. O Data Zoom Amazônia também visa facilitar e agilizar pesquisas acadêmicas sobre a região com a criação do pacote&nbsp;datazoom.amazonia&nbsp;no programa estatístico&nbsp;R&nbsp;que possibilita o acesso aos dados originais das fontes e alimenta as visualizações.&nbsp;</p>
+<p>A plataforma disponibiliza de forma  gratuita o acesso visualizações de gráficos, mapas, tabelas e publicações sobre a Amazônia Legal. O Data Zoom Amazônia também visa facilitar e agilizar pesquisas acadêmicas sobre a região com a criação do pacote  datazoom.amazonia  no programa estatístico  R  que possibilita o acesso aos dados originais das fontes e alimenta as visualizações.  </p>
 
 
 
@@ -46,7 +46,7 @@ lang: pt
 
 
 
-<p>Ao publicar, enviar, submeter, ou efetuar upload do seu conteúdo, você cede os direitos do uso desse conteúdo a nós para o desenvolvimento do nosso projeto, incluindo, mas não limitado a, os direitos de transmissão, exibição pública, distribuição, execução pública, cópia, reprodução e tradução do seu conteúdo; e publicação do seu nome em conexão com o seu conteúdo.<br>Nenhuma compensação será paga com relação ao uso do seu conteúdo. O projeto não terá obrigação de publicar ou desfrutar de qualquer conteúdo que você possa nos enviar e poderá remover seu conteúdo a qualquer momento sem qualquer aviso. Ao publicar, fazer upload, inserir, fornecer ou enviar o seu conteúdo, você garante e declara que possui todos os direitos sobre seu conteúdo.</p>
+<p>Ao publicar, enviar, submeter, ou efetuar upload do seu conteúdo, você cede os direitos do uso desse conteúdo a nós para o desenvolvimento do nosso projeto, incluindo, mas não limitado a, os direitos de transmissão, exibição pública, distribuição, execução pública, cópia, reprodução e tradução do seu conteúdo  e publicação do seu nome em conexão com o seu conteúdo.<br>Nenhuma compensação será paga com relação ao uso do seu conteúdo. O projeto não terá obrigação de publicar ou desfrutar de qualquer conteúdo que você possa nos enviar e poderá remover seu conteúdo a qualquer momento sem qualquer aviso. Ao publicar, fazer upload, inserir, fornecer ou enviar o seu conteúdo, você garante e declara que possui todos os direitos sobre seu conteúdo.</p>
 
 
 
