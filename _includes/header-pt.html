@@ -1,124 +1,164 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>DataZoom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background-color: #fff;
+    :root{
+      --green:#2f7d32;          /* links/brand */
+      --green-soft:#77C478;     /* accents */
+      --border:#e6e6e6;
+      --black:#111;
     }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    a{color:inherit;text-decoration:none}
 
-    /* Header: logo centralizada */
-    header {
-      text-align: center;
-      padding: 10px 0 0;
+    /* ---------- HEADER BAR ---------- */
+    .navbar{
+      display:flex;align-items:center;justify-content:space-between;
+      background:#fff;padding:10px 16px;position:relative;
+      border-bottom:4px solid var(--green-soft);
     }
-    #logo {
-      height: 100px;
-      display: block;
-      margin: 0 auto;
+    .nav-left{display:flex;align-items:center;gap:12px}
+    .logo-btn{
+      border:0;background:transparent;padding:0;cursor:pointer
     }
+    .logo-img{height:48px;display:block}
 
-    /* Botão hamburguer (3 barras) */
-    .menu-toggle {
-      display: block;
-      cursor: pointer;
-      width: 34px;
-      margin: 10px auto;
-      background: transparent;
-      border: 0;
-      padding: 0;
-    }
-    .menu-toggle:focus {
-      outline: 2px solid #77C478;
-      outline-offset: 4px;
-    }
-    .menu-toggle .bar {
-      display: block;
-      width: 100%;
-      height: 4px;
-      margin: 6px 0;
-      background-color: #77C478;
-      border-radius: 2px;
-      transition: 0.3s;
-    }
+    .nav-right{display:flex;align-items:center}
+    .nav-action{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 14px}
+    .divider{width:1px;height:24px;background:#d1d5db}
+    .lang-link{color:var(--green);font-weight:600}
 
-    /* Menu vertical escondido por padrão */
-    nav {
-      background-color: #f2f6fa;
-    }
-    .menu {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: none;              /* abre com .show */
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .menu.show { display: flex; }
+    /* Hamburger */
+    .menu-toggle{border:0;background:transparent;cursor:pointer;padding:0;display:flex;flex-direction:column;align-items:center}
+    .bars{width:26px}
+    .bar{height:3px;background:var(--green-soft);border-radius:2px;margin:4px 0}
+    .menu-label{font-size:12px;color:#555;margin-top:3px}
 
-    .menu li { width: 100%; }
+    /* Search icon */
+    .search-btn{border:0;background:transparent;cursor:pointer;padding:0}
+    .search-icon{width:22px;height:22px;border:2px solid #000;border-radius:50%;position:relative;display:inline-block}
+    .search-icon::after{content:"";position:absolute;right:-6px;bottom:-6px;width:10px;height:2px;background:#000;transform:rotate(45deg)}
 
-    .menu-item {
-      display: block;
-      padding: 12px 16px;
-      text-decoration: none;
-      color: #77C478;
-      font-weight: 700;
-      background: #fff;
-      border-bottom: 1px solid #e6e6e6;
-      transition: background 0.2s, color 0.2s;
-      text-align: center;
+    /* ---------- VERTICAL MENU ---------- */
+    nav{background:#fff}
+    .menu{list-style:none;margin:0;padding:0;display:none}
+    .menu.show{display:block}
+    .menu li{border-bottom:1px solid var(--border)}
+    .menu a,.menu button.menu-link{
+      width:100%;display:flex;align-items:center;justify-content:space-between;
+      padding:14px 18px;font-weight:700;color:var(--green);background:#fff;border:0;cursor:pointer;text-align:left
     }
-    .menu-item:hover,
-    .menu-item.active {
-      background: #77C478;
-      color: #fff;
-    }
+    .menu a:hover,.menu button.menu-link:hover{background:#f7faf7}
+    .caret{transition:transform .2s ease}
+    .menu .open .caret{transform:rotate(180deg)}
+    .submenu{list-style:none;margin:0;padding:0;display:none}
+    .submenu.show{display:block}
+    .submenu li a{font-weight:600;color:#111;padding:14px 28px}
   </style>
 </head>
 <body>
-  <!-- Header com logo -->
-  <header>
-    <img id="logo" alt="DataZoom"
-         src="{{ site.baseurl }}/assets/img/banner_dzam.png">
+
+  <!-- ======= HEADER ======= -->
+  <header class="navbar">
+    <div class="nav-left">
+      <!-- Logo: back to home -->
+      <button class="logo-btn" id="logo-home" aria-label="Voltar para a página principal">
+        <img class="logo-img" src="{{ site.baseurl }}/assets/img/banner_dzam.png" alt="DataZoom Amazônia">
+      </button>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-action">
+        <a href="#" id="lang-switch" class="lang-link">English</a>
+      </div>
+      <div class="divider"></div>
+
+      <div class="nav-action">
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-menu">
+          <div class="bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          <span class="menu-label">Menu</span>
+        </button>
+      </div>
+      <div class="divider"></div>
+
+      <div class="nav-action">
+        <button class="search-btn" aria-label="Pesquisar">
+          <span class="search-icon"></span>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <!-- Botão hamburguer -->
-  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-
-  <!-- Menu vertical -->
+  <!-- ======= VERTICAL MENU ======= -->
   <nav>
-    <ul class="menu" id="menu">
-      <li><a class="menu-item" href="index.html">Início</a></li>
-      <li><a class="menu-item" href="sobre.html">Sobre</a></li>
-      <li><a class="menu-item" href="contato.html">Citação</a></li>
-      <li><a class="menu-item" href="projetos.html">Visualizações</a></li>
+    <ul class="menu" id="site-menu">
+      <li><a href="{{ site.baseurl }}">Página Principal</a></li>
+
+      <li>
+        <button class="menu-link" id="viz-toggle" aria-expanded="false" aria-controls="viz-submenu">
+          <span>Visualizações</span>
+          <span class="caret">▾</span>
+        </button>
+        <ul class="submenu" id="viz-submenu">
+          <li><a href="{{ site.baseurl }}/pt/visualizacoes/comercio-exterior.md">Comércio exterior</a></li>
+          <li><a href="{{ site.baseurl }}/pt/visualizacoes/desenvolvimento.md">Desenvolvimento</a></li>
+          <li><a href="{{ site.baseurl }}/pt/visualizacoes/desmatamento.md">Desmatamento</a></li>
+          <li><a href="{{ site.baseurl }}/pt/visualizacoes/energia.md">Energia</a></li>
+          <li><a href="{{ site.baseurl }}/pt/visualizacoes/mercado-trabalho.md">Mercado de Trabalho</a></li>
+          <li><a href="{{ site.baseurl }}/pt/visualizacoes/saude.md">Saúde</a></li>
+        </ul>
+      </li>
+
+      <li><a href="{{ site.baseurl }}/pt/codigos-e-dados.md">Códigos e Dados</a></li>
+      <li><a href="{{ site.baseurl }}/pt/sobre.md">Sobre</a></li>
+      <li><a href="https://www.econ.puc-rio.br/datazoom/">Data Zoom</a></li>
+      <li><a href="https://amazonia2030.org.br/">Amazônia 2030</a></li>
+      <li><a href="{{ site.baseurl }}/pt/termos.md">Termos de Uso</a></li>
     </ul>
   </nav>
 
   <script>
-    // abre/fecha o menu ao clicar no hamburguer
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-
-    toggle.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('show');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    // toggle vertical menu
+    const toggleBtn=document.getElementById('menu-toggle');
+    const menu=document.getElementById('site-menu');
+    toggleBtn.addEventListener('click',()=>{
+      const open=menu.classList.toggle('show');
+      toggleBtn.setAttribute('aria-expanded',open?'true':'false');
     });
 
-    // destaca a página atual
-    document.addEventListener('DOMContentLoaded', function() {
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      const currentLink = document.querySelector(`a[href="${currentPage}"]`);
-      if (currentLink) currentLink.classList.add('active');
+    // accordion for Visualizações
+    const vizBtn=document.getElementById('viz-toggle');
+    const vizSub=document.getElementById('viz-submenu');
+    vizBtn.addEventListener('click',()=>{
+      const open=vizSub.classList.toggle('show');
+      vizBtn.setAttribute('aria-expanded',open?'true':'false');
+      vizBtn.parentElement.classList.toggle('open',open);
+    });
+
+    // language switcher: /pt/ -> /en/
+    document.getElementById('lang-switch').addEventListener('click',(e)=>{
+      e.preventDefault();
+      const url=new URL(window.location.href);
+      const parts=url.pathname.split('/');
+      const idx=parts.findIndex(seg=>seg==='pt'||seg==='en');
+      if(idx>=0){parts[idx]='en';url.pathname=parts.join('/');}
+      else{url.pathname='/en'+url.pathname;}
+      window.location.assign(url.toString());
+    });
+
+    // logo: go to current language home
+    document.getElementById('logo-home').addEventListener('click',()=>{
+      const url=new URL(window.location.href);
+      const parts=url.pathname.split('/');
+      const idx=parts.findIndex(seg=>seg==='pt'||seg==='en');
+      if(idx>=0){url.pathname='/'+parts[idx]+'/';}
+      else{url.pathname='/';}
+      window.location.assign(url.toString());
     });
   </script>
 </body>
