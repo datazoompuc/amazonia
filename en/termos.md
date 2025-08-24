@@ -3,19 +3,22 @@ layout: default
 title: Terms of Use
 lang: en
 ---
-<h1 class="entry-title" style="font-size: 3.5em; text-align: left !important;">Terms of Use</h1>
+<br>
+<br>
+<h1 class="title-about">Termos de Uso</h1>
 <br>
 
-<div style="text-align: left; font-size: 0.9em;">
-<p><strong>1 – TERMS OF USE AND CONDITIONS</strong></p>
+
+<div class="texto_livre">
+<br><p><strong>1 – TERMS OF USE AND CONDITIONS</strong></p>
 
 
 
-<p>The terms and conditions describe how&nbsp;o&nbsp;<strong>Data Zoom Amazônia</strong>&nbsp;regulates the use of this website.<br>Please, read the following information carefully to understand our practices regarding the use of this website. It is recommended to check the website periodically for any updates and modifications of the terms.</p>
+<p>The terms and conditions describe how o <strong>Data Zoom Amazônia</strong> regulates the use of this website.<br>Please, read the following information carefully to understand our practices regarding the use of this website. It is recommended to check the website periodically for any updates and modifications of the terms.</p>
 
 
 
-<p><strong>2 – SERVICES AND OBJECTIVES</strong></p>
+<br><p><strong>2 – SERVICES AND OBJECTIVES</strong></p>
 
 
 
@@ -23,7 +26,7 @@ lang: en
 
 
 
-<p><strong>3 – THIRD-PARTY SERVICES</strong></p>
+<br><p><strong>3 – THIRD-PARTY SERVICES</strong></p>
 
 
 
@@ -31,7 +34,7 @@ lang: en
 
 
 
-<p><strong>4 – PROHIBITED USES AND INTELLECTUAL PROPERTY</strong></p>
+<br><p><strong>4 – PROHIBITED USES AND INTELLECTUAL PROPERTY</strong></p>
 
 
 
@@ -41,7 +44,7 @@ The use of the website does not give you the right to make any illegal and unaut
 
 
 
-<p><strong>5 – MATERIALS OF DATA ZOOM AMAZÔNIA</strong></p>
+<br><p><strong>5 – MATERIALS OF DATA ZOOM AMAZÔNIA</strong></p>
 
 
 
@@ -50,7 +53,7 @@ No compensation will be paid for the use of your content. The project will have 
 
 
 
-<p><strong>6 – EXEMPTION FROM CERTAIN LIABILITIES</strong></p>
+<br><p><strong>6 – EXEMPTION FROM CERTAIN LIABILITIES</strong></p>
 
 
 
@@ -60,7 +63,7 @@ The project disclaims all warranties and conditions regarding this content and s
 
 
 
-<p><strong>7 – INDEMNITY</strong></p>
+<br><p><strong>7 – INDEMNITY</strong></p>
 
 
 
@@ -68,7 +71,7 @@ The project disclaims all warranties and conditions regarding this content and s
 
 
 
-<p><strong>8 – OTHER TOPICS</strong></p>
+<br><p><strong>8 – OTHER TOPICS</strong></p>
 
 
 
@@ -78,7 +81,7 @@ If any part of the terms is found to be invalid or unenforceable in accordance w
 
 
 
-<p><strong> 9 – COMPLAINTS</strong></p>
+<br><p><strong> 9 – COMPLAINTS</strong></p>
 
 
 
@@ -88,7 +91,7 @@ If any part of the terms is found to be invalid or unenforceable in accordance w
 
 
 
-<p><strong>10 – CONTACT INFORMATION</strong></p>
+<br><p><strong>10 – CONTACT INFORMATION</strong></p>
 
 
 
