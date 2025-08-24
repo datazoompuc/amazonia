@@ -397,14 +397,9 @@ html {
   font-size: 1.2em;
   font-weight: 400;
   line-height: 137% !important;
-  position: absolute;
-  inset: 0;                    /* ocupa todo o container */
-  display: flex;
-  align-items: center;         /* centraliza verticalmente */
-  justify-content: center;     /* centraliza horizontalmente */
+  justify-content: left;     /* centraliza à esquerda */
   text-align: center;
-  z-index: 1;
   margin: 0 auto;
   max-width: 600px;
-  color: #ffffff;
+  color: #000000;
 }
