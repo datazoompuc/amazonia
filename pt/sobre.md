@@ -24,6 +24,7 @@ lang: pt
 </div>
 <br>
 <br>
+<br>
 
 <div class="texto_livre">
   <p>O projeto <strong>Data Zoom Amazônia</strong> foi desenvolvido pelo Departamento de Economia da PUC-Rio com o objetivo de disponibilizar gratuitamente o acesso à bases de dados
@@ -31,3 +32,5 @@ lang: pt
     estatístico <code>R</code>. Com uma abordagem focada na simplicidade e organização, os usuários não precisarão dedicar o seu tempo na preparação das bases de dados. O pacote
     disponibiliza todas as bases limpas e intuitivas, poupando o trabalho manual dos pesquisadores.</p>
 </div>
+<br>
+<br>
