@@ -402,3 +402,7 @@ html {
   max-width: 550px;
   color: #000000;
 }
+
+.texto_livre code {
+  color: #000000; 
+}
