@@ -372,7 +372,12 @@ html {
   align-items: center;         /* centraliza verticalmente */
   justify-content: center;     /* centraliza horizontalmente */
   text-align: center;
-  z-index: 1;                  /* acima do overlay */
-  padding: 1rem;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: 800px;
+  #padding-top: 1000px;     /* cima */
+  #padding-right: 100px;   /* direita */
+  #padding-bottom: 100px;  /* baixo */
+  #padding-left: 100px;
   color: #fff;
 }
