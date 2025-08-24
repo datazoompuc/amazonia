@@ -17,7 +17,7 @@ lang: en
       <p>Data Zoom Amazônia is a project developed by <a rel="noreferrer noopener" 
         href="http://www.econ.puc-rio.br/datazoom/index.html" 
         target="_blank">Data Zoom</a><br> from the Department of Economics at PUC-Rio<br> and it is part of the set of actions under the <a rel="noreferrer noopener"
-        href="https://web.archive.org/web/20250514204043/https://amazonia2030.org.br/" target="_blank">Amazônia 2030</a> initiative.
+        href="https://amazonia2030.org.br/" target="_blank">Amazônia 2030</a> initiative.
       </p>
   </div>  
 </div>
