@@ -75,7 +75,7 @@ lang: pt
 
 
 
-<p>Estamos empenhados em resolver quaisquer reclamações sobre a forma como recolhemos ou usamos os seus dados pessoais. Se você desejar fazer uma reclamação sobre estes termos ou nossas práticas em relação aos seus dados pessoais, entre em contato conosco por meio do nosso <a href="https://web.archive.org/web/20250613070552/https://github.com/datazoompuc/datazoom.amazonia/issues" data-type="URL" data-id="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank" rel="noreferrer noopener">GitHub.</a><br>Esperamos resolver qualquer reclamação que seja levada ao nosso conhecimento, no entanto, se você achar que a sua reclamação não foi adequadamente resolvida, você se reserva no direito de entrar em contato com a autoridade supervisora de proteção de dados local.</p>
+<p>Estamos empenhados em resolver quaisquer reclamações sobre a forma como recolhemos ou usamos os seus dados pessoais. Se você desejar fazer uma reclamação sobre estes termos ou nossas práticas em relação aos seus dados pessoais, entre em contato conosco por meio do nosso <a href="https://github.com/datazoompuc/datazoom.amazonia/issues" data-type="URL" data-id="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank" rel="noreferrer noopener">GitHub.</a><br>Esperamos resolver qualquer reclamação que seja levada ao nosso conhecimento, no entanto, se você achar que a sua reclamação não foi adequadamente resolvida, você se reserva no direito de entrar em contato com a autoridade supervisora de proteção de dados local.</p>
 
 
 
@@ -83,7 +83,7 @@ lang: pt
 
 
 
-<p>Agradecemos os seus comentários ou perguntas sobre estes termos. Você pode nos contatar por escrito por meio do nosso <a rel="noreferrer noopener" href="https://web.archive.org/web/20250613070552/https://github.com/datazoompuc/datazoom.amazonia/issues" data-type="URL" data-id="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank">GitHub.</a></p>
+<p>Agradecemos os seus comentários ou perguntas sobre estes termos. Você pode nos contatar por escrito por meio do nosso <a rel="noreferrer noopener" href="https://github.com/datazoompuc/datazoom.amazonia/issues" data-type="URL" data-id="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank">GitHub.</a></p>
 
 </div>
 
