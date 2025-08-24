@@ -38,12 +38,13 @@ lang: pt
 <h2 class="fale_conosco">Fale Conosco</h2><br><br>
 
 <div class=contato>
-  <p><a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">GitHub</a><br><br>
+  <p>GitHub: <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">https://github.com/datazoompuc</a><br><br>
     Endereço: <a rel="noreferrer noopener" href="https://goo.gl/maps/9boi7X8siQfE3j8DA" data-type="URL" data-id="https://goo.gl/maps/9boi7X8siQfE3j8DA" target="_blank">
     Rua Marquês de São Vicente, 225, sala 210F &#8211; Gávea<br>
     Rio de Janeiro - RJ, 22451-900, Brasil</a><br><br>
     E-mail: <a href="mailto:datazoom@econ.puc-rio.br">datazoom@econ.puc-rio.br</a><br><br>
-    Telefone: <a href="tel:+552135271078">+55 21 3527-1078</a>
+    Tel: <a href="tel:+552135271078">+55 21 3527-1078</a>
+    LinkedIn: <a href="https://www.linkedin.com/company/data-zoom/" target="_blank" rel="noreferrer noopener">https://www.linkedin.com/company/data-zoom/
   </p>
 
 <br>
