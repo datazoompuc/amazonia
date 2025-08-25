@@ -2,7 +2,6 @@
 layout: default
 lang: pt
 title: "Séries Temporais da Produção, Consumo e Consumidores de Energia"
-permalink: /visualizacoes/series-temporais/series-temporais-da-producao-consumo-e-consumidores-de-energia/
 description: "Gráfico dinâmico com séries de produção, consumo e consumidores de energia na Amazônia Legal e no Brasil."
 ---
 
