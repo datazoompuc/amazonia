@@ -8,7 +8,7 @@ lang: pt
     <div class="capa-content">
         <h2>Dados sobre a Amazônia ao alcance de todos</h2>
         <p>O Data Zoom Amazônia é uma camada temática do projeto Data Zoom e faz parte da iniciativa Amazônia 2030. Buscamos simplificar o acesso aos microdados da Amazônia Legal e desenvolver uma plataforma de visualização de dados que seja aberta, acessível, interativa e parametrizável.</p>
-            <a href="#" class="cta-button">Explore as visualizações</a>
+            <a href="#" class="cta-button">EXPLORE AS VISUALIZAÇÕES</a>
     </div>
 </div>
 
