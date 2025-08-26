@@ -80,7 +80,7 @@ Specificity: (0,0,1)
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3); /* Adjust opacity as needed */
+            background: rgba(0, 0, 0, 0.55); /* Adjust opacity as needed */
             z-index: 1;
         }
 
@@ -94,13 +94,14 @@ Specificity: (0,0,1)
         }
 
         .capa h2 {
-            font-size: 7rem;
+            font-size: 8rem;
+            font-weight: 800;
             margin-bottom: 1rem;
             color: white;
         }
 
         .capa p {
-            font-size: 1.2rem;
+            font-size: 1.8rem;
             line-height: 1.6;
             margin-bottom: 2rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
