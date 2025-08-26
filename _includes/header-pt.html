@@ -7,10 +7,11 @@
 
   <style>
     :root{
-      --green:#2f7d32;          /* links/brand */
-      --green-soft:#77C478;     /* accents */
+      --green:#2f7d32;
+      --green-soft:#77C478;
       --border:#e6e6e6;
       --black:#111;
+      --nav-h: 64px; /* altura real do header (ajustada via JS) */
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
@@ -19,43 +20,51 @@
     /* ---------- HEADER BAR ---------- */
     .navbar{
       display:flex;align-items:center;justify-content:space-between;
-      background:#fff;padding:10px 16px;position:relative;
+      background:#fff; padding:8px 10px; /* menos padding → itens mais nas bordas */
+      position:relative;
       border-bottom:4px solid var(--green-soft);
     }
-    .nav-left{display:flex;align-items:center;gap:12px}
-    .logo-btn{
-      border:0;background:transparent;padding:0;cursor:pointer
-    }
+    .nav-left{display:flex;align-items:center}
+    .logo-btn{border:0;background:transparent;padding:0;cursor:pointer;margin-left:2px}
     .logo-img{height:48px;display:block}
 
     .nav-right{display:flex;align-items:center}
-    .nav-action{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 14px}
+    .nav-action{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 10px}
     .divider{width:1px;height:24px;background:#d1d5db}
     .lang-link{color:var(--green);font-weight:600}
 
     /* Hamburger */
-    .menu-toggle{border:0;background:transparent;cursor:pointer;padding:0;display:flex;flex-direction:column;align-items:center}
+    .menu-toggle{
+      border:0;background:transparent;cursor:pointer;padding:0;
+      display:flex;flex-direction:column;align-items:center
+    }
     .bars{width:26px}
     .bar{height:3px;background:var(--green-soft);border-radius:2px;margin:4px 0}
     .menu-label{font-size:12px;color:#555;margin-top:3px}
 
-    /* Search icon */
-    .search-btn{border:0;background:transparent;cursor:pointer;padding:0}
-    .search-icon{width:22px;height:22px;border:2px solid #000;border-radius:50%;position:relative;display:inline-block}
-    .search-icon::after{content:"";position:absolute;right:-6px;bottom:-6px;width:10px;height:2px;background:#000;transform:rotate(45deg)}
-
-    /* ---------- VERTICAL MENU ---------- */
+    /* ---------- MENU: DRAWER LATERAL DIREITO (menu inteiro) ---------- */
     nav{background:#fff}
-    .menu{list-style:none;margin:0;padding:0;display:none}
+    .menu{
+      list-style:none;margin:0;padding:0;display:none;
+      position:fixed; right:0; top:var(--nav-h);
+      width:min(88vw, 360px); height:calc(100vh - var(--nav-h));
+      background:#fff; border-left:1px solid var(--border);
+      box-shadow:-8px 0 16px rgba(0,0,0,.06);
+      overflow:auto; z-index:999;
+    }
     .menu.show{display:block}
     .menu li{border-bottom:1px solid var(--border)}
     .menu a,.menu button.menu-link{
       width:100%;display:flex;align-items:center;justify-content:space-between;
-      padding:14px 18px;font-weight:700;color:var(--green);background:#fff;border:0;cursor:pointer;text-align:left
+      padding:14px 18px;font-weight:700;color:var(--green);background:#fff;border:0;cursor:pointer;text-align:left;
+      appearance:none;-webkit-appearance:none; /* evita setas nativas */
     }
     .menu a:hover,.menu button.menu-link:hover{background:#f7faf7}
+
+    /* ÚNICA seta controlada: */
     .caret{transition:transform .2s ease}
     .menu .open .caret{transform:rotate(180deg)}
+
     .submenu{list-style:none;margin:0;padding:0;display:none}
     .submenu.show{display:block}
     .submenu li a{font-weight:600;color:#111;padding:14px 28px}
@@ -64,7 +73,7 @@
 <body>
 
   <!-- ======= HEADER ======= -->
-  <header class="navbar">
+  <header class="navbar" id="site-header">
     <div class="nav-left">
       <!-- Logo: back to home -->
       <button class="logo-btn" id="logo-home" aria-label="Voltar para a página principal">
@@ -76,29 +85,26 @@
       <div class="nav-action">
         <a href="#" id="lang-switch" class="lang-link">English</a>
       </div>
-      <div class="divider"></div>
+      <div class="divider" aria-hidden="true"></div>
 
       <div class="nav-action">
         <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-menu">
-          <div class="bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          <div class="bars" aria-hidden="true">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+          </div>
           <span class="menu-label">Menu</span>
         </button>
       </div>
-      <div class="divider"></div>
-
-      <div class="nav-action">
-        <button class="search-btn" aria-label="Pesquisar">
-          <span class="search-icon"></span>
-        </button>
-      </div>
+      <!-- 🔻 lupa removida -->
     </div>
   </header>
 
-  <!-- ======= VERTICAL MENU ======= -->
-  <nav>
+  <!-- ======= MENU (drawer à direita) ======= -->
+  <nav aria-label="Menu principal">
     <ul class="menu" id="site-menu">
       <li><a href="{{ site.baseurl }}">Página Principal</a></li>
 
+      <!-- Accordion: Visualizações (apenas UMA seta) -->
       <li>
         <button class="menu-link" id="viz-toggle" aria-expanded="false" aria-controls="viz-submenu">
           <span>Visualizações</span>
@@ -123,7 +129,17 @@
   </nav>
 
   <script>
-    // toggle vertical menu
+    // mede a altura real do header para posicionar o drawer
+    (function(){
+      const hdr=document.getElementById('site-header');
+      if(hdr){
+        const setH=()=>document.documentElement.style.setProperty('--nav-h', hdr.getBoundingClientRect().height+'px');
+        setH();
+        window.addEventListener('resize', setH);
+      }
+    })();
+
+    // toggle drawer
     const toggleBtn=document.getElementById('menu-toggle');
     const menu=document.getElementById('site-menu');
     toggleBtn.addEventListener('click',()=>{
@@ -131,7 +147,15 @@
       toggleBtn.setAttribute('aria-expanded',open?'true':'false');
     });
 
-    // accordion for Visualizações
+    // fecha o drawer ao clicar em link
+    menu.addEventListener('click', (e)=>{
+      if(e.target.closest('a')){
+        menu.classList.remove('show');
+        toggleBtn.setAttribute('aria-expanded','false');
+      }
+    });
+
+    // accordion Visualizações
     const vizBtn=document.getElementById('viz-toggle');
     const vizSub=document.getElementById('viz-submenu');
     vizBtn.addEventListener('click',()=>{
@@ -151,7 +175,7 @@
       window.location.assign(url.toString());
     });
 
-    // logo: go to current language home
+    // logo: home do idioma atual
     document.getElementById('logo-home').addEventListener('click',()=>{
       const url=new URL(window.location.href);
       const parts=url.pathname.split('/');
