@@ -368,7 +368,7 @@ header { text-align: center; }
 /* Logo reduzida para ter quase a mesma altura dos ícones */
 .dzam-footer .footer-logo {
   display: block;
-  max-height: 70px;   /* controla a altura da logo */
+  max-height: 80px;   /* controla a altura da logo */
   width: auto;        /* mantém a proporção */
   margin: 0 auto;     /* centraliza horizontalmente */
 }
