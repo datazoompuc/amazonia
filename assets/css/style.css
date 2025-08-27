@@ -1,7 +1,28 @@
-/* Fonts (precisa vir primeiro) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+/* ==============================
+   FONTS (sempre no topo)
+============================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-/* ---------- Base / utilidades ---------- */
+/* ==============================
+   VARIÁVEIS E BASE
+============================== */
+:root {
+  --viridis-pessoas-color: #D7E150;
+  --viridis-matas-color: #73C373;
+  --viridis-aguas-color: #41878C; /* corrigido ; */
+  --viridis-sociedade-color: #411E69;
+  --viridis-dados-color: #323232;
+  --custom-white-color: #ffffff;
+  --custom-gray1-color: #f2f2f2;
+  --custom-gray2-color: #dddddd;
+  --custom-gray3-color: #9d9d9d;
+  --custom-black-color: #000000;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -10,47 +31,8 @@
   word-wrap: break-word;
 }
 
-html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
-}
-
-:root {
-  --viridis-pessoas-color: #D7E150;
-  --viridis-matas-color: #73C373;
-  --viridis-aguas-color: #41878C; /* ; corrigido */
-  --viridis-sociedade-color: #411E69;
-  --viridis-dados-color: #323232;
-  --custom-white-color: #ffffff;
-  --custom-gray1-color: #f2f2f2;
-  --custom-gray2-color: #dddddd;
-  --custom-gray3-color: #9d9d9d;
-  --custom-black-color: #000000;
-
-  /* WP presets comuns (mantidos) */
-  --wp--preset--aspect-ratio--square: 1;
-  --wp--preset--aspect-ratio--4-3: 4 / 3;
-  --wp--preset--aspect-ratio--3-4: 3 / 4;
-  --wp--preset--aspect-ratio--3-2: 3 / 2;
-  --wp--preset--aspect-ratio--2-3: 2 / 3;
-  --wp--preset--aspect-ratio--16-9: 16 / 9;
-  --wp--preset--aspect-ratio--9-16: 9 / 16;
-
-  --wp--preset--color--black: #000000;
-  --wp--preset--color--white: #ffffff;
-
-  --wp--preset--font-size--small: 18px;
-  --wp--preset--font-size--medium: 20px;
-  --wp--preset--font-size--large: 26.25px;
-  --wp--preset--font-size--x-large: 42px;
-  --wp--preset--font-size--normal: 21px;
-  --wp--preset--font-size--larger: 32px;
-}
-
 @supports (font-variation-settings: normal) {
-  body {
-    font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
-  }
+  body { font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif; }
 }
 
 body {
@@ -63,40 +45,64 @@ body {
   text-align: center;
 }
 
-header {
-  display: block;
-  text-align: center;
+/* ==============================
+   TIPOGRAFIA (PARIDADE COM WP)
+============================== */
+
+/* Títulos 1 e 2 */
+h1, h2 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 3.75em;
+  font-weight: 600;
+  line-height: 107% !important;
 }
 
-/* ---------- Layouts específicos ---------- */
-
-.row {
-  background-color: #fff;
+/* Título 3 */
+h3 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 2.5em;
+  font-weight: 500;
+  line-height: 115% !important;
 }
 
-/* Bloco imagem + texto */
-.block {
-  width: 500px;
-  height: 400px;
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start; /* conteúdo no topo */
-  gap: 20px;               /* espaço entre imagem e texto */
-}
-.block img {
-  width: 33.33%;
-  height: auto;
-  flex-shrink: 0;
-}
-.block .text-content {
-  flex: 1; /* ocupa os 2/3 restantes */
-}
-.block h3 {
-  margin-top: 0;
-  margin-bottom: 15px;
+/* Título 4 */
+h4 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.7em;
+  font-weight: 400;
+  letter-spacing: 5%;
+  line-height: 155% !important;
 }
 
-/* Títulos de herói CoBlocks (mantido) */
+/* Título 5 */
+h5 {
+  color: var(--viridis-matas-color);
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.25em;
+  font-weight: 600;
+  letter-spacing: 5%;
+  line-height: 130% !important;
+  text-transform: uppercase;
+}
+
+/* Título 6 */
+h6 {
+  color: var(--viridis-aguas-color);
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.875em;
+  font-weight: 300;
+  line-height: 128% !important;
+}
+
+/* Texto Comum */
+p, time {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 137% !important;
+}
+
+/* Título da capa da página principal (tema original) */
 .home .wp-block-coblocks-hero h2 {
   font-family: 'Inter', sans-serif !important;
   font-size: 4.7em;
@@ -104,255 +110,254 @@ header {
   line-height: 107% !important;
 }
 
-/* ---------- Header sticky / theme ---------- */
-
-@media screen and (min-height: 600px) {
-  #site-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-}
-
-#site-header {
-  background: #fff;
-  position: relative;
-  border-bottom: 2px solid var(--viridis-matas-color) !important;
-}
-
-.header-footer-group,
-body:not(.overlay-header) #site-header .toggle,
-.menu-modal .toggle {
-  color: #000000;
-}
-
-body, .entry-title a, :root .has-primary-color {
-  color: #000000;
-}
-
-/* ---------- PÁGINA "SOBRE" ---------- */
-
-.title-about {
+/* Títulos na página de Histórias */
+article header h2 {
   font-family: 'Inter', sans-serif !important;
-  font-size: 3.75em;
-  font-weight: 600;
-  line-height: 107% !important;
-  margin: 0 auto;
-  display: block;
-  text-align: center;
+  font-size: 2.5em !important;
+  font-weight: 700;
+  line-height: 115% !important;
 }
 
-.capa_sobre {
-  position: relative;
-  width: 100%;
-  background-image: url("https://web.archive.org/web/20250514204043im_/https://datazoomamazonia.com.br/wp-content/uploads/2021/11/CapaSobre.png");
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding-top: 26.3%; /* mantém proporção da imagem */
-  overflow: hidden;
-}
-
-.capa_sobre::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-  z-index: 0;
-}
-
-.capa_sobre_content {
-  font-family: 'Inter', sans-serif !important;
-  font-size: 1.2em;
-  font-weight: 400;
-  line-height: 137% !important;
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 1;
-  margin: 0 auto;
-  max-width: 800px;
-  color: #ffffff;
-}
-.capa_sobre_content a {
-  color: #ffffff;
-  text-decoration: underline;
-}
-.capa_sobre_content a:hover {
-  color: #ddd;
-}
-
-.texto_livre {
-  font-family: 'Inter', sans-serif !important;
-  font-size: 1.2em;
-  font-weight: 400;
-  line-height: 137% !important;
-  text-align: left;
-  margin: 2rem auto;
-  max-width: 550px;
-  color: #000000;
-}
-.texto_livre code {
-  color: #000000;
-}
-
-.fale_conosco {
+/* Títulos das seções de Comentários */
+#reply-title {
   font-family: 'Inter', sans-serif !important;
   font-size: 2.5em;
   font-weight: 500;
   line-height: 115% !important;
 }
 
-.contato {
+/* Subtítulos (Página inicial) */
+.has-small-font-size {
   font-family: 'Inter', sans-serif !important;
-  font-size: 1em;
+  font-size: 1.15em !important;
   font-weight: 400;
-  line-height: 137% !important;
-  max-width: 600px;
+  letter-spacing: 5%;
+  line-height: 155% !important;
+}
+
+/* Tipos de Post e Tags  */
+.cat-links {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.875em !important;
+  font-weight: 400;
+  letter-spacing: 5%;
+  line-height: 130% !important;
+  text-transform: uppercase;
+}
+.entry-categories-inner a {
+  color: var(--viridis-matas-color) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.25em;
+  font-weight: 600;
+  letter-spacing: 5%;
+  line-height: 130% !important;
+  text-transform: uppercase;
+}
+.post-tags .meta-text a {
+  color: var(--viridis-aguas-color) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.875em;
+  font-weight: 300;
+  line-height: 128% !important;
+}
+.post-tags .meta-text a:before { content: '#'; }
+
+/* Botões */
+.wp-block-button a {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.875em;
+  font-weight: 400;
+  line-height: 128% !important;
+}
+
+/* ==============================
+   HEADER / FOOTER (PARIDADE)
+============================== */
+
+#site-header { border-bottom: 2px solid var(--viridis-matas-color) !important; }
+#site-header .custom-logo-link img {
+  height: 3.33em !important;
+  max-height: 60px !important;
+  width: auto !important;
+}
+#site-header .header-inner { padding: 0.84em 0 !important; }
+
+#site-footer { padding: 2em 0; }
+.footer-widgets-outer-wrapper { border: none; padding: 2.5em 0 1em 0; }
+.footer-nav-widgets-wrapper { border-top: 2px solid var(--viridis-matas-color) !important; }
+
+.footer-widgets.column-one .widget-content img {
+  height: 6.25em !important;
+  min-height: 100px !important;
+  max-height: 110px !important;
+  width: auto !important;
+}
+.footer-widgets.column-two { margin-left: 30% !important; }
+.footer-widgets.column-two .widget-content img {
+  height: 3.75em !important;
+  width: 3.75em !important;
+  min-height: 60px !important;
+  max-height: 60px !important;
+  width: auto !important;
+  margin-top: 30px !important;
+}
+
+/* ==============================
+   COMPONENTES / AJUSTES
+============================== */
+
+/* Acordeon (Sobre) */
+.wp-block-coblocks-accordion { font-family: 'Inter', sans-serif !important; }
+.wp-block-coblocks-accordion-item__title {
+  background-color: var(--custom-white-color) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.15em !important;
+  font-weight: 400;
+  letter-spacing: 5%;
+  line-height: 155% !important;
+}
+.wp-block-coblocks-accordion-item__title::marker { color: var(--viridis-matas-color) !important; }
+.wp-block-coblocks-accordion-item__content {
+  border-top: 1px solid rgba(140, 140, 151, 0.1);
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1em !important;
+  font-weight: 400;
+  line-height: 144% !important;
+}
+
+/* Capas de posts */
+.wp-block-cover__image-background {
+  height: 100% !important;
+  margin: 0 auto !important;
+  width: auto !important;
+}
+
+/* Grid de visualizações */
+.visualisacoes-grid { margin-top: 0 !important; margin-bottom: 0 !important; }
+.visualisacoes-grid h4 { text-align: center; margin-top: 0.25em !important; margin-bottom: 0 !important; }
+.visualisacoes-grid .wp-block-button { margin-top: -0.5em !important; margin-bottom: 0 !important; }
+
+/* Menus sem link */
+.placeholder_menu > div > a:link,
+.placeholder_menu > div > a:visited {
+  color: lightgray !important;
+  text-decoration: none !important;
+  pointer-events: none;
+}
+.not_clickable > div > a:link,
+.not_clickable > div > a:visited {
+  text-decoration: none !important;
+  pointer-events: none;
+}
+
+/* Search: remove texto */
+.search-toggle > span > span { display: none; }
+
+/* Espaçamentos globais */
+.wp-block-cover { margin-bottom: 0 !important; }
+.has-no-padding { margin-top: 0 !important; }
+.post-inner.thin { padding-top: 0; }
+
+/* Header fixo no topo */
+@media screen and (min-height: 600px) {
+  #site-header { position: sticky; top: 0; z-index: 10; }
+}
+
+/* Remover título da Home (duas variantes) */
+.home .entry-header { overflow: hidden; display: none; }
+.page-id-3997 .entry-header { overflow: hidden; display: none; }
+
+/* Iframe Shiny */
+.shinyblock { height: 75vh; min-height: 400px; }
+.shinyframe { height: 100%; }
+
+/* ==============================
+   SEÇÕES LOCAIS DO SEU JEKYLL
+============================== */
+
+header { text-align: center; }
+.row { background-color: #fff; }
+
+/* Bloco imagem + texto (suas seções) */
+.block {
+  width: 500px;
+  height: 400px;
   margin: 0 auto;
-  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
 }
-.contato a {
-  color: #3f8513;
-  text-decoration: underline;
-}
+.block img { width: 33.33%; height: auto; flex-shrink: 0; }
+.block .text-content { flex: 1; }
+.block h3 { margin-top: 0; margin-bottom: 15px; }
 
-/* ---------- CAPA (home hero) ---------- */
+/* ==============================
+   CAPA (HERÓI) – COM OVERLAY
+============================== */
 
-/* Container com background já definido no HTML ou aqui */
 .capa {
   background-image: url("https://web.archive.org/web/20250714050029im_/https://datazoomamazonia.com.br/wp-content/uploads/2021/10/CapaSite.png");
   background-position: 45% 50%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* opcional: parallax */
+  background-attachment: fixed; /* pode desativar no iOS se precisar */
   min-height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* base para o ::before */
+  position: relative; /* base p/ ::before */
 }
-
-/* Overlay escuro para contraste */
 .capa::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0,0,0,0.55); /* contraste mais forte */
   z-index: 1;
   pointer-events: none;
 }
-
-/* Conteúdo acima do overlay */
 .capa-content {
   position: relative;
   z-index: 2;
   text-align: center;
-  color: white;
+  color: #fff;
   max-width: 860px;
   padding: 2rem;
   margin: 0 auto;
 }
-
-/* Título e subtítulo da capa */
+/* Título/subtítulo maiores que o original (seu pedido) */
 .capa .capa-content h2 {
-  font-family: 'Inter', sans-serif;
-  font-size: 8rem;     /* maior */
-  font-weight: 800;    /* negrito forte */
+  font-family: 'Inter', sans-serif !important;
+  font-size: 8rem;        /* maior que 3.75em do tema */
+  font-weight: 800 !important;
   line-height: 1.05;
   margin-bottom: 1rem;
-  color: #fff;
+  color: #fff !important;
 }
 .capa .capa-content p {
-  font-size: 1.8rem;   /* maior */
+  font-size: 1.8rem;      /* maior que 1em do tema */
   line-height: 1.6;
   margin-bottom: 2rem;
   color: #fff;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 2px rgba(0,0,0,.6);
 }
-
 /* CTA */
 .cta-button {
   display: inline-block;
   background-color: #73c172;
-  color: white;
+  color: #fff;
   padding: 1rem 2rem;
   text-decoration: none;
   border-radius: 5px;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0,0,0,.2);
+  transition: background-color .3s ease;
 }
-.cta-button:hover {
-  background-color: #5fa85f;
-}
+.cta-button:hover { background-color: #5fa85f; }
 
-/* Responsivo: ajuste correto para h2 */
+/* Responsivo */
 @media (max-width: 768px) {
-  .capa .capa-content h2 {
-    font-size: 3.2rem;
-  }
-  .capa .capa-content p {
-    font-size: 1.4rem;
-  }
-  .capa-content {
-    padding: 1rem;
-  }
-}
-
-/* ===================== DZAM FOOTER OVERRIDES ===================== */
-
-/* Linha separadora no topo do bloco de widgets e do rodapé */
-.footer-nav-widgets-wrapper.header-footer-group { 
-  border-top: 1px solid rgba(0,0,0,0.08);
-  margin-top: 24px;
-}
-#site-footer.header-footer-group.dzam-footer {
-  border-top: 1px solid rgba(0,0,0,0.08);
-  padding-top: 16px;
-}
-
-/* Garantir alinhamento vertical entre colunas do footer */
-.footer-nav-widgets-wrapper .footer-widgets-wrapper,
-.footer-nav-widgets-wrapper .wp-container-core-columns-is-layout-1,
-.footer-nav-widgets-wrapper .wp-container-core-columns-is-layout-2 {
-  align-items: center !important;
-}
-
-/* Coluna 2 (redes) alinhada à direita em desktop, com espaçamento consistente */
-.footer-nav-widgets-wrapper .footer-widgets.column-two .wp-container-core-columns-is-layout-2 {
-  display: flex !important;
-  justify-content: flex-end !important;
-  gap: 16px !important;
-}
-
-/* Evita “pulo” de imagem e garante renderização nítida dos ícones */
-.footer-nav-widgets-wrapper .wp-block-image img {
-  display: block !important;
-  height: auto;
-}
-
-/* Tamanho dos ícones de redes (ajuste centralizado aqui) */
-.footer-nav-widgets-wrapper .footer-widgets.column-two .wp-block-image img {
-  width: 60px !important;
-  height: 60px !important;
-}
-
-/* Em telas pequenas, centraliza as redes e dá respiro */
-@media (max-width: 782px) {
-  .footer-nav-widgets-wrapper .footer-widgets.column-two .wp-container-core-columns-is-layout-2 {
-    justify-content: center !important;
-  }
-  .footer-nav-widgets-wrapper .footer-widgets.column-two {
-    margin-top: 8px;
-  }
-}
-
-/* Créditos sem espaçamento extra (mantém o bloco compacto) */
-#site-footer.header-footer-group.dzam-footer .footer-credits p {
-  margin: 0.25rem 0;
+  .capa .capa-content h2 { font-size: 3.2rem; }
+  .capa .capa-content p { font-size: 1.4rem; }
+  .capa-content { padding: 1rem; }
 }
