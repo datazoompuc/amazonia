@@ -6,107 +6,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
-    :root {
-      --green: #2f7d32;
-      --green-soft: #77C478;
-      --border: #e6e6e6;
-    }
-    * { box-sizing: border-box }
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial }
-    a { text-decoration: none; color: inherit }
+    :root{
+      --green:#2f7d32;
+      --green-soft:#77C478;
+      --border:#e6e6e6;
 
-    /* ---------- HEADER BAR ---------- */
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      background: #fff;
-      padding: 8px 10px;
-      border-bottom: 1px solid var(--green-soft);
+      /* Ajuste aqui se quiser: */
+      --content-max:1200px;   /* largura máxima “como antes” */
+      --gutter:24px;          /* respiro lateral */
+      --header-h:76px;        /* altura do header (desktop) */
+      --logo-h:56px;          /* altura do logo (desktop) */
     }
-    .nav-left { display: flex; align-items: center }
-    .logo-btn { border: 0; background: transparent; cursor: pointer; padding: 0; margin-left: 8px }
-    .logo-img { height: 48px; display: block }
+    @media (max-width: 768px){
+      :root{
+        --gutter:16px;
+        --header-h:64px;
+        --logo-h:46px;
+      }
+    }
 
-    .nav-right { margin-left: auto; display: flex; align-items: center }
-    .nav-action { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 6px 10px }
-    .divider { width: 1px; height: 24px; background: #d1d5db }
-    .lang-link { color: var(--green); font-weight: 600 }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    a{text-decoration:none;color:inherit}
+
+    /* ---------- HEADER ---------- */
+    .navbar{
+      position:sticky; top:0; z-index:1000;
+      background:#fff;
+      border-bottom:1px solid var(--green-soft);
+      min-height:var(--header-h);
+      display:flex; align-items:center;
+    }
+    .navbar .container{
+      width:100%;
+      max-width:var(--content-max);
+      margin:0 auto;
+      padding:0 var(--gutter);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px;
+    }
+
+    .nav-left{display:flex; align-items:center; min-width:0}
+    .logo-btn{border:0; background:transparent; cursor:pointer; padding:0; display:flex; align-items:center}
+    .logo-img{height:var(--logo-h); width:auto; display:block}
+
+    .nav-right{margin-left:auto; display:flex; align-items:center; gap:16px}
+    .nav-action{display:flex; flex-direction:column; align-items:center; justify-content:center}
+    .divider{width:1px; height:24px; background:#d1d5db}
+
+    .lang-link{color:var(--green); font-weight:600}
 
     /* ---------- HAMBURGER ---------- */
-    .menu-toggle {
-      border: 0;
-      background: transparent;
-      cursor: pointer;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .menu-toggle{
+      border:0; background:transparent; cursor:pointer; padding:0;
+      display:flex; flex-direction:column; align-items:center
     }
-    .bars { width: 26px }
-    .bar { height: 3px; background: var(--green-soft); border-radius: 2px; margin: 4px 0 }
-    .menu-label { font-size: 12px; color: #555; margin-top: 3px }
+    .bars{width:26px}
+    .bar{height:3px; background:var(--green-soft); border-radius:2px; margin:4px 0}
+    .menu-label{font-size:12px; color:#555; margin-top:3px}
 
-    /* ---------- VERTICAL MENU (drawer à direita) ---------- */
-    nav { background: #fff }
-    .menu {
-      list-style: none;
-      margin: 0;
-      padding: 64px 0 0;
-      position: fixed;
-      right: 0;
-      top: 0;
-      width: min(88vw, 360px);
-      height: 100vh;
-      background: #fff;
-      border-left: 1px solid var(--border);
-      display: none;
-      overflow: auto;
-      z-index: 999;
+    /* ---------- MENU (drawer à direita) ---------- */
+    nav{background:#fff}
+    .menu{
+      list-style:none; margin:0;
+      padding:calc(var(--header-h) + 8px) 0 0; /* respeita header */
+      position:fixed; right:0; top:0;
+      width:min(88vw, 360px); height:100vh;
+      background:#fff; border-left:1px solid var(--border);
+      display:none; overflow:auto; z-index:999;
     }
-    .menu.show { display: block }
-    .menu li { border-bottom: 1px solid var(--border) }
-    .menu a, .menu .menu-link {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 18px;
-      font-weight: 700;
-      color: var(--green);
+    .menu.show{display:block}
+    .menu li{border-bottom:1px solid var(--border)}
+    .menu a, .menu .menu-link{
+      width:100%; display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px; font-weight:700; color:var(--green);
     }
-    .menu a:hover, .menu .menu-link:hover { background: #f7faf7 }
-    .caret { transition: transform .2s }
-    .open .caret { transform: rotate(180deg) }
-    .submenu { list-style: none; margin: 0; padding: 0; display: none }
-    .submenu.show { display: block }
-    .submenu li a { font-weight: 600; color: #111; padding: 14px 28px }
+    .menu a:hover, .menu .menu-link:hover{background:#f7faf7}
+    .caret{transition:transform .2s}
+    .open .caret{transform:rotate(180deg)}
+    .submenu{list-style:none; margin:0; padding:0; display:none}
+    .submenu.show{display:block}
+    .submenu li a{font-weight:600; color:#111; padding:14px 28px}
   </style>
 </head>
 <body>
 
   <!-- ======= HEADER ======= -->
-  <header class="navbar">
-    <div class="nav-left">
-      <button class="logo-btn" id="logo-home" aria-label="Voltar para a página principal">
-        <img class="logo-img" src="{{ site.baseurl }}/assets/img/banner_dzam.png" alt="DataZoom Amazônia">
-      </button>
-    </div>
-
-    <div class="nav-right">
-      <div class="nav-action">
-        <a href="#" id="lang-switch" class="lang-link">English</a>
-      </div>
-      <div class="divider"></div>
-      <div class="nav-action">
-        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-menu">
-          <div class="bars">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-          </div>
-          <span class="menu-label">Menu</span>
+  <header class="navbar" role="banner">
+    <div class="container">
+      <div class="nav-left">
+        <button class="logo-btn" id="logo-home" aria-label="Voltar para a página principal">
+          <img class="logo-img" src="{{ site.baseurl }}/assets/img/banner_dzam.png" alt="DataZoom Amazônia">
         </button>
+      </div>
+
+      <div class="nav-right">
+        <div class="nav-action">
+          <a href="#" id="lang-switch" class="lang-link">English</a>
+        </div>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="nav-action">
+          <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-menu">
+            <div class="bars" aria-hidden="true">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+            <span class="menu-label">Menu</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -137,11 +145,38 @@
   </nav>
 
   <script>
-    const toggleBtn=document.getElementById('menu-toggle'),menu=document.getElementById('site-menu');
-    toggleBtn.addEventListener('click',()=>{const o=menu.classList.toggle('show');toggleBtn.setAttribute('aria-expanded',o?'true':'false');});
-    document.getElementById('viz-toggle').addEventListener('click',(e)=>{e.preventDefault();const s=document.getElementById('viz-submenu'),o=s.classList.toggle('show');e.currentTarget.setAttribute('aria-expanded',o?'true':'false');e.currentTarget.parentElement.classList.toggle('open',o);});
-    document.getElementById('lang-switch').addEventListener('click',(e)=>{e.preventDefault();const u=new URL(window.location.href),p=u.pathname.split('/'),i=p.findIndex(s=>s==='pt'||s==='en');if(i>=0){p[i]='en';u.pathname=p.join('/');}else{u.pathname='/en'+u.pathname;}window.location.assign(u.toString());});
-    document.getElementById('logo-home').addEventListener('click',()=>{const u=new URL(window.location.href),p=u.pathname.split('/'),i=p.findIndex(s=>s==='pt'||s==='en');u.pathname=i>=0?('/'+p[i]+'/'):'/';window.location.assign(u.toString());});
+    const toggleBtn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('site-menu');
+    toggleBtn.addEventListener('click', () => {
+      const open = menu.classList.toggle('show');
+      toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    const vizToggle = document.getElementById('viz-toggle');
+    vizToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const s = document.getElementById('viz-submenu');
+      const open = s.classList.toggle('show');
+      e.currentTarget.setAttribute('aria-expanded', open ? 'true' : 'false');
+      e.currentTarget.parentElement.classList.toggle('open', open);
+    });
+
+    document.getElementById('lang-switch').addEventListener('click',(e)=>{
+      e.preventDefault();
+      const u=new URL(window.location.href);
+      const p=u.pathname.split('/');
+      const i=p.findIndex(s=>s==='pt'||s==='en');
+      if(i>=0){p[i]='en';u.pathname=p.join('/');}
+      else{u.pathname='/en'+u.pathname;}
+      window.location.assign(u.toString());
+    });
+
+    document.getElementById('logo-home').addEventListener('click',()=>{
+      const u=new URL(window.location.href),p=u.pathname.split('/');
+      const i=p.findIndex(s=>s==='pt'||s==='en');
+      u.pathname = i>=0 ? ('/'+p[i]+'/') : '/';
+      window.location.assign(u.toString());
+    });
   </script>
 </body>
 </html>
