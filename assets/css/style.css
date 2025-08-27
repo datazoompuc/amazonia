@@ -303,3 +303,56 @@ body, .entry-title a, :root .has-primary-color {
     padding: 1rem;
   }
 }
+
+/* ===================== DZAM FOOTER OVERRIDES ===================== */
+
+/* Linha separadora no topo do bloco de widgets e do rodapé */
+.footer-nav-widgets-wrapper.header-footer-group { 
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin-top: 24px;
+}
+#site-footer.header-footer-group.dzam-footer {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 16px;
+}
+
+/* Garantir alinhamento vertical entre colunas do footer */
+.footer-nav-widgets-wrapper .footer-widgets-wrapper,
+.footer-nav-widgets-wrapper .wp-container-core-columns-is-layout-1,
+.footer-nav-widgets-wrapper .wp-container-core-columns-is-layout-2 {
+  align-items: center !important;
+}
+
+/* Coluna 2 (redes) alinhada à direita em desktop, com espaçamento consistente */
+.footer-nav-widgets-wrapper .footer-widgets.column-two .wp-container-core-columns-is-layout-2 {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 16px !important;
+}
+
+/* Evita “pulo” de imagem e garante renderização nítida dos ícones */
+.footer-nav-widgets-wrapper .wp-block-image img {
+  display: block !important;
+  height: auto;
+}
+
+/* Tamanho dos ícones de redes (ajuste centralizado aqui) */
+.footer-nav-widgets-wrapper .footer-widgets.column-two .wp-block-image img {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+/* Em telas pequenas, centraliza as redes e dá respiro */
+@media (max-width: 782px) {
+  .footer-nav-widgets-wrapper .footer-widgets.column-two .wp-container-core-columns-is-layout-2 {
+    justify-content: center !important;
+  }
+  .footer-nav-widgets-wrapper .footer-widgets.column-two {
+    margin-top: 8px;
+  }
+}
+
+/* Créditos sem espaçamento extra (mantém o bloco compacto) */
+#site-footer.header-footer-group.dzam-footer .footer-credits p {
+  margin: 0.25rem 0;
+}
