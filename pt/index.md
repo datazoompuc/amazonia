@@ -32,8 +32,8 @@ lang: pt
 
 <div class="block">
     <div class="text-content">
-        <h3>Veja nosso contato e conheça mais sobre o projeto Data Zoom Amazônia</h3>
-        <p>Conheça a equipe envolvida no projeto Data Zoom Amazônia e encontre algumas respostas para as suas principais dúvidas <a href="{{ site.baseurl }}/sobre/" class="link-verde">sobre</a>  o nosso trabalho.</p>
+        <h3>Veja nosso contato e conheça mais <a href="{{ site.baseurl }}/sobre/" class="link-verde">sobre</a> o projeto Data Zoom Amazônia</h3>
+        <p>Conheça a equipe envolvida no projeto Data Zoom Amazônia e encontre algumas respostas para as suas principais dúvidas sobre o nosso trabalho.</p>
     </div>
     <img src="{{ site.baseurl }}/assets/img/Icone_-Doc2-1-768x1024.png" alt="">
 </div>
