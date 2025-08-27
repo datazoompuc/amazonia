@@ -1,105 +1,46 @@
-<!-- ===================== FOOTER ===================== -->
-<div class="footer-nav-widgets-wrapper header-footer-group">
-
-  <div class="footer-inner section-inner">
-
-    <aside class="footer-widgets-outer-wrapper" role="complementary">
-      <div class="footer-widgets-wrapper">
-
-        <!-- Coluna 1: logos -->
-        <div class="footer-widgets column-one grid-item">
-          <div class="widget widget_block">
-            <div class="widget-content">
-              <div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex">
-                <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
-                  <figure class="wp-block-image size-large">
-                    <a href="http://www.puc-rio.br" target="_blank" rel="noopener">
-                      <img
-                        loading="lazy"
-                        decoding="async"
-                        width="768"
-                        height="193"
-                        src="{{ site.baseurl }}/assets/img/logos_rodape_nova.png"
-                        alt="Data Zoom Amazônia, Amazônia 2030 e PUC-Rio"
-                        sizes="(max-width: 768px) 100vw, 768px"
-                        style="max-width:100%;height:auto;">
-                    </a>
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Coluna 2: redes sociais -->
-        <div class="footer-widgets column-two grid-item">
-          <div class="widget widget_block">
-            <div class="widget-content">
-              <div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-2 wp-block-columns-is-layout-flex" style="align-items:center;gap:16px;justify-content:flex-end;">
-                <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow"></div>
-                <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex:0 0 auto;">
-                  <figure class="wp-block-image size-full" style="margin:0;">
-                    <a href="https://www.linkedin.com/company/data-zoom/" target="_blank" rel="noopener">
-                      <img
-                        loading="lazy"
-                        decoding="async"
-                        width="60"
-                        height="60"
-                        src="{{ site.baseurl }}/assets/img/linkedin.png"
-                        alt="LinkedIn Data Zoom Amazônia"
-                        style="width:60px;height:60px;display:block;">
-                    </a>
-                  </figure>
-                </div>
-                <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex:0 0 auto;">
-                  <figure class="wp-block-image size-full" style="margin:0;">
-                    <a href="https://www.youtube.com/channel/UC1kYkpfiYSvL2-oTYPMMkug" target="_blank" rel="noopener">
-                      <img
-                        loading="lazy"
-                        decoding="async"
-                        width="60"
-                        height="60"
-                        src="{{ site.baseurl }}/assets/img/Youtube.png"
-                        alt="YouTube Data Zoom Amazônia"
-                        style="width:60px;height:60px;display:block;">
-                    </a>
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- .footer-widgets-wrapper -->
-    </aside><!-- .footer-widgets-outer-wrapper -->
-
-  </div><!-- .footer-inner -->
-
-</div><!-- .footer-nav-widgets-wrapper -->
-
-<footer id="site-footer" role="contentinfo" class="header-footer-group dzam-footer">
-  <div class="section-inner">
-
-    <div class="footer-credits">
-      <p class="footer-copyright">
-        &copy; 2025
-        <a href="https://datazoomamazonia.com.br/" target="_blank" rel="noopener">Data Zoom Amazônia</a>
-      </p>
-      <p class="powered-by-wordpress">
-        Desenvolvido pelo Departamento de Economia da PUC-Rio com apoio da
-        <a href="https://odd.studio/" target="_blank" rel="noopener"><u>odd.studio</u></a>
-      </p>
+<footer class="row align-items-center dzam-footer">
+  <!-- Coluna esquerda: logos -->
+  <div class="col-sm-12 col-md-6 d-flex align-items-center">
+    <div class="footer-left w-100">
+      <div class="txt">
+        <a href="http://www.puc-rio.br">
+          <img
+            loading="lazy"
+            decoding="async"
+            width="768"
+            height="193"
+            src="{{ site.baseurl }}/assets/img/logos_rodape_nova.png"
+            alt="Data Zoom Amazônia, Amazônia 2030 e PUC-Rio"
+            class="footer-logo"
+          >
+        </a>
+      </div>
     </div>
+  </div>
 
-    <a class="to-the-top" href="#site-header">
-      <span class="to-the-top-long">
-        To the top <span class="arrow" aria-hidden="true">&uarr;</span>
-      </span>
-      <span class="to-the-top-short">
-        Up <span class="arrow" aria-hidden="true">&uarr;</span>
-      </span>
-    </a>
-
+  <!-- Coluna direita: ícones sociais -->
+  <div class="col-sm-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-end">
+    <div class="footer-right">
+      <nav class="txt social-links" aria-label="Redes sociais">
+        <a href="https://www.linkedin.com/company/data-zoom/" target="_blank" rel="noopener">
+          <img
+            alt="LinkedIn"
+            src="{{ site.baseurl }}/assets/img/linkedin.png"
+            class="social-icon"
+            width="60"
+            height="60"
+          >
+        </a>
+        <a href="https://www.youtube.com/channel/UC1kYkpfiYSvL2-oTYPMMkug" target="_blank" rel="noopener">
+          <img
+            alt="YouTube"
+            src="{{ site.baseurl }}/assets/img/Youtube.png"
+            class="social-icon"
+            width="60"
+            height="60"
+          >
+        </a>
+      </nav>
+    </div>
   </div>
 </footer>
-<!-- ===================== END FOOTER ===================== -->
