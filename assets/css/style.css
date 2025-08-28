@@ -611,37 +611,6 @@ article header h2 {
   line-height: 128% !important;
 }
 
-/* ==============================
-   HEADER / FOOTER (PARIDADE)
-============================== */
-
-#site-header { border-bottom: 2px solid var(--viridis-matas-color) !important; }
-#site-header .custom-logo-link img {
-  height: 3.33em !important;
-  max-height: 60px !important;
-  width: auto !important;
-}
-#site-header .header-inner { padding: 0.84em 0 !important; }
-
-#site-footer { padding: 2em 0; }
-.footer-widgets-outer-wrapper { border: none; padding: 2.5em 0 1em 0; }
-.footer-nav-widgets-wrapper { border-top: 2px solid var(--viridis-matas-color) !important; }
-
-.footer-widgets.column-one .widget-content img {
-  height: 6.25em !important;
-  min-height: 100px !important;
-  max-height: 110px !important;
-  width: auto !important;
-}
-.footer-widgets.column-two { margin-left: 30% !important; }
-.footer-widgets.column-two .widget-content img {
-  height: 3.75em !important;
-  width: 3.75em !important;
-  min-height: 60px !important;
-  max-height: 60px !important;
-  width: auto !important;
-  margin-top: 30px !important;
-}
 
 /* ==============================
    COMPONENTES / AJUSTES
