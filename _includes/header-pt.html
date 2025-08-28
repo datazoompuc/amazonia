@@ -91,33 +91,34 @@
 </head>
 <body>
 
-  <!-- ======= HEADER ======= -->
-  <header class="navbar" role="banner">
-    <div class="container">
-      <div class="nav-left">
-        <button class="logo-btn" id="logo-home" aria-label="Voltar para a página principal">
-          <img class="logo-img" src="{{ site.baseurl }}/assets/img/banner_dzam.png" alt="DataZoom Amazônia">
+<!-- ======= HEADER ======= -->
+<header class="navbar" role="banner">
+  <div class="container">
+    <div class="nav-left">
+      <a href="{{ site.baseurl }}/" class="logo-btn" id="logo-home" aria-label="Voltar para a página principal">
+        <img class="logo-img" src="{{ site.baseurl }}/assets/img/banner_dzam.png" alt="DataZoom Amazônia">
+      </a>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-action">
+        <a href="#" id="lang-switch" class="lang-link">English</a>
+      </div>
+      <div class="divider" aria-hidden="true"></div>
+      <div class="nav-action">
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-menu">
+          <div class="bars" aria-hidden="true">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          <span class="menu-label">Menu</span>
         </button>
       </div>
-
-      <div class="nav-right">
-        <div class="nav-action">
-          <a href="#" id="lang-switch" class="lang-link">English</a>
-        </div>
-        <div class="divider" aria-hidden="true"></div>
-        <div class="nav-action">
-          <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="site-menu">
-            <div class="bars" aria-hidden="true">
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
-            </div>
-            <span class="menu-label">Menu</span>
-          </button>
-        </div>
-      </div>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- ======= VERTICAL MENU ======= -->
   <nav aria-label="Menu principal">
