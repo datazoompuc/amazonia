@@ -1,28 +1,7 @@
-/* ==============================
-   FONTS (sempre no topo)
-============================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+/* Fonts (precisa vir primeiro) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
-/* ==============================
-   VARIÁVEIS E BASE
-============================== */
-:root {
-  --viridis-pessoas-color: #D7E150;
-  --viridis-matas-color: #73C373;
-  --viridis-aguas-color: #41878C; /* corrigido ; */
-  --viridis-sociedade-color: #411E69;
-  --viridis-dados-color: #323232;
-  --custom-white-color: #ffffff;
-  --custom-gray1-color: #f2f2f2;
-  --custom-gray2-color: #dddddd;
-  --custom-gray3-color: #9d9d9d;
-  --custom-black-color: #000000;
-}
-
-html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
-}
+/* ---------- Base / utilidades ---------- */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -31,8 +10,47 @@ html {
   word-wrap: break-word;
 }
 
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --viridis-pessoas-color: #D7E150;
+  --viridis-matas-color: #73C373;
+  --viridis-aguas-color: #41878C; /* ; corrigido */
+  --viridis-sociedade-color: #411E69;
+  --viridis-dados-color: #323232;
+  --custom-white-color: #ffffff;
+  --custom-gray1-color: #f2f2f2;
+  --custom-gray2-color: #dddddd;
+  --custom-gray3-color: #9d9d9d;
+  --custom-black-color: #000000;
+
+  /* WP presets comuns (mantidos) */
+  --wp--preset--aspect-ratio--square: 1;
+  --wp--preset--aspect-ratio--4-3: 4 / 3;
+  --wp--preset--aspect-ratio--3-4: 3 / 4;
+  --wp--preset--aspect-ratio--3-2: 3 / 2;
+  --wp--preset--aspect-ratio--2-3: 2 / 3;
+  --wp--preset--aspect-ratio--16-9: 16 / 9;
+  --wp--preset--aspect-ratio--9-16: 9 / 16;
+
+  --wp--preset--color--black: #000000;
+  --wp--preset--color--white: #ffffff;
+
+  --wp--preset--font-size--small: 18px;
+  --wp--preset--font-size--medium: 20px;
+  --wp--preset--font-size--large: 26.25px;
+  --wp--preset--font-size--x-large: 42px;
+  --wp--preset--font-size--normal: 21px;
+  --wp--preset--font-size--larger: 32px;
+}
+
 @supports (font-variation-settings: normal) {
-  body { font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif; }
+  body {
+    font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  }
 }
 
 body {
@@ -45,23 +63,446 @@ body {
   text-align: center;
 }
 
-/* ==============================
-   TIPOGRAFIA (PARIDADE COM WP)
-============================== */
+header {
+  display: block;
+  text-align: center;
+}
 
-/* Títulos 1 e 2 */
-h1, h2 {
+/* ---------- Layouts específicos ---------- */
+
+.row {
+  background-color: #fff;
+}
+
+/* Bloco imagem + texto */
+.block {
+  width: 500px;
+  height: 400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start; /* conteúdo no topo */
+  gap: 20px;               /* espaço entre imagem e texto */
+}
+.block img {
+  width: 33.33%;
+  height: auto;
+  flex-shrink: 0;
+}
+.block .text-content {
+  flex: 1; /* ocupa os 2/3 restantes */
+}
+.block h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Títulos de herói CoBlocks (mantido) */
+.home .wp-block-coblocks-hero h2 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 4.7em;
+  font-weight: 700;
+  line-height: 107% !important;
+}
+
+/* ---------- Header sticky / theme ---------- */
+
+@media screen and (min-height: 600px) {
+  #site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+#site-header {
+  background: #fff;
+  position: relative;
+  border-bottom: 2px solid var(--viridis-matas-color) !important;
+}
+
+.header-footer-group,
+body:not(.overlay-header) #site-header .toggle,
+.menu-modal .toggle {
+  color: #000000;
+}
+
+body, .entry-title a, :root .has-primary-color {
+  color: #000000;
+}
+
+/* ---------- PÁGINA "SOBRE" ---------- */
+
+.title-about {
   font-family: 'Inter', sans-serif !important;
   font-size: 3.75em;
   font-weight: 600;
   line-height: 107% !important;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
 }
 
-/* Título 3 */
-h3 {
+.capa_sobre {
+  position: relative;
+  width: 100%;
+  background-image: url("https://web.archive.org/web/20250514204043im_/https://datazoomamazonia.com.br/wp-content/uploads/2021/11/CapaSobre.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 26.3%; /* mantém proporção da imagem */
+  overflow: hidden;
+}
+
+.capa_sobre::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+
+.capa_sobre_content {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 137% !important;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: 800px;
+  color: #ffffff;
+}
+.capa_sobre_content a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.capa_sobre_content a:hover {
+  color: #ddd;
+}
+
+.texto_livre {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 137% !important;
+  text-align: left;
+  margin: 2rem auto;
+  max-width: 550px;
+  color: #000000;
+}
+.texto_livre code {
+  color: #000000;
+}
+
+.fale_conosco {
   font-family: 'Inter', sans-serif !important;
   font-size: 2.5em;
   font-weight: 500;
+  line-height: 115% !important;
+}
+
+.contato {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 137% !important;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+.contato a {
+  color: #3f8513;
+  text-decoration: underline;
+}
+
+/* ---------- CAPA (home hero) ---------- */
+
+/* Container com background já definido no HTML ou aqui */
+.capa {
+  background-image: url("https://web.archive.org/web/20250714050029im_/https://datazoomamazonia.com.br/wp-content/uploads/2021/10/CapaSite.png");
+  background-position: 45% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* opcional: parallax */
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* base para o ::before */
+}
+
+/* Overlay escuro para contraste */
+.capa::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Conteúdo acima do overlay */
+.capa-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 860px;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+/* Título e subtítulo da capa */
+.capa .capa-content h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 8rem;     /* maior */
+  font-weight: 800;    /* negrito forte */
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.capa .capa-content p {
+  font-size: 1.8rem;   /* maior */
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* CTA */
+.cta-button {
+  display: inline-block;
+  background-color: #73c172;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.cta-button:hover {
+  background-color: #5fa85f;
+}
+
+/* Responsivo: ajuste correto para h2 */
+@media (max-width: 768px) {
+  .capa .capa-content h2 {
+    font-size: 3.2rem;
+  }
+  .capa .capa-content p {
+    font-size: 1.4rem;
+  }
+  .capa-content {
+    padding: 1rem;
+  }
+}  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 0;
+}
+
+.capa_sobre_content {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 137% !important;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: 800px;
+  color: #ffffff;
+}
+.capa_sobre_content a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.capa_sobre_content a:hover {
+  color: #ddd;
+}
+
+.texto_livre {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 137% !important;
+  text-align: left;
+  margin: 2rem auto;
+  max-width: 550px;
+  color: #000000;
+}
+.texto_livre code {
+  color: #000000;
+}
+
+.fale_conosco {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 2.5em;
+  font-weight: 500;
+  line-height: 115% !important;
+}
+
+.contato {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 137% !important;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+.contato a {
+  color: #3f8513;
+  text-decoration: underline;
+}
+
+/* ---------- CAPA (home hero) ---------- */
+
+/* Container com background já definido no HTML ou aqui */
+.capa {
+  background-image: url("https://web.archive.org/web/20250714050029im_/https://datazoomamazonia.com.br/wp-content/uploads/2021/10/CapaSite.png");
+  background-position: 45% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* opcional: parallax */
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* base para o ::before */
+}
+
+/* Overlay escuro para contraste */
+.capa::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Conteúdo acima do overlay */
+.capa-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 860px;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+/* Título e subtítulo da capa */
+.capa .capa-content h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 8rem;     /* maior */
+  font-weight: 800;    /* negrito forte */
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+.capa .capa-content p {
+  font-size: 1.8rem;   /* maior */
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* CTA */
+.cta-button {
+  display: inline-block;
+  background-color: #73c172;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+.cta-button:hover {
+  background-color: #5fa85f;
+}
+
+/* Responsivo: ajuste correto para h2 */
+@media (max-width: 768px) {
+  .capa .capa-content h2 {
+    font-size: 3.2rem;
+  }
+  .capa .capa-content p {
+    font-size: 1.4rem;
+  }
+  .capa-content {
+    padding: 1rem;
+  }
+}
+
+/* ===================== DZAM FOOTER OVERRIDES ===================== */
+
+/* Linha separadora no topo do bloco de widgets e do rodapé */
+.footer-nav-widgets-wrapper.header-footer-group { 
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin-top: 24px;
+}
+#site-footer.header-footer-group.dzam-footer {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 16px;
+}
+
+/* Garantir alinhamento vertical entre colunas do footer */
+.footer-nav-widgets-wrapper .footer-widgets-wrapper,
+.footer-nav-widgets-wrapper .wp-container-core-columns-is-layout-1,
+.footer-nav-widgets-wrapper .wp-container-core-columns-is-layout-2 {
+  align-items: center !important;
+}
+
+/* Coluna 2 (redes) alinhada à direita em desktop, com espaçamento consistente */
+.footer-nav-widgets-wrapper .footer-widgets.column-two .wp-container-core-columns-is-layout-2 {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 16px !important;
+}
+
+/* Evita “pulo” de imagem e garante renderização nítida dos ícones */
+.footer-nav-widgets-wrapper .wp-block-image img {
+  display: block !important;
+  height: auto;
+}
+
+/* Tamanho dos ícones de redes (ajuste centralizado aqui) */
+.footer-nav-widgets-wrapper .footer-widgets.column-two .wp-block-image img {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+/* Em telas pequenas, centraliza as redes e dá respiro */
+@media (max-width: 782px) {
+  .footer-nav-widgets-wrapper .footer-widgets.column-two .wp-container-core-columns-is-layout-2 {
+    justify-content: center !important;
+  }
+  .footer-nav-widgets-wrapper .footer-widgets.column-two {
+    margin-top: 8px;
+  }
+}
+
+/* Créditos sem espaçamento extra (mantém o bloco compacto) */
+#site-footer.header-footer-group.dzam-footer .footer-credits p {
+  margin: 0.25rem 0;
+}  font-weight: 500;
   line-height: 115% !important;
 }
 
@@ -365,30 +806,30 @@ header { text-align: center; }
 
 /* --------- Footer ajustes --------- */
 
-/* Logo reduzida para ter quase a mesma altura dos ícones */
+/* Deixa a logo maior sem estourar o container */
 .dzam-footer .footer-logo {
   display: block;
-  max-height: 80px;   /* controla a altura da logo */
-  width: auto;        /* mantém a proporção */
-  margin: 0 auto;     /* centraliza horizontalmente */
+  max-width: 80px;   
+  height: auto;
+  margin: 0 auto;   /* centraliza horizontalmente */
 }
 
 /* Container dos ícones de redes sociais */
 .dzam-footer .social-links {
   display: flex;
-  justify-content: center;   /* centraliza horizontalmente */
-  align-items: center;       /* centraliza verticalmente */
+  justify-content: center;   /* centraliza no eixo horizontal */
+  align-items: center;       /* centraliza no eixo vertical */
   gap: 24px;                 /* espaçamento entre os ícones */
 }
 
-/* Ícones sociais */
+/* Tamanho fixo e consistente dos ícones */
 .dzam-footer .social-icon {
-  width: 60px;
-  height: 60px;
+  width: 64px;   /* levemente maior que antes */
+  height: 64px;
   display: block;
 }
 
-/* Em telas menores, centraliza tudo */
+/* Responsivo: garante que em telas menores tudo fique bem alinhado */
 @media (max-width: 767.98px) {
   .dzam-footer .footer-left,
   .dzam-footer .footer-right {
@@ -396,4 +837,3 @@ header { text-align: center; }
     margin-bottom: 12px;
   }
 }
-
