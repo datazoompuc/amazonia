@@ -811,49 +811,37 @@ footer.dzam-footer .social-icon {
 
 /* Créditos */
 footer.dzam-footer .footer-credits {
+  display: flex;
+  align-items: center;
+  gap: 16px;            
   font-size: 1.4rem;
-  color: #333;
-  margin: 0 16px;
-  white-space: nowrap; /* evita quebra de linha */
 }
-footer.dzam-footer .footer-credits strong {
+
+footer.dzam-footer .footer-credits .copyright {
+  color: #000;          /* © 2025 Data Zoom Amazônia em preto e negrito */
   font-weight: 700;
-  margin-right: 6px;
 }
+
+footer.dzam-footer .footer-credits .credits {
+  color: #666;          /* texto de apoio em cinza */
+  font-weight: 400;
+}
+
 footer.dzam-footer .footer-credits a {
-  color: inherit;
+  color: #666;
   text-decoration: none;
 }
 footer.dzam-footer .footer-credits a:hover {
   text-decoration: underline;
 }
 
-/* Link "To the top" */
-footer.dzam-footer .footer-top .to-the-top {
-  font-size: 1.3rem;
-  color: #000;
-  text-decoration: none;
-}
-footer.dzam-footer .footer-top .to-the-top:hover {
-  text-decoration: underline;
-}
 
-/* Responsivo: empilha tudo */
 @media (max-width: 768px) {
-  .dzam-footer .col-md-6 {
+  /* Empilha os créditos no mobile */
+  footer.dzam-footer .footer-credits {
     flex-direction: column;
     text-align: center;
-    margin-bottom: 16px;
-  }
-  .dzam-footer .social-links {
-    margin: 12px 0;
-  }
-  .dzam-footer .footer-credits {
-    margin: 8px 0;
-    white-space: normal;
-  }
-  .dzam-footer .footer-top {
-    margin-top: 8px;
+    gap: 4px; /* espaço menor entre as linhas */
   }
 }
 
