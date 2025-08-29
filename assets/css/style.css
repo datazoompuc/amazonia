@@ -777,16 +777,17 @@ header { text-align: center; }
 
 footer.dzam-footer {
   border-top: 2px solid var(--viridis-matas-color);
-  padding: 20px 0 0;
-}
-footer.dzam-footer.row {
-  justify-content: center;   /* centra as colunas dentro do .row */
-  gap: 56px;                 /* espaço entre logos e redes (ajuste fino) */
+  padding: 30px 0 40px;
+  text-align: center; 
 }
 
-footer.dzam-footer .footer-left.w-100 { 
-  width: auto !important;
+footer.dzam-footer.row {
+  justify-content: center;   /* centra as colunas dentro do .row */
+  align-items: center;
+  flex-direction: column;
+  gap: 28px;                 /* espaço entre logos e redes (ajuste fino) */
 }
+
 
 footer.dzam-footer .footer-logo {
   display: block;
@@ -803,17 +804,15 @@ footer.dzam-footer .social-links {
   gap: 28px;        
 }
 footer.dzam-footer .social-icon {
-  width: 44px;    
-  height: 44px;
+  width: 52px;    
+  height: 52px;
   display: block;
 }
 
 @media (max-width: 768px) {
-  footer.dzam-footer.row { gap: 24px; }
-  footer.dzam-footer .footer-left,
-  footer.dzam-footer .footer-right { text-align: center; }
+  footer.dzam-footer.row { gap: 20px; }
   footer.dzam-footer .footer-logo { max-height: 80px; }
-  footer.dzam-footer .social-icon { width: 40px; height: 40px; }
+  footer.dzam-footer .social-icon { width: 48px; height: 48px; }
 }
 
 /* --------- Viz --------- */
