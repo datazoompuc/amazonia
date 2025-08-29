@@ -26,7 +26,7 @@ description: "Gráfico dinâmico com séries de produção, consumo e consumidor
 
 <br>
 <br>
-<div class="container-fluid my-4 ps-5 pe-5">
+<div class="container-fluid my-4 px-3">
   <div class="row">
     <div class="col-md-3" style="text-align:left;">
       <h2 style="font-size:20px;line-height:1.5">
