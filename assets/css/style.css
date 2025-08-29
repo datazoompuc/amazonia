@@ -809,6 +809,25 @@ footer.dzam-footer .social-icon {
   vertical-align: middle;
 }
 
+/* Créditos no rodapé */
+footer.dzam-footer .footer-credits {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #333;
+}
+footer.dzam-footer .footer-credits a {
+  color: inherit;
+  text-decoration: none;
+}
+footer.dzam-footer .footer-credits a:hover {
+  text-decoration: underline;
+}
+footer.dzam-footer .to-the-top {
+  margin-top: 8px;
+  font-size: 1.2rem;
+}
+
 @media (max-width: 768px) {
   footer.dzam-footer.row { gap: 20px; }
   footer.dzam-footer .footer-logo { max-height: 80px; }
