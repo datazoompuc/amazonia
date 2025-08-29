@@ -32,16 +32,15 @@ description: "Gráfico dinâmico com séries de produção, consumo e consumidor
       </h2>
     </div>
     <div class="col-md-9">
+     <div class="rodape_viz">
       <p>
         Dados coletados da <a href="https://www.epe.gov.br/" target="_blank" rel="noreferrer noopener">EPE</a>. 
         A Empresa de Pesquisa Energética (EPE) é uma empresa pública brasileira, vinculada ao Ministério de Minas e Energia, 
-        responsável por realizar estudos e pesquisas na área de energia elétrica e energias renováveis.
-      </p>
-
-      <p>
+        responsável por realizar estudos e pesquisas na área de energia elétrica e energias renováveis. <br>
         Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
-
+     </div>
+    
       <p class="p-3" style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px;">
         <strong>Atenção</strong>: Esta visualização é alimentada por dados tratados através do pacote 
         <code>datazoom.amazonia</code> no <code>R</code> (função <code>load_epe()</code>) e está sujeita a erro diante de 
