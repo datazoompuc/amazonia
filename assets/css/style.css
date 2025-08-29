@@ -778,7 +778,7 @@ header { text-align: center; }
 /* Deixa a logo maior sem estourar o container */
 .dzam-footer .footer-logo {
   display: block;
-  max-width: 80px;   
+  max-height: 80px;   
   height: auto;
   margin: 0 auto;   /* centraliza horizontalmente */
 }
