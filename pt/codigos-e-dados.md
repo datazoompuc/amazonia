@@ -19,8 +19,8 @@ permalink: pt/codigos-e-dados/
     </p>
 
     <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top: 16px;">
-      <a class="cta-button" href="https://github.com/datazoompuc/datazoom.amazonia" target="_blank" rel="noreferrer noopener">acesse nosso github</a>
-      <a class="cta-button is-outline" href="https://datazoompuc.github.io/datazoom.amazonia/" target="_blank" rel="noreferrer noopener">baixe a documentação (.PDF)</a>
+      <a class="cta-button" href="https://github.com/datazoompuc/datazoom.amazonia" target="_blank" rel="noreferrer noopener">Acesse nosso GitHub</a>
+      <a class="cta-button is-outline" href="https://datazoompuc.github.io/datazoom.amazonia/" target="_blank" rel="noreferrer noopener">Veja a documentação do CRAN</a>
     </div>
   </div>
 </div>
