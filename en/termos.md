@@ -5,7 +5,7 @@ lang: en
 ---
 <br>
 <br>
-<h1 class="title-about">Termos de Uso</h1>
+<h1 class="title-about">Terms of Use</h1>
 <br>
 
 
