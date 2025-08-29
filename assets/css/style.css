@@ -261,14 +261,14 @@ body, .entry-title a, :root .has-primary-color {
 /* Título e subtítulo da capa */
 .capa .capa-content h2 {
   font-family: 'Inter', sans-serif;
-  font-size: 8rem;     /* maior */
-  font-weight: 800;    /* negrito forte */
+  font-size: 9rem;     
+  font-weight: 800;    
   line-height: 1.05;
   margin-bottom: 1rem;
   color: #fff;
 }
 .capa .capa-content p {
-  font-size: 1.8rem;   /* maior */
+  font-size: 2.5rem;   
   line-height: 1.6;
   margin-bottom: 2rem;
   color: #fff;
