@@ -773,40 +773,48 @@ header { text-align: center; }
 }
 
 
-/* --------- Footer ajustes --------- */
+/* ======= Footer ======= */
 
-/* Deixa a logo maior sem estourar o container */
-.dzam-footer .footer-logo {
+footer.dzam-footer {
+  border-top: 2px solid var(--viridis-matas-color);
+  padding: 20px 0 0;
+}
+footer.dzam-footer.row {
+  justify-content: center;   /* centra as colunas dentro do .row */
+  gap: 56px;                 /* espaço entre logos e redes (ajuste fino) */
+}
+
+footer.dzam-footer .footer-left.w-100 { 
+  width: auto !important;
+}
+
+footer.dzam-footer .footer-logo {
   display: block;
-  max-height: 80px;   
+  max-height: 96px;   /* ajuste para ficar próximo do mock (2) */
+  width: auto;
   height: auto;
-  margin: 0 auto;   /* centraliza horizontalmente */
+  margin: 0 auto;     /* centraliza dentro da coluna */
 }
 
-/* Container dos ícones de redes sociais */
-.dzam-footer .social-links {
+footer.dzam-footer .social-links {
   display: flex;
-  justify-content: center;   /* centraliza no eixo horizontal */
-  align-items: center;       /* centraliza no eixo vertical */
-  gap: 24px;                 /* espaçamento entre os ícones */
+  align-items: center;
+  justify-content: center;
+  gap: 28px;        
 }
-
-/* Tamanho fixo e consistente dos ícones */
-.dzam-footer .social-icon {
-  width: 64px;   /* levemente maior que antes */
-  height: 64px;
+footer.dzam-footer .social-icon {
+  width: 44px;    
+  height: 44px;
   display: block;
 }
 
-/* Responsivo: garante que em telas menores tudo fique bem alinhado */
-@media (max-width: 767.98px) {
-  .dzam-footer .footer-left,
-  .dzam-footer .footer-right {
-    text-align: center;
-    margin-bottom: 12px;
-  }
+@media (max-width: 768px) {
+  footer.dzam-footer.row { gap: 24px; }
+  footer.dzam-footer .footer-left,
+  footer.dzam-footer .footer-right { text-align: center; }
+  footer.dzam-footer .footer-logo { max-height: 80px; }
+  footer.dzam-footer .social-icon { width: 40px; height: 40px; }
 }
-
 
 /* --------- Viz --------- */
 
