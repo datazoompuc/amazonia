@@ -106,6 +106,14 @@ header {
 
 /* ---------- Header sticky / theme ---------- */
 
+#site-header {
+  background: #fff;
+  position: relative;
+  border-bottom: 2px solid var(--viridis-matas-color) !important;
+  box-shadow: none !important;
+}
+
+/* Mantém sticky em telas altas */
 @media screen and (min-height: 600px) {
   #site-header {
     position: sticky;
@@ -114,20 +122,17 @@ header {
   }
 }
 
-#site-header {
-  background: #fff;
-  position: relative;
-  border-bottom: 2px solid var(--viridis-matas-color) !important;
+/* Remove linhas fantasmas injetadas pelo WP (footer widgets etc.) */
+.footer-nav-widgets-wrapper.header-footer-group {
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
-.header-footer-group,
-body:not(.overlay-header) #site-header .toggle,
-.menu-modal .toggle {
-  color: #000000;
-}
-
-body, .entry-title a, :root .has-primary-color {
-  color: #000000;
+/* Ajusta espaçamento para não sobrar branco entre header e conteúdo */
+.header-inner,
+.header-footer-group {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* ---------- PÁGINA "SOBRE" ---------- */
@@ -853,4 +858,12 @@ footer.dzam-footer .footer-credits a:hover {
   font-weight: 400;
   line-height: 137% !important;
   text-align: left;
+}
+
+
+/* remove espaço extra logo abaixo do header */
+.header-inner,
+.header-footer-group {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
