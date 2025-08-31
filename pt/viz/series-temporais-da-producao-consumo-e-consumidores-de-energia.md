@@ -7,7 +7,7 @@ description: "Gráfico dinâmico com séries de produção, consumo e consumidor
 
 <h1 class="text-center">Séries Temporais da Produção, Consumo e Consumidores de Energia</h1>
 
-<p class="text-center" style="font-size:14px;color:#3f8513">
+<p class="text-center" style="font-size:14px;color:#3f8513"; margin:20px;>
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre a produção, o consumo e os consumidores de energia da Amazônia Legal e do Brasil inteiro. 
   Filtre para os estados de interesse, selecione as fontes de energia e categorias de consumo de interesse e acompanhe a evolução ao longo do tempo.
 </p>
@@ -49,8 +49,8 @@ description: "Gráfico dinâmico com séries de produção, consumo e consumidor
         <a href="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank" rel="noreferrer noopener">Issues do GitHub</a>.
       </p>
        <p class="mt-4">
-        &gt; <a href="{{ site.baseurl }}/visualizacoes/">&lt;Voltar para Visualizações</a>
-      </p>
+        <a href="{{ site.baseurl }}/visualizacoes/">&lt;Voltar para Visualizações</a>
+       </p>
      </div>
 
       
