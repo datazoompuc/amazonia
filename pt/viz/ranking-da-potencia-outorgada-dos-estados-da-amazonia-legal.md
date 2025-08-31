@@ -9,7 +9,7 @@ description: "Ranking dinâmico dos estados com maior potência outorgada na Ama
 <h1 class="title-about" style = "margin: 0px 200px;"> Ranking da Potência Outorgada dos Estados da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:14px;color:#3f8513; margin:20px 300px;">
+<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
   Em nosso gráfico, o eixo x representa o valor da potência outorgada dos estados da Amazônia Legal em kw. Além disso, cada cor do gráfico representa um estado, e pode-se escolher o período que desejar. É possível também filtrar por fonte, origem, tipo e combustível final Já tentou apertar o play para ver o gráfico se alterando ao longo do tempo?
 </p>
 <br>
