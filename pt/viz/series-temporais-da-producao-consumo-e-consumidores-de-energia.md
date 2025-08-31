@@ -7,7 +7,7 @@ description: "Gráfico dinâmico com séries de produção, consumo e consumidor
 
 <h1 class="text-center">Séries Temporais da Produção, Consumo e Consumidores de Energia</h1>
 
-<p class="text-center" style="font-size:14px;color:#3f8513; margin:20px;">
+<p class="text-center" style="font-size:14px;color:#3f8513; margin:20px 60px;">
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre a produção, o consumo e os consumidores de energia da Amazônia Legal e do Brasil inteiro. 
   Filtre para os estados de interesse, selecione as fontes de energia e categorias de consumo de interesse e acompanhe a evolução ao longo do tempo.
 </p>
