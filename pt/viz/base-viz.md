@@ -1,8 +1,8 @@
 ---
 layout: default
 lang: pt
-title: Título com aspas (ex: "Séries Temporais da Produção, Consumo e Consumidores de Energia")
-description: descrição da viz com aspas (ex: "Gráfico dinâmico com séries de produção, consumo e consumidores de energia na Amazônia Legal e no Brasil.")
+title: Título com aspas (ex "Séries Temporais da Produção, Consumo e Consumidores de Energia")
+description: descrição da viz com aspas (ex "Gráfico dinâmico com séries de produção, consumo e consumidores de energia na Amazônia Legal e no Brasil.")
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
