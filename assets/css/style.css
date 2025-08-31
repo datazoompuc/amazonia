@@ -869,6 +869,11 @@ footer.dzam-footer .footer-credits a:hover {
   text-decoration: none;
 }
 
+.code_viz {
+  color: #000000;
+  background: none;
+}
+/*------------------Fim Viz-----------------*/
 
 /* remove espaço extra logo abaixo do header */
 .header-inner,
