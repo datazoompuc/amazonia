@@ -150,7 +150,7 @@ header {
 .capa_sobre {
   position: relative;
   width: 100%;
-  background-image: url("/assets/img/CapaSobre.png");
+  background-image: url("../img/CapaSobre.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -229,7 +229,7 @@ header {
 
 /* Container com background já definido no HTML ou aqui */
 .capa {
-  background-image: url("/assets/img/CapaSite.png");
+  background-image: url("../img/CapaSite.png");
   background-position: 45% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -376,7 +376,7 @@ header {
 
 /* Container com background já definido no HTML ou aqui */
 .capa {
-  background-image: url("/assets/img/CapaSite.png");
+  background-image: url("../img/CapaSite.png");
   background-position: 45% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -711,7 +711,7 @@ header { text-align: center; }
 ============================== */
 
 .capa {
-  background-image: url("/assets/img/CapaSite.png");
+  background-image: url("../img/CapaSite.png");
   background-position: 45% 50%;
   background-size: cover;
   background-repeat: no-repeat;
