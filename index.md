@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Data Zoom Amazônia
+title: Início
 lang: pt
 ---
 
