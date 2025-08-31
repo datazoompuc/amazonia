@@ -48,7 +48,8 @@ description: "Gráfico dinâmico com séries de produção, consumo e consumidor
         alterações nas fontes externas. Caso o usuário identifique alguma discrepância de informação, solicitamos que reporte nos 
         <a href="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank" rel="noreferrer noopener">Issues do GitHub</a>.
       </p>
-       <p class="mt-4">
+       <br><br>
+       <p>
         <a href="{{ site.baseurl }}/visualizacoes/">&lt; Voltar para Visualizações</a>
        </p>
      </div>
