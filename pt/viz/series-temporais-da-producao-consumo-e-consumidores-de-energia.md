@@ -42,14 +42,14 @@ description: "Gráfico dinâmico com séries de produção, consumo e consumidor
         Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
      <br>
-      <p class="ps-3 pe-3 pb-3 pt-3" style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px;">
+      <p class="ps-3 pe-3 pb-3 pt-3" style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px;">
         <strong>Atenção</strong>: Esta visualização é alimentada por dados tratados através do pacote 
         <code>datazoom.amazonia</code> no <code>R</code> (função <code>load_epe()</code>) e está sujeita a erro diante de 
         alterações nas fontes externas. Caso o usuário identifique alguma discrepância de informação, solicitamos que reporte nos 
         <a href="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank" rel="noreferrer noopener">Issues do GitHub</a>.
       </p>
        <p class="mt-4">
-        &gt; <a href="{{ site.baseurl }}/visualizacoes/"> < Voltar para Visualizações</a>
+        &gt; <a href="{{ site.baseurl }}/visualizacoes/"> <Voltar para Visualizações/a>
       </p>
      </div>
 
