@@ -1,18 +1,20 @@
 ---
 layout: default
 lang: pt
-title: <-- título da viz com aspas -->"Séries Temporais da Produção, Consumo e Consumidores de Energia"
-description: <-- descrição da viz com aspas -->"Gráfico dinâmico com séries de produção, consumo e consumidores de energia na Amazônia Legal e no Brasil.")
+title: Título com aspas (ex: "Séries Temporais da Produção, Consumo e Consumidores de Energia")
+description: descrição da viz com aspas (ex: "Gráfico dinâmico com séries de produção, consumo e consumidores de energia na Amazônia Legal e no Brasil.")
 ---
 <br><br>
-<h1 class="title-about" style = "margin: 0px 200px;"> título da viz (ex: Séries Temporais da Produção, Consumo e Consumidores de Energia)</h1>
+<!-- titulo da viz sem aspas-->
+<h1 class="title-about" style = "margin: 0px 200px;"> Séries Temporais da Produção, Consumo e Consumidores de Energia</h1>
 <br>
+<!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:14px;color:#3f8513; margin:20px 300px;">
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre a produção, o consumo e os consumidores de energia da Amazônia Legal e do Brasil inteiro. 
   Filtre para os estados de interesse, selecione as fontes de energia e categorias de consumo de interesse e acompanhe a evolução ao longo do tempo.
 </p>
 <br>
-<!-- Embed em largura total, como na página antiga -->
+<!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
     src="https://datazoom.shinyapps.io/app_ts_energia_amz_exporta/"
@@ -35,6 +37,7 @@ description: <-- descrição da viz com aspas -->"Gráfico dinâmico com séries
     </div>
     <div class="col-md-9">
      <div class="rodape_viz">
+       <!-- descrição dos dados usados-->
       <p>
         Dados coletados da <a href="https://www.epe.gov.br/" target="_blank" rel="noreferrer noopener">EPE</a>. 
         A Empresa de Pesquisa Energética (EPE) é uma empresa pública brasileira, vinculada ao Ministério de Minas e Energia, 
