@@ -1,8 +1,8 @@
 ---
 layout: default
 lang: pt
-title: "Ranking das Atividades Econômicas Mais Dinâmicas")
-description: "Ranking dinâmico com atividades econômicas mais dinâmicas na Amazônia Legal e no Brasil ao longo do tempo.")
+title: "Ranking das Atividades Econômicas Mais Dinâmicas"
+description: "Ranking dinâmico com atividades econômicas mais dinâmicas na Amazônia Legal e no Brasil ao longo do tempo."
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
