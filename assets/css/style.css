@@ -860,6 +860,15 @@ footer.dzam-footer .footer-credits a:hover {
   text-align: left;
 }
 
+.rodape_viz a {
+  color: #3f8513;
+  text-decoration: underline;
+}
+
+.rodape_viz a:hover {
+  text-decoration: none;
+}
+
 
 /* remove espaço extra logo abaixo do header */
 .header-inner,
