@@ -9,7 +9,7 @@ description: "Ranking dinâmico com atividades econômicas mais dinâmicas na Am
 <h1 class="title-about" style = "margin: 0px 200px;"> Ranking das Atividades Econômicas Mais Dinâmicas</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:14px;color:#3f8513; margin:20px 300px;">
+<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo selecionar diferentes tipos de pessoas ocupadas. Além disso, cada cor do gráfico representa uma atividade econômica e pode-se escolher o período que desejar.  Já tentou apertar o play para ver o gráfico se alterando ao longo do tempo?
 </p>
 <br>
