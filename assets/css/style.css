@@ -241,10 +241,10 @@ summary {
 }
 
 .FAQ {
-  max-width: 700px;       /* largura máxima do bloco */
+  max-width: 800px;       /* largura máxima do bloco */
   margin: 0 auto;          /* centraliza horizontalmente */
   padding: 0 20px;         /* margem interna nas laterais */
-  text-align: left;
+  text-align: justify;
 }
 
 /* ---------- Fim Página "SOBRE" ---------- */
