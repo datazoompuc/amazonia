@@ -233,6 +233,12 @@ header {
 summary {
   display: list-item;
   cursor: pointer;
+  font-family:'Inter', sans-serif !important;
+  font-size: 1.15em !important;
+  font-weight: 400;
+  line-height: 155% !important;
+  color: #00d084;
+  
 }
 
 /* ---------- Fim Página "SOBRE" ---------- */
