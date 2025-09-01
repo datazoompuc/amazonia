@@ -238,7 +238,13 @@ summary {
   font-weight: 700;
   line-height: 155% !important;
   color:#73c172;
-  
+}
+
+.FAQ {
+  max-width: 700px;       /* largura máxima do bloco */
+  margin: 0 auto;          /* centraliza horizontalmente */
+  padding: 0 20px;         /* margem interna nas laterais */
+  text-align: left;
 }
 
 /* ---------- Fim Página "SOBRE" ---------- */
