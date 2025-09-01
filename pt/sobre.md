@@ -35,9 +35,16 @@ lang: pt
 <br>
 <br>
 <br>
+<br>
 
 <h2 class="fale_conosco">Equipe Data Zoom Amazônia</h2><br>
-<div class="contato" style="text-align:center">Conheça o time de Coordenadores e Pesquisadores do Data Zoom Amazônia em nosso <a href="https://www.econ.puc-rio.br/datazoom/equipe.html" target=_blank>site</a>.<br><br><br><br>
+<div class="contato" style="text-align:center">Conheça o time de Coordenadores e Pesquisadores do Data Zoom Amazônia em nosso <a href="https://www.econ.puc-rio.br/datazoom/equipe.html" target=_blank>site</a>.
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <h2 class="fale_conosco">Fale Conosco</h2><br>
 
