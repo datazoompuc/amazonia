@@ -37,6 +37,19 @@ lang: pt
 <br>
 <br>
 
+<details>
+  <summary>Como desenvolver a Amazônia, aproveitando de forma sustentável os recursos naturais?</summary>
+  <p>Para responder a essa pergunta, quatro reconhecidas organizações de pesquisa brasileiras se juntaram para fazer o mais completo plano de ações para a Amazônia dar um salto de desenvolvimento humano e econômico preservando seus recursos naturais até 2030. Trata-se do projeto Amazônia 2030. O projeto é uma iniciativa conjunta do Instituto do Homem e do Meio Ambiente da Amazônia (Imazon) e do Centro de Empreendedorismo da Amazônia, ambos situados em Belém, com a Climate Policy Initiative (CPI) e o Departamento de Economia da PUC-Rio, localizados no Rio de Janeiro. Pesquisadores têm gerado conhecimento a partir de estudos empíricos, análises da literatura acadêmica e consultas documentais, bem como das experiências dos povos da floresta, empresários, empreendedores e agentes públicos, entre outras fontes. Esses documentos reunirão recomendações práticas, que poderão ser aplicadas por agentes privados e públicos.</p>
+</details>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
 <h2 class="fale_conosco">Equipe Data Zoom Amazônia</h2><br>
 <div class="contato" style="text-align:center">Conheça o time de Coordenadores e Pesquisadores do Data Zoom Amazônia em nosso <a href="https://www.econ.puc-rio.br/datazoom/equipe.html" target=_blank>site</a>.
 </div>
