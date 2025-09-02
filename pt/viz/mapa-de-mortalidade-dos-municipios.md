@@ -52,7 +52,7 @@ description: "Mapa dinâmico da saúde na Amazônia: Mortalidade ao nível munic
       </p>
        <br><br>
        <p>
-        <a href="{{ site.baseurl }}/visualizacoes/">&lt; Voltar para Visualizações</a>
+        <a href="{{ site.baseurl }}/pt/viz/">&lt; Voltar para Visualizações</a>
        </p>
      </div>
 

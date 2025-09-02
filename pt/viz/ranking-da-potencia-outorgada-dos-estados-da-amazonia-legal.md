@@ -51,7 +51,7 @@ description: "Ranking dinâmico dos estados com maior potência outorgada na Ama
       </p>
        <br><br>
        <p>
-        <a href="{{ site.baseurl }}/visualizacoes/">&lt; Voltar para Visualizações</a>
+        <a href="{{ site.baseurl }}/pt/viz/">&lt; Voltar para Visualizações</a>
        </p>
      </div>
 

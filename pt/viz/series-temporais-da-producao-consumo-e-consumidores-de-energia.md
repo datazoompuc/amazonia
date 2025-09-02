@@ -50,7 +50,7 @@ description: "Gráfico dinâmico com séries de produção, consumo e consumidor
       </p>
        <br><br>
        <p>
-        <a href="{{ site.baseurl }}/visualizacoes/">&lt; Voltar para Visualizações</a>
+        <a href="{{ site.baseurl }}/pt/viz/">&lt; Voltar para Visualizações</a>
        </p>
      </div>
 

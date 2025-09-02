@@ -53,7 +53,7 @@ description: descrição da viz com aspas (ex "Gráfico dinâmico com séries de
       </p>
        <br><br>
        <p>
-        <a href="{{ site.baseurl }}/visualizacoes/">&lt; Voltar para Visualizações</a>
+        <a href="{{ site.baseurl }}/pt/viz/">&lt; Voltar para Visualizações</a>
        </p>
      </div>
 

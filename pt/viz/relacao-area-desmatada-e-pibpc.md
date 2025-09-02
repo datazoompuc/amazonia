@@ -58,7 +58,7 @@ description: "Gráfico de dispersão relacionando área desmatada e PIB per capi
       </p>
        <br><br>
        <p>
-        <a href="{{ site.baseurl }}/visualizacoes/">&lt; Voltar para Visualizações</a>
+        <a href="{{ site.baseurl }}/pt/viz/">&lt; Voltar para Visualizações</a>
        </p>
      </div>
 
