@@ -17,7 +17,7 @@ description: "Mapa dinâmico da saúde na Amazônia: Mortalidade ao nível munic
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_energia_amz_exporta/"
+    src="https://datazoom.shinyapps.io/app_map_saude_mortalidade"
     width="100%"
     height="800"
     frameborder="0"
