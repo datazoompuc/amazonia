@@ -24,7 +24,7 @@ lang: en
 
 <div class="alignfull has-no-padding shinyblock">
   <iframe class="shinyframe"  width="100%" height="600px" frameborder="0" scrolling="no" 
-    src= "https://datazoompuc.github.io/bacia_infografica"  allowfullscreen="allowfullscreen">
+    src= "https://datazoompuc.github.io/basin_infographic/"  allowfullscreen="allowfullscreen">
   </iframe>
 </div>
 
