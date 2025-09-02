@@ -2,7 +2,7 @@
 layout: default
 lang: pt
 title: "Sankey do Volume de Exportação da Amazônia por País de Destino"
-description: 
+description: "Comércio exterior na Amazônia (COMEX): Valor da exportação de produtos por país de destino"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
@@ -17,12 +17,12 @@ description:
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_energia_amz_exporta/"
+    src="https://datazoom.shinyapps.io/app_sankey_comex_exp_pais_sec/"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Séries temporais: energia — Data Zoom Amazônia"
+    title="Sankeys: Comércio exterior na Amazônia"
   ></iframe>
 </div>
 
