@@ -51,7 +51,7 @@ description: "Health conditions at Amazon: Mortality at the municipal level"
       </p>
        <br><br>
        <p>
-        <a href="{{ site.baseurl }}/visualizacoes/">&lt; Back to Visualizations</a>
+        <a href="{{ site.baseurl }}/en/viz/">&lt; Back to Visualizations</a>
        </p>
      </div>
 
