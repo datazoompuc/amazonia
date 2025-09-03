@@ -10,7 +10,7 @@ description: "Mapa dinâmico com cobertura da terra por município com contorno 
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
-  Em nosso mapa dinâmico é possível selecionar qualquer ano entre 1985 e 2023. Filtre para o tipo de cobertura de interesse, seja de vegetação ou de atividade econômica. Os dados podem ser visualizados como proporção da área do munciípio.
+  Em nosso mapa dinâmico é possível selecionar qualquer ano entre 1985 e 2023. Filtre para o tipo de cobertura de interesse, seja de vegetação ou de atividade econômica. Os dados podem ser visualizados em hectares ou como proporção da área do município.
 </p>
 <br>
 <!-- link do shinyapps -->
@@ -40,7 +40,7 @@ description: "Mapa dinâmico com cobertura da terra por município com contorno 
       <p>
         Dados coletados do <a href="https://brasil.mapbiomas.org/" target="_blank" rel="noreferrer noopener">MapBiomas</a>. 
         O MapBiomas é uma iniciativa colaborativa formada por universidades, ONGs e empresas de tecnologia, dedicada ao mapeamento da cobertura e do uso da terra.
-        Ele Utiliza imagens de satélite e sensoriamento remoto para gerar séries históricas anuais. <br><br>
+        Ele utiliza imagens de satélite e sensoriamento remoto para gerar dados em painel. <br><br>
         Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
      <br>
