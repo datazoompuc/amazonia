@@ -1,8 +1,8 @@
 ---
 layout: default
 lang: pt
-title: "Mapa de Cobertura a Nível Municipal Por Vegetação ou Atividade Econômica"
-description: "Mapa dinâmico com cobertura da terra por município com contorno da Amazônia Legal."
+title: "Mapa de Cobertura da Terra"
+description: "Mapa dinâmico de cobertura vegetal e de uso da terra por município."
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
