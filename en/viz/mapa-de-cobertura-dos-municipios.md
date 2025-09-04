@@ -1,7 +1,7 @@
 ---
 layout: default
 lang: en
-title: "Map of Municipalities' Land Use and Cover
+title: "Map of Municipalities' Land Use and Cover"
 description: "Dynamic map with vegetation cover and land use by municipality with the outline of the Legal Amazon."
 ---
 <br><br>
