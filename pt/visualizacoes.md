@@ -14,6 +14,7 @@ lang: pt
 <br>
 <br>
 <br>
+<br>
 
 <div style="max-width:600px; margin:0 auto;">
   <h2 class="selecao_por_tema">Seleção por Tema de Visualização</h2>
@@ -25,4 +26,15 @@ lang: pt
       <a href="#sankeys" class="botao">MERCADO DE TRABALHO</a>
       <a href="#series" class="botao">SAÚDE</a>
     </div>
-  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+   <h2 class="selecao_por_tema">PRINCIPAIS VISUALIZAÇÕES DISPONÍVEIS</h2>
+
+
+  <br>
+  <br>
+  <br>
