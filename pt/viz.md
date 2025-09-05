@@ -26,7 +26,7 @@ lang: pt
       <a href="#sankeys" class="botao">MERCADO DE TRABALHO</a>
       <a href="#series" class="botao">SAÚDE</a>
     </div>
-
+</div>
   <br>
   <br>
   <br>
