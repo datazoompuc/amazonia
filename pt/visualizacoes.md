@@ -14,3 +14,7 @@ lang: pt
 <br>
 <br>
 <br>
+
+<div style="max-width:700px; margin:0 auto;">
+  <p>Seleção por tema da visualização</p>
+</div>
