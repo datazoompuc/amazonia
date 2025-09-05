@@ -840,6 +840,44 @@ footer.dzam-footer .footer-credits a:hover {
 }
 /*------------------Fim Viz-----------------*/
 
+/*------------------ Visualizacoes -----------------*/
+
+.selecao_por_tema {
+  color: #73c373;            /* verde claro */
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.25em;
+  font-weight: 600;
+  letter-spacing: 0.05em;    /* espaçamento entre letras */
+  line-height: 130% !important;
+
+.botoes-container {
+  display: flex;
+  flex-wrap: wrap;       /* permite quebrar linha */
+  gap: 10px;             /* espaço entre os botões */
+  justify-content: center; /* centraliza no meio */
+  margin: 20px 0;
+}
+
+.botao {
+  display: inline-block;
+  background-color: #3f8513; /* verde */
+  color: #ffffff;           /* texto branco */
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 18px;
+  text-decoration: underline;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.botao:hover {
+  text-decoration: none;
+  background-color: #2f640e; /* tom mais escuro no hover */
+}
+
+/*------------------ Fim Visualizacoes -----------------*/
+
 /* remove espaço extra logo abaixo do header */
 .header-inner,
 .header-footer-group {
