@@ -40,7 +40,7 @@ lang: pt
   <br>
   
   <div class="imagens-container">
-    <a href="https://link1.com" target="_blank" rel="noopener noreferrer">
+    <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-mais-dinamicas.md" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/Icon_Viz_atividades_dinamicas.png" alt="Descrição 1">
     </a>
     <a href="https://link2.com" target="_blank" rel="noopener noreferrer">
