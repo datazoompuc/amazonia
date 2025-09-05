@@ -15,7 +15,7 @@ lang: pt
 <br>
 <br>
 
-<div style="max-width:400px; margin:0 auto;">
+<div style="max-width:500px; margin:0 auto;">
   <h2 class="selecao_por_tema">Seleção por Tipo de Visualização</h2>
     <div class="botoes-container">
       <a href="#histogramas" class="botao">COMÉRCIO EXTERIOR</a>
