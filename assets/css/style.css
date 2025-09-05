@@ -884,7 +884,7 @@ a.botao:hover {
 }
 
 .imagens-container img {
-  width: 300px;       /* controla o tamanho */
+  width: 200px;       /* controla o tamanho */
   height: auto;       /* mantém proporção */
   border-radius: 6px; /* opcional: cantos arredondados */
   transition: transform 0.2s ease;
@@ -896,7 +896,7 @@ a.botao:hover {
 
 .icone-bloco {
   text-align: center;   /* centraliza a descrição */
-  max-width: 350px;     /* mesma largura da imagem */
+  max-width: 200px;     /* mesma largura da imagem */
 }
 
 
