@@ -879,12 +879,12 @@ a.botao:hover {
 .imagens-container {
   display: flex;
   justify-content: center; /* centraliza */
-  gap: 20px;               /* espaço entre as imagens */
+  gap: 50px;               /* espaço entre as imagens */
   margin: 20px 0;
 }
 
 .imagens-container img {
-  width: 200px;       /* controla o tamanho */
+  width: 400px;       /* controla o tamanho */
   height: auto;       /* mantém proporção */
   border-radius: 6px; /* opcional: cantos arredondados */
   transition: transform 0.2s ease;
