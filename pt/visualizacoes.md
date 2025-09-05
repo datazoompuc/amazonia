@@ -38,3 +38,15 @@ lang: pt
   <br>
   <br>
   <br>
+  
+  <div class="imagens-container">
+    <a href="https://link1.com" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/imagem1.png" alt="Descrição 1">
+    </a>
+    <a href="https://link2.com" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/imagem2.png" alt="Descrição 2">
+    </a>
+    <a href="https://link3.com" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/imagem3.png" alt="Descrição 3">
+    </a>
+  </div>
