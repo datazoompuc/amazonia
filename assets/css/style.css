@@ -849,7 +849,8 @@ footer.dzam-footer .footer-credits a:hover {
   font-weight: 600;
   letter-spacing: 0.05em;    /* espaçamento entre letras */
   line-height: 130% !important;
-
+}
+  
 .botoes-container {
   display: flex;
   flex-wrap: wrap;       /* permite quebrar linha */
