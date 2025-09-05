@@ -884,7 +884,7 @@ a.botao:hover {
 }
 
 .imagens-container img {
-  width: 400px;       /* controla o tamanho */
+  width: 300px;       /* controla o tamanho */
   height: auto;       /* mantém proporção */
   border-radius: 6px; /* opcional: cantos arredondados */
   transition: transform 0.2s ease;
