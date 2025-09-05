@@ -877,14 +877,16 @@ a.botao:hover {
 
 
 .imagens-container {
+  flex-direction: row;
   display: flex;
   justify-content: center; /* centraliza */
-  gap: 40px;               /* espaço entre as imagens */
+  gap: 50px;               /* espaço entre as imagens */
   margin: 20px 0;
+  flex-wrap: wrap;
 }
 
 .imagens-container img {
-  width: 200px;       /* controla o tamanho */
+  width: 300px;       /* controla o tamanho */
   height: auto;       /* mantém proporção */
   border-radius: 6px; /* opcional: cantos arredondados */
   transition: transform 0.2s ease;
@@ -895,8 +897,11 @@ a.botao:hover {
 }
 
 .icone-bloco {
-  text-align: center;   /* centraliza a descrição */
-  max-width: 200px;     /* mesma largura da imagem */
+  display: flex;
+  flex-direction: column;  /* empilha imagem + descrição */
+  align-items: center;     /* centraliza dentro do bloco */
+  text-align: center;     
+  max-width: 300px;     /* mesma largura da imagem */
 }
 
 
