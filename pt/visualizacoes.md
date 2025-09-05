@@ -41,7 +41,7 @@ lang: pt
   
   <div class="imagens-container">
     <a href="https://link1.com" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/imagem1.png" alt="Descrição 1">
+      <img src="{{ site.baseurl }}/assets/img/Icon_Viz_atividades_dinamicas.png" alt="Descrição 1">
     </a>
     <a href="https://link2.com" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/imagem2.png" alt="Descrição 2">
