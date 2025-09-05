@@ -875,6 +875,26 @@ a.botao:hover {
   background-color: #2f640e; /* tom mais escuro no hover */
 }
 
+
+.imagens-container {
+  display: flex;
+  justify-content: center; /* centraliza */
+  gap: 20px;               /* espaço entre as imagens */
+  margin: 20px 0;
+}
+
+.imagens-container img {
+  width: 200px;       /* controla o tamanho */
+  height: auto;       /* mantém proporção */
+  border-radius: 6px; /* opcional: cantos arredondados */
+  transition: transform 0.2s ease;
+}
+
+.imagens-container img:hover {
+  transform: scale(1.05); /* efeito zoom ao passar o mouse */
+}
+
+
 /*------------------ Fim Visualizacoes -----------------*/
 
 /* remove espaço extra logo abaixo do header */
