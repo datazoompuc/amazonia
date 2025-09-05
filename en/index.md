@@ -32,7 +32,7 @@ lang: en
     <img src="{{ site.baseurl }}/assets/img/Icone_-Doc1-2-768x1024.png" alt="">
     <div class="text-content">
         <h3>Learn more about the methodology and access the complete documentation</h3>
-        <p>Data Zoom Amazônia data are extracted from the `datazoom.amazonia` package in the statistical program R. <a href="https://www.econ.puc-rio.br/datazoom/dz_amazonia.html" style="text-decoration: underline;">Learn more</a> about our open codes.</p>
+        <p>Data Zoom Amazônia data are extracted from the `datazoom.amazonia` package in the statistical program R. <a href="https://www.econ.puc-rio.br/datazoom/english/dz_amazonia.html" style="text-decoration: underline;">Learn more</a> about our open codes.</p>
     </div>
 </div>
 
