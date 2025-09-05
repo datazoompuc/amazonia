@@ -34,8 +34,6 @@ lang: pt
 
    <h2 class="selecao_por_tema">PRINCIPAIS VISUALIZAÇÕES DISPONÍVEIS</h2>
 
-
-  <br>
   <br>
   <br>
   
