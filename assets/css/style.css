@@ -879,7 +879,7 @@ a.botao:hover {
 .imagens-container {
   display: flex;
   justify-content: center; /* centraliza */
-  gap: 50px;               /* espaço entre as imagens */
+  gap: 40px;               /* espaço entre as imagens */
   margin: 20px 0;
 }
 
@@ -896,7 +896,7 @@ a.botao:hover {
 
 .icone-bloco {
   text-align: center;   /* centraliza a descrição */
-  max-width: 300px;     /* mesma largura da imagem */
+  max-width: 350px;     /* mesma largura da imagem */
 }
 
 
