@@ -894,6 +894,11 @@ a.botao:hover {
   transform: scale(1.05); /* efeito zoom ao passar o mouse */
 }
 
+.icone-bloco {
+  text-align: center;   /* centraliza a descrição */
+  max-width: 300px;     /* mesma largura da imagem */
+}
+
 
 /*------------------ Fim Visualizacoes -----------------*/
 
