@@ -41,19 +41,19 @@ lang: pt
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-mais-dinamicas" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/Icon_Viz_atividades_dinamicas.png" alt="ícone ranking das atividades mais dinâmicas">
-    </a>
+    </a><br>
     <p>Ranking das Atividades Econômicas Mais Dinâmicas</p>
    </div>
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/series-temporais-da-producao-consumo-e-consumidores-de-energia" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icon_ts_prod_con.jpg" alt="ícone séries temporais produção e consumo de energia 2">
-    </a>
+    </a><br>
     <p>Produção, Consumo e Consumidores de Energia – Séries Temporais</p>
    </div>
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/ranking-da-potencia-outorgada-dos-estados-da-amazonia-legal" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icon_pot_outorgada.jpg" alt="ícone ranking potência outorgada">
-    </a>
+    </a><br>
     <p>Ranking de Potência Outorgada</p>
    </div>
   </div>
