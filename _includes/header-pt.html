@@ -125,16 +125,20 @@
     <ul class="menu" id="site-menu">
       <li><a href="{{ site.baseurl }}">Página Principal</a></li>
       <li>
-        <a href="#" class="menu-link" id="viz-toggle" aria-expanded="false" aria-controls="viz-submenu">
-          <span>Visualizações</span><span class="caret">▾</span>
+        <a href="{{ site.baseurl }}/pt/visualizacoes/" 
+           class="menu-link dropdown-toggle" 
+           id="viz-toggle" 
+           aria-expanded="false" 
+           aria-controls="viz-submenu">
+        <span>Visualizações</span><span class="caret">▾</span>
         </a>
         <ul class="submenu" id="viz-submenu">
-          <li><a href="{{ site.baseurl }}/pt/visualizacoes/comercio-exterior/">Comércio exterior</a></li>
-          <li><a href="{{ site.baseurl }}/pt/visualizacoes/desenvolvimento/">Desenvolvimento</a></li>
-          <li><a href="{{ site.baseurl }}/pt/visualizacoes/desmatamento/">Desmatamento</a></li>
-          <li><a href="{{ site.baseurl }}/pt/visualizacoes/energia/">Energia</a></li>
-          <li><a href="{{ site.baseurl }}/pt/visualizacoes/mercado-trabalho/">Mercado de Trabalho</a></li>
-          <li><a href="{{ site.baseurl }}/pt/visualizacoes/saude/">Saúde</a></li>
+      <li><a href="{{ site.baseurl }}/pt/visualizacoes/comercio-exterior/">Comércio exterior</a></li>
+      <li><a href="{{ site.baseurl }}/pt/visualizacoes/desenvolvimento/">Desenvolvimento</a></li>
+      <li><a href="{{ site.baseurl }}/pt/visualizacoes/desmatamento/">Desmatamento</a></li>
+      <li><a href="{{ site.baseurl }}/pt/visualizacoes/energia/">Energia</a></li>
+      <li><a href="{{ site.baseurl }}/pt/visualizacoes/mercado-trabalho/">Mercado de Trabalho</a></li>
+      <li><a href="{{ site.baseurl }}/pt/visualizacoes/saude/">Saúde</a></li>
         </ul>
       </li>
       <li><a href="{{ site.baseurl }}/pt/codigos-e-dados/">Códigos e Dados</a></li>
