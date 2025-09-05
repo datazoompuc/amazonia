@@ -858,7 +858,7 @@ footer.dzam-footer .footer-credits a:hover {
   margin: 20px 0;
 }
 
-.botao {
+a.botao {
   display: inline-block !important;
   background-color: #3f8513 !important;
   color: #ffffff !important;
@@ -871,7 +871,7 @@ footer.dzam-footer .footer-credits a:hover {
   transition: all 0.2s ease !important;
 }
   
-.botao:hover {
+a.botao:hover {
   text-decoration: none;
   background-color: #2f640e; /* tom mais escuro no hover */
 }
