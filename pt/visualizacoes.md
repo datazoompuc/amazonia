@@ -40,13 +40,13 @@ lang: pt
   <br>
   
   <div class="imagens-container">
-    <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-mais-dinamicas.md" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/Icon_Viz_atividades_dinamicas.png" alt="Descrição 1">
+    <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-mais-dinamicas" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/Icon_Viz_atividades_dinamicas.png" alt="ícone ranking das atividades mais dinâmicas">
     </a>
-    <a href="https://link2.com" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/imagem2.png" alt="Descrição 2">
+    <a href="{{ site.baseurl }}/pt/viz/series-temporais-da-producao-consumo-e-consumidores-de-energia" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icon_ts_prod_con.jpg" alt="ícone séries temporais produção e consumo de energia 2">
     </a>
-    <a href="https://link3.com" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/imagem3.png" alt="Descrição 3">
+    <a href="{{ site.baseurl }}/pt/viz/ranking-da-potencia-outorgada-dos-estados-da-amazonia-legal" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icon_pot_outorgada.jpg" alt="ícone ranking potência outorgada">
     </a>
   </div>
