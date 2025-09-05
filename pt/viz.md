@@ -19,12 +19,12 @@ lang: pt
 <div style="max-width:600px; margin:0 auto;">
   <h2 class="selecao_por_tema">SELEÇÃO POR TEMA DA VISUALIZAÇÃO</h2>
     <div class="botoes-container">
-      <a href="#histogramas" class="botao">COMÉRCIO EXTERIOR</a>
-      <a href="#mapas" class="botao">DESENVOLVIMENTO</a>
-      <a href="#rankings" class="botao">DESMATAMENTO</a>
-      <a href="#relacao" class="botao">ENERGIA</a>
-      <a href="#sankeys" class="botao">MERCADO DE TRABALHO</a>
-      <a href="#series" class="botao">SAÚDE</a>
+      <a href="{{ site.baseurl }}/pt/viz/comercio-exterior" class="botao">COMÉRCIO EXTERIOR</a>
+      <a href="{{ site.baseurl }}/pt/viz/desenvolvimento" class="botao">DESENVOLVIMENTO</a>
+      <a href="{{ site.baseurl }}/pt/viz/desmatamento" class="botao">DESMATAMENTO</a>
+      <a href="{{ site.baseurl }}/pt/viz/energia" class="botao">ENERGIA</a>
+      <a href="{{ site.baseurl }}/pt/viz/mercado-de-trabalho" class="botao">MERCADO DE TRABALHO</a>
+      <a href="{{ site.baseurl }}/pt/viz/saude" class="botao">SAÚDE</a>
     </div>
 </div>
   <br>
