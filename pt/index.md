@@ -14,7 +14,7 @@ lang: pt
             <a href="https://amazonia2030.org.br/o-projeto/" style="text-decoration: underline;">Amazônia 2030</a>. 
             Buscamos simplificar o acesso aos microdados da Amazônia Legal e desenvolver uma plataforma de visualização de dados que seja aberta, acessível, interativa e parametrizável.
         </p>
-        <a href="{{ site.baseurl }}/pt/visualizacoes/" class="cta-button">EXPLORE AS VISUALIZAÇÕES</a>
+        <a href="{{ site.baseurl }}/pt/viz/" class="cta-button">EXPLORE AS VISUALIZAÇÕES</a>
     </div>
 </div>
 
