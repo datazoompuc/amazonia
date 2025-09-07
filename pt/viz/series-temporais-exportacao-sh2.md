@@ -1,16 +1,16 @@
 ---
 layout: default
 lang: pt
-title: "Séries Temporais de Exportação de Bens"
-description: "Séries temporais de exportação de diferentes categorias de bens por município da Amazônia Legal"
+title: "Séries Temporais de Exportação"
+description: "Comércio Exterior na Amazônia Legal: Valor da exportação de bens por município"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Séries Temporais de Exportação de Bens</h1>
+<h1 class="title-about" style = "margin: 0px 200px;"> Séries Temporais do Valor das Categorias de Bens Exportados por Município da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
-  Em nosso gráfico dinâmico é possível alterar a categoria de bens exportados e selecionar vários municípios da Amazônia Legal.
+  Em nosso gráfico dinâmico, selecione uma categoria de bens exportados e todas os municípios de interesse. Valores são reportados em R$.
 </p>
 <br>
 <!-- link do shinyapps -->
