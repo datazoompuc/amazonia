@@ -38,7 +38,7 @@ description: "External trade in the Amazon (COMEX): Products export value per de
      <div class="rodape_viz">
        <!-- descrição dos dados usados-->
       <p>
-        Data collected and treated by <a href="https://www.gov.br/mdic/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta/">COMEX</a>. 
+        Data collected and treated by <a href="https://www.gov.br/mdic/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta/">Comex Stat</a>. 
         The Comex data set gathers data extracted from Siscomex (Integrated Foreign Trade System), which is a database containing information on all products imported or exported from Brazil.<br><br>
         Want to explore more? Access our <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
