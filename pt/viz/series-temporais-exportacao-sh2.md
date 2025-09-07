@@ -38,8 +38,8 @@ description: "Séries temporais de exportação de diferentes categorias de bens
      <div class="rodape_viz">
        <!-- descrição dos dados usados-->
       <p>
-        Dados coletados do <a href="https://www.gov.br/mdic/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta/" target="_blank" rel="noreferrer noopener">Siscomex (Sistema Integrado de Comércio Exterior)</a>. 
-        Esta é uma base de dados do Ministério de Desenvolvimento, Indústria, Comércio e Serviços, que contém todos os produtos importados para e exportados do Brasil. <br><br>
+        Dados coletados e tratados pela <a href="https://www.gov.br/produtividade-e-comercio-exterior/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta/" target="_blank" rel="noreferrer noopener">Comex Stat</a>. 
+        O conjunto de dados Comex reúne dados extraídos do Siscomex (Sistema Integrado de Comércio Exterio), que é um banco de dados contendo informações de todos os produtos importados ou exportados do Brasil.<br><br>
         Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
      <br>
