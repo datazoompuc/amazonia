@@ -39,7 +39,7 @@ description: "Comércio exterior na Amazônia (COMEX): Valor da exportação de 
      <div class="rodape_viz">
        <!-- descrição dos dados usados-->
       <p>
-        Dados coletados e tratados pela <a href="https://www.gov.br/produtividade-e-comercio-exterior/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta/" target="_blank" rel="noreferrer noopener">COMEX</a>. 
+        Dados coletados e tratados pela <a href="https://www.gov.br/produtividade-e-comercio-exterior/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta/" target="_blank" rel="noreferrer noopener">Comex Stat</a>. 
         O conjunto de dados Comex reúne dados extraídos do Siscomex (Sistema Integrado de Comércio Exterio), que é um banco de dados contendo informações de todos os produtos importados ou exportados do Brasil.<br><br>
         Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
