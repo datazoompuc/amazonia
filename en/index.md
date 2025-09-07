@@ -14,7 +14,7 @@ lang: en
             <a href="https://amazonia2030.org.br/project/" style="text-decoration: underline;">Amazon 2030</a> initiative.
             We seek to simplify access to microdata from the Legal Amazon and develop a data visualization platform that is open, accessible, interactive and parameterizable.
         </p>
-        <a href="{{ site.baseurl }}/en/visualizacoes/" class="cta-button">EXPLORE THE VISUALIZATIONS</a>
+        <a href="{{ site.baseurl }}/en/viz/" class="cta-button">EXPLORE THE VISUALIZATIONS</a>
     </div>
 </div>
 
