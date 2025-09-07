@@ -2,7 +2,7 @@
 layout: default
 lang: en
 title: "Sankey of the Amazon Export Volume per Destination Country"
-description: "External trade in the Amazon (COMEX): Products export value per destination country"
+description: "Foreign trade in the Amazon (COMEX): Products export value per destination country"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
@@ -21,7 +21,7 @@ description: "External trade in the Amazon (COMEX): Products export value per de
     height="800"
     frameborder="0"
     allowfullscreen
-    title="External trade in the Amazon (COMEX): Products export value per destination country"
+    title="Foreign trade in the Amazon (COMEX): Products export value per destination country"
   ></iframe>
 </div>
 
