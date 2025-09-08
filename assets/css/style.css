@@ -244,7 +244,7 @@ summary {
   max-width: 800px;       /* largura máxima do bloco */
   margin: 0 auto;          /* centraliza horizontalmente */
   padding: 0 20px;         /* margem interna nas laterais */
-  text-align: justify;
+  text-align: center;
 }
 
 /* ---------- Fim Página "SOBRE" ---------- */
