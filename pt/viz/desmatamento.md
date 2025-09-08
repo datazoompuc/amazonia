@@ -18,16 +18,10 @@ lang: pt
 
 <div class="imagens-container">
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/series-temporais-da-producao-consumo-e-consumidores-de-energia" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icon_ts_prod_con.jpg" alt="ícone séries temporais produção e consumo de energia 2">
+    <a href="{{ site.baseurl }}/pt/viz/ranking-de-campeoes-de-desmatamento" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icon_rk_campeoes_de_desmatamento.png" alt="ícone de ranking de campeões de desmatamento">
     </a><br>
-    <p>Séries Temporais de Produção, Consumo e Consumidores de Energia</p>
-   </div>
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/ranking-da-potencia-outorgada-dos-estados-da-amazonia-legal" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icon_pot_outorgada.jpg" alt="ícone ranking potência outorgada">
-    </a><br>
-    <p>Ranking de Potência Outorgada</p>
+    <p>Ranking de Campeões de Desmatamento</p>
    </div>
   </div>
 
