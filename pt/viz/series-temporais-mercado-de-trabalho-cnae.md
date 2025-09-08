@@ -2,11 +2,11 @@
 layout: default
 lang: pt
 title: "Séries Temporais Sobre o Mercado de Trabalho"
-description: "Séries Temporais Sobre o Mercado de Trabalho com Recorte por Atividade Econômica"
+description: "Séries Temporais Sobre o Mercado de Trabalho com Recorte por Atividade"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais Sobre o Mercado de Trabalho</h1>
+<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais Sobre o Mercado de Trabalho por Atividade</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
