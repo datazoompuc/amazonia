@@ -1,6 +1,6 @@
 ---
 layout: default
-title: desenvolvimento
+title: Desenvolvimento
 lang: pt
 ---
 
