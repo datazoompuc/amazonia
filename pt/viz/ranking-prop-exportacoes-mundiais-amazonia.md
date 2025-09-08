@@ -2,11 +2,11 @@
 layout: default
 lang: pt
 title: "Ranking de Exportações Mundiais"
-description: "Ranking de Produtos Exportados por Percentual das Exportações Mundiais Oriundas da Amazônia Legal"
+description: "Ranking da Proproção das Exportações Mundiais Oriundas da Amazônia Legal"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Ranking de Produtos Exportados por Percentual das Exportações Mundiais Oriundas da Amazônia Legal</h1>
+<h1 class="title-about" style = "margin: 0px 200px;"> Ranking da Proproção das Exportações Mundiais Oriundas da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
