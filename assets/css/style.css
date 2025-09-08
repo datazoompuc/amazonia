@@ -230,6 +230,10 @@ header {
   text-decoration: none;
 }
 
+.contato code {
+  color: #000000;
+}
+
 summary {
   display: list-item;
   cursor: pointer;
