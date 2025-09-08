@@ -32,6 +32,54 @@ lang: en
 <br>
 <br>
 
+<div class="FAQ">
+<h2 class="fale_conosco">FAQ</h2></div><br>
+<div class="contato" style="text-align:justify">
+<details>
+  <summary>How to develop the Amazon, using natural resources in a sustainable way?</summary>
+  <p><br>To answer this question, four renowned Brazilian research organizations have come together to create the most complete action plan for the Amazon to take a leap in human and economic development while preserving its natural resources by 2030. This is the <a href="https://amazonia2030.org.br/" target="_blank">Amazônia 2030</a>project.<br><br>
+    
+    The project is a joint initiative of the Institute of Man and of Environment of the Amazon<a href="https://imazon.org.br/en" target="_blank">(Imazon)</a> and the <a href="https://centroamazonia.org.br/" target="_blank">Center for Entrepreneurship of the Amazon</a>, both located in Belém, with the Climate Policy Initiative <a href="https://www.climatepolicyinitiative.org/" target="_blank">(CPI)</a> and the <a href="https://www.econ.puc-rio.br/en" target="_blank">Department of Economics at PUC-Rio</a>, located in Rio de Janeiro.<br><br>
+    
+    Researchers have generated knowledge from empirical studies, analyzes of the academic literature and documentary consultations, as well as from the experiences of forest peoples, businessmen, entrepreneurs and public agents, among other sources. These documents will gather practical recommendations, which may be used by private and public agents.</p>
+</details><br>
+
+<details>
+  <summary>What is Legal Amazon?</summary>
+  <p><br>The Legal Amazon is an area that encompasses nine states of Brazil belonging to the Amazon basin, established by the federal government by law 1806/1953, bringing together regions with identical characteristics, with the aim of better planning the socioeconomic development of the Amazon region.</p>
+</details><br>
+    
+<details>
+  <summary>What is R?</summary>
+  <p><br>O <strong>R</strong> is a free and collaborative statistical and graphical programming language that specializes in data manipulation, analysis and visualization. The <strong>R</strong> community is noticeably active generating functions through so-called packages. <code>datazoom.amazonia</code> is a package in <strong>R</strong> that aims to facilitate the download and cleaning of data about the Brazilian Amazon.</p>
+</details><br>
+
+<details>
+  <summary>Where can I find more information about data and the methods used?</summary>
+  <p><br>Learn more information about the methods used by our full <a href="{{ site.baseurl }}/en/codigos-e-dados">documentation</a>, or our <a href="https://github.com/datazoompuc/" target="_blank">GitHub</a>.</p>
+</details><br>
+
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+<h2 class="fale_conosco">Our Team</h2><br>
+<div class="contato" style="text-align:center">Meet the team of Coordinators and Researchers of Data Zoom Amazônia on our <a href="https://www.econ.puc-rio.br/datazoom/english/equipe.html" target=_blank>website</a>.
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 <h2 class="fale_conosco">Contact us</h2><br>
 
 <div class=contato>
@@ -44,6 +92,7 @@ lang: en
     <a href="https://www.linkedin.com/company/data-zoom/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
   </p>
 
+<br>
 <br>
 <br>
 <br>
