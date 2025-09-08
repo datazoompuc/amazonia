@@ -42,7 +42,9 @@ lang: pt
 <div class="contato" style="text-align:justify">
 <details>
   <summary>Como desenvolver a Amazônia, aproveitando de forma sustentável os recursos naturais?</summary>
-  <p><br>Para responder a essa pergunta, quatro reconhecidas organizações de pesquisa brasileiras se juntaram para fazer o mais completo plano de ações para a Amazônia dar um salto de desenvolvimento humano e econômico preservando seus recursos naturais até 2030. Trata-se do projeto <a href="https://amazonia2030.org.br/" target="_blank">Amazônia 2030</a>. O projeto é uma iniciativa conjunta do <a href="https://imazon.org.br/" target="_blank">Instituto do Homem e do Meio Ambiente da Amazônia (Imazon)</a> e do <a href="https://centroamazonia.org.br/" target="_blank">Centro de Empreendedorismo da Amazônia</a>, ambos situados em Belém, com a <a href="https://www.climatepolicyinitiative.org/" target="_blank">Climate Policy Initiative (CPI)</a> e o <a href="https://www.econ.puc-rio.br/" target="_blank">Departamento de Economia da PUC-Rio</a>, localizados no Rio de Janeiro.<br><br>
+  <p><br>Para responder a essa pergunta, quatro reconhecidas organizações de pesquisa brasileiras se juntaram para fazer o mais completo plano de ações para a Amazônia dar um salto de desenvolvimento humano e econômico preservando seus recursos naturais até 2030. Trata-se do projeto <a href="https://amazonia2030.org.br/" target="_blank">Amazônia 2030</a>.<br><br>
+    
+    O projeto é uma iniciativa conjunta do <a href="https://imazon.org.br/" target="_blank">Instituto do Homem e do Meio Ambiente da Amazônia (Imazon)</a> e do <a href="https://centroamazonia.org.br/" target="_blank">Centro de Empreendedorismo da Amazônia</a>, ambos situados em Belém, com a <a href="https://www.climatepolicyinitiative.org/" target="_blank">Climate Policy Initiative (CPI)</a> e o <a href="https://www.econ.puc-rio.br/" target="_blank">Departamento de Economia da PUC-Rio</a>, localizados no Rio de Janeiro.<br><br>
     
     Pesquisadores têm gerado conhecimento a partir de estudos empíricos, análises da literatura acadêmica e consultas documentais, bem como das experiências dos povos da floresta, empresários, empreendedores e agentes públicos, entre outras fontes. Esses documentos reunirão recomendações práticas, que poderão ser aplicadas por agentes privados e públicos.</p>
 </details><br>
@@ -59,7 +61,7 @@ lang: pt
 
 <details>
   <summary>Onde encontro mais informações sobre dados e os métodos utilizados?</summary>
-  <p><br>Saiba mais informações sobre os métodos utilizados pela nossa documentação completa, ou pela nosso GitHub.</p>
+  <p><br>Saiba mais informações sobre os métodos utilizados pela nossa <a href="{{ site.baseurl }}/pt/codigos-e-dados">documentação completa</a>, ou pelo nosso <a href="https://github.com/datazoompuc/" target="_blank">GitHub</a>.</p>
 </details><br>
 
 </div>
