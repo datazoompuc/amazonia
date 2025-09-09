@@ -158,14 +158,20 @@
       toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
-    const vizToggle = document.getElementById('viz-toggle');
-    vizToggle.addEventListener('click', (e) => {
-      e.preventDefault();
-      const s = document.getElementById('viz-submenu');
-      const open = s.classList.toggle('show');
-      e.currentTarget.setAttribute('aria-expanded', open ? 'true' : 'false');
-      e.currentTarget.parentElement.classList.toggle('open', open);
-    });
+const vizToggle = document.getElementById('viz-toggle');
+vizToggle.addEventListener('click', (e) => {
+  const s = document.getElementById('viz-submenu');
+  const isOpen = s.classList.contains('show');
+
+  if (!isOpen) {
+    // menu fechado -> abre submenu e NÃO navega
+    e.preventDefault();
+    s.classList.add('show');
+    vizToggle.setAttribute('aria-expanded', 'true');
+    vizToggle.parentElement.classList.add('open');
+  }
+  // menu aberto -> sem preventDefault => segue para o href (/pt/viz/)
+});
 
     document.getElementById('lang-switch').addEventListener('click',(e)=>{
       e.preventDefault();
