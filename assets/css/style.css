@@ -919,8 +919,9 @@ a.botao:hover {
 }
 
 
-/* Remove a seta automática que o tema insere */
-.menu-link.dropdown-toggle::after {
-  content: none !important;
+/* remove o caret padrão do Bootstrap */
+.dropdown-toggle::after {
   display: none !important;
+  content: none !important;
+  border: 0 !important;
 }
