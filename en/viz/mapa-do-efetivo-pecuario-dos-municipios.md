@@ -1,12 +1,12 @@
 ---
 layout: default
 lang: en
-title: "Map of Municipal Livestock Herd"
-description: "Map of Municipal Livestock Herd"
+title: "Map of Municipal Livestock Herds"
+description: "Map of Municipal Livestock Herds"
 ---
 <br><br>
 <!-- chart title without quotes -->
-<h1 class="title-about" style="margin: 0px 200px;">Map of Municipal Livestock Herd</h1>
+<h1 class="title-about" style="margin: 0px 200px;">Map of Municipal Livestock Herds</h1>
 <br>
 <!-- chart instructions -->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
@@ -21,7 +21,7 @@ description: "Map of Municipal Livestock Herd"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Map of Municipal Livestock Herd"
+    title="Map of Municipal Livestock Herds"
   ></iframe>
 </div>
 
