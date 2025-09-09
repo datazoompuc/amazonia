@@ -17,7 +17,7 @@ description: "Health conditions at Amazon: Mortality at the municipal level"
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_map_saude_mortalidade_eng/"
+    src="https://datazoom.shinyapps.io/app_ts_saude_municipality_eng/"
     width="100%"
     height="800"
     frameborder="0"
