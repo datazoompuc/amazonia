@@ -53,7 +53,7 @@ description: "Relationship between Cattle Herds and GDP per Capita"
       <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
         <strong>Attention</strong>: This visualization is fed by data processed through the 
         <code class = "code_viz">datazoom.amazonia</code> package in <code class = "code_viz">R</code> (<code class = "code_viz">load_ips()</code>, <code class = "code_viz">load_prodes()</code>, <code class = "code_viz">load_cempre()</code> e <code class = "code_viz">load_ppm()</code> functions)
-        and the <code class = "code_viz">datazoom_social_Stata</code> package in <code class = "code_viz">STATA</code> (<code class = "code_viz">datazoom_censo</code> function)is subject to error due to changes in external sources. If the user identifies any discrepancies in information, we request that you report it in
+        and the <code class = "code_viz">datazoom_social_Stata</code> package in <code class = "code_viz">STATA</code> (<code class = "code_viz">datazoom_censo</code> function) and is subject to error due to changes in external sources. If the user identifies any discrepancies in information, we request that you report it in
         <a href="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank" rel="noreferrer noopener">GitHub Issues</a>.
       </p>
        <br><br>
