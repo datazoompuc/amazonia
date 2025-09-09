@@ -6,7 +6,7 @@ description: "Série Temporal das Ocupações no Trabalho"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais Sobre o Mercado de Trabalho</h1>
+<h1 class="title-about" style = "margin: 0px 200px;">Série Temporal das Ocupações no Trabalho</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
