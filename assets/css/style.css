@@ -917,3 +917,10 @@ a.botao:hover {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
+
+
+/* Remove a seta automática que o tema insere */
+.menu-link.dropdown-toggle::after {
+  content: none !important;
+  display: none !important;
+}
