@@ -131,7 +131,7 @@
            id="viz-toggle" 
            aria-expanded="false" 
            aria-controls="viz-submenu">
-        Visualizações <span class="caret"></span>
+        <span class="viz-text">Visualizações</span> <span class="caret"></span>
         </a>
         <ul class="submenu" id="viz-submenu">
       <li><a href="{{ site.baseurl }}/pt/viz/comercio-exterior/">Comércio exterior</a></li>
@@ -161,16 +161,17 @@
 const vizToggle = document.getElementById('viz-toggle');
 vizToggle.addEventListener('click', (e) => {
   const s = document.getElementById('viz-submenu');
-  const isOpen = s.classList.contains('show');
 
-  if (!isOpen) {
-    // menu fechado -> abre submenu e NÃO navega
-    e.preventDefault();
-    s.classList.add('show');
-    vizToggle.setAttribute('aria-expanded', 'true');
-    vizToggle.parentElement.classList.add('open');
+  // se clicou exatamente na palavra -> navega (não bloqueia)
+  if (e.target.closest('.viz-text')) {
+    return; // segue para o href normalmente (/pt/viz/)
   }
-  // menu aberto -> sem preventDefault => segue para o href (/pt/viz/)
+
+  // clicou na setinha ou em qualquer área do link fora da palavra -> abre/fecha submenu
+  e.preventDefault();
+  const open = s.classList.toggle('show');
+  vizToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  vizToggle.parentElement.classList.toggle('open', open);
 });
 
     document.getElementById('lang-switch').addEventListener('click',(e)=>{
