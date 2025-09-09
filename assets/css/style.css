@@ -919,9 +919,3 @@ a.botao:hover {
 }
 
 
-/* remove o caret padrão do Bootstrap */
-.dropdown-toggle::after {
-  display: none !important;
-  content: none !important;
-  border: 0 !important;
-}
