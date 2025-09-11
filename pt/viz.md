@@ -29,7 +29,7 @@ lang: pt
 
 
    <h2 class="selecao_por_tema">VISUALIZAÇÕES MAIS ACESSADAS</h2>
-
+<br>
 
   <div class="imagens-container">
    <div class="icone-bloco">
