@@ -36,7 +36,7 @@ lang: pt
     <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-mais-dinamicas" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icon_rk_atividades_dinamicas.png" alt="ícone ranking das atividades mais dinâmicas">
     </a><br>
-    <p>Ranking das Atividades Econômicas mais Dinâmicas</p>
+    <p><strong>Ranking das Atividades Econômicas mais Dinâmicas</strong></p>
    </div>
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/series-temporais-da-producao-consumo-e-consumidores-de-energia" target="_blank" rel="noopener noreferrer">
@@ -48,7 +48,7 @@ lang: pt
     <a href="{{ site.baseurl }}/pt/viz/ranking-da-potencia-outorgada-dos-estados-da-amazonia-legal" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icon_pot_outorgada.jpg" alt="ícone ranking potência outorgada">
     </a><br>
-    <p>Ranking de Potência Outorgada</p>
+    <p><strong>Ranking de Potência Outorgada</strong></p>
    </div>
   </div>
 
