@@ -11,7 +11,6 @@ lang: pt
 <h1 class="title-about">Visualizações</h1>
 
 <br>
-<br>
 
 <div style="max-width:600px; margin:0 auto;">
   <h2 class="selecao_por_tema">SELEÇÃO POR TEMA DA VISUALIZAÇÃO</h2>
@@ -26,13 +25,12 @@ lang: pt
 </div>
 
   <br>
-  <br>
- 
-   <h2 class="selecao_por_tema">PRINCIPAIS VISUALIZAÇÕES DISPONÍVEIS</h2>
+
+
+   <h2 class="selecao_por_tema">VISUALIZAÇÕES MAIS ACESSADAS</h2>
 
   <br>
-  <br>
-  
+
   <div class="imagens-container">
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-mais-dinamicas" target="_blank" rel="noopener noreferrer">
