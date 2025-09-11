@@ -12,9 +12,6 @@ lang: en
 
 <br>
 <br>
-<br>
-<br>
-<br>
 
 <div style="max-width:600px; margin:0 auto;">
   <h2 class="selecao_por_tema">SELECT VISUALIZATION BY SUBJECT</h2>
@@ -28,14 +25,9 @@ lang: en
     </div>
 </div>
   <br>
-  <br>
-  <br>
-  <br>
+  
 
    <h2 class="selecao_por_tema">MAIN AVAILABLE VISUALIZATIONS</h2>
-
-  <br>
-  <br>
   
   <div class="imagens-container">
    <div class="icone-bloco">
