@@ -8,7 +8,7 @@ lang: en
 
 <br>
 
-<h1 class="title-about">Agropecuária</h1>
+<h1 class="title-about">Agribusiness</h1>
 
 <br>
 <br>
