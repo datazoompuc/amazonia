@@ -22,6 +22,8 @@ lang: en
       <a href="{{ site.baseurl }}/en/viz/energia" class="botao">ENERGY</a>
       <a href="{{ site.baseurl }}/en/viz/mercado-de-trabalho" class="botao">LABOR MARKET</a>
       <a href="{{ site.baseurl }}/en/viz/saude" class="botao">HEALTH</a>
+      <a href="{{ site.baseurl }}/en/viz/saude" class="botao">HEALTH</a>
+      <a href="{{ site.baseurl }}/en/viz/agopecuaria" class="botao">AGRIBUSINESS</a>
     </div>
 </div>
   <br>
@@ -32,7 +34,7 @@ lang: en
   <div class="imagens-container">
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/ranking-atividades-economicas-mais-dinamicas" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/Icon_Viz_atividades_dinamicas.png" alt="icon of rankings of most dynamic economic activities">
+      <img src="{{ site.baseurl }}/assets/img/icon_rk_atividades_dinamicas.png" alt="icon of rankings of most dynamic economic activities">
     </a><br>
     <p>Rankings of Most Dynamic Economic Activities</p>
    </div>
