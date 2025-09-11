@@ -37,7 +37,7 @@ lang: en
 <div class="contato" style="text-align:justify">
 <details>
   <summary>How to develop the Amazon, using natural resources in a sustainable way?</summary>
-  <p><br>To answer this question, four renowned Brazilian research organizations have come together to create the most complete action plan for the Amazon to take a leap in human and economic development while preserving its natural resources by 2030. This is the <a href="https://amazonia2030.org.br/" target="_blank">Amazônia 2030</a>project.<br><br>
+  <p><br>To answer this question, four renowned Brazilian research organizations have come together to create the most complete action plan for the Amazon to take a leap in human and economic development while preserving its natural resources by 2030. This is the <a href="https://amazonia2030.org.br/" target="_blank">Amazônia 2030</a> project.<br><br>
     
     The project is a joint initiative of the Institute of Man and of Environment of the Amazon <a href="https://imazon.org.br/en" target="_blank">(Imazon)</a> and the <a href="https://centroamazonia.org.br/" target="_blank">Center for Entrepreneurship of the Amazon</a>, both located in Belém, with the Climate Policy Initiative <a href="https://www.climatepolicyinitiative.org/" target="_blank">(CPI)</a> and the <a href="https://www.econ.puc-rio.br/en" target="_blank">Department of Economics at PUC-Rio</a>, located in Rio de Janeiro.<br><br>
     
