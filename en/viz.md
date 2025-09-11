@@ -20,8 +20,8 @@ lang: en
       <a href="{{ site.baseurl }}/en/viz/desenvolvimento" class="botao">DEVELOPMENT</a>
       <a href="{{ site.baseurl }}/en/viz/desmatamento" class="botao">DEFORESTATION</a>
       <a href="{{ site.baseurl }}/en/viz/energia" class="botao">ENERGY</a>
-      <a href="{{ site.baseurl }}/en/viz/mercado-de-trabalho" class="botao">LABOR MARKET</a>
       <a href="{{ site.baseurl }}/en/viz/saude" class="botao">HEALTH</a>
+      <a href="{{ site.baseurl }}/en/viz/mercado-de-trabalho" class="botao">LABOR MARKET</a>
       <a href="{{ site.baseurl }}/en/viz/agopecuaria" class="botao">AGRIBUSINESS</a>
     </div>
 </div>
