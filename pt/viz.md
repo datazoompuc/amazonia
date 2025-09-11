@@ -20,8 +20,8 @@ lang: pt
       <a href="{{ site.baseurl }}/pt/viz/desenvolvimento" class="botao">DESENVOLVIMENTO</a>
       <a href="{{ site.baseurl }}/pt/viz/desmatamento" class="botao">DESMATAMENTO</a>
       <a href="{{ site.baseurl }}/pt/viz/energia" class="botao">ENERGIA</a>
-      <a href="{{ site.baseurl }}/pt/viz/mercado-de-trabalho" class="botao">MERCADO DE TRABALHO</a>
       <a href="{{ site.baseurl }}/pt/viz/saude" class="botao">SAÚDE</a>
+      <a href="{{ site.baseurl }}/pt/viz/mercado-de-trabalho" class="botao">MERCADO DE TRABALHO</a>
       <a href="{{ site.baseurl }}/pt/viz/agropecuaria" class="botao">AGROPECUÁRIA</a>
     </div>
 </div>
