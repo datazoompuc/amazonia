@@ -11,6 +11,7 @@ lang: pt
 <h1 class="title-about">Visualizações</h1>
 
 <br>
+<br>
 
 <div style="max-width:600px; margin:0 auto;">
   <h2 class="selecao_por_tema">SELEÇÃO POR TEMA DA VISUALIZAÇÃO</h2>
