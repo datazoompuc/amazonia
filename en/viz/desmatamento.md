@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Deforestation
-lang: pt
+lang: en
 ---
 
 <link rel="stylesheet" href="style.css">
