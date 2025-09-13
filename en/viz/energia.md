@@ -17,18 +17,36 @@ lang: en
 <br>
 
 <div class="imagens-container">
+   
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-da-producao-consumo-e-consumidores-de-energia" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icon_ts_prod_con.jpg" alt="icon of time series of energy production, consumption, and consumers">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_prod_con.jpg" alt="icon viz">
     </a><br>
     <p>Time Series of Energy Production, Consumption, and Consumers</p>
    </div>
+   
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/ranking-da-potencia-outorgada-dos-estados-da-amazonia-legal" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icon_pot_outorgada.jpg" alt="icon of ranking of outorged power">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_pot_outorgada.jpg" alt="icon viz">
     </a><br>
     <p>Rankings of Outorged Power</p>
    </div>
+   
+   <div class="imagens-container">
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-da-geracao-distribuida" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem_imagem" alt="icon viz">
+    </a><br>
+    <p>Time Series of Distributed Generation</p>
+   </div>
+   
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-dos-sistemas-isolados" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem_imagem" alt="icon viz">
+    </a><br>
+    <p>Time Series of Isolated Systems</p>
+   </div>
+   
   </div>
 
 <br>
