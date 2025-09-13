@@ -13,7 +13,7 @@ lang: en
 <br>
 <br>
 
-<div style="max-width:550px; margin:0 auto;">
+<div style="max-width:570px; margin:0 auto;">
   <h2 class="selecao_por_tema">SELECT VISUALIZATION BY SUBJECT</h2>
     <div class="botoes-container">
       <a href="{{ site.baseurl }}/en/viz/comercio-exterior" class="botao">FOREIGN TRADE</a>
