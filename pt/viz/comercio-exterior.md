@@ -38,13 +38,6 @@ lang: pt
     <p>Ranking da Proproção das Exportações Mundiais Oriundas da Amazônia Legal</p>
    </div>
    
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/sankey-do-volume-de-exportacao-da-amazonia-por-pais-de-destino" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/achar_imagem" alt="ícone viz">
-    </a><br>
-    <p>Sankeys de Volume de Exportação da Amazônia Legal por País de Destino</p>
-   </div>
-
 </div>
 
 <br>
