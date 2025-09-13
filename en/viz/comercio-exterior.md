@@ -26,23 +26,23 @@ lang: en
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/mapa-principais-produtos-exportados" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa_prod_exp.png" alt="icon of map of main exported products">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa_prod_exp.png" alt="icon viz">
     </a><br>
     <p>Map of Main Exported Products</p>
    </div>
    
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/ranking-prop-exportacoes-mundiais-amazonia.md" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/no_image" alt="icon ranking of prop of world exportation">
+    <a href="{{ site.baseurl }}/en/viz/ranking-prop-exportacoes-mundiais-amazonia" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/no_image" alt="icon viz">
     </a><br>
     <p>Ranking of Products by World Exportation from Legal Amazon</p>
    </div>
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/sankey-do-volume-de-exportacao-da-amazonia-por-pais-de-destino.md" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/achar_imagem" alt="icon">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/achar_imagem" alt="icon viz">
     </a><br>
-    <p>Traduzir nome</p>
+    <p>Sankey of the Amazon Export Volume per Destination Country</p>
    </div>
    
 </div>
