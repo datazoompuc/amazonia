@@ -28,7 +28,7 @@ lang: en
     <a href="{{ site.baseurl }}/en/viz/mapa-principais-produtos-exportados" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa_prod_exp.png" alt="icon viz">
     </a><br>
-    <p>Map of Main Exported Products</p>
+    <p>Dynamic Map of Main Product Exported by Municipality in the Legal Amazon</p>
    </div>
    
    <div class="icone-bloco">
