@@ -38,6 +38,13 @@ lang: en
     <p>Ranking of Products by World Exportation from Legal Amazon</p>
    </div>
    
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-exportacao-sh2" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/no_image" alt="icon viz">
+    </a><br>
+    <p>Time Series of the Legal Amazon's Municipalities Exports Values by Category</p>
+   </div>
+   
 </div>
 
 <br>
