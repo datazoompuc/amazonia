@@ -33,19 +33,19 @@ lang: en
   <div class="imagens-container">
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/ranking-atividades-economicas-mais-dinamicas" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icon_rk_atividades_dinamicas.png" alt="icon of rankings of most dynamic economic activities">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_atividades_dinamicas.png" alt="icon of rankings of most dynamic economic activities">
     </a><br>
     <p>Rankings of Most Dynamic Economic Activities</p>
    </div>
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-da-producao-consumo-e-consumidores-de-energia" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icon_ts_prod_con.jpg" alt="icon of time series of energy production, consumption, and consumers">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_prod_con.jpg" alt="icon of time series of energy production, consumption, and consumers">
     </a><br>
     <p>Time Series of Energy Production, Consumption, and Consumers</p>
    </div>
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/ranking-da-potencia-outorgada-dos-estados-da-amazonia-legal" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icon_pot_outorgada.jpg" alt="icon of ranking of outorged power">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_pot_outorgada.jpg" alt="icon of ranking of outorged power">
     </a><br>
     <p>Rankings of Outorged Power</p>
    </div>
