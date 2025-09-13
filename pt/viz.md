@@ -13,7 +13,7 @@ lang: pt
 <br>
 <br>
 
-<div style="max-width:600px; margin:0 auto;">
+<div style="max-width:550px; margin:0 auto;">
   <h2 class="selecao_por_tema">SELEÇÃO POR TEMA DA VISUALIZAÇÃO</h2>
     <div class="botoes-container">
       <a href="{{ site.baseurl }}/pt/viz/comercio-exterior" class="botao">COMÉRCIO EXTERIOR</a>
