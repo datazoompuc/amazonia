@@ -38,13 +38,6 @@ lang: en
     <p>Ranking of Products by World Exportation from Legal Amazon</p>
    </div>
    
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/sankey-do-volume-de-exportacao-da-amazonia-por-pais-de-destino.md" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/achar_imagem" alt="icon viz">
-    </a><br>
-    <p>Sankey of the Amazon Export Volume per Destination Country</p>
-   </div>
-   
 </div>
 
 <br>
