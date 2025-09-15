@@ -35,14 +35,14 @@ lang: en
    <div class="imagens-container">
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-da-geracao-distribuida" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem_imagem" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_ger_distribuida.jpg" alt="icon viz">
     </a><br>
     <p>Time Series of Distributed Generation</p>
    </div>
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-dos-sistemas-isolados" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem_imagem" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_sis_isolados.jpg" alt="icon viz">
     </a><br>
     <p>Time Series of Isolated Systems</p>
    </div>
