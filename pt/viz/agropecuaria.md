@@ -19,14 +19,14 @@ lang: pt
 <div class="imagens-container">
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/mapa-de-cobertura-dos-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_campeoes_de_desmatamento.png" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_prod_exp.png" alt="ícone viz">
     </a><br>
     <p>Mapa de Cobertura dos Municípios com Contorno da Amazônia Legal</p>
    </div>
 
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/mapa-do-efetivo-pecuario-dos-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_relacao_area_desmatada_e_pibpc.png" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_map_rebanho.png" alt="ícone viz">
     </a><br>
     <p>Mapa do Efetivo Pecuário dos Municípios</p>
    </div>
