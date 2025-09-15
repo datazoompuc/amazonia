@@ -33,7 +33,7 @@ lang: pt
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/ranking-das-ocupacoes-mais-dinamicas" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mercado_de_trabalho.png" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_ocupacoes-mais-dinamicas.png" alt="ícone viz">
     </a><br>
     <p>Ranking das Ocupações mais Dinâmicas</p>
    </div>
@@ -47,7 +47,7 @@ lang: pt
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/serie-temporal-das-ocupacoes-no-trabalho" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mercado_de_trabalho.png" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_ocupacoes.png" alt="ícone viz">
     </a><br>
     <p>Série Temporal das Ocupações no Mercado de Trabalho</p>
    </div>
