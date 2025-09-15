@@ -33,14 +33,14 @@ lang: pt
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/ranking-prop-exportacoes-mundiais-amazonia" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/no_image" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_prop_exp.jpg" alt="ícone viz">
     </a><br>
     <p>Ranking da Proproção das Exportações Mundiais Oriundas da Amazônia Legal</p>
    </div>
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/series-temporais-exportacao-sh2" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/no_image" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_prod_con.jpg" alt="ícone viz">
     </a><br>
     <p>Séries Temporais do Valor das Categorias de Bens Exportados por Município da Amazônia Legal</p>
    </div>
