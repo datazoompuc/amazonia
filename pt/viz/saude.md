@@ -18,10 +18,18 @@ lang: pt
 
 <div class="imagens-container">
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/mapa-de-mortalidade-dos-municipios.md" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icon_mapa_mort.jpg" alt="ícone mapa de mortalidade dos municipios">
+    <a href="{{ site.baseurl }}/pt/viz/mapa-de-mortalidade-dos-municipios" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz_icon_mapa_mort.jpg" alt="ícone viz">
     </a><br>
     <p>Mapa de Mortalidade dos Municípios</p>
+   </div>
+   
+   <div class="imagens-container">
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/pt/viz/series-temporais-do-tipo-de-mortalidade-por-municipio" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz_icon_mapa_mort.jpg" alt="ícone viz">
+    </a><br>
+    <p>Séries Temporais do Tipo de Mortalidade por Município</p>
    </div>
 </div>
 
