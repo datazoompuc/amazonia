@@ -37,7 +37,7 @@ lang: en
    </div>
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-mercado-de-trabalho-cnae" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_ger_distribuida.jpg" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mercado_de_trabalho_cnae.png" alt="icon viz">
     </a><br>
     <p>Labour Market Time Series by Activity</p>
    </div>
