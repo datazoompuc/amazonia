@@ -883,7 +883,7 @@ a.botao:hover {
 .imagens-container {
   flex-direction: row;
   display: flex;
-  align-items: center;
+  align-items: center !important; 
   justify-content: center; /* centraliza */
   gap: 50px;               /* espaço entre as imagens */
   max-width: 1200px;
