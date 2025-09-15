@@ -19,7 +19,7 @@ lang: en
 <div class="imagens-container">
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/mapa-de-cobertura-dos-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa_prod_exp.png" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa_cobertura_mun.png" alt="icon viz">
     </a><br>
     <p>Map of Land Use and Cover by Municipality with the Outline of the Legal Amazon</p>
    </div>
