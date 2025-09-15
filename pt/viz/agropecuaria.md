@@ -18,17 +18,17 @@ lang: pt
 
 <div class="imagens-container">
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/ranking-de-campeoes-de-desmatamento" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icon_rk_campeoes_de_desmatamento.png" alt="ícone de ranking de campeões de desmatamento">
+    <a href="{{ site.baseurl }}/pt/viz/mapa-de-cobertura-dos-municipios" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_campeoes_de_desmatamento.png" alt="ícone viz">
     </a><br>
-    <p>Ranking de Campeões de Desmatamento</p>
+    <p>Mapa de Cobertura dos Municípios com Contorno da Amazônia Legal</p>
    </div>
 
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/relacao-area-desmatada-e-pibpc" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icon_relacao_area_desmatada_e_pibpc.png" alt="ícone de relação entre área desmatada e pib per capita">
+    <a href="{{ site.baseurl }}/pt/viz/mapa-do-efetivo-pecuario-dos-municipios" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_relacao_area_desmatada_e_pibpc.png" alt="ícone viz">
     </a><br>
-    <p>Relação entre Área Desmatada e PIB per Capita</p>
+    <p>Mapa do Efetivo Pecuário dos Municípios</p>
    </div>
    
   </div>
