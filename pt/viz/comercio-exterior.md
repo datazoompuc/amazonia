@@ -40,7 +40,7 @@ lang: pt
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/series-temporais-exportacao-sh2" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_prod_con.jpg" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_bens_exp.jpg" alt="ícone viz">
     </a><br>
     <p>Séries Temporais do Valor das Categorias de Bens Exportados por Município da Amazônia Legal</p>
    </div>
