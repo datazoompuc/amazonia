@@ -19,7 +19,7 @@ lang: pt
 <div class="imagens-container">
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/mapa-de-cobertura-dos-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa_prod_exp.png" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa_cobertura_mun.png" alt="ícone viz">
     </a><br>
     <p>Mapa de Cobertura dos Municípios com Contorno da Amazônia Legal</p>
    </div>
