@@ -17,7 +17,7 @@ description: "Time Series of Greenhouse Gas Emissions in Agriculture"
 <!-- shinyapps link -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_seeg_state_farming/"
+    src="https://datazoom.shinyapps.io/app_ts_seeg_state_farming_en/"
     width="100%"
     height="800"
     frameborder="0"
