@@ -885,7 +885,7 @@ a.botao:hover {
   display: flex;
   justify-content: center; /* centraliza */
   gap: 50px;               /* espaço entre as imagens */
-  margin: 20px 0;
+  margin: 200px 0;
   flex-wrap: wrap;
 }
 
