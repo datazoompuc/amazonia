@@ -32,7 +32,6 @@ lang: en
     <p>Rankings of Outorged Power</p>
    </div>
    
-   <div class="imagens-container">
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-da-geracao-distribuida" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_ger_distribuida.jpg" alt="icon viz">
