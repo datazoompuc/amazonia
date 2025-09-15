@@ -24,10 +24,9 @@ lang: en
     <p>Interactive Maps of Municipalities’ Mortality</p>
    </div>
    
-   <div class="imagens-container">
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-do-tipo-de-mortalidade-por-municipio" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa_mort.jpg" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_tipo_mort.png" alt="icon viz">
     </a><br>
     <p>Mortality Type by Municipality Time Series</p>
    </div>
