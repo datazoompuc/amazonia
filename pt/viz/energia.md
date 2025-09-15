@@ -33,14 +33,14 @@ lang: pt
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/series-temporais-da-geracao-distribuida" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem_imagem" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_ger_distribuida.jpg" alt="ícone viz">
     </a><br>
     <p>Séries Temporais da Geração Distribuída</p>
    </div>
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/series-temporais-dos-sistemas-isolados" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem_imagem" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_sis_isolados.jpg" alt="ícone viz">
     </a><br>
     <p>Séries Temporais dos Sistemas Isolados</p>
    </div>
