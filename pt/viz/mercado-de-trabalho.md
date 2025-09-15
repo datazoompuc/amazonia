@@ -40,7 +40,7 @@ lang: pt
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/series-temporais-mercado-de-trabalho-cnae" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mercado_de_trabalho.png" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_ger_distribuida.jpg" alt="ícone viz">
     </a><br>
     <p>Séries Temporais sobre o Mercado de Trabalho por Atividade</p>
    </div>
