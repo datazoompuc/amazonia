@@ -6,7 +6,7 @@ description: "Séries Temporais de Valor Total Exportado por País de Destino"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Séries Temporais da Produção, Consumo e Consumidores de Energia</h1>
+<h1 class="title-about" style = "margin: 0px 200px;"> Séries Temporais de Valor Total Exportado por País de Destino</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
