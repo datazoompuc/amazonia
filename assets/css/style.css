@@ -922,28 +922,15 @@ a.botao:hover {
 
 
 /* =========================================================
-   MOBILE OVERRIDES 
+   MOBILE OVERRIDES — Data Zoom Amazônia
+   Cole no FINAL do style.css
 ========================================================= */
 
-/* ---------- Base tipográfica fluida ---------- */
-:root {
-  /* escalas mais confortáveis em telas pequenas */
-  --dz-base-size: 1.6rem;
-}
+/* ---------- Tipografia base fluida ---------- */
+@media (max-width: 1024px) { html { font-size: 60%; } }
+@media (max-width: 782px)  { html { font-size: 58%; } }
+@media (max-width: 600px)  { html { font-size: 56.25%; } }
 
-@media (max-width: 1024px) {
-  html { font-size: 60%; } /* ~9.6px */
-}
-@media (max-width: 782px) {
-  html { font-size: 58%; } /* WP usa 782px em vários componentes */
-}
-@media (max-width: 600px) {
-  html { font-size: 56.25%; } /* 9px base */
-}
-
-h1, h2, h3, h4, h5, h6, p, time {
-  /* tipografia responsiva com clamp */
-}
 h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
 .capa .capa-content h2 {
   font-size: clamp(2.4rem, 4.5vw + 1.2rem, 8rem) !important;
@@ -954,9 +941,112 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
   font-size: clamp(1.4rem, 1.3vw + 1rem, 1.8rem) !important;
 }
 
-/* ---------- Hero/CAPA ---------- */
+/* =========================================================
+   HEADER MOBILE FIXES (até 782px)
+========================================================= */
+@media (max-width: 782px) {
+  /* Layout geral do header */
+  #site-header .header-inner,
+  #site-header .section-inner.header-inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    padding: 8px 12px !important;
+  }
+
+  /* Logo/branding */
+  #site-header .header-titles-wrapper,
+  #site-header .site-branding {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    overflow: hidden !important;
+  }
+  #site-header .site-logo img,
+  #site-header .custom-logo,
+  #site-header .custom-logo-link img,
+  #site-header .wp-block-site-logo img,
+  #site-header .site-branding img {
+    max-height: 32px !important;
+    height: auto !important;
+    width: auto !important;
+  }
+
+  /* Grupo da direita (menu, idioma, busca) */
+  #site-header .header-actions,
+  #site-header .nav-toggle-wrapper,
+  #site-header .menu-group,
+  #site-header .language-switch,
+  #site-header .lang-switch,
+  #site-header .pll-switcher,
+  #site-header .wpml-ls,
+  #site-header #menu-toggle,
+  #site-header .menu-toggle,
+  #site-header .search-toggle {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* Botões do header */
+  #site-header .toggle,
+  #site-header .menu-toggle,
+  #site-header #menu-toggle,
+  #site-header .search-toggle,
+  #site-header .language-switch a,
+  #site-header .lang-switch a,
+  #site-header .pll-switcher a,
+  #site-header .wpml-ls a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 0 8px !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    letter-spacing: normal !important;
+    text-transform: none !important;
+  }
+
+  /* Esconde rótulos de texto dentro dos toggles, deixa só ícone */
+  #site-header .toggle .toggle-inner > span:not(.toggle-icon),
+  #site-header .menu-toggle .toggle-inner > span:not(.toggle-icon),
+  #site-header .search-toggle .toggle-inner > span:not(.toggle-icon) {
+    display: none !important;
+  }
+
+  /* Se switch de idioma for lista */
+  #site-header .pll-switcher li,
+  #site-header .wpml-ls li {
+    margin: 0 !important;
+  }
+
+  /* FAILSAFE: zera letter-spacing em tudo no header */
+  #site-header,
+  #site-header * {
+    letter-spacing: normal !important;
+  }
+}
+@media (max-width: 600px) {
+  #site-header .site-logo img,
+  #site-header .custom-logo,
+  #site-header .custom-logo-link img,
+  #site-header .wp-block-site-logo img {
+    max-height: 28px !important;
+  }
+}
+
+/* =========================================================
+   CAPA (hero) — ajustes mobile
+========================================================= */
 @media (max-width: 1024px) {
-  .capa { background-attachment: scroll !important; } /* evita jank no iOS/Android */
+  .capa { background-attachment: scroll !important; }
   .capa-content { max-width: 720px; padding: 1.5rem; }
 }
 @media (max-width: 600px) {
@@ -967,10 +1057,13 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
     padding: 0.9rem 1.6rem;
     font-size: 1.6rem;
     border-radius: 6px;
+    min-height: 44px;
   }
 }
 
-/* ---------- Bloco imagem + texto (suas seções .block) ---------- */
+/* =========================================================
+   Bloco imagem + texto
+========================================================= */
 @media (max-width: 1024px) {
   .block {
     width: 100%;
@@ -995,14 +1088,18 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
   .block h3 { margin: 8px 0 8px; }
 }
 
-/* ---------- Página Sobre / capa_sobre ---------- */
+/* =========================================================
+   Página Sobre
+========================================================= */
 @media (max-width: 782px) {
   .capa_sobre { padding-top: 42%; background-size: cover; }
   .capa_sobre_content { padding: 0 16px; font-size: 1.05em; }
   .FAQ { max-width: 100%; padding: 0 16px; }
 }
 
-/* ---------- Botões e toques ---------- */
+/* =========================================================
+   Botões / CTA
+========================================================= */
 @media (max-width: 600px) {
   a.botao {
     width: 100%;
@@ -1012,10 +1109,11 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
     font-size: 1.2em;
   }
   .botoes-container { gap: 8px; padding: 0 12px; }
-  .cta-button { min-height: 44px; } /* target amigável ao toque */
 }
 
-/* ---------- Grid / Imagens das Visualizações ---------- */
+/* =========================================================
+   Visualizações — grid/imagens
+========================================================= */
 @media (max-width: 1024px) {
   .imagens-container { gap: 28px; padding: 0 12px; }
   .imagens-container img { width: min(46vw, 320px); }
@@ -1026,19 +1124,16 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
   .icone-bloco { max-width: min(88vw, 320px); }
 }
 
-/* ---------- Iframe Shiny ---------- */
+/* =========================================================
+   Shiny embed
+========================================================= */
 @media (max-width: 782px) {
   .shinyblock { height: 65vh; min-height: 360px; }
 }
 
-/* ---------- Header / espaçamentos ---------- */
-@media (max-width: 782px) {
-  #site-header { border-bottom-width: 2px; }
-  .header-inner { padding-left: 12px; padding-right: 12px; }
-  .search-toggle > span > span { display: none; } /* já estava, reforço */
-}
-
-/* ---------- Footer DZAM ---------- */
+/* =========================================================
+   Footer DZAM
+========================================================= */
 @media (max-width: 1024px) {
   footer.dzam-footer { padding: 28px 0; }
   footer.dzam-footer.row {
@@ -1063,123 +1158,16 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
   }
 }
 
-/* ---------- Ajustes finos de listas e detalhes ---------- */
+/* =========================================================
+   Ajustes finos
+========================================================= */
 @media (max-width: 600px) {
   summary { font-size: 1.05em !important; }
   .contato, .texto_livre { padding: 0 16px; }
   .selecao_por_tema { font-size: 1.4em; }
 }
 
-/* ---------- Salvaguardas: remove efeitos pesados em mobile ---------- */
+/* Remove efeitos pesados no mobile */
 @media (hover: none) and (pointer: coarse) {
   .imagens-container img:hover { transform: none; }
-}
-
-/* =========================================================
-   HEADER MOBILE FIXES (até 782px)
-========================================================= */
-@media (max-width: 782px) {
-  /* Layout básico do header */
-  #site-header .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding: 8px 12px;
-  }
-
-  /* Branding / logo não “espremendo” os botões */
-  #site-header .site-branding,
-  #site-header .header-titles-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 0;
-    flex: 0 1 auto; /* permite encolher um pouco sem empurrar tudo */
-  }
-
-  /* Limites seguros para a logo (funciona com vários temas) */
-  #site-header .site-logo img,
-  #site-header .custom-logo,
-  #site-header .wp-block-site-logo img {
-    max-height: 36px;
-    height: auto;
-    width: auto;
-  }
-
-  /* Agrupar ações (menu, busca, idioma) à direita */
-  #site-header .header-actions,
-  #site-header .toggle-group {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: auto;
-    flex: 0 0 auto;
-  }
-
-  /* Botões do header: menu, busca, etc. */
-  #site-header .toggle,
-  #site-header .menu-toggle,
-  #site-header #menu-toggle,
-  #site-header .search-toggle {
-    min-width: 44px;       /* alvo de toque */
-    min-height: 44px;      /* alvo de toque */
-    padding: 0 8px;
-    line-height: 1;
-    font-size: 1.5rem;
-    white-space: nowrap;
-    letter-spacing: 0 !important;      /* remove espaçamento entre letras */
-    text-transform: none !important;    /* evita “espalhar” texto */
-  }
-
-  /* Se dentro do botão houver rótulo de texto, some no mobile (deixa só ícone) */
-  #site-header .toggle .toggle-inner span,
-  #site-header .menu-toggle .toggle-inner span {
-    display: none;
-  }
-  /* Mantém apenas o ícone se houver este wrapper */
-  #site-header .toggle .toggle-icon,
-  #site-header .menu-toggle .toggle-icon {
-    display: inline-flex;
-  }
-
-  /* Componente de idioma (diversos possíveis nomes de classe) */
-  #site-header .lang-switch,
-  #site-header .language-switch,
-  #site-header .wpml-ls,
-  #site-header .pll-switcher {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex: 0 0 auto;
-  }
-
-  /* Links de idioma compactos, sem espaçamento entre letras */
-  #site-header .lang-switch a,
-  #site-header .language-switch a,
-  #site-header .wpml-ls a,
-  #site-header .pll-switcher a {
-    padding: 6px 8px;
-    border-radius: 6px;
-    font-size: 1.4rem;
-    line-height: 1;
-    letter-spacing: 0 !important;     /* remove separação de letras */
-    text-transform: none !important;   /* evita tracking “forçado” */
-    white-space: nowrap;
-  }
-
-  /* Estado ativo do idioma (opcional) */
-  #site-header .lang-switch a.active,
-  #site-header .language-switch a[aria-current="page"] {
-    background: rgba(0,0,0,.06);
-  }
-}
-
-/* Um ajuste extra para telas bem pequenas */
-@media (max-width: 600px) {
-  #site-header .site-logo img,
-  #site-header .custom-logo,
-  #site-header .wp-block-site-logo img {
-    max-height: 30px;
-  }
 }
