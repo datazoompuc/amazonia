@@ -921,3 +921,156 @@ a.botao:hover {
 }
 
 
+/* =========================================================
+   MOBILE OVERRIDES 
+========================================================= */
+
+/* ---------- Base tipográfica fluida ---------- */
+:root {
+  /* escalas mais confortáveis em telas pequenas */
+  --dz-base-size: 1.6rem;
+}
+
+@media (max-width: 1024px) {
+  html { font-size: 60%; } /* ~9.6px */
+}
+@media (max-width: 782px) {
+  html { font-size: 58%; } /* WP usa 782px em vários componentes */
+}
+@media (max-width: 600px) {
+  html { font-size: 56.25%; } /* 9px base */
+}
+
+h1, h2, h3, h4, h5, h6, p, time {
+  /* tipografia responsiva com clamp */
+}
+h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
+.capa .capa-content h2 {
+  font-size: clamp(2.4rem, 4.5vw + 1.2rem, 8rem) !important;
+  line-height: 1.12 !important;
+}
+.capa .capa-content p,
+.texto_livre, .contato, .FAQ, p, time {
+  font-size: clamp(1.4rem, 1.3vw + 1rem, 1.8rem) !important;
+}
+
+/* ---------- Hero/CAPA ---------- */
+@media (max-width: 1024px) {
+  .capa { background-attachment: scroll !important; } /* evita jank no iOS/Android */
+  .capa-content { max-width: 720px; padding: 1.5rem; }
+}
+@media (max-width: 600px) {
+  .capa { min-height: 85vh; }
+  .capa .capa-content h2 { margin-bottom: 0.6rem; }
+  .capa .capa-content p { margin-bottom: 1.2rem; }
+  .cta-button {
+    padding: 0.9rem 1.6rem;
+    font-size: 1.6rem;
+    border-radius: 6px;
+  }
+}
+
+/* ---------- Bloco imagem + texto (suas seções .block) ---------- */
+@media (max-width: 1024px) {
+  .block {
+    width: 100%;
+    max-width: 920px;
+    height: auto;
+    padding: 0 16px;
+    gap: 16px;
+  }
+}
+@media (max-width: 782px) {
+  .block {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+  .block img {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .block .text-content { width: 100%; }
+  .block h3 { margin: 8px 0 8px; }
+}
+
+/* ---------- Página Sobre / capa_sobre ---------- */
+@media (max-width: 782px) {
+  .capa_sobre { padding-top: 42%; background-size: cover; }
+  .capa_sobre_content { padding: 0 16px; font-size: 1.05em; }
+  .FAQ { max-width: 100%; padding: 0 16px; }
+}
+
+/* ---------- Botões e toques ---------- */
+@media (max-width: 600px) {
+  a.botao {
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+    padding: 12px 16px !important;
+    font-size: 1.2em;
+  }
+  .botoes-container { gap: 8px; padding: 0 12px; }
+  .cta-button { min-height: 44px; } /* target amigável ao toque */
+}
+
+/* ---------- Grid / Imagens das Visualizações ---------- */
+@media (max-width: 1024px) {
+  .imagens-container { gap: 28px; padding: 0 12px; }
+  .imagens-container img { width: min(46vw, 320px); }
+}
+@media (max-width: 600px) {
+  .imagens-container { gap: 20px; }
+  .imagens-container img { width: min(88vw, 320px); }
+  .icone-bloco { max-width: min(88vw, 320px); }
+}
+
+/* ---------- Iframe Shiny ---------- */
+@media (max-width: 782px) {
+  .shinyblock { height: 65vh; min-height: 360px; }
+}
+
+/* ---------- Header / espaçamentos ---------- */
+@media (max-width: 782px) {
+  #site-header { border-bottom-width: 2px; }
+  .header-inner { padding-left: 12px; padding-right: 12px; }
+  .search-toggle > span > span { display: none; } /* já estava, reforço */
+}
+
+/* ---------- Footer DZAM ---------- */
+@media (max-width: 1024px) {
+  footer.dzam-footer { padding: 28px 0; }
+  footer.dzam-footer.row {
+    gap: 28px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  footer.dzam-footer .footer-logo { max-height: 84px; }
+  footer.dzam-footer .social-links { gap: 20px; }
+  footer.dzam-footer .social-icon { width: 44px; height: 44px; }
+}
+@media (max-width: 600px) {
+  footer.dzam-footer.row { flex-direction: column; align-items: center; }
+  footer.dzam-footer .footer-logo { max-height: 72px; }
+  footer.dzam-footer .social-links { gap: 16px; }
+  footer.dzam-footer .social-icon { width: 40px; height: 40px; }
+  footer.dzam-footer .footer-credits {
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+    font-size: 1.3rem;
+  }
+}
+
+/* ---------- Ajustes finos de listas e detalhes ---------- */
+@media (max-width: 600px) {
+  summary { font-size: 1.05em !important; }
+  .contato, .texto_livre { padding: 0 16px; }
+  .selecao_por_tema { font-size: 1.4em; }
+}
+
+/* ---------- Salvaguardas: remove efeitos pesados em mobile ---------- */
+@media (hover: none) and (pointer: coarse) {
+  .imagens-container img:hover { transform: none; }
+}
