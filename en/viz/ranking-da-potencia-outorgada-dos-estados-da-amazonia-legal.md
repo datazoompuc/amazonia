@@ -1,12 +1,12 @@
 ---
 layout: default
 lang: en
-title: "Ranking of Granted Power in the States of the Legal Amazon"
-description: "Dynamic ranking of the states with the highest granted power in the Legal Amazon."
+title: "Ranking of Outorged Power of the States in the Legal Amazon"
+description: "Dynamic ranking of the states with the highest outorged power in the Legal Amazon."
 ---
 <br><br>
 <!-- visualization title without quotes -->
-<h1 class="title-about" style="margin: 0px 200px;">Ranking of Granted Power in the States of the Legal Amazon</h1>
+<h1 class="title-about" style="margin: 0px 200px;">Ranking of Outorged Power of the States in the Legal Amazon</h1>
 <br>
 <!-- chart instructions -->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
