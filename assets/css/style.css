@@ -1074,3 +1074,112 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
 @media (hover: none) and (pointer: coarse) {
   .imagens-container img:hover { transform: none; }
 }
+
+/* =========================================================
+   HEADER MOBILE FIXES (até 782px)
+========================================================= */
+@media (max-width: 782px) {
+  /* Layout básico do header */
+  #site-header .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  /* Branding / logo não “espremendo” os botões */
+  #site-header .site-branding,
+  #site-header .header-titles-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    flex: 0 1 auto; /* permite encolher um pouco sem empurrar tudo */
+  }
+
+  /* Limites seguros para a logo (funciona com vários temas) */
+  #site-header .site-logo img,
+  #site-header .custom-logo,
+  #site-header .wp-block-site-logo img {
+    max-height: 36px;
+    height: auto;
+    width: auto;
+  }
+
+  /* Agrupar ações (menu, busca, idioma) à direita */
+  #site-header .header-actions,
+  #site-header .toggle-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    flex: 0 0 auto;
+  }
+
+  /* Botões do header: menu, busca, etc. */
+  #site-header .toggle,
+  #site-header .menu-toggle,
+  #site-header #menu-toggle,
+  #site-header .search-toggle {
+    min-width: 44px;       /* alvo de toque */
+    min-height: 44px;      /* alvo de toque */
+    padding: 0 8px;
+    line-height: 1;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    letter-spacing: 0 !important;      /* remove espaçamento entre letras */
+    text-transform: none !important;    /* evita “espalhar” texto */
+  }
+
+  /* Se dentro do botão houver rótulo de texto, some no mobile (deixa só ícone) */
+  #site-header .toggle .toggle-inner span,
+  #site-header .menu-toggle .toggle-inner span {
+    display: none;
+  }
+  /* Mantém apenas o ícone se houver este wrapper */
+  #site-header .toggle .toggle-icon,
+  #site-header .menu-toggle .toggle-icon {
+    display: inline-flex;
+  }
+
+  /* Componente de idioma (diversos possíveis nomes de classe) */
+  #site-header .lang-switch,
+  #site-header .language-switch,
+  #site-header .wpml-ls,
+  #site-header .pll-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
+  }
+
+  /* Links de idioma compactos, sem espaçamento entre letras */
+  #site-header .lang-switch a,
+  #site-header .language-switch a,
+  #site-header .wpml-ls a,
+  #site-header .pll-switcher a {
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    line-height: 1;
+    letter-spacing: 0 !important;     /* remove separação de letras */
+    text-transform: none !important;   /* evita tracking “forçado” */
+    white-space: nowrap;
+  }
+
+  /* Estado ativo do idioma (opcional) */
+  #site-header .lang-switch a.active,
+  #site-header .language-switch a[aria-current="page"] {
+    background: rgba(0,0,0,.06);
+  }
+}
+
+/* Um ajuste extra para telas bem pequenas */
+@media (max-width: 600px) {
+  #site-header .site-logo img,
+  #site-header .custom-logo,
+  #site-header .wp-block-site-logo img {
+    max-height: 30px;
+  }
+}
