@@ -10,7 +10,7 @@ description: "Séries Temporais de Uso e Cobertura de Terra dos Estados"
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
-  Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre o MAPBIOMAS. Além disso, existe a opção de colocar em escala log e/ou o proporcional ao ano inicial. Por fim, o usuário consegue selecionar a subdivisão geográfica que desejar.
+  Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre o MapBiomas. Além disso, existe a opção de colocar em escala log e/ou o proporcional ao ano inicial. Por fim, o usuário consegue selecionar a subdivisão geográfica que desejar.
 </p>
 <br>
 <!-- link do shinyapps -->
