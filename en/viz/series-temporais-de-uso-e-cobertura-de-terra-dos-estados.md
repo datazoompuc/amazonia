@@ -1,16 +1,16 @@
 ---
 layout: default
 lang: en
-title: "Time Series of Land Cover Change by State"
-description: "Time Series of Land Cover Change by State"
+title: "Time Series of Land Use and Cover Change by State"
+description: "Time Series of Land Use and Cover Change by State"
 ---
 <br><br>
 <!-- visualization title without quotes -->
-<h1 class="title-about" style="margin: 0px 200px;">Time Series of Land Cover Change by State</h1>
+<h1 class="title-about" style="margin: 0px 200px;">Time Series of Land Use and Cover Change by State</h1>
 <br>
 <!-- chart instructions -->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
-  In our dynamic chart, it is possible to change the variables, selecting information from MAPBIOMAS. In addition, there is the option to display values on a log scale and/or relative to the initial year. Finally, the user can select the desired geographic subdivision.
+  In our dynamic chart, it is possible to change the variables, selecting information from MapBiomas. In addition, there is the option to display values on a log scale and/or relative to the initial year. Finally, the user can select the desired geographic subdivision.
 </p>
 <br>
 <!-- shinyapps link -->
@@ -21,7 +21,7 @@ description: "Time Series of Land Cover Change by State"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Time Series of Land Cover Change by State"
+    title="Time Series of Land Use and Cover Change by State"
   ></iframe>
 </div>
 
