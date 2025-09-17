@@ -1,12 +1,12 @@
 ---
 layout: default
 lang: pt
-title: "Séries Temporais da Transição de Cobertura de Terra dos Municípios"
-description: "Séries Temporais da Transição de Cobertura de Terra dos Municípios"
+title: "Séries Temporais da Transição de Cobertura de Terra dos Estados"
+description: "Séries Temporais da Transição de Cobertura de Terra dos Estados"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais da Transição de Cobertura de Terra dos Municípios</h1>
+<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais da Transição de Cobertura de Terra dos Estados</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
@@ -21,7 +21,7 @@ description: "Séries Temporais da Transição de Cobertura de Terra dos Municí
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Séries Temporais da Transição de Cobertura de Terra dos Municípios"
+    title="Séries Temporais da Transição de Cobertura de Terra dos Estados"
   ></iframe>
 </div>
 
