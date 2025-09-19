@@ -1,16 +1,16 @@
 ---
 layout: default
 lang: pt
-title: "Mapa Estático de Dados dos Municípios da Amazônia Legal"
-description: "Mapa Estático de Dados dos Municípios da Amazônia Legal"
+title: "Desenvolvimento da Amazônia Legal"
+description: "Desenvolvimento: Mapa dos Municípios da Amazônia Legal"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Mapa Estático de Dados dos Municípios da Amazônia Legal</h1>
+<h1 class="title-about" style = "margin: 0px 200px;">Desenvolvimento: Mapa dos Municípios da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
-  Em nosso gráfico estático é possível alterar as variáveis, podendo escolher informações sobre Censo 2000, Censo 2010 e Índice de Progresso Social (IPS) dos anos de 2014 e 2018.
+  Em nosso mapa dos municípios da Amazônia Legal, escolha dentre várias variáveis indicativas de desenvolvimento compiladas pelo IMAZON.
 </p>
 <br>
 <!-- link do shinyapps -->
@@ -38,8 +38,7 @@ description: "Mapa Estático de Dados dos Municípios da Amazônia Legal"
      <div class="rodape_viz">
        <!-- descrição dos dados usados-->
       <p>
-        Dados coletados dos Censos de 2000 e 2010 conduzidos pelo <a href="https://www.ibge.gov.br/estatisticas/sociais/saude/22827-censo-demografico-2022.html" target="_blank" rel="noreferrer noopener">IBGE</a>, do <a href="https://ipsbrasil.org.br/pt" target="_blank" rel="noreferrer noopener">Índice de Progresso Social (IPS)</a> e do <a href="https://imazon.org.br/" target="_blank" rel="noreferrer noopener">Instituto do Homem e Meio Ambiente da Amazônia (Imazon)</a>. 
-        O Censo recolhe informações detalhadas sobre a população do país. O IPS e o Imazon carregam informações sobre o desempenho socioambiental da Amazônia Legal. <br><br>
+        Dados coletados pelo <a href="https://imazon.org.br/" target="_blank" rel="noreferrer noopener">Instituto do Homem e Meio Ambiente da Amazônia (Imazon)</a>, inclusive o <a href="https://ipsbrasil.org.br/pt" target="_blank" rel="noreferrer noopener">Índice de Progresso Social (IPS) 2021</a>. O IPS é um índice de desempenho socioambiental da Amazônia Legal. <br><br>
         Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
      <br>
