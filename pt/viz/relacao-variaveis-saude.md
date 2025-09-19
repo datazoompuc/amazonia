@@ -50,7 +50,7 @@ description: "Gráfico de dispersão de relação entre variáveis sociodemográ
         Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
      <br>
-      <p> style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
+      <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
         <strong>Atenção</strong>: Esta visualização é alimentada por dados compilados de diversas fontes e tratados através do pacote 
         <code class = "code_viz">datazoom.amazonia</code> no <code class = "code_viz">R</code> (funções <code class = "code_viz">load_prodes()</code>, <code class = "code_viz">load_cempre()</code>, <code class = "code_viz">load_population()</code>, <code class = "code_viz">load_ppm()</code> e <code class = "code_viz">load_pam()</code>),
         do pacote <code class = "code_viz">datazoom.saude</code> no <code class = "code_viz">R</code> (funções <code class = "code_viz">load_mortality()</code> e <code class = "code_viz">load_hospital_beds()</code>)
