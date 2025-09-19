@@ -2,7 +2,7 @@
 layout: default
 lang: en
 title: "Ranking of Deforestation Champions"
-description: "Health conditions at Amazon: Mortality at the municipal level"
+description: "Deforestation champions by municipality"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
@@ -16,12 +16,12 @@ description: "Health conditions at Amazon: Mortality at the municipal level"
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_map_saude_mortalidade_eng/"
+    src="https://datazoom.shinyapps.io/app_rkstatic_dz_munic_en/"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Health conditions at Amazon: Mortality at the municipal level"
+    title="Rankings: deforestation - Data Zoom Amazônia"
   ></iframe>
 </div>
 
