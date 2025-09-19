@@ -1,27 +1,27 @@
 ---
 layout: default
 lang: en
-title: "Static Map of Data for Municipalities in the Legal Amazon"
-description: "Static Map of Data for Municipalities in the Legal Amazon"
+title: "Legal Amazon's Development"
+description: "Development: Map of Municipalities in the Legal Amazon"
 ---
 <br><br>
-<!-- visualization title without quotes -->
-<h1 class="title-about" style="margin: 0px 200px;">Static Map of Data for Municipalities in the Legal Amazon</h1>
+<!-- titulo da viz sem aspas-->
+<h1 class="title-about" style = "margin: 0px 200px;">Development: Map of Municipalities in the Legal Amazon</h1>
 <br>
-<!-- chart instructions -->
+<!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
-  In our static chart, it is possible to change the variables, selecting information from the 2000 Census, 2010 Census, and the Social Progress Index (SPI) for the years 2014 and 2018.
+  In our map of municipalities in the Legal Amazon, choose among several development indicative variables compiled by IMAZON.
 </p>
 <br>
-<!-- shinyapps link -->
+<!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_mapstatic_ips_2021_en/"
+    src="https://datazoom.shinyapps.io/app_mapstatic_ips_2021_eng/"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Static Map of Data for Municipalities in the Legal Amazon"
+    title="Maps: development - Data Zoom Amazônia"
   ></iframe>
 </div>
 
@@ -36,16 +36,16 @@ description: "Static Map of Data for Municipalities in the Legal Amazon"
     </div>
     <div class="col-md-9">
      <div class="rodape_viz">
-       <!-- description of the data used -->
+       <!-- descrição dos dados usados-->
       <p>
-        Data collected from the 2000 and 2010 Censuses, the <a href="https://ipsbrasil.org.br/pt" target="_blank" rel="noreferrer noopener">Social Progress Index (SPI)</a>, and the <a href="https://imazon.org.br/" target="_blank" rel="noreferrer noopener">Amazon Institute of People and the Environment (Imazon)</a>. 
-        The Census is a survey conducted every 10 years, in which enumerators go door-to-door filling out a detailed registry with information about the country’s population. The SPI and Imazon provide information on the socio-environmental performance of the Legal Amazon. <br><br>
+        Data collected by <a href="https://imazon.org.br/" target="_blank" rel="noreferrer noopener">Instituto do Homem e Meio Ambiente da Amazônia (Imazon)</a>, including the 2021 <a href="https://ipsbrasil.org.br/pt" target="_blank" rel="noreferrer noopener">Índice de Progresso Social (IPS)</a>. 
+        IPS is an index of social progress in the Legal Amazon. <br><br>
         Want to explore more? Check out our <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
      <br>
       <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
-        <strong>Attention</strong>: This visualization is powered by data processed through the 
-        <code class = "code_viz">datazoom.amazonia</code> package in <code class = "code_viz">R</code> (function <code class = "code_viz">load_ips()</code>) and the <code class = "code_viz">datazoom_social</code> package in <code class = "code_viz">Stata</code> (function <code class = "code_viz">load_censo[,options]</code>) and is subject to errors due to 
+        <strong>Atenção</strong>:  This visualization is powered by data processed through the 
+        <code class = "code_viz">datazoom.amazonia</code> package in <code class = "code_viz">R</code> (function <code class = "code_viz">load_ips()</code>) and is subject to errors due to 
         changes in external sources. If the user identifies any discrepancies in the information, we kindly ask that you report them in the 
         <a href="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank" rel="noreferrer noopener">GitHub Issues</a>.
       </p>
@@ -60,7 +60,7 @@ description: "Static Map of Data for Municipalities in the Legal Amazon"
   </div>
 </div>
 
-<!-- Simple adjustments for iframe height on smaller screens -->
+<!-- Ajustes simples para a altura do iframe em telas menores -->
 <style>
   @media (max-width: 992px) { .container-fluid iframe { height: 78vh !important; } }
   @media (max-width: 576px) { .container-fluid iframe { height: 82vh !important; } }
