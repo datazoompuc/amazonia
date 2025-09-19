@@ -1,7 +1,7 @@
 ---
 layout: default
 lang: pt
-title: "Relação entre variáveis de saúde"
+title: "Relação entre Variáveis de Saúde"
 description: "Gráfico de dispersão de relação entre variáveis sociodemográficas, de desmatamento e de saúde"
 ---
 <br><br>
@@ -42,12 +42,9 @@ description: "Gráfico de dispersão de relação entre variáveis sociodemográ
        <!-- descrição dos dados usados-->
       <p>
         <b>Censo Demográfico:</b> É uma grande pesquisa que ocorre a cada 10 anos, onde recenseadores vão de casa em casa preenchendo um enorme cadastro com informações detalhadas sobre a população do país.<br><br>
-
-        <b>DATASUS:<b> Órgão da Secretaria de Gestão Estratégica e Participativa do Ministério da Saúde, com a responsabilidade de coletar, processar e disseminar informações sobre saúde.
+        <b>DATASUS:<b> Órgão da Secretaria de Gestão Estratégica e Participativa do Ministério da Saúde, com a responsabilidade de coletar, processar e disseminar informações sobre saúde.<br><br>
         <b>PRODES:</b> O projeto utiliza satélites para monitorar o desmatamento na Amazônia Legal brasileira. Os dados brutos relatam a área desmatada com corte raso total e incremental ano a ano em nível de município.<br><br>
-
         <b>CEMPRE:</b> Carrega informações sobre empresas e demais organizações e suas respectivas unidades locais formalmente constituídas, cadastradas no CNPJ – Cadastro Nacional de Pessoas Jurídicas.<br><br>
-
         <b>PPM:</b> Os dados reúnem informações sobre os efetivos da pecuária existentes no município, além da produção de origem animal, e o valor da produção durante o ano de referência. Os dados disponíveis têm uma frequência anual e estão disponíveis a partir do ano de 1945. <br><br>
         Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
