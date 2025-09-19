@@ -12,6 +12,7 @@ description: "Mapa de cabeças de gado e área de pastagem."
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
   Em nosso mapa dinâmico é possível selecionar cabeças de gado ou área de pastagem.
   Os dados podem ser visualizados como proporção da área total do município ou da área de pastagem.
+  Todos os dados são referentes a 2017.
 </p>
 <br>
 <!-- link do shinyapps -->
@@ -40,7 +41,7 @@ description: "Mapa de cabeças de gado e área de pastagem."
        <!-- descrição dos dados usados-->
       <p>
         Dados coletados do <a href="https://brasil.mapbiomas.org/" target="_blank" rel="noreferrer noopener">MapBiomas</a> 
-        e do <a href="https://censoagro2017.ibge.gov.br/" target="_blank" rel="noreferrer noopener">Censo Agro</a> realizado pelo <a href="https://www.ibge.gov.br/" target="_blank" rel="noreferrer noopener">IBGE</a>. 
+        e do <a href="https://censoagro2017.ibge.gov.br/" target="_blank" rel="noreferrer noopener">Censo Agro 2017</a> realizado pelo <a href="https://www.ibge.gov.br/" target="_blank" rel="noreferrer noopener">IBGE</a>. 
         O MapBiomas é uma iniciativa colaborativa formada por universidades, ONGs e empresas de tecnologia, dedicada ao mapeamento da cobertura e do uso da terra.
         Ele utiliza imagens de satélite e sensoriamento remoto para gerar dados em painel.
         O Censo Agro investigas as características e pordução de todos os estabelecimentos agropecuários do território brasileiro. <br><br>
@@ -49,7 +50,7 @@ description: "Mapa de cabeças de gado e área de pastagem."
      <br>
       <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
         <strong>Atenção</strong>: Esta visualização é alimentada por dados tratados através do pacote 
-        <code class = "code_viz">datazoom.amazonia</code> no <code class = "code_viz">R</code> (funções <code class = "code_viz">load_epe()</code> e <code class = "code_viz">load_censoagro()</code>) e está sujeita a erro diante de 
+        <code class = "code_viz">datazoom.amazonia</code> no <code class = "code_viz">R</code> (funções <code class = "code_viz">load_mapbiomas()</code> e <code class = "code_viz">load_censoagro()</code>) e está sujeita a erro diante de 
         alterações nas fontes externas. Caso o usuário identifique alguma discrepância de informação, solicitamos que reporte nos 
         <a href="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank" rel="noreferrer noopener">Issues do GitHub</a>.
       </p>
