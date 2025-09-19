@@ -1,7 +1,7 @@
 ---
 layout: default
 lang: pt
-title: "Ranking de Cobertura da Terra"
+title: "Ranking de Cobertura da Terra dos Municípios"
 description: "Ranking de área de cobertura da terra dos municípios da Amazônia Legal"
 ---
 <br><br>
@@ -10,7 +10,7 @@ description: "Ranking de área de cobertura da terra dos municípios da Amazôni
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
-  Em nosso ranking dinâmico é possível alterar as variáveis, podendo escolher entre as opções de cobertura da terra do MapBiomas.
+  Em nosso ranking dinâmico, escolha entre as opções de cobertura da terra do MapBiomas.
   Aperte play para ver como o ranking evolui ao longo dos anos.
 </p>
 <br>
