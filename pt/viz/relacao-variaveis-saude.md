@@ -40,16 +40,17 @@ description: "Gráfico de dispersão de relação entre variáveis sociodemográ
     <div class="col-md-9">
      <div class="rodape_viz">
        <!-- descrição dos dados usados-->
-      <p>
+       <p>
         <b>Censo Demográfico:</b> É uma grande pesquisa que ocorre a cada 10 anos, onde recenseadores vão de casa em casa preenchendo um enorme cadastro com informações detalhadas sobre a população do país.<br><br>
-        <b>DATASUS:<b> Órgão da Secretaria de Gestão Estratégica e Participativa do Ministério da Saúde, com a responsabilidade de coletar, processar e disseminar informações sobre saúde.<br><br>
+        <b>DATASUS:</b> Órgão da Secretaria de Gestão Estratégica e Participativa do Ministério da Saúde, com a responsabilidade de coletar, processar e disseminar informações sobre saúde.<br><br>
         <b>PRODES:</b> O projeto utiliza satélites para monitorar o desmatamento na Amazônia Legal brasileira. Os dados brutos relatam a área desmatada com corte raso total e incremental ano a ano em nível de município.<br><br>
         <b>CEMPRE:</b> Carrega informações sobre empresas e demais organizações e suas respectivas unidades locais formalmente constituídas, cadastradas no CNPJ – Cadastro Nacional de Pessoas Jurídicas.<br><br>
         <b>PPM:</b> Os dados reúnem informações sobre os efetivos da pecuária existentes no município, além da produção de origem animal, e o valor da produção durante o ano de referência. Os dados disponíveis têm uma frequência anual e estão disponíveis a partir do ano de 1945. <br><br>
+        <b>PAM:</b> Pesquisa anual de informações sobre produtos agrícolas como quantidade produzida, área cultivada e colhida, quantidade média de produto e valor monetário de cada cultura. <br><br>
         Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
      <br>
-      <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
+      <p> style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
         <strong>Atenção</strong>: Esta visualização é alimentada por dados compilados de diversas fontes e tratados através do pacote 
         <code class = "code_viz">datazoom.amazonia</code> no <code class = "code_viz">R</code> (funções <code class = "code_viz">load_prodes()</code>, <code class = "code_viz">load_cempre()</code>, <code class = "code_viz">load_population()</code>, <code class = "code_viz">load_ppm()</code> e <code class = "code_viz">load_pam()</code>),
         do pacote <code class = "code_viz">datazoom.saude</code> no <code class = "code_viz">R</code> (funções <code class = "code_viz">load_mortality()</code> e <code class = "code_viz">load_hospital_beds()</code>)
