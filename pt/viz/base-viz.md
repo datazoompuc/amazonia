@@ -6,10 +6,10 @@ description: descrição da viz com aspas (ex "Gráfico dinâmico com séries de
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Séries Temporais da Produção, Consumo e Consumidores de Energia</h1>
+<h1 class="title-about" style = "max-width: 1000px"> Séries Temporais da Produção, Consumo e Consumidores de Energia</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre a produção, o consumo e os consumidores de energia da Amazônia Legal e do Brasil inteiro. 
   Filtre para os estados de interesse, selecione as fontes de energia e categorias de consumo de interesse e acompanhe a evolução ao longo do tempo.
 </p>
