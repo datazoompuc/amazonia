@@ -6,7 +6,7 @@ description: "Mapa dinâmico de cobertura vegetal e de uso da terra por municíp
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "max-width: 1000px"> Mapa de Cobertura a Nível Municipal com Contorno da Amazônia Legal</h1>
+<h1 class="title-about" style="max-width: 1000px"> Mapa de Cobertura a Nível Municipal com Contorno da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
