@@ -6,10 +6,10 @@ description: "Comércio exterior na Amazônia (COMEX): Valor da exportação de 
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Sankey do Volume de Exportação da Amazônia por País de Destino</h1>
+<h1 class="title-about" style="max-width: 1000px">Sankey do Volume de Exportação da Amazônia por País de Destino</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico, a grossura das barras é proporcional ao volume de exportações em dólares para cada país. Deslizando o cursor por cima do gráfico, os valores podem ser observados. É possível filtrar por ano e por categoria de produto. 
   Filtre para os estados de interesse, selecione as fontes de energia e categorias de consumo de interesse e acompanhe a evolução ao longo do tempo.
 </p>

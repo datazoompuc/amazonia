@@ -6,10 +6,10 @@ description: "Histograma da Quantidade de Bois por Hectare em Áreas de Pastagem
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Histograma da Quantidade de Bois por Hectare em Áreas de Pastagem</h1>
+<h1 class="title-about" style="max-width: 1000px">Histograma da Quantidade de Bois por Hectare em Áreas de Pastagem</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico, o eixo x representa o log da (quantidade de bois por hectare + 1) e o eixo y a quantidade de municípios que se enquadram em cada intervalo da variável do eixo x. Além disso, pode-se escolher o período que desejar. É possível também filtrar por região, por estado e para a Amazônia Legal. Já tentou apertar o play para ver o gráfico se alterando ao longo do tempo?
 </p>
 <br>

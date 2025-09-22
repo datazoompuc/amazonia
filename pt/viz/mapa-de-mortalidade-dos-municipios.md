@@ -6,10 +6,10 @@ description: "Mapa dinâmico da saúde na Amazônia: Mortalidade ao nível munic
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Mapa de Mortalidade dos Municípios</h1>
+<h1 class="title-about" style="max-width: 1000px;"> Mapa de Mortalidade dos Municípios</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico é possível alterar a variável, podendo selecionar diferentes causas de morte. Além disso, existe a opção de selecionar o ano em que se deseja fazer a análise.<br>
   Já tentou apertar o play para ver o gráfico se alterando ao longo do tempo?
 </p>

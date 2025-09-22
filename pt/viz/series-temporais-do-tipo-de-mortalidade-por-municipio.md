@@ -6,10 +6,10 @@ description: "Séries Temporais do Tipo de Mortalidade por Município"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais do Tipo de Mortalidade por Município</h1>
+<h1 class="title-about" style="max-width: 1000px">Séries Temporais do Tipo de Mortalidade por Município</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico, é possível alterar as variáveis, podendo escolher o tipo de mortalidade desejada numa escala de 100 milhões de habitantes. Além disso, existe a opção de colocar em escala log essas variável. Por fim, o usuário consegue selecionar os estados e municípios que deseja fazer sua análise.
 </p>
 <br>

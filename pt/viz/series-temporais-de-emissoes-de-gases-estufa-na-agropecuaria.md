@@ -6,10 +6,10 @@ description: "Séries Temporais de Emissões de Gases Estufa na Agropecuária"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais de Emissões de Gases Estufa na Agropecuária</h1>
+<h1 class="title-about" style="max-width: 1000px">Séries Temporais de Emissões de Gases Estufa na Agropecuária</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico é possível observar informações sobre emissão de gases estufa por Estado do SEEG. Além disso, existe a opção de colocar em escala log e/ou o proporcional ao ano inicial.
 </p>
 <br>

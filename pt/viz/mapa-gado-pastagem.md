@@ -6,10 +6,10 @@ description: "Mapa de cabeças de gado e área de pastagem."
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Mapa de Cabeças de Gado e Área de Pastagem</h1>
+<h1 class="title-about" style="max-width: 1000px"> Mapa de Cabeças de Gado e Área de Pastagem</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso mapa dinâmico é possível selecionar cabeças de gado ou área de pastagem.
   Os dados podem ser visualizados como proporção da área total do município ou da área de pastagem.
   Todos os dados são referentes a 2017.

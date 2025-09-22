@@ -6,10 +6,10 @@ description: "Mapa do Efetivo Pecuário dos Municípios"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Mapa do Efetivo Pecuário dos Municípios</h1>
+<h1 class="title-about" style="max-width: 1000px;">Mapa do Efetivo Pecuário dos Municípios</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre os efetivos da pecuária existentes no município, além da produção de origem animal, e o valor da produção durante o ano de referência. Além disso, existe a opção de selecionar o ano em que se deseja fazer a análise. Já tentou apertar o play para ver o gráfico se alterando ao longo do tempo?
 </p>
 <br>

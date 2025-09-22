@@ -6,10 +6,10 @@ description: "Desenvolvimento: Mapa dos Municípios da Amazônia Legal"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Desenvolvimento: Mapa dos Municípios da Amazônia Legal</h1>
+<h1 class="title-about" style="max-width: 1000px">Desenvolvimento: Mapa dos Municípios da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso mapa dos municípios da Amazônia Legal, escolha dentre várias variáveis indicativas de desenvolvimento compiladas pelo IMAZON.
 </p>
 <br>

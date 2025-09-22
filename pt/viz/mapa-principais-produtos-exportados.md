@@ -6,10 +6,10 @@ description: "Comércio Exterior na Amazônia Legal: Principal produto exportado
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Mapa dinâmico do principal produto exportado por município da Amazônia Legal</h1>
+<h1 class="title-about" style="max-width: 1000px"> Mapa dinâmico do principal produto exportado por município da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso mapa dinâmico, veja a evolução dos principais produtos exportados pelos municípios da Amazônia Legal entre 1997 e 2021. 
 </p>
 <br>

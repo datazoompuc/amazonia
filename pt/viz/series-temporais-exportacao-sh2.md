@@ -6,10 +6,10 @@ description: "Comércio Exterior na Amazônia Legal: Valor da exportação de be
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Séries Temporais do Valor das Categorias de Bens Exportados por Município da Amazônia Legal</h1>
+<h1 class="title-about" style="max-width: 1000px"> Séries Temporais do Valor das Categorias de Bens Exportados por Município da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico, selecione uma categoria de bens exportados e todas os municípios de interesse. Valores são reportados em R$.
 </p>
 <br>

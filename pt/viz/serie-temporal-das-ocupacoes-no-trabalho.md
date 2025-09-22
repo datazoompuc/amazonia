@@ -6,10 +6,10 @@ description: "Série Temporal das Ocupações no Trabalho"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Série Temporal das Ocupações no Trabalho</h1>
+<h1 class="title-about" style="max-width: 1000px">Série Temporal das Ocupações no Trabalho</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre aos tipos de ocupação no mercado de trabalho da PNAD Contínua – IBGE. É possível escolher um tipo de ocupação para cada Estado e observar a evolução temporal de indicadores como número de ocupados, rendimento médio e massa salarial.
 </p>
 <br>

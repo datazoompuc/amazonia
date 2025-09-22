@@ -6,10 +6,10 @@ description: "Gráfico de dispersão de relação entre variáveis sociodemográ
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Explore Relação entre Variáveis de Saúde nos Municípios da Amazônia Legal</h1>
+<h1 class="title-about" style="max-width: 1000px"> Explore Relação entre Variáveis de Saúde nos Municípios da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico, onde cada círculo corresponde a um município, é possível selecionar diversas variáveis de várias fontes. 
   Nos dois eixos é possível escolher os dados do INPE, IBGE, DATASUS e IMAZON, e assim, observar a relação entre eles. 
   Aqui, as variáveis de relacionadas a saúde ganham destaque

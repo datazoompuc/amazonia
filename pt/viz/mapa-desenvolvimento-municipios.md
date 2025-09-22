@@ -6,10 +6,10 @@ description: "Mapa de Desenvolvimento da Amazônia Legal por Município"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Mapa de Desenvolvimento da Amazônia Legal por Município</h1>
+<h1 class="title-about" style="max-width: 1000px">Mapa de Desenvolvimento da Amazônia Legal por Município</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso mapa, selecione a variável de interesse: informações sobre Censo 2000, Censo 2010 e Índice de Progresso Social (IPS) dos anos de 2014 e 2018.
 </p>
 <br>

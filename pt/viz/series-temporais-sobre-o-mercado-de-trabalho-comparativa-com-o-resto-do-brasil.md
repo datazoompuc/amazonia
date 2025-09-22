@@ -6,10 +6,10 @@ description: "Séries Temporais Sobre o Mercado de Trabalho"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais Sobre o Mercado de Trabalho</h1>
+<h1 class="title-about" style="max-width: 1000px">Séries Temporais Sobre o Mercado de Trabalho</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre mercado de trabalho da PNAD Contínua – IBGE. Além disso, existe a opção de selecionar o recorte regional e o grupo por faixa etária, anos de estudo ou gênero que desejar.
 </p>
 <br>

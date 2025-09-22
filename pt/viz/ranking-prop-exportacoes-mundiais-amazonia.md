@@ -6,10 +6,10 @@ description: "Ranking da Proproção das Exportações Mundiais Oriundas da Amaz
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Ranking da Proproção das Exportações Mundiais Oriundas da Amazônia Legal</h1>
+<h1 class="title-about" style="max-width: 1000px"> Ranking da Proproção das Exportações Mundiais Oriundas da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Aperte play para ver como o ranking evolui ao longo dos anos. No nosso ranking interativo, você pode selecionar os produtos que se interessar.
 </p>
 <br>

@@ -6,10 +6,10 @@ description: "Campeões do desmatamento por município"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Ranking de Campeões de Desmatamento</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking de Campeões de Desmatamento</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher entre a área total de incremento de desmatamento e a proporção de incremento de desmatamento na área do município. Além disso, é possível alterar os estados e o ano em que se deseja fazer a análise.
 </p>
 <br>

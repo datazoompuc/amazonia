@@ -6,10 +6,10 @@ description: "Gráfico de dispersão relacionando área desmatada e PIB per capi
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Relação entre Área Desmatada e PIB Per Capita</h1>
+<h1 class="title-about" style="max-width: 1000px"> Relação entre Área Desmatada e PIB Per Capita</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico, onde cada círculo corresponde a um município, é possível alterar as variáveis, podendo escolher informações sobre diversas fontes. Nos dois eixos é possível escolher os dados do Censo 2000, Censo 2010, PRODES, CEMPRE, IPS 2014, IPS 2018 e PPM, e assim, observar a relação entre eles. Além disso, existe a opção de colocar em escala log essas variáveis. Por fim, o usuário consegue selecionar a cor do marcador e tamanho do marcador com base nesses banco de dados.
 </p>
 <br>

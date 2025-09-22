@@ -5,9 +5,9 @@ title: "Séries Temporais da Geração Distribuída"
 description: "Gráfico dinâmico com séries de geração distribuída de energia na Amazônia Legal e no Brasil."
 ---
 <br><br>
-<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais da Geração Distribuída</h1>
+<h1 class="title-about" style="max-width: 1000px">Séries Temporais da Geração Distribuída</h1>
 <br>
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre a geração distribuída de energia da Amazônia Legal e em todo o país. 
   Filtre por modalidade e tamanho do empreendimento, por fonte da geração, escolher as unidades federativas de interesse e observe a evolução temporal da quantidade de unidades e da potência instalada.
 </p>

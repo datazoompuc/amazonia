@@ -6,10 +6,10 @@ description: "Ranking dos Municípios Campeões de Exportação"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Ranking dos Municípios Campeões de Exportação</h1>
+<h1 class="title-about" style="max-width: 1000px"> Ranking dos Municípios Campeões de Exportação</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico, acompanhe quais municípios na Amazônia Legal são campeões de exportação ao longo dos anos.
   Você pode selecionar a categoria de bens desejada.
 </p>

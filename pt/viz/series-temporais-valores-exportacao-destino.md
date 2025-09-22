@@ -6,10 +6,10 @@ description: "Séries Temporais de Valor Total Exportado por País de Destino"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Séries Temporais de Valor Total Exportado por País de Destino</h1>
+<h1 class="title-about" style="max-width: 1000px"> Séries Temporais de Valor Total Exportado por País de Destino</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico é possível observar os valores presentes na Comex. 
   Além disso, existe a opção de colocar em escala log e/ou ao proporcional ao ano inicial. 
   Por fim, o usuário consegue selecionar a subdivisão geográfica que desejar.

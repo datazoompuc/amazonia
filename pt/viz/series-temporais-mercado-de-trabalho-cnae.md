@@ -6,10 +6,10 @@ description: "Séries Temporais Sobre o Mercado de Trabalho com Recorte por Ativ
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais Sobre o Mercado de Trabalho por Atividade</h1>
+<h1 class="title-about" style="max-width: 1000px">Séries Temporais Sobre o Mercado de Trabalho por Atividade</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico, escolha entre variáveis de mercado de trabalho agregadas da PNAD Contínua – IBGE. 
   Além disso, existe a opção de selecionar o recorte regional, o tipo de atividade econômica pela Classificação Nacional de Atividades Econômicas (CNAE), e o setor.
 </p>

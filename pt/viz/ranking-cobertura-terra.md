@@ -6,10 +6,10 @@ description: "Ranking de área de cobertura da terra dos municípios da Amazôni
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Ranking Municipal de Área de Cobertura da Terra</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking Municipal de Área de Cobertura da Terra</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso ranking dinâmico, escolha entre as opções de cobertura da terra do MapBiomas.
   Aperte play para ver como o ranking evolui ao longo dos anos.
 </p>

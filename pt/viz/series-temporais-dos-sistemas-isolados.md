@@ -5,9 +5,9 @@ title: "Séries Temporais dos Sistemas Isolados"
 description: "Gráfico dinâmico com séries dos sistemas isolados na Amazônia Legal e no Brasil."
 ---
 <br><br>
-<h1 class="title-about" style = "margin: 0px 200px;">Séries Temporais dos Sistemas Isolados</h1>
+<h1 class="title-about" style="max-width: 1000px">Séries Temporais dos Sistemas Isolados</h1>
 <br>
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso gráfico dinâmico é possível alterar as variáveis, podendo diversas escolher informações sobre os Sistemas Isolados da Amazônia Legal. 
   Selecione variáveis associadas ao consumo elétrico, ao número de consumidores, às despesas dos sistemas, ao orçamento de subsídios anuais e acompanhe a evolução ao longo do tempo.
 </p>

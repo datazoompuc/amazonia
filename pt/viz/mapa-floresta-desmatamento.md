@@ -6,10 +6,10 @@ description: "Mapa dos municípios da Amazônia Legal por área de floresta ou d
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Mapa de Área de Floresta ou Área Desmatada por Município da Amazônia Legal</h1>
+<h1 class="title-about" style="max-width: 1000px">Mapa de Área de Floresta ou Área Desmatada por Município da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso mapa, selecione a variável de interesse - área de floresta, não-floresta, desmatatada, incremento de desmatamento e hidrografia.
   Também é possível escolher as variáveis como proporção da área dos municípios.
   Aperte o play para ver como o mapa muda ao longo dos anos.
