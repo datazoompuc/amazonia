@@ -6,10 +6,10 @@ description: "Dynamic map with vegetation cover and land use by municipality wit
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Map of Land Use and Cover by Municiplaity with the Outline of the Legal Amazon</h1>
+<h1 class="title-about" style = "max-width: 1000px"> Map of Land Use and Cover by Municiplaity with the Outline of the Legal Amazon</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our dynamic map, you can select any year between 1985 and 2023. Filter by type of land use: many options are available for both vegetation and activities. Data can be shown in hectares or as a proportion of the muncipality's area.
 </p>
 <br>
