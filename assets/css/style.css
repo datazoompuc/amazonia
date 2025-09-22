@@ -842,6 +842,16 @@ footer.dzam-footer .footer-credits a:hover {
   color: #000000;
   background: none;
 }
+
+.text-center {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.125rem;       /* ~18px */
+  color: #3f8513;
+  text-align: center;
+  max-width: 800px;          /* largura máxima */
+  margin: 20px auto;         /* centraliza horizontalmente */
+  line-height: 1.5;
+}
 /*------------------Fim Viz-----------------*/
 
 /*------------------ Visualizacoes -----------------*/
