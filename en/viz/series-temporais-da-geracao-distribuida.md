@@ -5,7 +5,7 @@ title: "Time Series of Distributed Generation"
 description: "Interactive chart with distributed energy generation time series in the Legal Amazon and Brazil."
 ---
 <br><br>
-<h1 class="title-about" style="margin: 0px 200px;">Time Series of Distributed Generation</h1>
+<h1 class="title-about" style="max-width: 1000px">Time Series of Distributed Generation</h1>
 <br>
 <p class="text-center">
   In our interactive chart, you can change the variables, selecting information about distributed energy generation in the Legal Amazon and across the country. 

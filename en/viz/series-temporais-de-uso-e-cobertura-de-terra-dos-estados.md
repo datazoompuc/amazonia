@@ -6,7 +6,7 @@ description: "Time Series of Land Use and Cover Change by State"
 ---
 <br><br>
 <!-- visualization title without quotes -->
-<h1 class="title-about" style="margin: 0px 200px;">Time Series of Land Use and Cover Change by State</h1>
+<h1 class="title-about" style="max-width: 1000px">Time Series of Land Use and Cover Change by State</h1>
 <br>
 <!-- chart instructions -->
 <p class="text-center">

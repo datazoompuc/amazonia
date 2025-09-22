@@ -6,7 +6,7 @@ description: "Time Series of Land Cover Transition in States"
 ---
 <br><br>
 <!-- visualization title without quotes -->
-<h1 class="title-about" style="margin: 0px 200px;">Time Series of Land Cover Transition in States</h1>
+<h1 class="title-about" style="max-width: 1000px">Time Series of Land Cover Transition in States</h1>
 <br>
 <!-- instructions about the chart -->
 <p class="text-center">

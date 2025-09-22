@@ -6,7 +6,7 @@ description: "Histogram of the Number of Cattle per Hectare in Pasture Areas"
 ---
 <br><br>
 <!-- visualization title without quotes -->
-<h1 class="title-about" style="margin: 0px 200px;">Histogram of the Number of Cattle per Hectare in Pasture Areas</h1>
+<h1 class="title-about" style="max-width: 1000px">Histogram of the Number of Cattle per Hectare in Pasture Areas</h1>
 <br>
 <!-- chart instructions -->
 <p class="text-center">

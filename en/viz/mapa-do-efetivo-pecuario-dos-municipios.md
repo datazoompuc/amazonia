@@ -6,7 +6,7 @@ description: "Map of Municipal Livestock Herds"
 ---
 <br><br>
 <!-- chart title without quotes -->
-<h1 class="title-about" style="margin: 0px 200px;">Map of Municipal Livestock Herds</h1>
+<h1 class="title-about" style="max-width: 1000px">Map of Municipal Livestock Herds</h1>
 <br>
 <!-- chart instructions -->
 <p class="text-center">

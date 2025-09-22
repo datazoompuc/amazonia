@@ -6,7 +6,7 @@ description: "Dynamic ranking of the states with the highest outorged power in t
 ---
 <br><br>
 <!-- visualization title without quotes -->
-<h1 class="title-about" style="margin: 0px 200px;">Ranking of Outorged Power of the States in the Legal Amazon</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking of Outorged Power of the States in the Legal Amazon</h1>
 <br>
 <!-- chart instructions -->
 <p class="text-center">
