@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Labour Market
+title: Labor Market
 lang: en
 ---
 
@@ -8,7 +8,7 @@ lang: en
 
 <br>
 
-<h1 class="title-about">Labour Market</h1>
+<h1 class="title-about">Labor Market</h1>
 
 <br>
 <br>
@@ -27,7 +27,7 @@ lang: en
     <a href="{{ site.baseurl }}/en/viz/series-temporais-sobre-o-mercado-de-trabalho-comparativa-com-o-resto-do-brasil" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mercado_de_trabalho.png" alt="icon viz">
     </a><br>
-    <p>Time Series of Labour Market</p>
+    <p>Time Series of Labor Market</p>
    </div>
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/ranking-das-ocupacoes-mais-dinamicas" target="_blank" rel="noopener noreferrer">
@@ -39,13 +39,13 @@ lang: en
     <a href="{{ site.baseurl }}/en/viz/series-temporais-mercado-de-trabalho-cnae" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mercado_de_trabalho_cnae.png" alt="icon viz">
     </a><br>
-    <p>Labour Market Time Series by Activity</p>
+    <p>Labor Market Time Series by Activity</p>
    </div>
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/serie-temporal-das-ocupacoes-no-trabalho" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_ocupacoes.png" alt="icon viz">
     </a><br>
-    <p>Labour Occupations Time Series</p>
+    <p>Labor Occupations Time Series</p>
    </div>
   </div>
 

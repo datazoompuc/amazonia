@@ -1,12 +1,12 @@
 ---
 layout: default
 lang: en
-title: "Labour Market Time Series"
-description: "Labour Market Time Series by Activity"
+title: "Labor Market Time Series"
+description: "Labor Market Time Series by Activity"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Labour Market Time Series by Activity</h1>
+<h1 class="title-about" style="max-width: 1000px">Labor Market Time Series by Activity</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">

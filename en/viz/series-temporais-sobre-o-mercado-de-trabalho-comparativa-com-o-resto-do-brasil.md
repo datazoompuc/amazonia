@@ -1,12 +1,12 @@
 ---
 layout: default
 lang: en
-title: "Labour Market Time Series"
-description: "Labour Market Time Series"
+title: "Labor Market Time Series"
+description: "Labor Market Time Series"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Labour Market Time Series</h1>
+<h1 class="title-about" style="max-width: 1000px">Labor Market Time Series</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
@@ -21,7 +21,7 @@ description: "Labour Market Time Series"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Time Series: Labour Market"
+    title="Time Series: Labor Market"
   ></iframe>
 </div>
 

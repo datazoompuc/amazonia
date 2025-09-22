@@ -1,12 +1,12 @@
 ---
 layout: default
 lang: en
-title: "Labour Occupations Time Series"
-description: "Labour Occupations Time Series"
+title: "Labor Occupations Time Series"
+description: "Labor Occupations Time Series"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Labour Occupations Time Series</h1>
+<h1 class="title-about" style="max-width: 1000px">Labor Occupations Time Series</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
@@ -21,7 +21,7 @@ description: "Labour Occupations Time Series"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Labour Occupations Time Series"
+    title="Labor Occupations Time Series"
   ></iframe>
 </div>
 
