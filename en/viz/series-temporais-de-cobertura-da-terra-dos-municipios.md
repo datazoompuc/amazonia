@@ -6,10 +6,10 @@ description: "Dynamic map with annual land usage and coverage in Brazil."
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Municipalities’ Land Coverage Time Series</h1>
+<h1 class="title-about" style="max-width: 1000px">Municipalities’ Land Coverage Time Series</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   On our dynamic chart, it is possible to change the variables and choose information about MAPBIOMAS. In addition, there is the option to use a log scale and/or proportional to the initial year. Finally, the user can select the desired geographical subdivision.
 </p>
 <br>

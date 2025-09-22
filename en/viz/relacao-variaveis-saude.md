@@ -6,10 +6,10 @@ description: "Dispersion graph for sociodemographic, deforestation and health va
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Explore the Relationship among Health Variables in Legal Amazon's Municipalities</h1>
+<h1 class="title-about" style="max-width: 1000px">Explore the Relationship among Health Variables in Legal Amazon's Municipalities</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our graph, where each circle corresponds to a municipality in the Legal Amazon, select variables from various sources.
   In both axis, you may choose data from INPE, IBGE, IMAZON and DATASUS. 
   Here, health related variables are highlighted.

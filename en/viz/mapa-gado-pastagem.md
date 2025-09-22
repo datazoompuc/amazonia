@@ -6,10 +6,10 @@ description: "Map of Cattle Heads and Pasture Area by Municipality in the Legal 
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Cattle Heads and Pasture Area Map</h1>
+<h1 class="title-about" style="max-width: 1000px"> Cattle Heads and Pasture Area Map</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our map, choose either cattle heads or pasture area.
   Data can also be visualized as heads of cattle per pasture hectare.
 </p>

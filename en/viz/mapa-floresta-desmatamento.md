@@ -6,10 +6,10 @@ description: "Map of Legal Amazon municipalities by forest or deforested area"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Map of Forest or Deforested Areas in Legal Amazon's Municipalities</h1>
+<h1 class="title-about" style="max-width: 1000px">Map of Forest or Deforested Areas in Legal Amazon's Municipalities</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our map, select the variable of interest - forest, non-forest, deforested area, deforestation increment and hydrography.
   You can also choose these variables as proportion of each municipality's area.
   Press play to see how the map changes throughout the years.

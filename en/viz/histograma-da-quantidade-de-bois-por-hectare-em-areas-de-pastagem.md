@@ -9,7 +9,7 @@ description: "Histogram of the Number of Cattle per Hectare in Pasture Areas"
 <h1 class="title-about" style="margin: 0px 200px;">Histogram of the Number of Cattle per Hectare in Pasture Areas</h1>
 <br>
 <!-- chart instructions -->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our chart, the x-axis represents the log of (number of cattle per hectare + 1), and the y-axis represents the number of municipalities that fall within each interval of the x-axis variable. In addition, you can choose the desired period. It is also possible to filter by region, by state, and for the Legal Amazon. Have you tried pressing play to see how the chart changes over time?
 </p>
 <br>

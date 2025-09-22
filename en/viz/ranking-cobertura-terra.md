@@ -6,10 +6,10 @@ description: "Ranking of land usage and cover by municipality in the Legal Amazo
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Ranking of Land Use and Cover by Muncipality</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking of Land Use and Cover by Muncipality</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our dynamic ranking, choose the type of land use or cover of interest among the MapBiomas options.
   Press play to see how the ranking evolves throughout the years.
 </p>

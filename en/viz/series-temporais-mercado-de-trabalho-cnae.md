@@ -6,10 +6,10 @@ description: "Labour Market Time Series by Activity"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Labour Market Time Series by Activity</h1>
+<h1 class="title-about" style="max-width: 1000px">Labour Market Time Series by Activity</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   On our dynamic graph, choose among labor market variables aggregated from the PNAD Contínua – IBGE. 
   Additionally, choose what states and activities to plot.
 </p>

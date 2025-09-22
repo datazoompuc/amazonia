@@ -6,10 +6,10 @@ description: "Foreign Trade in the Legal Amazon: Main export by municipality"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Dynamic map of main product exported by municipality in the Legal Amazon</h1>
+<h1 class="title-about" style="max-width: 1000px">Dynamic map of main product exported by municipality in the Legal Amazon</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our dynamic map, follow how the lsit of main product exported by municipality in the Legal Amazon has evolved between 1997 and 2021.
 </p>
 <br>

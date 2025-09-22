@@ -6,10 +6,10 @@ description: "Relationship between Cattle Herds and GDP per Capita"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Relationship between Cattle Herds and GDP per Capita</h1>
+<h1 class="title-about" style="max-width: 1000px">Relationship between Cattle Herds and GDP per Capita</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   On our dynamic chart, where each circle corresponds to a municipality, it is possible to change the variables and choose information from various sources. On both axes, it is possible to choose data from the 2000 Census, 2010 Census, PRODES, CEMPRE, 2014 IPS, 2018 IPS, and PPM, and thus observe the relationship between them. In addition, there is the option to put these variables on a log scale. Finally, the user can select the marker color and size based on these databases.
 </p>
 <br>

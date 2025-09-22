@@ -9,7 +9,7 @@ description: "Time Series of Land Use and Cover Change by State"
 <h1 class="title-about" style="margin: 0px 200px;">Time Series of Land Use and Cover Change by State</h1>
 <br>
 <!-- chart instructions -->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our dynamic chart, it is possible to change the variables, selecting information from MapBiomas. In addition, there is the option to display values on a log scale and/or relative to the initial year. Finally, the user can select the desired geographic subdivision.
 </p>
 <br>

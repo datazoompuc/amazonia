@@ -6,10 +6,10 @@ description: "Development: Map of Municipalities in the Legal Amazon"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Development: Map of Municipalities in the Legal Amazon</h1>
+<h1 class="title-about" style="max-width: 1000px">Development: Map of Municipalities in the Legal Amazon</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our map of municipalities in the Legal Amazon, choose among several development indicative variables compiled by IMAZON.
 </p>
 <br>

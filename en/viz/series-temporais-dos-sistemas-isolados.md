@@ -7,7 +7,7 @@ description: "Interactive chart with time series of isolated systems in the Lega
 <br><br>
 <h1 class="title-about" style="margin: 0px 200px;">Time Series of Isolated Systems</h1>
 <br>
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our interactive chart, you can change the variables, selecting various information about the Isolated Systems of the Legal Amazon. 
   Choose variables related to electricity consumption, number of consumers, system expenses, annual subsidy budgets, and follow the evolution over time.
 </p>

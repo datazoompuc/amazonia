@@ -6,10 +6,10 @@ description: "Labour Occupations Time Series"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Labour Occupations Time Series</h1>
+<h1 class="title-about" style="max-width: 1000px">Labour Occupations Time Series</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   On our dynamic graph, it is possible to change variables and choose information about the types of occupation in the labor market of the PNAD Contínua – IBGE. It is possible to choose one type of occupation for each state and observe the temporal evolution of indicators such as the number of employed, average income, and salary mass.
 </p>
 <br>

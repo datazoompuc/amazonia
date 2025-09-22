@@ -9,7 +9,7 @@ description: "Dynamic ranking of the states with the highest outorged power in t
 <h1 class="title-about" style="margin: 0px 200px;">Ranking of Outorged Power of the States in the Legal Amazon</h1>
 <br>
 <!-- chart instructions -->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our chart, the x-axis represents the value of granted power of the states in the Legal Amazon in kW. In addition, each color in the chart represents a state, and you can select the desired period. It is also possible to filter by source, origin, type, and final fuel. Have you tried pressing play to see how the chart changes over time?
 </p>
 <br>

@@ -6,10 +6,10 @@ description: "Foreign trade in the Amazon (COMEX): Products export value per des
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Sankey of the Amazon Export Volume per Destination Country</h1>
+<h1 class="title-about" style="max-width: 1000px">Sankey of the Amazon Export Volume per Destination Country</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our graph, the thickness of the bars is proportional to the volume of exports in dollars to each country. By hovering the cursor over the graph, the values can be observed. It is possible to filter by year and by product category.
 </p>
 <br>

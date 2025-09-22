@@ -6,10 +6,10 @@ description: "Health conditions at Amazon: Mortality at the municipal level"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Municipalities’ Mortality Map</h1>
+<h1 class="title-about" style="max-width: 1000px">Municipalities’ Mortality Map</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our chart, it is possible to change the variable, which makes the user able to pick different death causes. In addition, the option of selecting the year in which the analysis is desired exists.<br>
   Have you tried pressing play to see the chart changing over time?
 </p>

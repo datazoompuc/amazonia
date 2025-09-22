@@ -7,7 +7,7 @@ description: "Interactive chart with distributed energy generation time series i
 <br><br>
 <h1 class="title-about" style="margin: 0px 200px;">Time Series of Distributed Generation</h1>
 <br>
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our interactive chart, you can change the variables, selecting information about distributed energy generation in the Legal Amazon and across the country. 
   Filter by modality and project size, by energy source, select the states of interest, and observe the temporal evolution of the number of units and installed capacity.
 </p>

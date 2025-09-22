@@ -7,7 +7,7 @@ description: "Interactive chart with time series of energy production, consumpti
 <br><br>
 <h1 class="title-about" style="margin: 0px 200px;">Time Series of Energy Production, Consumption, and Consumers</h1>
 <br>
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our interactive chart, you can change the variables, selecting information about energy production, consumption, and consumers in the Legal Amazon and across Brazil. 
   Filter by states of interest, select energy sources and consumption categories, and follow the evolution over time.
 </p>

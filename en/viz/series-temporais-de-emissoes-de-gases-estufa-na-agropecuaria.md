@@ -6,10 +6,10 @@ description: "Time Series of Greenhouse Gas Emissions in Agriculture"
 ---
 <br><br>
 <!-- visualization title without quotes-->
-<h1 class="title-about" style = "margin: 0px 200px;">Time Series of Greenhouse Gas Emissions in Agriculture</h1>
+<h1 class="title-about" style="max-width: 1000px">Time Series of Greenhouse Gas Emissions in Agriculture</h1>
 <br>
 <!-- instructions about the chart-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our interactive chart, you can view information on greenhouse gas emissions by State from SEEG. 
   In addition, there is the option to display the data in log scale and/or proportional to the initial year.
 </p>

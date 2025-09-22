@@ -6,10 +6,10 @@ description: "Foreign Trade in the Legal Amazon: Products export value by munici
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Time Series of the Legal Amazon's Municipalities Exports Values by Category</h1>
+<h1 class="title-about" style="max-width: 1000px">Time Series of the Legal Amazon's Municipalities Exports Values by Category</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our dynamic graph, select an exports category and all municipalities of interest. Values are reported in BRL.
 </p>
 <br>

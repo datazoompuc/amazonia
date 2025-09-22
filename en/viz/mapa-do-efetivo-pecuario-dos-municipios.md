@@ -9,7 +9,7 @@ description: "Map of Municipal Livestock Herds"
 <h1 class="title-about" style="margin: 0px 200px;">Map of Municipal Livestock Herds</h1>
 <br>
 <!-- chart instructions -->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our interactive chart, you can change the variables, selecting information about the livestock herds in each municipality, in addition to animal production and the production value for the reference year. You can also select the year you wish to analyze. Have you tried pressing play to see the chart change over time?
 </p>
 <br>

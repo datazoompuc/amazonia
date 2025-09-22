@@ -6,10 +6,10 @@ description: "Map of Development by Municipality in the Legal Amazon"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Map of Development by Municipality in the Legal Amazon</h1>
+<h1 class="title-about" style="max-width: 1000px">Map of Development by Municipality in the Legal Amazon</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our map of municipalities in the Legal Amazon, choose the variable of interest: information from the 2000 or 2010 Census or 2014 or 2018 the Social Progress Index (IPS).
 </p>
 <br>

@@ -6,10 +6,10 @@ description: "Labour Market Time Series"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Labour Market Time Series</h1>
+<h1 class="title-about" style="max-width: 1000px">Labour Market Time Series</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   On our dynamic graph, it is possible to change the variables and choose information about the labor market from the PNAD Contínua – IBGE. Additionally, there is the option to select the regional cut and group by age range, years of study or gender of your preference.
 </p>
 <br>

@@ -6,10 +6,10 @@ description: "Ranking of the Most Dynamic Economic Activities"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Ranking of the Most Dynamic Economic Activities</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking of the Most Dynamic Economic Activities</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our dynamic chart it is possible to change the variables, with the option to select different types of employed individuals. In addition, each color of the chart represents an economic activity, and choosing the period desired to visualize is possible as well.  Try pressing play to see the graph change over time.
 </p>
 <br>

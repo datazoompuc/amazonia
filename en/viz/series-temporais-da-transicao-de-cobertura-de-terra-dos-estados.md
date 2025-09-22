@@ -9,7 +9,7 @@ description: "Time Series of Land Cover Transition in States"
 <h1 class="title-about" style="margin: 0px 200px;">Time Series of Land Cover Transition in States</h1>
 <br>
 <!-- instructions about the chart -->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our dynamic chart, it is possible to change the variables, allowing you to choose information from MapBiomas. Additionally, there is an option to set a log scale and/or scale relative to the initial year. Finally, the user can select the desired geographic subdivision.
 </p>
 <br>

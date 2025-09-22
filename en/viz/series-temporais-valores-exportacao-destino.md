@@ -6,10 +6,10 @@ description: "Time Series of Total Exports Value by Destination Country"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Time Series of Total Exports Value by Destination Country</h1>
+<h1 class="title-about" style="max-width: 1000px"> Time Series of Total Exports Value by Destination Country</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our dynamic graph, observe total exported value by year by destination country.
   You can also choose log scale or values proportional to the initial year
   Finally, choose the desired destination countries.

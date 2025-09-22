@@ -6,10 +6,10 @@ description: "Time Series of Total Exports Value by Destination Country"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;"> Time Series of Total Exports Value by Destination Country</h1>
+<h1 class="title-about" style="max-width: 1000px"> Time Series of Total Exports Value by Destination Country</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our dynamic graph, follow which municipalities in the Legal Amazon are champions in exports in each year.
   You can select the desired goods category.
 </p>

@@ -6,10 +6,10 @@ description: "Health conditions at Amazon: Mortality Type by Municipality Time S
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Mortality Type by Municipality Time Series</h1>
+<h1 class="title-about" style="max-width: 1000px">Mortality Type by Municipality Time Series</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our dynamic graph, it is possible to change the variables, with the option to choose the type of mortality desired on a scale of 100 million inhabitants being present. In addition, there is the option of putting the variables in log scale. Finally, the user can manually select the states and municipalities desired.
 </p>
 <br>

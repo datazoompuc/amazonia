@@ -6,10 +6,10 @@ description: "Deforestation champions by municipality"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Ranking of Deforestation Champions</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking of Deforestation Champions</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   On our dynamic graph, it is possible to change the variables, choosing between the total area of deforestation increment and the proportion of deforestation increment in the area of the municipality. In addition, it is possible to change the states and the year in which you want to do the analysis.
 </p>
 <br>

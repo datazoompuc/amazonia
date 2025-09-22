@@ -6,10 +6,10 @@ description: "Ranking of Countries that Import from the Legal Amazon"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "margin: 0px 200px;">Ranking of Countries that Import from the Legal Amazon</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking of Countries that Import from the Legal Amazon</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   In our interactive ranking, press play to see how the ranking of countries that import from the Legal Amazon evolves. 
   Observe the value of total imports from the Legal Amazon for each of these countries.
 </p>
