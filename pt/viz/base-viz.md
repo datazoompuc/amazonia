@@ -6,7 +6,7 @@ description: descrição da viz com aspas (ex "Gráfico dinâmico com séries de
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "max-width: 1000px"> Séries Temporais da Produção, Consumo e Consumidores de Energia</h1>
+<h1 class="title-about" style ="max-width: 1000px"> Séries Temporais da Produção, Consumo e Consumidores de Energia</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
