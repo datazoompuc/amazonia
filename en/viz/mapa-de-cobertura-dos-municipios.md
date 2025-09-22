@@ -6,7 +6,7 @@ description: "Dynamic map with vegetation cover and land use by municipality wit
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style = "max-width: 1000px"> Map of Land Use and Cover by Municiplaity with the Outline of the Legal Amazon</h1>
+<h1 class="title-about" style="max-width: 1000px"> Map of Land Use and Cover by Municiplaity with the Outline of the Legal Amazon</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
