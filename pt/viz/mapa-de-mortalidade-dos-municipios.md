@@ -6,7 +6,7 @@ description: "Mapa dinâmico da saúde na Amazônia: Mortalidade ao nível munic
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px;"> Mapa de Mortalidade dos Municípios</h1>
+<h1 class="title-about" style="max-width: 1000px"> Mapa de Mortalidade dos Municípios</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
