@@ -30,7 +30,64 @@ lang: en
     </a><br>
     <p>Map of Municipal Livestock Herds</p>
    </div>
-   
+
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-de-emissoes-de-gases-estufa-na-agropecuaria" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_gases_estufa.png" alt="icon viz">
+    </a><br>
+    <p>Time Series of Greenhouse Gas Emissions in Agriculture</p>
+   </div>
+
+<!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/histograma-da-quantidade-de-bois-por-hectare-em-areas-de-pastagem" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_gases_estufa.png" alt="icon viz">
+    </a><br>
+    <p>Time Series of Greenhouse Gas Emissions in Agriculture</p>
+   </div>
+-->
+<!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/mapa-gado-pastagem" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon.png" alt="icon viz">
+    </a><br>
+    <p>title</p>
+   </div>
+-->
+<!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/ranking-cobertura-terra" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon.png" alt="icon viz">
+    </a><br>
+    <p>Title</p>
+   </div>
+-->
+<!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-da-transicao-de-cobertura-de-terra-dos-estados" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon.png" alt="icon viz">
+    </a><br>
+    <p>Title</p>
+   </div>
+-->
+<!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-de-cobertura-da-terra-dos-municipios" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon.png" alt="icon viz">
+    </a><br>
+    <p>Title</p>
+   </div>
+-->
+<!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-de-uso-e-cobertura-de-terra-dos-estados" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon.png" alt="icon viz">
+    </a><br>
+    <p>Title</p>
+   </div>
+-->
+
+
   </div>
 
 <br>
