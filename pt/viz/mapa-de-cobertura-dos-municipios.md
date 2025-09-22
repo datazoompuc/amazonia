@@ -9,7 +9,7 @@ description: "Mapa dinâmico de cobertura vegetal e de uso da terra por municíp
 <h1 class="title-about" style = "margin: 0px 200px;"> Mapa de Cobertura a Nível Municipal com Contorno da Amazônia Legal</h1>
 <br>
 <!-- instruções sobre o gráfico-->
-<p class="text-center" style="font-size:18px;color:#3f8513; margin:20px 300px;">
+<p class="text-center">
   Em nosso mapa dinâmico é possível selecionar qualquer ano entre 1985 e 2023. Filtre para o tipo de cobertura de interesse, seja de vegetação ou de atividade econômica. Os dados podem ser visualizados em hectares ou como proporção da área do município.
 </p>
 <br>
