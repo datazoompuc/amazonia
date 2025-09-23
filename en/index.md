@@ -11,7 +11,7 @@ lang: en
             Data Zoom Amazônia is a thematic layer of the
             <a href="https://www.econ.puc-rio.br/datazoom/index.html" style="text-decoration: underline;">Data Zoom</a> project
             and is part of the
-            <a href="https://amazonia2030.org.br/project/" style="text-decoration: underline;">Amazon 2030</a> initiative.<br>
+            <a href="https://amazonia2030.org.br/project/" style="text-decoration: underline;">Amazon 2030</a> initiative.
             We seek to simplify access to microdata from the Legal Amazon and develop a data visualization platform that is open, accessible, interactive and parameterizable.
         </p>
         <a href="{{ site.baseurl }}/en/viz/" class="cta-button">EXPLORE THE VISUALIZATIONS</a>
