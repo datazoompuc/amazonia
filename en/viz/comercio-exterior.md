@@ -45,6 +45,34 @@ lang: en
     <p>Time Series of the Legal Amazon's Municipalities Exports Values by Category</p>
    </div>
    
+   <!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-valores-exportacao-destino" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon" alt="icon viz">
+    </a><br>
+    <p>titulo</p>
+   </div>
+   -->
+   
+   <!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/ranking-campeoes-de-exportacao" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon" alt="icon viz">
+    </a><br>
+    <p>titulo</p>
+   </div>
+   -->
+   
+   <!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/ranking-campeoes-de-importacao" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon" alt="icon viz">
+    </a><br>
+    <p>titulo</p>
+   </div>
+   -->
+
+   
 </div>
 
 <br>
