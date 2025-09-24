@@ -25,15 +25,15 @@ lang: en
    </div>
 
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/mapa-estatico-dos-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_map_estatico_mun.png" alt="ícone viz">
+    <a href="{{ site.baseurl }}/en/viz/mapa-estatico-dos-municipios" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_map_estatico_mun.png" alt="icon viz">
     </a><br>
     <p>Static Map of Municipality</p>
    </div>
 <!--
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/mapa-desenvolvimento-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem imagem.png" alt="ícone viz">
+    <a href="{{ site.baseurl }}/en/viz/mapa-desenvolvimento-municipios" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem imagem.png" alt="icon viz">
     </a><br>
     <p>Map of Development by Municipality in the Legal Amazon</p>
    </div>
