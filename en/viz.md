@@ -22,7 +22,7 @@ lang: en
       <a href="{{ site.baseurl }}/en/viz/energia" class="botao">ENERGY</a>
       <a href="{{ site.baseurl }}/en/viz/saude" class="botao">HEALTH</a>
       <a href="{{ site.baseurl }}/en/viz/mercado-de-trabalho" class="botao">LABOR MARKET</a>
-      <a href="{{ site.baseurl }}/en/viz/agopecuaria" class="botao">AGRIBUSINESS</a>
+      <a href="{{ site.baseurl }}/en/viz/agropecuaria" class="botao">AGRICULTURE</a>
     </div>
 </div>
   <br>
