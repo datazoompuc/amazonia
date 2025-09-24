@@ -30,6 +30,16 @@ lang: pt
     </a><br>
     <p>Séries Temporais do Tipo de Mortalidade por Município</p>
    </div>
+   
+   <!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/pt/viz/relacao-variaveis-saude" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar imagem" alt="ícone viz">
+    </a><br>
+    <p>titulo</p>
+   </div>
+   -->
+   
 </div>
 
 <br>
