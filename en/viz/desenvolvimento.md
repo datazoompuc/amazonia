@@ -38,8 +38,8 @@ lang: en
     <p>Map of Development by Municipality in the Legal Amazon</p>
    </div>
 -->
-</div>
-</div>
+
+ </div>
 
 <br>
 <br>
