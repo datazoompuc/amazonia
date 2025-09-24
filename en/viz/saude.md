@@ -30,6 +30,15 @@ lang: en
     </a><br>
     <p>Mortality Type by Municipality Time Series</p>
    </div>
+   
+   <!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/relacao-variaveis-saude" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar imagem" alt="icon viz">
+    </a><br>
+    <p>title</p>
+   </div>
+   -->
       
 </div>
 
