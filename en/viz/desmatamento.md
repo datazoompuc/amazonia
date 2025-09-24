@@ -31,6 +31,15 @@ lang: en
     <p>Relationship Between Deforested Area and GDP per Capita</p>
    </div>
    
+   <!--
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/mapa-desenvolvimento-municipios" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar imagem" alt="icon viz">
+    </a><br>
+    <p>title</p>
+   </div>
+   -->
+   
   </div>
 
 <br>
