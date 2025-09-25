@@ -38,14 +38,12 @@ lang: en
     <p>Time Series of Greenhouse Gas Emissions in Agriculture</p>
    </div>
 
-<!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/histograma-da-quantidade-de-bois-por-hectare-em-areas-de-pastagem" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_gases_estufa.png" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_hist_bois_por_hectare.jpg" alt="icon viz">
     </a><br>
-    <p>Time Series of Greenhouse Gas Emissions in Agriculture</p>
+    <p>Histogram of the Number of Cattle per Hectare in Pasture Areas</p>
    </div>
--->
 <!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/mapa-gado-pastagem" target="_blank" rel="noopener noreferrer">
@@ -62,22 +60,19 @@ lang: en
     <p>Title</p>
    </div>
 -->
-<!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-da-transicao-de-cobertura-de-terra-dos-estados" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon.png" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mudanca_de_cobertura_dos_estados.png" alt="icon viz">
     </a><br>
-    <p>Title</p>
+    <p>Time Series of Land Cover Transition in States</p>
    </div>
--->
-<!--
+
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-de-cobertura-da-terra-dos-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon.png" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mudanca_de_cobertura_dos_municipios.png" alt="icon viz">
     </a><br>
-    <p>Title</p>
+    <p>Municipalities’ Land Coverage Time Series</p>
    </div>
--->
 <!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-de-uso-e-cobertura-de-terra-dos-estados" target="_blank" rel="noopener noreferrer">
