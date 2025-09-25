@@ -31,14 +31,20 @@ lang: en
     <p>Relationship Between Deforested Area and GDP per Capita</p>
    </div>
    
-   <!--
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/mapa-desenvolvimento-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar imagem" alt="icon viz">
+    <a href="{{ site.baseurl }}/en/viz/mapa-floresta-desmatamento" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mapa_evolucao_desmatamento.png" alt="icon viz">
     </a><br>
-    <p>title</p>
+    <p>Evolution of Deforestation at Municipality Level</p>
    </div>
-   -->
+
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/relacao-variaveis-saude" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_relacao_mortalidade_desmatamento.png" alt="icon viz">
+    </a><br>
+    <p>Relationship between Health and Deforestation</p>
+   </div>
+   
    
   </div>
 
