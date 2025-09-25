@@ -37,6 +37,14 @@ lang: pt
     </a><br>
     <p>Evolução do Desmatamento nos Municípios</p>
    </div>
+
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/pt/viz/relacao-variaveis-saude" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_relacao_mortalidade_desmatamento.png" alt="ícone viz">
+    </a><br>
+    <p>Relação entre Mortalidade e Desmatamento</p>
+   </div>
+
    
   </div>
 
