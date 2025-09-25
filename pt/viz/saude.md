@@ -31,14 +31,13 @@ lang: pt
     <p>Séries Temporais do Tipo de Mortalidade por Município</p>
    </div>
    
-   <!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/relacao-variaveis-saude" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar imagem" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_relacao_mortalidade_desmatamento.png" alt="ícone viz">
     </a><br>
-    <p>titulo</p>
+    <p>Relação entre Mortalidade e Desmatamento</p>
    </div>
-   -->
+
    
 </div>
 
