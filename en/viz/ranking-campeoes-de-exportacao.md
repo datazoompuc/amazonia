@@ -2,11 +2,11 @@
 layout: default
 lang: en
 title: "Exports Champion Municipalities"
-description: "Time Series of Total Exports Value by Destination Country"
+description: "Municipality Ranking of Exportation"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px"> Time Series of Total Exports Value by Destination Country</h1>
+<h1 class="title-about" style="max-width: 1000px"> Exports Champion Municipalities</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
