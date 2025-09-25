@@ -54,14 +54,12 @@ lang: en
    </div>
    -->
    
-   <!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/ranking-campeoes-de-exportacao" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_campeoes_exp.jpg" alt="icon viz">
     </a><br>
-    <p>titulo</p>
+    <p>Exports Champion Municipalities</p>
    </div>
-   -->
    
    <!--
    <div class="icone-bloco">
