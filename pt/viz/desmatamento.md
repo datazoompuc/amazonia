@@ -31,14 +31,12 @@ lang: pt
     <p>Relação entre Área Desmatada e PIB per Capita</p>
    </div>
    
-   <!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/mapa-floresta-desmatamento" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar imagem" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mapa_evolucao_desmatamento.png" alt="ícone viz">
     </a><br>
-    <p>titulo</p>
+    <p>Evolução do Desmatamento nos Municípios</p>
    </div>
-   -->
    
   </div>
 
