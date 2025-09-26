@@ -51,6 +51,13 @@ lang: pt
     </a><br>
     <p>Série Temporal das Ocupações no Mercado de Trabalho</p>
    </div>
+
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/pt/viz/serie-temporal-rais" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_serie_temporal_rais.png" alt="ícone viz">
+    </a><br>
+    <p>Série Temporal do Emprego Formal (RAIS)</p>
+   </div>
    
   </div>
 
