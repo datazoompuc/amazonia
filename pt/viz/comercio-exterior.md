@@ -45,14 +45,12 @@ lang: pt
     <p>Séries Temporais do Valor das Categorias de Bens Exportados por Município da Amazônia Legal</p>
    </div>
 
-   <!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/series-temporais-valores-exportacao-destino" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem_icon" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_series-temporais-valores-exportacao-destino.png" alt="icon viz">
     </a><br>
     <p>Séries Temporais de Valor Total Exportado por País de Destino</p>
    </div>
-   -->
 
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/ranking-campeoes-de-exportacao" target="_blank" rel="noopener noreferrer">
@@ -61,15 +59,12 @@ lang: pt
     <p>Ranking dos Municípios Campeões de Exportação</p>
    </div>
 
-   
-   <!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/ranking-campeoes-de-importacao" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem_icon" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ranking-campeoes-de-importacao.png" alt="icon viz">
     </a><br>
     <p>Ranking de Países que Mais Importam da Amazônia Legal</p>
    </div>
-   -->
 
       
 </div>
