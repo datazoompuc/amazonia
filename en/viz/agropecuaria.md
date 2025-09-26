@@ -44,22 +44,21 @@ lang: en
     </a><br>
     <p>Histogram of the Number of Cattle per Hectare in Pasture Areas</p>
    </div>
-<!--
+
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/mapa-gado-pastagem" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon.png" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa-gado-pastagem.png" alt="icon viz">
     </a><br>
-    <p>title</p>
+    <p>Cattle Heads and Pasture Area Map</p>
    </div>
--->
-<!--
+
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/ranking-cobertura-terra" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon.png" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ranking-cobertura-terra.png" alt="icon viz">
     </a><br>
-    <p>Title</p>
+    <p>Ranking of Land Use and Cover by Muncipality</p>
    </div>
--->
+
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-da-transicao-de-cobertura-de-terra-dos-estados" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mudanca_de_cobertura_dos_estados.png" alt="icon viz">
@@ -73,14 +72,13 @@ lang: en
     </a><br>
     <p>Municipalities’ Land Coverage Time Series</p>
    </div>
-<!--
+
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-de-uso-e-cobertura-de-terra-dos-estados" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon.png" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_series-temporais-de-uso-e-cobertura-de-terra-dos-estados.png" alt="icon viz">
     </a><br>
-    <p>Title</p>
+    <p>Time Series of Land Use and Cover Change by State</p>
    </div>
--->
 
 
   </div>
