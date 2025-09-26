@@ -45,14 +45,12 @@ lang: en
     <p>Time Series of the Legal Amazon's Municipalities Exports Values by Category</p>
    </div>
    
-   <!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-valores-exportacao-destino" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_series-temporais-valores-exportacao-destino.png" alt="icon viz">
     </a><br>
-    <p>titulo</p>
+    <p>Time Series of Total Exports Value by Destination Country</p>
    </div>
-   -->
    
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/ranking-campeoes-de-exportacao" target="_blank" rel="noopener noreferrer">
@@ -61,14 +59,12 @@ lang: en
     <p>Exports Champion Municipalities</p>
    </div>
    
-   <!--
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/ranking-campeoes-de-importacao" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/procurar_icon" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ranking-campeoes-de-importacao.png" alt="icon viz">
     </a><br>
-    <p>titulo</p>
+    <p>Ranking of Countries that Import from the Legal Amazon</p>
    </div>
-   -->
 
    
 </div>
