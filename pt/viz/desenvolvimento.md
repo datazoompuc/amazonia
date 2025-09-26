@@ -30,14 +30,15 @@ lang: pt
     </a><br>
     <p>Mapa Estático dos Municípios</p>
    </div>
-<!--
+
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/mapa-desenvolvimento-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem imagem.png" alt="ícone viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa-desenvolvimento-municipios.png" alt="ícone viz">
     </a><br>
     <p>Mapa de Desenvolvimento dos Municípios da Amazônia Legal</p>
    </div>
--->
+
+
 </div>
 
 <br>
