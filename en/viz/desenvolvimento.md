@@ -30,14 +30,14 @@ lang: en
     </a><br>
     <p>Static Map of Municipality</p>
    </div>
-<!--
+
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/mapa-desenvolvimento-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/sem imagem.png" alt="icon viz">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_mapa-desenvolvimento-municipios.png" alt="icon viz">
     </a><br>
     <p>Map of Development by Municipality in the Legal Amazon</p>
    </div>
--->
+
 
  </div>
 
