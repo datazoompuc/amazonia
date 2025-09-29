@@ -15,7 +15,7 @@ lang: en
 <div class="capa_sobre">
   <div class="capa_sobre_content">
       <p>Data Zoom Amazônia is a project developed by <a rel="noreferrer noopener" 
-        href="http://www.econ.puc-rio.br/datazoom/index.html" 
+        href="https://datazoom.com.br/en/" 
         target="_blank">Data Zoom</a><br> from the Department of Economics at PUC-Rio<br> and it is part of the set of actions under the <a rel="noreferrer noopener"
         href="https://amazonia2030.org.br/" target="_blank">Amazônia 2030</a> initiative.
       </p>
@@ -69,7 +69,7 @@ lang: en
 
 
 <h2 class="fale_conosco">Our Team</h2><br>
-<div class="contato" style="text-align:center">Meet the team of Coordinators and Researchers of Data Zoom Amazônia on our <a href="https://www.econ.puc-rio.br/datazoom/english/equipe.html" target=_blank>website</a>.
+<div class="contato" style="text-align:center">Meet the team of Coordinators and Researchers of Data Zoom Amazônia on our <a href="https://datazoom.com.br/en/equipe/" target=_blank>website</a>.
 </div>
 
 

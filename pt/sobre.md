@@ -15,7 +15,7 @@ lang: pt
 <div class="capa_sobre">
   <div class="capa_sobre_content">
       <p>O Data Zoom Amazônia é um projeto desenvolvido pelo <a rel="noreferrer noopener" 
-        href="http://www.econ.puc-rio.br/datazoom/index.html" 
+        href="https://datazoom.com.br/pt/" 
         target="_blank">Data Zoom</a><br> do Departamento de Economia da PUC-Rio<br> e faz parte do conjunto de ações da
         iniciativa <a rel="noreferrer noopener"
         href="https://amazonia2030.org.br/" target="_blank">Amazônia 2030</a>.
@@ -75,7 +75,7 @@ lang: pt
 
 
 <h2 class="fale_conosco">Equipe Data Zoom Amazônia</h2><br>
-<div class="contato" style="text-align:center">Conheça o time de Coordenadores e Pesquisadores do Data Zoom Amazônia em nosso <a href="https://www.econ.puc-rio.br/datazoom/equipe.html" target=_blank>site</a>.
+<div class="contato" style="text-align:center">Conheça o time de Coordenadores e Pesquisadores do Data Zoom Amazônia em nosso <a href="https://datazoom.com.br/pt/equipe/" target=_blank>site</a>.
 </div>
 <br>
 <br>
