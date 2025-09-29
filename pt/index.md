@@ -9,7 +9,7 @@ lang: pt
         <h2>Dados sobre a Amazônia ao alcance de todos</h2>
         <p>
             O Data Zoom Amazônia é uma camada temática do projeto 
-            <a href="https://www.econ.puc-rio.br/datazoom/index.html" style="text-decoration: underline;">Data Zoom</a> 
+            <a href="https://datazoom.com.br/pt/index.html" style="text-decoration: underline;">Data Zoom</a> 
             e faz parte da iniciativa 
             <a href="https://amazonia2030.org.br/o-projeto/" style="text-decoration: underline;">Amazônia 2030</a>. 
             Buscamos simplificar o acesso aos microdados da Amazônia Legal e desenvolver uma plataforma de visualização de dados que seja aberta, acessível, interativa e parametrizável.
@@ -31,7 +31,7 @@ lang: pt
 <div class="block">
     <img src="{{ site.baseurl }}/assets/img/Icone_-Doc1-2-768x1024.png" alt="">
     <div class="text-content">
-        <h3><a href="https://www.econ.puc-rio.br/datazoom/dz_amazonia.html" style="text-decoration: underline;">Saiba mais</a> sobre a metodologia e acesse a documentação completa</h3>
+        <h3><a href="https://datazoom.com.br/pt/dz_amazonia/" style="text-decoration: underline;">Saiba mais</a> sobre a metodologia e acesse a documentação completa</h3>
         <p>Os dados do Data Zoom Amazônia são extraídos do pacote datazoom.amazonia no programa estatístico R. Saiba mais informações sobre os nossos códigos abertos</p>
     </div>
 </div>
@@ -39,7 +39,7 @@ lang: pt
 <div class="block">
     <div class="text-content">
         <h3>Veja nosso contato e conheça mais sobre o projeto Data Zoom Amazônia</h3>
-        <p>Conheça a <a href="https://www.econ.puc-rio.br/datazoom/equipe.html" style="text-decoration: underline;">equipe</a> envolvida no projeto Data Zoom Amazônia e encontre algumas respostas para as suas principais dúvidas sobre o nosso trabalho.</p>
+        <p>Conheça a <a href="https://datazoom.com.br/pt/equipe/" style="text-decoration: underline;">equipe</a> envolvida no projeto Data Zoom Amazônia e encontre algumas respostas para as suas principais dúvidas sobre o nosso trabalho.</p>
     </div>
     <img src="{{ site.baseurl }}/assets/img/Icone_-Doc2-1-768x1024.png" alt="">
 </div>
