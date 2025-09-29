@@ -1134,6 +1134,69 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
   .icone-bloco { max-width: min(88vw, 320px); }
 }
 
+:root {
+  --gap: 24px;      
+  --card-w: 280px;  
+}
+
+.imagens-container {
+  position: relative;
+  overflow: hidden;               
+  padding-inline: 0;              
+}
+
+.imagens-container .imagens-track {
+  display: flex;
+  align-items: stretch;
+  gap: var(--gap);
+  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+}
+
+.imagens-container .icone-bloco {
+  flex: 0 0 var(--card-w);        
+  margin: 0;                      
+  text-align: center;
+}
+
+/* Botões (setas) */
+.carousel-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: rgba(0, 128, 0, 0.75);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2;
+  user-select: none;
+}
+.carousel-btn:disabled { opacity: 0.35; cursor: default; }
+
+.carousel-btn.prev { left: 0.25rem; }
+.carousel-btn.next { right: 0.25rem; }
+
+@media (max-width: 1024px) {
+  :root {
+    --gap: 28px;
+    --card-w: min(46vw, 320px);
+  }
+  .carousel-btn { font-size: 1.8rem; padding: 6px 10px; }
+}
+
+/* telas <= 600px (celular) */
+@media (max-width: 600px) {
+  :root {
+    --gap: 20px;
+    --card-w: min(88vw, 320px);
+  }
+  .carousel-btn { font-size: 1.6rem; padding: 4px 8px; }
+}
+
 /* =========================================================
    Shiny embed
 ========================================================= */
