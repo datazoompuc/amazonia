@@ -12,7 +12,7 @@ lang: en
             <a href="https://datazoom.com.br/en/" style="text-decoration: underline;">Data Zoom</a> project
             and part of the
             <a href="https://amazonia2030.org.br/project/" style="text-decoration: underline;">Amazon 2030</a> initiative.
-            We aim to simplify access to microdata from the Legal Amazon and to develop an open, accessible, interactive, and customizable data visualization platform.
+            We aim to simplify access to microdata from the Legal Amazon region and to develop an open, accessible, interactive, and customizable data visualization platform.
         </p>
         <a href="{{ site.baseurl }}/en/viz/" class="cta-button">EXPLORE THE VISUALIZATIONS</a>
     </div>
