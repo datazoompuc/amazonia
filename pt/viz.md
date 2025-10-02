@@ -34,7 +34,6 @@ lang: pt
 
   <div class="imagens-container">
     
-  <div class="imagens-track">
    <div class="icone-bloco">
     <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-mais-dinamicas" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_atividades_dinamicas.png" alt="ícone ranking das atividades mais dinâmicas">
@@ -55,11 +54,7 @@ lang: pt
    </div>
   </div>
 
-</div>
-
 <br>
 <br>
 <br>
 <br>
-
-
