@@ -1186,8 +1186,8 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
   user-select: none;
 }
 
-.carousel-btn.prev { left: 1rem; }
-.carousel-btn.next { right: 1rem; }
+.carousel-btn.prev { left: 0rem; }
+.carousel-btn.next { right: 0.3rem; }
 
 
 
