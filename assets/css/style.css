@@ -1124,7 +1124,7 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
 /* =========================================================
    Visualizações — grid/imagens
 ========================================================= */
-@media (max-width: 1024px) {
+/*@media (max-width: 1024px) {
   .imagens-container { gap: 28px; padding: 0 12px; }
   .imagens-container img { width: min(46vw, 320px); }
 }
@@ -1132,7 +1132,88 @@ h1, .home .wp-block-coblocks-hero h2, .title-about, .fale_conosco,
   .imagens-container { gap: 20px; }
   .imagens-container img { width: min(88vw, 320px); }
   .icone-bloco { max-width: min(88vw, 320px); }
+}*/
+
+/* ===== Carrossel para .imagens-container ===== */
+:root {
+  --gap: 24px;            /* valor base (desktop) */
+  --card-w: 280px;        
+  --cards-per-view: 3;    /* quantos cards aparecem por vez no desktop */
 }
+
+.imagens-container {
+  position: relative;
+  overflow: hidden;               
+  padding-inline: 0;
+  margin: 0 auto; /* centraliza o carrossel */
+}
+
+
+.imagens-container .imagens-track {
+  display: flex;
+  align-items: stretch;
+  gap: var(--gap);
+  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+}
+
+.imagens-container .icone-bloco {
+  flex: 0 0 auto; 
+  margin: 0;
+  text-align: center;
+}
+
+.imagens-container .icone-bloco img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Botões (setas) */
+.carousel-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: rgba(0, 128, 0, 0.75);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2;
+  user-select: none;
+}
+
+.carousel-btn.prev { left: 0rem; }
+.carousel-btn.next { right: 0.3rem; }
+
+
+
+/* telas <= 1024px (tablet / notebook pequeno) */
+@media (max-width: 1024px) {
+  :root {
+    --gap: 20px;
+    --card-w: min(40vw, 260px);
+    --cards-per-view: 2;  /* agora aparecem 2 por vez */
+  }
+
+  .carousel-btn { font-size: 1.8rem; padding: 6px 10px; }
+}
+
+/* telas <= 600px (celular) */
+@media (max-width: 600px) {
+  :root {
+    --gap: 16px;
+    --card-w: min(88vw, 320px);
+    --cards-per-view: 1;  /* no celular, 1 card por vez */
+  }
+
+  .carousel-btn { font-size: 1.6rem; padding: 4px 8px; }
+}
+
+
 
 
 
