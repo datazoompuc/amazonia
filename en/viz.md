@@ -14,7 +14,7 @@ lang: en
 <br>
 
 <div style="max-width:570px; margin:0 auto;">
-  <h2 class="selecao_por_tema">MOST VIEWED VISUALIZATIONS</h2>
+  <h2 class="selecao_por_tema">SELECT BY THEME</h2>
     <div class="botoes-container">
       <a href="{{ site.baseurl }}/en/viz/comercio-exterior" class="botao">FOREIGN TRADE</a>
       <a href="{{ site.baseurl }}/en/viz/desenvolvimento" class="botao">DEVELOPMENT</a>
@@ -28,7 +28,7 @@ lang: en
   <br>
   
 
-   <h2 class="selecao_por_tema">MAIN AVAILABLE VISUALIZATIONS</h2>
+   <h2 class="selecao_por_tema">MOST POPULAR VISUALIZATIONS</h2>
   <br>
 
   <div class="imagens-container">
