@@ -27,6 +27,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "/amazonia" # the subpath of your site, e.g. /blog
 url: 'https://datazoom.com.br' # the base hostname & protocol for your site, e.g. http://example.com
 
+google_analytics: "G-L6RV800DBQ"
+
 permalink: pretty
 
 # Build settings
