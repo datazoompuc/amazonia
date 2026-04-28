@@ -46,7 +46,7 @@ description: "Séries Temporais Sobre o Mercado de Trabalho com Recorte por Ativ
      <br>
       <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
         <strong>Atenção</strong>: Esta visualização é alimentada por dados tratados através do pacote 
-        <code class = "code_viz">datazoom.amazonia</code> no <code class = "code_viz">R</code> (função <code class = "code_viz">load_pnadc()</code>) e está sujeita a erro diante de 
+        <code class = "code_viz">datazoom.social</code> no <code class = "code_viz">R</code> (função <code class = "code_viz">load_pnadc()</code>) e está sujeita a erro diante de 
         alterações nas fontes externas. Caso o usuário identifique alguma discrepância de informação, solicitamos que reporte nos 
         <a href="https://github.com/datazoompuc/datazoom.social/issues" target="_blank" rel="noreferrer noopener">Issues do GitHub</a>.
       </p>
