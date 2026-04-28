@@ -17,7 +17,7 @@ description: "Labor Market Time Series by Activity and Occupation"
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_ibge_pnadc_atividades_ocupacoes/"
+    src="https://datazoom.shinyapps.io/app_ts_ibge_pnadc_atividades_ocupacoes/?lang=en"
     width="100%"
     height="800"    
     frameborder="0"
