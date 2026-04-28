@@ -1,28 +1,28 @@
 ---
 layout: default
 lang: en
-title: "Labor Market Time Series"
-description: "Labor Market Time Series by Activity"
+title: "Labor Market Time Series by Activity and Occupation"
+description: "Labor Market Time Series by Activity and Occupation"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Labor Market Time Series by Activity</h1>
+<h1 class="title-about" style="max-width: 1000px">Labor Market Time Series by Activity and Occupation</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  On our dynamic graph, choose among labor market variables aggregated from the PNAD Contínua – IBGE. 
-  Additionally, choose what states and activities to plot.
+  In our dynamic chart, choose among labor market variables aggregated from the PNAD Contínua – IBGE.
+  Additionally, there is the option to select the regional scope, the type of economic activity (CNAE), the occupation (COD), and the sector.
 </p>
 <br>
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_ibge_pnadc_trabalho_en"
+    src="https://datazoom.shinyapps.io/app_ts_ibge_pnadc_atividades_ocupacoes/"
     width="100%"
-    height="800"
+    height="800"    
     frameborder="0"
     allowfullscreen
-    title="Time Series: Labor Market - Data Zoom Amazônia"
+    title="Labor Occupations and Activities Time Series"
   ></iframe>
 </div>
 
@@ -40,14 +40,14 @@ description: "Labor Market Time Series by Activity"
        <!-- descrição dos dados usados-->
       <p>
         Data collected from the <a href="https://www.ibge.gov.br/estatisticas/sociais/trabalho/17270-pnad-continua">Continuous National Household Sample Survey – IBGE)</a>. 
-        PNADC is a survey in which each household is interviewed for five consecutive trimesters.<br><br>
+        PNAD “Contínua” is a survey in which each household is interviewed for five consecutive trimesters.<br><br>
         Want to explore more? Access our <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
      <br>
       <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
         <strong>Attention</strong>: This visualization is fed by data processed through the 
-        <code class = "code_viz">datazoom_social</code> package in <code class = "code_viz">Stata</code> (<code class = "code_viz">datazoom_pnadcontinua [ , options]</code> function) and is subject to error due to changes in external sources. If the user identifies any discrepancy in information, we request that you report it in
-        <a href="https://github.com/datazoompuc/datazoom_social_Stata/issues" target="_blank" rel="noreferrer noopener">GitHub Issues</a>.
+        <code class = "code_viz">datazoom.social</code> package in <code class = "code_viz">R</code> (função <code class = "code_viz">load_pnadc()</code>) and is subject to error due to changes in external sources. If the user identifies any discrepancy in information, we request that you report it in
+        <a href="https://github.com/datazoompuc/datazoom.social/issues" target="_blank" rel="noreferrer noopener">Issues do GitHub</a>.
       </p>
        <br><br>
        <p>

@@ -2,24 +2,24 @@
 layout: default
 lang: pt
 title: "Séries Temporais Sobre o Mercado de Trabalho"
-description: "Séries Temporais Sobre o Mercado de Trabalho com Recorte por Atividade"
+description: "Séries Temporais Sobre o Mercado de Trabalho com Recorte por Atividade e Ocupação"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Séries Temporais Sobre o Mercado de Trabalho por Atividade</h1>
+<h1 class="title-about" style="max-width: 1000px">Séries Temporais Sobre o Mercado de Trabalho por Atividade e Ocupação</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
   Em nosso gráfico dinâmico, escolha entre variáveis de mercado de trabalho agregadas da PNAD Contínua – IBGE. 
-  Além disso, existe a opção de selecionar o recorte regional, o tipo de atividade econômica pela Classificação Nacional de Atividades Econômicas (CNAE), e o setor.
+  Além disso, existe a opção de selecionar o recorte regional, o tipo de atividade econômica pela Classificação Nacional de Atividades Econômicas (CNAE), a ocupação pela Classificação de Ocupações para Pesquisas Domiciliares (COD) e o setor.
 </p>
 <br>
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_ibge_pnadc_cnae/"
+    src="https://datazoom.shinyapps.io/app_ts_ibge_pnadc_atividades_ocupacoes/"
     width="100%"
-    height="800"
+    height="800"    
     frameborder="0"
     allowfullscreen
     title="Séries temporais: Mercado de Trabalho — Data Zoom Amazônia"
@@ -46,9 +46,9 @@ description: "Séries Temporais Sobre o Mercado de Trabalho com Recorte por Ativ
      <br>
       <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
         <strong>Atenção</strong>: Esta visualização é alimentada por dados tratados através do pacote 
-        <code class = "code_viz">datazoom.social</code> no <code class = "code_viz">Stata</code> (função <code class = "code_viz">datazoom_pnadcontinua [ , options]</code>) e está sujeita a erro diante de 
+        <code class = "code_viz">datazoom.social</code> no <code class = "code_viz">R</code> (função <code class = "code_viz">load_pnadc()</code>) e está sujeita a erro diante de 
         alterações nas fontes externas. Caso o usuário identifique alguma discrepância de informação, solicitamos que reporte nos 
-        <a href="https://github.com/datazoompuc/datazoom_social_Stata/issues" target="_blank" rel="noreferrer noopener">Issues do GitHub</a>.
+        <a href="https://github.com/datazoompuc/datazoom.social/issues" target="_blank" rel="noreferrer noopener">Issues do GitHub</a>.
       </p>
        <br><br>
        <p>
