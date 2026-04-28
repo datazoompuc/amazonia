@@ -39,17 +39,10 @@ lang: pt
    </div>
    
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/series-temporais-mercado-de-trabalho-cnae" target="_blank" rel="noopener noreferrer">
+    <a href="{{ site.baseurl }}/pt/viz/serie-temporal-mercado-de-trabalho-cnae-cod" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mercado_de_trabalho_cnae.png" alt="ícone viz">
     </a><br>
-    <p>Séries Temporais sobre o Mercado de Trabalho por Atividade</p>
-   </div>
-   
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/serie-temporal-das-ocupacoes-no-trabalho" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_ocupacoes.png" alt="ícone viz">
-    </a><br>
-    <p>Série Temporal das Ocupações no Mercado de Trabalho</p>
+    <p>Séries Temporais sobre o Mercado de Trabalho por Atividade e Ocupação</p>
    </div>
 
    <div class="icone-bloco">
