@@ -16,7 +16,7 @@ description: "Dynamic ranking of the states with the highest outorged power in t
 <!-- shinyapps link -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_rk_energia_geracao_distribuida_en/"
+    src="https://datazoom.shinyapps.io/app_rk_energia_geracao_distribuida/?lang=en"
     width="100%"
     height="800"
     frameborder="0"

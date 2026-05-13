@@ -15,7 +15,7 @@ description: "Interactive chart with time series of energy production, consumpti
 <!-- Embed in full width, as in the previous page -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_energia_amz_exporta_en/"
+    src="https://datazoom.shinyapps.io/app_ts_energia_amz_exporta/?lang=en"
     width="100%"
     height="800"
     frameborder="0"

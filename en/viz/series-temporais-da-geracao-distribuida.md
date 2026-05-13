@@ -15,7 +15,7 @@ description: "Interactive chart with distributed energy generation time series i
 <!-- Embed in full width, as in the previous page -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_aneel_geracao_distribuida_en/"
+    src="https://datazoom.shinyapps.io/app_ts_aneel_geracao_distribuida/?lang=en"
     width="100%"
     height="800"
     frameborder="0"

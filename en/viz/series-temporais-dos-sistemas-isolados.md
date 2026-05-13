@@ -15,7 +15,7 @@ description: "Interactive chart with time series of isolated systems in the Lega
 <!-- Embed in full width, as in the previous page -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_sistemas_isolados_en/"
+    src="https://datazoom.shinyapps.io/app_ts_sistemas_isolados/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
