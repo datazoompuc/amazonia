@@ -18,7 +18,7 @@ description: "Time Series of Total Exports Value by Destination Country"
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_comex_exp_tot_pais_en/"
+    src="https://datazoom.shinyapps.io/app_ts_comex_exp_tot_pais/?lang=en"
     width="100%"
     height="800"
     frameborder="0"

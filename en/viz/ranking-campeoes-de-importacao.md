@@ -17,7 +17,7 @@ description: "Ranking of Countries that Import from the Legal Amazon"
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_rk_comex_exp_paises_en/"
+    src="https://datazoom.shinyapps.io/app_rk_comex_exp_paises/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
