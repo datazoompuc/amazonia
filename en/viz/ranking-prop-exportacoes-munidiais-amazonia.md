@@ -16,7 +16,7 @@ description: "Ranking of Products by Percentage of World Exports from the Legal 
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_rk_comex_exp_perc_sh4_sel_en/"
+    src="https://datazoom.shinyapps.io/app_rk_comex_exp_perc_sh4_sel/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
