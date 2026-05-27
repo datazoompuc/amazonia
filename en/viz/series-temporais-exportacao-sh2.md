@@ -10,13 +10,13 @@ description: "Foreign Trade in the Legal Amazon: Products export value by munici
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  In our dynamic graph, select an exports category and all municipalities of interest. Values are reported in BRL.
+  In our dynamic graph, select an exports category and view the total for the Legal Amazon or choose municipalities of interest. Values are reported in USD.
 </p>
 <br>
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_comex_exp_sh2_munic_en/"
+    src="https://datazoom.shinyapps.io/app_ts_comex_exp_sh2_munic/?lang=en"
     width="100%"
     height="800"
     frameborder="0"

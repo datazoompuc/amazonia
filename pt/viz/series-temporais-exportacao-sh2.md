@@ -10,7 +10,7 @@ description: "Comércio Exterior na Amazônia Legal: Valor da exportação de be
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  Em nosso gráfico dinâmico, selecione uma categoria de bens exportados e todas os municípios de interesse. Valores são reportados em R$.
+  Em nosso gráfico dinâmico, selecione uma categoria de bens exportados e visualize o total da Amazônia Legal ou escolha os municípios de interesse. Valores são reportados em US$.
 </p>
 <br>
 <!-- link do shinyapps -->
