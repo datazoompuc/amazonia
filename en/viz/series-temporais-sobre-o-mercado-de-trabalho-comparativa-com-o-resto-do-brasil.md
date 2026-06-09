@@ -16,7 +16,7 @@ description: "Labor Market Time Series"
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_ibge_pnadc_trabalho_en"
+    src="https://datazoom.shinyapps.io/app_ts_ibge_pnadc_trabalho/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
