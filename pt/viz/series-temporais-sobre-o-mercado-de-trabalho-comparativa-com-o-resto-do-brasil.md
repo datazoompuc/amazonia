@@ -10,7 +10,7 @@ description: "Séries Temporais Sobre o Mercado de Trabalho"
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre mercado de trabalho da PNAD Contínua – IBGE. Além disso, existe a opção de selecionar o recorte regional e o grupo por faixa etária, anos de estudo ou gênero que desejar.
+  Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre mercado de trabalho da PNAD Contínua – IBGE, incluindo variáveis de proporção como taxa de participação, taxa de desemprego e rendimento médio proporcional. Além disso, existe a opção de selecionar o recorte regional e até 5 grupos demográficos simultaneamente por faixa etária, anos de estudo ou gênero.
 </p>
 <br>
 <!-- link do shinyapps -->

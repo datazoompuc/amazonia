@@ -1,27 +1,27 @@
 ---
 layout: default
 lang: en
-title: "Ranking of the Most Dynamic Occupations"
-description: "Ranking of the Most Dynamic Occupations"
+title: "Ranking of the Most Dynamic Economic Activities"
+description: "Ranking of the Most Dynamic Economic Activities"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Ranking of the Most Dynamic Occupations</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking of the Most Dynamic Economic Activities</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  On our dynamic graph, it is possible to change the variables, and select different types of employed people. In addition, each color of the chart represents an economic activity, and you can choose the period you want.  Have you tried pressing the play button to see the graph change over time?
+  In our dynamic chart it is possible to change the variables, with the option to select different types of employed individuals. In addition, each color of the chart represents an economic activity, and choosing the period desired to visualize is possible as well.  Try pressing play to see the graph change over time.
 </p>
 <br>
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_rk_ibge_pnadc_cod/_en"
+    src="https://datazoom.shinyapps.io/app_rk_ibge_pnadc_atividades_ocupacoes/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Ranking of the Most Dynamic Occupations"
+    title="Ranking of the Most Dynamic Economic Activities"
   ></iframe>
 </div>
 
@@ -38,7 +38,7 @@ description: "Ranking of the Most Dynamic Occupations"
      <div class="rodape_viz">
        <!-- descrição dos dados usados-->
       <p>
-        Data collected from the <a href="https://www.ibge.gov.br/estatisticas/sociais/trabalho/17270-pnad-continua">Continuous National Household Sample Survey – IBGE)</a>. 
+        Data harvested from the <a href="https://www.ibge.gov.br/estatisticas/sociais/trabalho/17270-pnad-continua">Continuous National Household Sample Survey – IBGE</a>. 
         PNAD “Contínua” is a survey in which each household is interviewed for five consecutive trimesters.<br><br>
         Want to explore more? Access our <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>

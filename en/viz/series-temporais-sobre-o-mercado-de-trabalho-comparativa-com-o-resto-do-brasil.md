@@ -10,7 +10,7 @@ description: "Labor Market Time Series"
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  On our dynamic graph, it is possible to change the variables and choose information about the labor market from the PNAD Contínua – IBGE. Additionally, there is the option to select the regional cut and group by age range, years of study or gender of your preference.
+  On our dynamic graph, it is possible to change the variables and choose information about the labor market from the PNAD Contínua – IBGE, including proportion variables such as participation rate, unemployment rate, and proportional average earnings. Additionally, there is the option to select the regional cut and up to 5 demographic groups simultaneously by age range, years of study or gender.
 </p>
 <br>
 <!-- link do shinyapps -->

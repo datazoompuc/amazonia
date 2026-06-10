@@ -18,10 +18,10 @@ lang: pt
 
 <div class="imagens-container">
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-mais-dinamicas" target="_blank" rel="noopener noreferrer">
+    <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-ocupacoes" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_atividades_dinamicas.png" alt="ícone viz">
     </a><br>
-    <p>Ranking das Atividades Econômicas mais Dinâmicas</p>
+    <p>Ranking de Atividades Econômicas e Ocupações</p>
    </div>
    
    <div class="icone-bloco">
@@ -29,13 +29,6 @@ lang: pt
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mercado_de_trabalho.png" alt="ícone viz">
     </a><br>
     <p>Séries Temporais sobre o Mercado de Trabalho</p>
-   </div>
-   
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/ranking-das-ocupacoes-mais-dinamicas" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_ocupacoes-mais-dinamicas.png" alt="ícone viz">
-    </a><br>
-    <p>Ranking das Ocupações mais Dinâmicas</p>
    </div>
    
    <div class="icone-bloco">

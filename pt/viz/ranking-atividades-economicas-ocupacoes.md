@@ -1,12 +1,12 @@
 ---
 layout: default
 lang: pt
-title: "Ranking das Ocupações Mais Dinâmicas"
-description: "Séries Temporais Sobre o Mercado de Trabalho"
+title: "Ranking das Atividades Econômicas Mais Dinâmicas"
+description: "Ranking dinâmico com atividades econômicas mais dinâmicas na Amazônia Legal e no Brasil ao longo do tempo."
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Ranking das Ocupações Mais Dinâmicas</h1>
+<h1 class="title-about" style="max-width: 1000px"> Ranking das Atividades Econômicas Mais Dinâmicas</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
@@ -16,12 +16,12 @@ description: "Séries Temporais Sobre o Mercado de Trabalho"
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_rk_ibge_pnadc_cod/"
+    src="https://datazoom.shinyapps.io/app_rk_ibge_pnadc_atividades_ocupacoes/"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Séries temporais: Mercado de Trabalho — Data Zoom Amazônia"
+    title="Rankings: Mercado de Trabalho — Data Zoom Amazônia"
   ></iframe>
 </div>
 
@@ -38,16 +38,16 @@ description: "Séries Temporais Sobre o Mercado de Trabalho"
      <div class="rodape_viz">
        <!-- descrição dos dados usados-->
       <p>
-        Dados coletados da <a href="https://www.ibge.gov.br/estatisticas/sociais/saude/9171-pesquisa-nacional-por-amostra-de-domicilios-continua-mensal.html" target="_blank" rel="noreferrer noopener">Pesquisa Nacional por Amostra de Domicílios Contínua – IBGE</a>. 
-        A PNAD Contínua é uma pesquisa, em que cada domicílio é entrevistado por cinco trimestres consecutivos.<br><br>
+        Dados coletados da <a href="https://www.epe.gov.br/" target="_blank" rel="noreferrer noopener">Pesquisa Nacional por Amostra de Domicílios Contínua – IBGE</a>. 
+        A PNAD Contínua é uma pesquisa, em que cada domicílio é entrevistado por cinco trimestres consecutivos. <br><br>
         Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
       </p>
      <br>
       <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
         <strong>Atenção</strong>: Esta visualização é alimentada por dados tratados através do pacote 
-        <code class = "code_viz">datazoom.social</code> no <code class = "code_viz">Stata</code> (função <code class = "code_viz">datazoom_pnadcontinua [ , options]</code>) e está sujeita a erro diante de 
+        <code class = "code_viz">datazoom_social</code> no <code class = "code_viz">Stata</code> (função <code class = "code_viz">datazoom_pnadcontinua[ , options]</code>) e está sujeita a erro diante de 
         alterações nas fontes externas. Caso o usuário identifique alguma discrepância de informação, solicitamos que reporte nos 
-        <a href="https://github.com/datazoompuc/datazoom_social_Stata/issues" target="_blank" rel="noreferrer noopener">Issues do GitHub</a>.
+        <a href="https://github.com/datazoompuc/datazoom.amazonia/issues" target="_blank" rel="noreferrer noopener">Issues do GitHub</a>.
       </p>
        <br><br>
        <p>
