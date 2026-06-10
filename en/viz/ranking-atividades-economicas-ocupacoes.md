@@ -6,7 +6,7 @@ description: "Ranking of the Most Dynamic Economic Activities"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Ranking of the Most Dynamic Economic Activities</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking of the Most Dynamic Economic Activities and Occupations</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">

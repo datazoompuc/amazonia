@@ -6,7 +6,7 @@ description: "Ranking dinâmico com atividades econômicas mais dinâmicas na Am
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px"> Ranking das Atividades Econômicas Mais Dinâmicas</h1>
+<h1 class="title-about" style="max-width: 1000px"> Ranking das Atividades Econômicas e Ocupações Mais Dinâmicas</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
