@@ -16,7 +16,7 @@ description: "Foreign Trade in the Legal Amazon: Main export by municipality"
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_map_comex_exp_sh4_sel_en/"
+    src="https://datazoom.shinyapps.io/app_map_comex_exp_sh4_sel/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
