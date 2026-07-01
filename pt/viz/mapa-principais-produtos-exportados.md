@@ -10,7 +10,7 @@ description: "Comércio Exterior na Amazônia Legal: Principal produto exportado
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  Em nosso mapa dinâmico, veja a evolução dos principais produtos exportados pelos municípios da Amazônia Legal entre 1997 e 2021. 
+  Explore em nosso mapa dinâmico o principal produto exportado por cada município da Amazônia Legal e sua evolução ao longo do tempo. Alterne entre os produtos compatíveis com a floresta, o conjunto de todos os produtos, ou a razão entre eles, e acompanhe ano a ano quanto cada município representa nas exportações nacionais daquele produto.
 </p>
 <br>
 <!-- link do shinyapps -->

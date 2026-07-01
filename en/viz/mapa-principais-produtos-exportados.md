@@ -10,7 +10,7 @@ description: "Foreign Trade in the Legal Amazon: Main export by municipality"
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  In our dynamic map, follow how the lsit of main product exported by municipality in the Legal Amazon has evolved between 1997 and 2021.
+  Explore in our dynamic map the main product exported by each municipality in the Legal Amazon and how it evolves over time. Switch between forest-compatible products, all products, or the ratio between them, and track year by year how much each municipality accounts for in the country's exports of that product.
 </p>
 <br>
 <!-- link do shinyapps -->
