@@ -1,28 +1,27 @@
 ---
 layout: default
 lang: en
-title: "Exports Champion Municipalities"
-description: "Municipality Ranking of Exportation"
+title: "Exports Time Series"
+description: "Foreign Trade in the Legal Amazon: Products export value by municipality"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px"> Exports Champion Municipalities</h1>
+<h1 class="title-about" style="max-width: 1000px">Time Series of the Legal Amazon's Municipalities Exports Values by Category</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  In our dynamic graph, follow which municipalities in the Legal Amazon are champions in exports in each year.
-  You can select the desired goods category.
+  In our dynamic graph, select an exports category and view the total for the Legal Amazon or choose municipalities of interest. Values are reported in USD.
 </p>
 <br>
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_rk_comex_exp_munic_produtosamz/?lang=en"
+    src="https://datazoom.shinyapps.io/app_ts_comex_exp_municipio/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Time series: foreign trade — Data Zoom Amazônia"
+    title="Foreign trade in the Legal Amazon: Products export value by municipality"
   ></iframe>
 </div>
 
@@ -37,7 +36,7 @@ description: "Municipality Ranking of Exportation"
     </div>
     <div class="col-md-9">
      <div class="rodape_viz">
-        <!-- descrição dos dados usados-->
+       <!-- descrição dos dados usados-->
       <p>
         Data collected and treated by <a href="https://www.gov.br/mdic/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta/">Comex Stat</a>. 
         The Comex data set gathers data extracted from Siscomex (Integrated Foreign Trade System), which is a database containing information on all products imported or exported from Brazil.<br><br>

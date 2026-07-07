@@ -1,27 +1,27 @@
 ---
 layout: default
 lang: en
-title: "Exports Time Series"
-description: "Foreign Trade in the Legal Amazon: Products export value by municipality"
+title: "Exports Time Series by Country"
+description: "Foreign Trade in the Legal Amazon: Products export value by destination country and product category (SEC)"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Time Series of the Legal Amazon's Municipalities Exports Values by Category</h1>
+<h1 class="title-about" style="max-width: 1000px">Time Series of the Legal Amazon's Export Value by Destination Country and Product Category</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  In our dynamic graph, select an exports category and view the total for the Legal Amazon or choose municipalities of interest. Values are reported in USD.
+  In our dynamic graph, select an exports category and view the total for the Legal Amazon or choose destination countries of interest. Values are reported in USD.
 </p>
 <br>
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_comex_exp_sh2_munic/?lang=en"
+    src="https://datazoom.shinyapps.io/app_ts_comex_exp_pais_sec/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Foreign trade in the Legal Amazon: Products export value by municipality"
+    title="Foreign trade in the Legal Amazon: Products export value by destination country"
   ></iframe>
 </div>
 

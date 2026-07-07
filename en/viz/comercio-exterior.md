@@ -39,10 +39,17 @@ lang: en
    </div>
    
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/series-temporais-exportacao-sh2" target="_blank" rel="noopener noreferrer">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-exportacao-municipio" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_bens_exp.png" alt="icon viz">
     </a><br>
     <p>Time Series of the Legal Amazon's Municipalities Exports Values by Category</p>
+   </div>
+
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-exportacao-pais" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_bens_paises_exp.png" alt="icon viz">
+    </a><br>
+    <p>Time Series of the Legal Amazon's Export Value by Destination Country and Product Category</p>
    </div>
    
    <div class="icone-bloco">

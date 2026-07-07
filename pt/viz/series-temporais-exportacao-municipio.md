@@ -16,7 +16,7 @@ description: "Comércio Exterior na Amazônia Legal: Valor da exportação de be
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_comex_exp_sh2_munic/"
+    src="https://datazoom.shinyapps.io/app_ts_comex_exp_municipio/"
     width="100%"
     height="800"
     frameborder="0"

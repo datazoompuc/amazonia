@@ -16,7 +16,7 @@ description: "Foreign trade in the Amazon (COMEX): Products export value per des
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_sankey_comex_exp_pais_sec_en"
+    src="https://datazoom.shinyapps.io/app_sankey_comex_exp_pais_sec/?lang=en"
     width="100%"
     height="800"
     frameborder="0"

@@ -39,10 +39,17 @@ lang: pt
    </div>
    
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/series-temporais-exportacao-sh2" target="_blank" rel="noopener noreferrer">
+    <a href="{{ site.baseurl }}/pt/viz/series-temporais-exportacao-municipio" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_bens_exp.png" alt="ícone viz">
     </a><br>
     <p>Séries Temporais do Valor das Categorias de Bens Exportados por Município da Amazônia Legal</p>
+   </div>
+
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/pt/viz/series-temporais-exportacao-pais" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_bens_paises_exp.png" alt="ícone viz">
+    </a><br>
+    <p>Séries Temporais do Valor Exportado pela Amazônia Legal por País de Destino e Categoria de Produto</p>
    </div>
 
    <div class="icone-bloco">
