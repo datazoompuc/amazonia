@@ -67,17 +67,10 @@ lang: pt
    </div>
 
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/series-temporais-de-cobertura-da-terra-dos-municipios" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mudanca_de_cobertura_dos_municipios.png" alt="icon viz">
-    </a><br>
-    <p>Séries Temporais de Cobertura da Terra dos Municípios</p>
-   </div>
-
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/series-temporais-de-uso-e-cobertura-de-terra-dos-estados" target="_blank" rel="noopener noreferrer">
+    <a href="{{ site.baseurl }}/pt/viz/series-temporais-de-uso-e-cobertura-de-terra" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_series-temporais-de-uso-e-cobertura-de-terra-dos-estados.png" alt="icon viz">
     </a><br>
-    <p>Séries Temporais de Uso e Cobertura de Terra dos Estados</p>
+    <p>Séries Temporais de Uso e Cobertura de Terra</p>
    </div>
 
    

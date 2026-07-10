@@ -1,27 +1,27 @@
 ---
 layout: default
 lang: en
-title: "Time Series of Land Use and Cover Change by State"
-description: "Time Series of Land Use and Cover Change by State"
+title: "Time Series of Land Use and Cover"
+description: "Time Series of Land Use and Cover"
 ---
 <br><br>
 <!-- visualization title without quotes -->
-<h1 class="title-about" style="max-width: 1000px">Time Series of Land Use and Cover Change by State</h1>
+<h1 class="title-about" style="max-width: 1000px">Time Series of Land Use and Cover</h1>
 <br>
 <!-- chart instructions -->
 <p class="text-center">
-  In our dynamic chart, it is possible to change the variables, selecting information from MapBiomas. In addition, there is the option to display values on a log scale and/or relative to the initial year. Finally, the user can select the desired geographic subdivision.
+  In our dynamic chart, it is possible to change the variables, selecting information from MapBiomas. You can switch the aggregation between states and municipalities, as well as display values relative to the initial year and as a share of the state/municipality area.
 </p>
 <br>
 <!-- shinyapps link -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_mapbiomas_cobertura_est_en/"
+    src="https://datazoom.shinyapps.io/app_ts_mapbiomas_cobertura/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Time Series of Land Use and Cover Change by State"
+    title="Time Series of Land Use and Cover"
   ></iframe>
 </div>
 

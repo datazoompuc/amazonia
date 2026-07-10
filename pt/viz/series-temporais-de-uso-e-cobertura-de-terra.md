@@ -1,27 +1,27 @@
 ---
 layout: default
 lang: pt
-title: "Séries Temporais de Uso e Cobertura de Terra dos Estados"
-description: "Séries Temporais de Uso e Cobertura de Terra dos Estados"
+title: "Séries Temporais de Uso e Cobertura de Terra"
+description: "Séries Temporais de Uso e Cobertura de Terra"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Séries Temporais de Uso e Cobertura de Terra dos Estados</h1>
+<h1 class="title-about" style="max-width: 1000px">Séries Temporais de Uso e Cobertura de Terra</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre o MapBiomas. Além disso, existe a opção de colocar em escala log e/ou o proporcional ao ano inicial. Por fim, o usuário consegue selecionar a subdivisão geográfica que desejar.
+  Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre o MapBiomas. Você pode alternar a agregação entre estados e municípios, além de exibir os valores proporcionais ao ano inicial e como proporção da área do estado/município.
 </p>
 <br>
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_mapbiomas_cobertura_est/"
+    src="https://datazoom.shinyapps.io/app_ts_mapbiomas_cobertura/"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Séries Temporais da Mudança de Uso e Cobertura de Terra dos Estados"
+    title="Séries Temporais de Uso e Cobertura de Terra"
   ></iframe>
 </div>
 
