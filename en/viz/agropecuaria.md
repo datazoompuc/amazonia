@@ -56,7 +56,7 @@ lang: en
     <a href="{{ site.baseurl }}/en/viz/ranking-cobertura-terra" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ranking-cobertura-terra.png" alt="icon viz">
     </a><br>
-    <p>Ranking of Land Use and Cover by Muncipality</p>
+    <p>Ranking of Land Use and Cover</p>
    </div>
 
    <div class="icone-bloco">

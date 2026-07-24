@@ -1,23 +1,24 @@
 ---
 layout: default
 lang: en
-title: "Municipalities’ Land Coverage Ranking"
-description: "Ranking of land usage and cover by municipality in the Legal Amazon"
+title: "Land Coverage Ranking"
+description: "Ranking of land usage and cover by state and municipality in the Legal Amazon"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Ranking of Land Use and Cover by Muncipality</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking of Land Use and Cover</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
   In our dynamic ranking, choose the type of land use or cover of interest among the MapBiomas options.
-  Press play to see how the ranking evolves throughout the years.
+  You can switch the aggregation between states and municipalities, as well as display values
+  in hectares or as a share of the area. Press play to see how the ranking evolves throughout the years.
 </p>
 <br>
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_rk_mapbiomas_cobertura_munic_en/"
+    src="https://datazoom.shinyapps.io/app_rk_mapbiomas_cobertura/?lang=en"
     width="100%"
     height="800"
     frameborder="0"

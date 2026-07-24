@@ -56,7 +56,7 @@ lang: pt
     <a href="{{ site.baseurl }}/pt/viz/ranking-cobertura-terra" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ranking-cobertura-terra.png" alt="icon viz">
     </a><br>
-    <p>Ranking Municipal de Área de Cobertura da Terra</p>
+    <p>Ranking de Área de Cobertura da Terra</p>
    </div>
 
    <div class="icone-bloco">
