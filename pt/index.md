@@ -20,7 +20,7 @@ lang: pt
 
 ## Nossa Bacia Infográfica
 
-### Navegue pela nossa bacia e conheça mais sobre os dados e as histórias da Amazônia Legal Brasileira
+### Navegue pela nossa bacia e conheça mais sobre os dados da Amazônia Legal Brasileira
 
 <div class="alignfull has-no-padding shinyblock">
   <iframe class="shinyframe"  width="100%" height="600px" frameborder="0" scrolling="no" 
