@@ -20,7 +20,7 @@ lang: en
 
 ## Our Infographic Basin
 
-### Browse our basin and learn more about the data and stories of the Brazilian Legal Amazon
+### Browse our basin and learn more about the data of the Brazilian Legal Amazon
 
 <div class="alignfull has-no-padding shinyblock">
   <iframe class="shinyframe"  width="100%" height="600px" frameborder="0" scrolling="no" 
