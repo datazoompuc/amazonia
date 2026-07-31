@@ -16,7 +16,7 @@ description: "Map of Municipal Livestock Herds"
 <!-- shinyapps link -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_map_dz_munic_ppm_en/"
+    src="https://datazoom.shinyapps.io/app_map_dz_munic_ppm/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
@@ -51,7 +51,7 @@ description: "Map of Municipal Livestock Herds"
         </p>
         <br><br>
         <p>
-          <a href="{{ site.baseurl }}/pt/viz/">&lt; Back to Visualizations</a>
+          <a href="{{ site.baseurl }}/en/viz/">&lt; Back to Visualizations</a>
         </p>
       </div>
     </div>
