@@ -1,27 +1,27 @@
 ---
 layout: default
 lang: en
-title: "Time Series of Land Cover Transition in States"
-description: "Time Series of Land Cover Transition in States"
+title: "Time Series of Land Cover Transition"
+description: "Time Series of Land Cover Transition"
 ---
 <br><br>
 <!-- visualization title without quotes -->
-<h1 class="title-about" style="max-width: 1000px">Time Series of Land Cover Transition in States</h1>
+<h1 class="title-about" style="max-width: 1000px">Time Series of Land Cover Transition</h1>
 <br>
 <!-- instructions about the chart -->
 <p class="text-center">
-  In our dynamic chart, it is possible to change the variables, allowing you to choose information from MapBiomas. Additionally, there is an option to set a log scale and/or scale relative to the initial year. Finally, the user can select the desired geographic subdivision.
+  In our dynamic chart, choose the origin and destination classes of the transition among the MapBiomas options. You can switch the aggregation between states and municipalities, as well as display values relative to the initial interval or accumulated since 1985.
 </p>
 <br>
 <!-- shinyapps link -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_mapbiomas_transicao_est_en/"
+    src="https://datazoom.shinyapps.io/app_ts_mapbiomas_transicao/?lang=en"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Time Series of Land Cover Transition in States"
+    title="Time Series of Land Cover Transition"
   ></iframe>
 </div>
 

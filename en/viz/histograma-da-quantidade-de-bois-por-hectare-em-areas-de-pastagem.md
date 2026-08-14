@@ -10,13 +10,13 @@ description: "Histogram of the Number of Cattle per Hectare in Pasture Areas"
 <br>
 <!-- chart instructions -->
 <p class="text-center">
-  In our chart, the x-axis represents the log of (number of cattle per hectare + 1), and the y-axis represents the number of municipalities that fall within each interval of the x-axis variable. In addition, you can choose the desired period. It is also possible to filter by region, by state, and for the Legal Amazon. Have you tried pressing play to see how the chart changes over time?
+  In our chart, the x-axis represents the number of cattle per hectare of pasture, and the y-axis represents the number of municipalities that fall within each interval of the x-axis variable. Compare the municipalities of the Legal Amazon with those of the rest of Brazil and, if you wish, switch to the log(x+1) scale. Have you tried pressing play to see how the chart changes over time?
 </p>
 <br>
 <!-- shinyapps link -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_hist_mapbiomas_bovinos_en/"
+    src="https://datazoom.shinyapps.io/app_hist_mapbiomas_bovinos/?lang=en"
     width="100%"
     height="800"
     frameborder="0"

@@ -60,10 +60,17 @@ lang: pt
    </div>
 
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/series-temporais-da-transicao-de-cobertura-de-terra-dos-estados" target="_blank" rel="noopener noreferrer">
+    <a href="{{ site.baseurl }}/pt/viz/ranking-transicao-cobertura-terra" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ranking-cobertura-terra.png" alt="icon viz">
+    </a><br>
+    <p>Ranking da Transição de Cobertura da Terra</p>
+   </div>
+
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/pt/viz/series-temporais-da-transicao-de-cobertura-de-terra" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mudanca_de_cobertura_dos_estados.png" alt="icon viz">
     </a><br>
-    <p>Séries Temporais da Transição de Cobertura de Terra dos Estados</p>
+    <p>Séries Temporais da Transição de Cobertura de Terra</p>
    </div>
 
    <div class="icone-bloco">

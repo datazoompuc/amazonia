@@ -1,27 +1,30 @@
 ---
 layout: default
 lang: pt
-title: "Séries Temporais da Transição de Cobertura de Terra dos Estados"
-description: "Séries Temporais da Transição de Cobertura de Terra dos Estados"
+title: "Ranking da Transição de Cobertura da Terra"
+description: "Ranking de área de transição de cobertura da terra dos estados e municípios da Amazônia Legal"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Séries Temporais da Transição de Cobertura de Terra dos Estados</h1>
+<h1 class="title-about" style="max-width: 1000px">Ranking da Transição de Cobertura da Terra</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  Em nosso gráfico dinâmico é possível alterar as variáveis, podendo escolher informações sobre o MapBiomas. Além disso, existe a opção de colocar em escala log e/ou o proporcional ao ano inicial. Por fim, o usuário consegue selecionar a subdivisão geográfica que desejar.
+  Em nosso ranking dinâmico, escolha a classe de origem e a classe de destino da transição
+  entre as opções do MapBiomas. Você pode alternar a agregação entre estados e municípios,
+  além de exibir os valores acumulados desde 1985. Aperte play para ver como o ranking evolui
+  ao longo dos intervalos.
 </p>
 <br>
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_ts_mapbiomas_transicao_est/"
+    src="https://datazoom.shinyapps.io/app_rk_mapbiomas_transicao/"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Séries Temporais da Transição de Cobertura de Terra dos Estados"
+    title="Ranking da Transição de Cobertura da Terra"
   ></iframe>
 </div>
 
