@@ -1,27 +1,31 @@
 ---
 layout: default
 lang: pt
-title: "Histograma da Quantidade de Bois por Hectare em Áreas de Pastagem"
-description: "Histograma da Quantidade de Bois por Hectare em Áreas de Pastagem"
+title: "Sankey da Transição de Cobertura da Terra"
+description: "Diagrama de Sankey dos fluxos de transição de cobertura da terra dos estados e municípios da Amazônia Legal"
 ---
 <br><br>
 <!-- titulo da viz sem aspas-->
-<h1 class="title-about" style="max-width: 1000px">Histograma da Quantidade de Bois por Hectare em Áreas de Pastagem</h1>
+<h1 class="title-about" style="max-width: 1000px">Sankey da Transição de Cobertura da Terra</h1>
 <br>
 <!-- instruções sobre o gráfico-->
 <p class="text-center">
-  Em nosso gráfico, o eixo x representa a quantidade de bois por hectare de pastagem e o eixo y a quantidade de municípios que se enquadram em cada intervalo da variável do eixo x. Compare os municípios da Amazônia Legal com os do restante do Brasil e, se quiser, mude para a escala log(x+1). Já tentou apertar o play para ver o gráfico se alterando ao longo do tempo?
+  Em nosso diagrama de Sankey, escolha um estado ou município da Amazônia Legal e veja para onde
+  migrou cada classe de cobertura do solo. Ajuste o número de fluxos exibidos, alterne entre
+  agregação estadual e municipal e exiba os valores acumulados desde o início da série. Aperte
+  play para acompanhar a evolução ano a ano. Transições de uma classe para ela mesma
+  (persistência) não são exibidas.
 </p>
 <br>
 <!-- link do shinyapps -->
 <div class="container-fluid p-0">
   <iframe
-    src="https://datazoom.shinyapps.io/app_hist_mapbiomas_bovinos/"
+    src="https://datazoom.shinyapps.io/app_sankey_mapbiomas_transicao/"
     width="100%"
     height="800"
     frameborder="0"
     allowfullscreen
-    title="Distribuição dos Municípios de acordo com Bovino/Hectares de Área de Pastagem"
+    title="Sankey da Transição de Cobertura da Terra"
   ></iframe>
 </div>
 

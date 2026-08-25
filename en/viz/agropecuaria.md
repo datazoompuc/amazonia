@@ -60,10 +60,24 @@ lang: en
    </div>
 
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/series-temporais-da-transicao-de-cobertura-de-terra-dos-estados" target="_blank" rel="noopener noreferrer">
+    <a href="{{ site.baseurl }}/en/viz/ranking-transicao-cobertura-terra" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ranking-cobertura-terra.png" alt="icon viz">
+    </a><br>
+    <p>Ranking of Land Cover Transition</p>
+   </div>
+
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/series-temporais-da-transicao-de-cobertura-de-terra" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_mudanca_de_cobertura_dos_estados.png" alt="icon viz">
     </a><br>
-    <p>Time Series of Land Cover Transition in States</p>
+    <p>Time Series of Land Cover Transition</p>
+   </div>
+
+   <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/sankey-transicao-cobertura-terra" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_sankey_mapbiomas_transicao.png" alt="icon viz">
+    </a><br>
+    <p>Sankey of Land Cover Transition</p>
    </div>
 
    <div class="icone-bloco">
