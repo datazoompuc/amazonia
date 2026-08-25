@@ -74,6 +74,13 @@ lang: en
    </div>
 
    <div class="icone-bloco">
+    <a href="{{ site.baseurl }}/en/viz/sankey-transicao-cobertura-terra" target="_blank" rel="noopener noreferrer">
+      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_sankey_mapbiomas_transicao.png" alt="icon viz">
+    </a><br>
+    <p>Sankey of Land Cover Transition</p>
+   </div>
+
+   <div class="icone-bloco">
     <a href="{{ site.baseurl }}/en/viz/series-temporais-de-uso-e-cobertura-de-terra" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_series-temporais-de-uso-e-cobertura-de-terra-dos-estados.png" alt="icon viz">
     </a><br>
