@@ -39,10 +39,10 @@ lang: pt
    </div>
    
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/series-temporais-exportacao-municipio" target="_blank" rel="noopener noreferrer">
+    <a href="{{ site.baseurl }}/pt/viz/comercio-exterior-exportacao-municipio" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_bens_exp.png" alt="ícone viz">
     </a><br>
-    <p>Séries Temporais do Valor das Categorias de Bens Exportados por Município da Amazônia Legal</p>
+    <p>Exportações da Amazônia Legal por Município e Categoria de Produto</p>
    </div>
 
    <div class="icone-bloco">
