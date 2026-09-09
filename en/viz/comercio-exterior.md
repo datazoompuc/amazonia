@@ -39,10 +39,10 @@ lang: en
    </div>
    
    <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/series-temporais-exportacao-municipio" target="_blank" rel="noopener noreferrer">
+    <a href="{{ site.baseurl }}/en/viz/comercio-exterior-exportacao-municipio" target="_blank" rel="noopener noreferrer">
       <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_bens_exp.png" alt="icon viz">
     </a><br>
-    <p>Time Series of the Legal Amazon's Municipalities Exports Values by Category</p>
+    <p>Legal Amazon Exports by Municipality and Product Category</p>
    </div>
 
    <div class="icone-bloco">
