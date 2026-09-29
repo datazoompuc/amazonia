@@ -23,6 +23,7 @@ lang: pt
       <a href="{{ site.baseurl }}/pt/viz/saude" class="botao">SAÚDE</a>
       <a href="{{ site.baseurl }}/pt/viz/mercado-de-trabalho" class="botao">MERCADO DE TRABALHO</a>
       <a href="{{ site.baseurl }}/pt/viz/agropecuaria" class="botao">AGROPECUÁRIA</a>
+      <a href="{{ site.baseurl }}/pt/viz/jogos" class="botao" style="background-color:#1b5e20 !important; border:1px solid #73c373;">🎮 JOGOS DE DADOS</a>
     </div>
 </div>
 
