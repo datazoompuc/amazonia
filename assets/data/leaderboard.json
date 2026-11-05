@@ -1,0 +1,86 @@
+{
+  "updated_at": "2026-11-05T11:55:00Z",
+  "source": "Data Zoom Amazonia - Ranking Oficial",
+  "entries": [
+    {
+      "id": "seed-grid-mun-1",
+      "name": "Lab Data Zoom PUC-Rio",
+      "mode": "grid-hard",
+      "modeLabel": "Grid (Municípios)",
+      "score": 9,
+      "maxScore": 9,
+      "detail": "9/9 células · 9 palpites",
+      "date": "04/11/2026"
+    },
+    {
+      "id": "seed-grid-mun-2",
+      "name": "Fernanda F.",
+      "mode": "grid-hard",
+      "modeLabel": "Grid (Municípios)",
+      "score": 8,
+      "maxScore": 9,
+      "detail": "8/9 células · 10 palpites",
+      "date": "04/11/2026"
+    },
+    {
+      "id": "seed-grid-est-1",
+      "name": "Pesquisador Econ PUC",
+      "mode": "grid-easy",
+      "modeLabel": "Grid (Estados)",
+      "score": 9,
+      "maxScore": 9,
+      "detail": "9/9 células · 9 palpites",
+      "date": "05/11/2026"
+    },
+    {
+      "id": "seed-grid-est-2",
+      "name": "Lucas M.",
+      "mode": "grid-easy",
+      "modeLabel": "Grid (Estados)",
+      "score": 7,
+      "maxScore": 9,
+      "detail": "7/9 células · 10 palpites",
+      "date": "04/11/2026"
+    },
+    {
+      "id": "seed-versus-1",
+      "name": "Helena R. (IBGE)",
+      "mode": "versus",
+      "modeLabel": "Modo Versus",
+      "score": 5,
+      "maxScore": 5,
+      "detail": "5/5 no desafio diário",
+      "date": "05/11/2026"
+    },
+    {
+      "id": "seed-versus-2",
+      "name": "Gabriel S.",
+      "mode": "versus",
+      "modeLabel": "Modo Versus",
+      "score": 4,
+      "maxScore": 5,
+      "detail": "4/5 no desafio diário",
+      "date": "04/11/2026"
+    },
+    {
+      "id": "seed-streak-1",
+      "name": "Rafael T. (INPE)",
+      "mode": "streak",
+      "modeLabel": "Modo Streak",
+      "score": 14,
+      "maxScore": null,
+      "detail": "14 acertos seguidos",
+      "date": "05/11/2026"
+    },
+    {
+      "id": "seed-streak-2",
+      "name": "Mariana C.",
+      "mode": "streak",
+      "modeLabel": "Modo Streak",
+      "score": 9,
+      "maxScore": null,
+      "detail": "9 acertos seguidos",
+      "date": "04/11/2026"
+    }
+  ]
+}

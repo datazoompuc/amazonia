@@ -1,0 +1,124 @@
+name: Check & Sync Minigames Data
+
+on:
+  push:
+    paths:
+      - "assets/data/**"
+      - "scripts/export_minigames_web.R"
+      - "pt/viz/jogos.md"
+  pull_request:
+    paths:
+      - "assets/data/**"
+      - "scripts/export_minigames_web.R"
+      - "pt/viz/jogos.md"
+  workflow_dispatch:
+    inputs:
+      rebuild_from_rds:
+        description: "Regerar assets/data/minigames_data.json a partir dos .rds oficiais de datazoom_viz"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+permissions:
+  contents: write
+
+jobs:
+  json-integrity:
+    name: Validar JSON e Regras da Amazonia Legal
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validar sintaxe e invariantes de minigames_data.json e leaderboard.json
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, sys
+
+          root = pathlib.Path("assets/data")
+          mg_path = root / "minigames_data.json"
+          lb_path = root / "leaderboard.json"
+
+          for p in [mg_path, lb_path]:
+              if not p.exists():
+                  print(f"ERRO: Arquivo obrigatorio ausente: {p}", file=sys.stderr)
+                  sys.exit(1)
+              with p.open(encoding="utf-8") as f:
+                  json.load(f)
+
+          with mg_path.open(encoding="utf-8") as f:
+              mg = json.load(f)
+
+          states = mg.get("states", [])
+          munis = mg.get("municipalities", [])
+
+          assert len(states) == 9, f"Esperados 9 estados da Amazonia Legal, encontrado: {len(states)}"
+          assert len(munis) == 772, f"Esperados 772 municipios da Amazonia Legal (legal_amazon == 1), encontrado: {len(munis)}"
+
+          required_cols = [
+              "name", "uf", "pop", "area_km2", "gdp_mil", "gd_ppc",
+              "cattle", "soy", "corn", "cassava", "rice", "exports_usd",
+              "forest_km2", "forest_pct", "pasture_km2", "agri_km2",
+              "deforest_acc_km2", "deforest_inc_km2", "ips", "empresas", "ocupados"
+          ]
+          for row in munis:
+              for col in required_cols:
+                  if col not in row or row[col] is None:
+                      raise AssertionError(f"Coluna {col} ausente/nula no municipio {row.get('name')}")
+
+          print(f"OK: minigames_data.json validado ({len(states)} estados, {len(munis)} municipios, 0 NAs).")
+          PY
+
+  rebuild-rds:
+    name: Regerar JSON via R (datazoom_viz .rds)
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.rebuild_from_rds == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout amazonia-site
+        uses: actions/checkout@v4
+        with:
+          path: amazonia-site
+
+      - name: Checkout datazoom_viz (.rds oficiais)
+        uses: actions/checkout@v4
+        with:
+          repository: datazoompuc/datazoom_viz
+          path: datazoom_viz
+
+      - name: Checkout datazoom.amazonia (municipalities.rda)
+        uses: actions/checkout@v4
+        with:
+          repository: datazoompuc/datazoom.amazonia
+          path: datazoom.amazonia
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Instalar pacotes R necessarios
+        run: |
+          install.packages(c("dplyr", "tidyr", "jsonlite"))
+        shell: Rscript {0}
+
+      - name: Executar export_minigames_web.R
+        working-directory: amazonia-site
+        env:
+          DATAZOOM_VIZ_DIR: "../datazoom_viz"
+          AMAZONIA_PKG_DIR: "../datazoom.amazonia"
+          OUT_JSON_PATH: "assets/data/minigames_data.json"
+        run: Rscript scripts/export_minigames_web.R
+
+      - name: Commitar atualizacao se houver mudanca nos dados
+        working-directory: amazonia-site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet assets/data/minigames_data.json; then
+            echo "Nenhuma alteracao nos dados."
+          else
+            git add assets/data/minigames_data.json
+            git commit -m "chore(data): update minigames_data.json from official datazoom_viz .rds"
+            git push
+          fi
