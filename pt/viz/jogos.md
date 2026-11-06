@@ -1,2395 +1,2047 @@
 ---
 layout: default
-title: "Datazoom minigames"
-description: "Jogos interativos diários baseados nos dados oficiais da Amazônia Legal (IBGE, INPE/PRODES, MapBiomas, Comex Stat e IPS Amazônia)"
+title: Datazoom minigames
 lang: pt
+description: "Explore os microdados oficiais da Amazônia Legal pelos nossos minigames!"
 ---
 
 <style>
-.mg-wrapper {
-  max-width: 980px;
-  margin: 28px auto 48px;
-  padding: 0 20px;
-  font-family: 'Work Sans', sans-serif;
-  color: #1f2924;
-}
-
-.mg-hero {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 16px;
-  padding-bottom: 18px;
-  border-bottom: 2px solid #e2ebe5;
-  margin-bottom: 22px;
-}
-
-.mg-hero-title h1 {
-  font-size: 30px;
-  font-weight: 700;
-  color: #114228;
-  margin: 0 0 6px 0;
-  letter-spacing: -0.5px;
-}
-
-.mg-hero-title p {
-  font-size: 15px;
-  color: #52635a;
-  margin: 0;
-}
-
-.mg-hero-badges {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.mg-badge {
-  background: #edf5f0;
-  border: 1px solid #c5ddd0;
-  color: #165634;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.mg-badge.accent {
-  background: #fef6e6;
-  border-color: #f3d18c;
-  color: #8c5800;
-}
-
-/* Loading & Error States (Padrao Data Zoom Web) */
-.mg-loading-box,
-.mg-error-box {
-  background: #ffffff;
-  border: 1px solid #d5e2d9;
-  border-radius: 12px;
-  padding: 40px 24px;
-  text-align: center;
-  margin: 24px 0;
-}
-
-.mg-loading-title {
-  font-size: 17px;
-  font-weight: 700;
-  color: #114228;
-  margin-bottom: 6px;
-}
-
-.mg-loading-sub {
-  font-size: 14px;
-  color: #5a6b62;
-}
-
-.mg-error-box {
-  border-color: #e4b4b4;
-  background: #fff8f8;
-}
-
-/* Mode Tabs */
-.mg-tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 22px;
-  border-bottom: 1px solid #d5e2d9;
-  padding-bottom: 12px;
-  flex-wrap: wrap;
-}
-
-.mg-tab-btn {
-  background: #f4f7f5;
-  border: 1px solid #d0ded5;
-  color: #3b4d43;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-family: 'Work Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.mg-tab-btn:hover {
-  background: #e6f0ea;
-  border-color: #9ec4ad;
-}
-
-.mg-tab-btn.active {
-  background: #165634;
-  border-color: #165634;
-  color: #ffffff;
-  box-shadow: 0 3px 10px rgba(22, 86, 52, 0.18);
-}
-
-.mg-panel {
-  display: none;
-}
-
-.mg-panel.active {
-  display: block;
-}
-
-/* Sub-toolbar */
-.mg-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  background: #f7faf8;
-  border: 1px solid #dce7e0;
-  border-radius: 10px;
-  padding: 12px 16px;
-  margin-bottom: 20px;
-}
-
-.mg-diff-group {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.mg-diff-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #4a5c52;
-  margin-right: 4px;
-}
-
-.mg-diff-btn {
-  background: #ffffff;
-  border: 1px solid #c8d8ce;
-  color: #2f4238;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.mg-diff-btn.active {
-  background: #237a4b;
-  border-color: #237a4b;
-  color: #ffffff;
-}
-
-.mg-stats-bar {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1f3529;
-  flex-wrap: wrap;
-}
-
-.mg-stat-pill {
-  background: #ffffff;
-  border: 1px solid #d5e2d9;
-  padding: 5px 12px;
-  border-radius: 6px;
-}
-
-.mg-btn-secondary {
-  background: #ffffff;
-  border: 1px solid #b8ccc0;
-  color: #1f3529;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-.mg-btn-secondary:hover {
-  background: #edf5f0;
-}
-
-/* GRID 3x3 LAYOUT */
-.mg-grid-board {
-  display: grid;
-  grid-template-columns: 165px repeat(3, 1fr);
-  gap: 10px;
-  align-items: stretch;
-  margin-bottom: 20px;
-}
-
-.mg-grid-corner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #eff5f1;
-  border: 1px dashed #bdd1c4;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  font-size: 12px;
-  color: #4e6357;
-  font-weight: 600;
-}
-
-.mg-axis-header {
-  background: #163d28;
-  color: #ffffff;
-  border-radius: 10px;
-  padding: 12px 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.35;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
-}
-
-.mg-axis-header .mg-axis-sub {
-  font-size: 11px;
-  font-weight: 400;
-  color: #b7d9c5;
-  margin-top: 4px;
-}
-
-.mg-cell {
-  min-height: 112px;
-  background: #ffffff;
-  border: 2px solid #cfded4;
-  border-radius: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.16s ease;
-  position: relative;
-}
-
-.mg-cell:hover:not(.locked) {
-  border-color: #237a4b;
-  background: #f5fbf7;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(35, 122, 75, 0.12);
-}
-
-.mg-cell.correct {
-  background: #e6f6ec;
-  border-color: #1f8a4c;
-  cursor: default;
-}
-
-.mg-cell.revealed {
-  background: #fff8e8;
-  border-color: #d99b26;
-  cursor: default;
-}
-
-.mg-cell.wrong-flash {
-  animation: mgShake 0.35s ease;
-  border-color: #c93b3b;
-  background: #fdf0f0;
-}
-
-@keyframes mgShake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
-
-.mg-cell-plus {
-  font-size: 24px;
-  font-weight: 400;
-  color: #8fa899;
-  line-height: 1;
-}
-
-.mg-cell-hint {
-  font-size: 11px;
-  color: #72877b;
-  margin-top: 4px;
-}
-
-.mg-cell-name {
-  font-size: 14px;
-  font-weight: 700;
-  color: #114228;
-  line-height: 1.25;
-}
-
-.mg-cell-uf {
-  font-size: 11px;
-  font-weight: 600;
-  color: #3f624e;
-  background: #cbe6d5;
-  padding: 2px 7px;
-  border-radius: 4px;
-  margin-top: 5px;
-}
-
-.mg-cell.revealed .mg-cell-uf {
-  background: #f5deb1;
-  color: #784d00;
-}
-
-/* Search Modal for Grid */
-.mg-modal-backdrop {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 32, 23, 0.55);
-  z-index: 2000;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
-}
-
-.mg-modal-backdrop.open {
-  display: flex;
-}
-
-.mg-modal {
-  background: #ffffff;
-  width: 100%;
-  max-width: 480px;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
-}
-
-.mg-modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 12px;
-}
-
-.mg-modal-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: #114228;
-  margin: 0;
-}
-
-.mg-modal-criteria {
-  font-size: 13px;
-  color: #4a5d52;
-  background: #f2f7f4;
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin-bottom: 12px;
-  line-height: 1.4;
-}
-
-.mg-search-input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 12px;
-  font-size: 15px;
-  border: 2px solid #bfd3c6;
-  border-radius: 8px;
-  font-family: 'Work Sans', sans-serif;
-  margin-bottom: 10px;
-  outline: none;
-}
-
-.mg-search-input:focus {
-  border-color: #165634;
-}
-
-.mg-search-list {
-  max-height: 240px;
-  overflow-y: auto;
-  border: 1px solid #e1ebe4;
-  border-radius: 8px;
-  divide-y: 1px solid #eef4f0;
-}
-
-.mg-search-item {
-  padding: 10px 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-size: 14px;
-  border-bottom: 1px solid #f0f5f2;
-}
-
-.mg-search-item:hover {
-  background: #e9f4ee;
-}
-
-.mg-search-item.used {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-/* VERSUS & STREAK CARDS */
-.mg-versus-stage {
-  background: #ffffff;
-  border: 1px solid #d5e2d9;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
-}
-
-.mg-question-prompt {
-  text-align: center;
-  margin-bottom: 22px;
-}
-
-.mg-question-kicker {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: #237a4b;
-  margin-bottom: 6px;
-}
-
-.mg-question-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #132a1e;
-  margin: 0 0 6px 0;
-}
-
-.mg-question-unit {
-  font-size: 13px;
-  color: #5c7065;
-}
-
-.mg-duel-grid {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 16px;
-  align-items: stretch;
-  margin-bottom: 20px;
-}
-
-.mg-duel-card {
-  background: #f8fbf9;
-  border: 2px solid #cde0d4;
-  border-radius: 12px;
-  padding: 26px 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.mg-duel-card:hover:not(.disabled) {
-  border-color: #165634;
-  background: #eef7f1;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(22, 86, 52, 0.12);
-}
-
-.mg-duel-card.winner {
-  background: #e6f6ec;
-  border-color: #1f8a4c;
-}
-
-.mg-duel-card.loser {
-  background: #fdf0f0;
-  border-color: #d44c4c;
-}
-
-.mg-duel-state {
-  font-size: 12px;
-  font-weight: 700;
-  color: #237a4b;
-  background: #dcefe3;
-  padding: 3px 10px;
-  border-radius: 99px;
-  margin-bottom: 10px;
-}
-
-.mg-duel-name {
-  font-size: 22px;
-  font-weight: 700;
-  color: #113823;
-  margin-bottom: 10px;
-}
-
-.mg-duel-value {
-  font-size: 20px;
-  font-weight: 700;
-  color: #165634;
-  margin-top: 8px;
-  min-height: 28px;
-}
-
-.mg-duel-vs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 16px;
-  color: #6b8275;
-}
-
-.mg-feedback-box {
-  background: #f2f7f4;
-  border-left: 4px solid #165634;
-  padding: 12px 16px;
-  border-radius: 6px;
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.mg-feedback-box.show {
-  display: flex;
-}
-
-.mg-SaveScore-banner {
-  margin-top: 18px;
-  background: #edf7f1;
-  border: 1px solid #b7dcc5;
-  border-radius: 10px;
-  padding: 14px 18px;
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.mg-SaveScore-banner.show {
-  display: flex;
-}
-
-.mg-input-inline {
-  padding: 8px 12px;
-  border: 1px solid #b5cbbd;
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: 'Work Sans', sans-serif;
-}
-
-.mg-btn-primary {
-  background: #165634;
-  color: #ffffff;
-  border: none;
-  padding: 9px 16px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.mg-btn-primary:hover {
-  background: #0f3d24;
-}
-
-/* Leaderboard Table */
-.mg-lb-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #ffffff;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid #d5e2d9;
-}
-
-.mg-lb-table th,
-.mg-lb-table td {
-  padding: 12px 14px;
-  text-align: left;
-  border-bottom: 1px solid #ebf1ed;
-  font-size: 14px;
-}
-
-.mg-lb-table th {
-  background: #163d28;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.mg-lb-table tr:nth-child(even) {
-  background: #f9fbfa;
-}
-
-.mg-rank-badge {
-  display: inline-block;
-  min-width: 24px;
-  text-align: center;
-  font-weight: 700;
-  border-radius: 4px;
-  padding: 2px 6px;
-  background: #e6efe9;
-  color: #165634;
-}
-
-@media (max-width: 720px) {
-  .mg-grid-board {
-    grid-template-columns: 112px repeat(3, 1fr);
+  :root {
+    --green-main: #2f7d32;
+    --green-btn: #3f8513;
+    --green-hover: #26590b;
+    --green-soft: #e8f5e9;
+    --border-tech: #d1dfd1;
+    --danger-red: #c62828;
+    --danger-bg: #ffebee;
+    --danger-border: #ef9a9a;
+  }
+
+  .jogos-wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 24px 16px 60px 16px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* TELA DE BOAS-VINDAS / HOME */
+  .hub-welcome {
+    background: #ffffff;
+    border: 1px solid var(--border-tech);
+    border-radius: 6px;
+    padding: 36px 24px;
+    text-align: center;
+    margin: 20px 0 28px 0;
+  }
+  .hub-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a2e1a;
+    margin-bottom: 8px;
+  }
+  .hub-subtitle {
+    font-size: 14px;
+    color: #4a5c4a;
+    max-width: 680px;
+    margin: 0 auto 28px auto;
+    line-height: 1.5;
+  }
+  .mode-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .mode-card {
+    background: #fdfefe;
+    border: 2px solid #d5e5d5;
+    border-radius: 6px;
+    padding: 22px 18px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .mode-card:hover {
+    border-color: var(--green-btn);
+    background: #f7faf7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(47, 125, 50, 0.08);
+  }
+  .mode-card-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #1e3320;
+    margin-bottom: 6px;
+  }
+  .mode-card-desc {
+    font-size: 13px;
+    color: #556055;
+    line-height: 1.4;
+    margin-bottom: 14px;
+  }
+  .mode-card-btn {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--green-btn);
+    padding: 8px 14px;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+  }
+
+  /* NAVEGACAO SUPERIOR */
+  .hub-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0 24px 0;
+    flex-wrap: wrap;
+  }
+  .hub-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 16px;
+    background: #ffffff;
+    color: var(--green-btn);
+    border: 2px solid var(--green-btn);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .hub-btn:hover {
+    background: #f0f7f0;
+  }
+  .hub-btn.active {
+    background: var(--green-btn);
+    color: #ffffff;
+  }
+
+  .game-panel {
+    display: none;
+    background: #ffffff;
+    border: 1px solid var(--border-tech);
+    border-radius: 6px;
+    padding: 22px;
+  }
+  .game-panel.active {
+    display: block;
+  }
+
+  /* PILULAS */
+  .daily-selector-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 18px;
+    background: #f9fbf9;
+    border: 1px solid #dbe6db;
+    border-radius: 4px;
+    padding: 10px 14px;
+  }
+  .daily-pill-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border: 1px solid #c2d6c2;
+    background: #ffffff;
+    color: #2b3a42;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+  .daily-pill-btn:hover {
+    background: #eef6ee;
+    border-color: var(--green-btn);
+  }
+  .daily-pill-btn.active {
+    background: var(--green-main);
+    color: #ffffff;
+    border-color: var(--green-main);
+  }
+
+  /* BARRA DE CONTROLE */
+  .control-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #f9fbf9;
+    border: 1px solid #dbe6db;
+    border-radius: 4px;
+    padding: 10px 16px;
+    margin-bottom: 18px;
+  }
+  .level-picker {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .level-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    margin-right: 4px;
+  }
+  .level-btn {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border: 1px solid #c2d6c2;
+    background: #ffffff;
+    color: #2b3a42;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .level-btn.active {
+    background: var(--green-main);
+    color: #ffffff;
+    border-color: var(--green-main);
+  }
+
+  /* STATUS BAR */
+  .status-bar-tech {
+    background: #f8faf8;
+    border: 1px solid #dbe6db;
+    border-left: 4px solid var(--green-btn);
+    border-radius: 4px;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .status-item {
+    font-size: 12px;
+    color: #556066;
+  }
+  .status-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #1e2d24;
+  }
+
+  /* TABULEIRO DATAGRID */
+  .grid-board {
+    display: grid;
+    grid-template-columns: 140px repeat(3, 1fr);
+    grid-gap: 8px;
+    margin-bottom: 22px;
+  }
+  .grid-header-col {
+    background: #eef5ee;
+    border: 1px solid #cfdecf;
+    border-radius: 4px;
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    color: #2e4d32;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 48px;
+  }
+  .grid-header-row {
+    background: #eef5ee;
+    border: 1px solid #cfdecf;
+    border-radius: 4px;
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 12px;
+    color: #2e4d32;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .grid-cell {
+    min-height: 96px;
+    border: 2px dashed #b8ceb8 !important;
+    background: #ffffff !important;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+  }
+  .grid-cell:hover {
+    border-color: var(--green-btn) !important;
+    background: #f7faf7 !important;
+  }
+  .grid-cell.filled {
+    border: 2px solid var(--green-btn) !important;
+    background: #f0f7f0 !important;
+    cursor: default;
+  }
+  .grid-cell.gabarito-cell {
+    border: 2px solid #c62828 !important;
+    background: #fff5f5 !important;
+    cursor: default;
+  }
+  .grid-cell-city {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e2d24;
+    text-align: center;
+  }
+  .grid-cell-meta {
+    font-size: 11px;
+    color: #5d7065;
+    margin-top: 4px;
+  }
+
+  /* SELECAO DA CELULA */
+  .cell-select-modal {
+    display: none;
+    background: #fdfefe;
+    border: 2px solid var(--border-tech);
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 22px;
+    animation: fadeIn 0.15s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .search-box-wrap {
+    position: relative;
+    margin-bottom: 14px;
+  }
+  .search-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 2px solid #b8ceb8;
+    border-radius: 4px;
+    font-family: inherit;
+    outline: none;
+  }
+  .search-input:focus {
+    border-color: var(--green-btn);
+  }
+  .options-list-scroll {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #d5e5d5;
+    border-radius: 4px;
+    background: #ffffff;
+  }
+  .option-row {
+    padding: 9px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f4f0;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .option-row:hover {
+    background: #eef6ee;
+  }
+
+  /* ALERTA IN-APP */
+  .grid-inline-alert {
+    display: none;
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .grid-inline-alert.wrong {
+    background: var(--danger-bg);
+    border: 1px solid var(--danger-border);
+    color: #721c24;
+  }
+
+  /* VERSUS ARENA */
+  .versus-container {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .versus-category-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--green-main);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .versus-question-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #111111;
+    margin: 6px 0 20px 0;
+    line-height: 1.3;
+  }
+  .versus-arena {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 22px;
+  }
+  @media (max-width: 680px) {
+    .versus-arena {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  }
+  .versus-card {
+    background: #ffffff;
+    border: 2px solid #d5e5d5;
+    border-radius: 6px;
+    padding: 24px 18px;
+    cursor: pointer;
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  .versus-card:hover {
+    border-color: var(--green-btn);
+    background: #f7fbf7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(47, 125, 50, 0.12);
+  }
+  .versus-card.correct {
+    border-color: var(--green-main) !important;
+    background: #eef7ee !important;
+    cursor: default;
+  }
+  .versus-card.wrong {
+    border-color: var(--danger-red) !important;
+    background: var(--danger-bg) !important;
+    cursor: default;
+  }
+  .versus-state-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--green-main);
+    background: #e8f5e8;
+    padding: 2px 7px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .versus-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #111111;
+  }
+  .versus-value-reveal {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 8px;
+    display: none;
+  }
+  .versus-divider {
+    font-size: 16px;
+    font-weight: 800;
+    color: #8da1af;
+    background: #f4f8f4;
+    border: 1px solid #d2e2d2;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  /* FEEDBACK BOX */
+  .feedback-box {
+    display: none;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 18px 0;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .feedback-box.correct {
+    background: #f0f7f0;
+    border: 1px solid #c2d6c2;
+    border-left: 4px solid var(--green-btn);
+    color: #204120;
+  }
+  .feedback-box.wrong {
+    background: var(--danger-bg);
+    border: 1px solid var(--danger-border);
+    border-left: 4px solid var(--danger-red);
+    color: #721c24;
+  }
+
+  /* TELA FINAL IN-PANEL */
+  .completion-panel {
+    display: none;
+    background: #ffffff;
+    border: 2px solid #b8ceb8;
+    border-radius: 6px;
+    padding: 30px 24px;
+    text-align: center;
+    margin: 20px 0;
+  }
+  .countdown-box {
+    margin-top: 18px;
+    padding: 14px;
+    background: #f4f8f4;
+    border: 1px dashed #b8ceb8;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 14px;
+    color: #2e4d32;
+  }
+  .countdown-timer {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--green-btn);
+  }
+
+  /* FORMULARIO DE NOME */
+  .player-name-wrap {
+    margin: 18px auto 14px auto;
+    max-width: 320px;
+    display: flex;
     gap: 6px;
   }
-  .mg-axis-header {
+  .player-name-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #c2d6c2;
+    border-radius: 4px;
+    font-size: 13px;
+    outline: none;
+  }
+  .player-name-input:focus {
+    border-color: var(--green-btn);
+  }
+  .modal-btn {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--green-btn);
+    padding: 8px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .modal-btn:hover {
+    background: var(--green-hover);
+  }
+
+  /* PLACAR */
+  .leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 13px;
+  }
+  .leaderboard-table th {
+    text-align: left;
+    padding: 8px 12px;
+    background: #eef5ee;
+    border-bottom: 2px solid #cfdecf;
+    color: #2e4d32;
+    font-weight: 700;
+  }
+  .leaderboard-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e5ece5;
+    color: #333;
+  }
+
+  .hint-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .hint-btn {
     font-size: 11px;
-    padding: 8px 6px;
+    font-weight: 600;
+    padding: 5px 11px;
+    background: #ffffff;
+    border: 1px solid #c2d6c2;
+    color: #2b3a42;
+    border-radius: 3px;
+    cursor: pointer;
   }
-  .mg-cell {
-    min-height: 88px;
-    padding: 6px;
+  .hint-btn:hover {
+    background: #f0f7f0;
   }
-  .mg-duel-grid {
-    grid-template-columns: 1fr;
+
+  .data-status-note {
+    font-size: 11px;
+    color: #556055;
+    margin-top: 8px;
+    font-style: italic;
   }
-  .mg-duel-vs {
-    padding: 4px 0;
-  }
-}
 </style>
 
-<div class="mg-wrapper">
-  <div class="mg-hero">
-    <div class="mg-hero-title">
-      <h1>Datazoom minigames</h1>
-      <p>Teste seus conhecimentos sobre economia, demografia, agropecuária e meio ambiente nos 9 estados e 772 municípios oficiais da Amazônia Legal.</p>
+<div class="jogos-wrapper">
+
+  <!-- TELA INICIAL (DEFAULT): ESCOLHA DE MODO -->
+  <div class="hub-welcome" id="panel-home">
+    <div class="hub-title">Datazoom minigames</div>
+    <div class="hub-subtitle">
+      Explore os microdados oficiais da Amazônia Legal pelos nossos minigames! Escolha um dos modos abaixo para iniciar.
+      <div class="data-status-note" id="home-data-badge">Carregando dados oficiais dos .rds...</div>
     </div>
-    <div class="mg-hero-badges">
-      <span class="mg-badge" id="mg-daily-date">Desafio Diário</span>
-      <span class="mg-badge accent" id="mg-data-status">Sincronizando dados oficiais...</span>
-    </div>
-  </div>
-
-  <div id="mg-loading-state" class="mg-loading-box">
-    <div class="mg-loading-title">Carregando base oficial do Data Zoom Amazônia...</div>
-    <div class="mg-loading-sub">Processando indicadores dos 772 municípios e 9 estados da Amazônia Legal (IBGE, INPE/PRODES, MapBiomas, Comex Stat e IPS).</div>
-  </div>
-
-  <div id="mg-error-state" class="mg-error-box" style="display:none;">
-    <div class="mg-loading-title" style="color:#8f1d1d;">Não foi possível carregar os dados dos jogos</div>
-    <div class="mg-loading-sub" id="mg-error-msg" style="margin-bottom:14px;">Verifique sua conexão e tente novamente.</div>
-    <button class="mg-btn-primary" id="mg-retry-btn">Tentar novamente</button>
-  </div>
-
-  <div id="mg-app-content" style="display:none;">
-    <!-- Navigation Tabs -->
-    <div class="mg-tabs" role="tablist">
-      <button class="mg-tab-btn active" data-tab="grid" role="tab">Modo Grid (3x3)</button>
-      <button class="mg-tab-btn" data-tab="versus" role="tab">Modo Versus (5 Desafios Diários)</button>
-      <button class="mg-tab-btn" data-tab="streak" role="tab">Modo Streak (3 Chances Diárias)</button>
-      <button class="mg-tab-btn" data-tab="leaderboard" role="tab">Placar &amp; Recordes</button>
-    </div>
-
-    <!-- ==================== PANEL 1: MODO GRID ==================== -->
-    <div class="mg-panel active" id="panel-grid">
-      <div class="mg-toolbar">
-        <div class="mg-diff-group">
-          <span class="mg-diff-label">Dificuldade:</span>
-          <button class="mg-diff-btn active" data-diff="easy">Estados (9 UFs da Amazônia Legal)</button>
-          <button class="mg-diff-btn" data-diff="hard">Municípios (772 da Amazônia Legal)</button>
-        </div>
-        <div class="mg-stats-bar">
-          <span class="mg-stat-pill" id="grid-score-pill">Acertos: 0 / 9</span>
-          <span class="mg-stat-pill" id="grid-guesses-pill">Tentativas restantes: 10</span>
-          <button class="mg-btn-secondary" id="grid-giveup-btn">Ver Gabarito</button>
-        </div>
-      </div>
-
-      <div class="mg-grid-board" id="mg-grid-board">
-        <!-- Populated by JS -->
-      </div>
-
-      <div class="mg-SaveScore-banner" id="grid-save-banner">
+    
+    <div class="mode-cards-grid">
+      <!-- 1. MODO GRID -->
+      <div class="mode-card" onclick="openGameMode('grid')">
         <div>
-          <strong id="grid-finish-title">Partida concluída!</strong>
-          <div id="grid-finish-desc" style="font-size:13px; color:#3d5246;">Salve sua pontuação no placar online do Data Zoom Amazônia.</div>
+          <div class="mode-card-title">1 - Modo Grid</div>
+          <div class="mode-card-desc">
+            Complete o tabuleiro 3x3 combinando critérios estatísticos de população, pecuária, agricultura e arco do desmatamento. Escolha entre Estados ou Todos os Municípios.
+          </div>
         </div>
-        <div style="display:flex; gap:8px; align-items:center;">
-          <input type="text" class="mg-input-inline" id="grid-player-name" placeholder="Seu nome ou apelido" maxlength="25">
-          <button class="mg-btn-primary" id="grid-save-btn">Salvar no Placar</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== PANEL 2: MODO VERSUS ==================== -->
-    <div class="mg-panel" id="panel-versus">
-      <div class="mg-toolbar">
-        <div class="mg-diff-group">
-          <span class="mg-diff-label">Desafio Diário Oficial:</span>
-          <span style="font-size:13px; color:#2b4738; font-weight:600;" id="versus-date-label">5 comparações diárias auditadas</span>
-        </div>
-        <div class="mg-stats-bar">
-          <span class="mg-stat-pill" id="versus-progress-pill">Pergunta: 1 / 5</span>
-          <span class="mg-stat-pill" id="versus-score-pill">Acertos hoje: 0 / 5</span>
-        </div>
+        <div class="mode-card-btn">Jogar Modo Grid &rarr;</div>
       </div>
 
-      <div class="mg-versus-stage" id="versus-stage">
-        <div class="mg-question-prompt">
-          <div class="mg-question-kicker" id="versus-kicker">DESAFIO DIÁRIO #1 DE 5</div>
-          <h2 class="mg-question-title" id="versus-question">Carregando pergunta...</h2>
-          <div class="mg-question-unit" id="versus-unit">Selecione a localidade com o maior valor no indicador</div>
-        </div>
-
-        <div class="mg-duel-grid">
-          <div class="mg-duel-card" id="versus-card-a" data-choice="0">
-            <span class="mg-duel-state" id="versus-uf-a">UF</span>
-            <div class="mg-duel-name" id="versus-name-a">Opção A</div>
-            <div class="mg-duel-value" id="versus-val-a">?</div>
-          </div>
-          <div class="mg-duel-vs">VS</div>
-          <div class="mg-duel-card" id="versus-card-b" data-choice="1">
-            <span class="mg-duel-state" id="versus-uf-b">UF</span>
-            <div class="mg-duel-name" id="versus-name-b">Opção B</div>
-            <div class="mg-duel-value" id="versus-val-b">?</div>
+      <!-- 2. MODO VERSUS -->
+      <div class="mode-card" onclick="openGameMode('versus-daily')">
+        <div>
+          <div class="mode-card-title">2 - Modo Versus</div>
+          <div class="mode-card-desc">
+            5 rodadas do dia com comparações de cidades da Amazônia Legal. Clique diretamente na cidade que possui o maior valor e veja a explicação oficial.
           </div>
         </div>
-
-        <div class="mg-feedback-box" id="versus-feedback">
-          <div id="versus-feedback-text" style="font-size:14px; font-weight:600;"></div>
-          <button class="mg-btn-primary" id="versus-next-btn">Próxima Pergunta &rarr;</button>
-        </div>
-
-        <div class="mg-SaveScore-banner" id="versus-save-banner">
-          <div>
-            <strong id="versus-finish-title">Desafio Diário Concluído!</strong>
-            <div id="versus-finish-desc" style="font-size:13px; color:#3d5246;">Registre seu resultado de hoje no placar online ou reveja o gabarito das 5 perguntas.</div>
-          </div>
-          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;" id="versus-save-controls">
-            <input type="text" class="mg-input-inline" id="versus-player-name" placeholder="Seu nome ou apelido" maxlength="25">
-            <button class="mg-btn-primary" id="versus-save-btn">Salvar no Placar</button>
-            <button class="mg-btn-secondary" id="versus-review-btn">Rever Perguntas de Hoje</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==================== PANEL 3: MODO STREAK ==================== -->
-    <div class="mg-panel" id="panel-streak">
-      <div class="mg-toolbar">
-        <div class="mg-diff-group">
-          <span class="mg-diff-label">Sobrevivência Diária:</span>
-          <span style="font-size:13px; color:#4d6156;">Acerte o máximo seguido · Limite de 3 tentativas por dia</span>
-        </div>
-        <div class="mg-stats-bar">
-          <span class="mg-stat-pill" id="streak-lives-pill">Chances hoje: 3 / 3</span>
-          <span class="mg-stat-pill" id="streak-current-pill">Sequência Atual: 0</span>
-          <span class="mg-stat-pill" id="streak-best-pill">Melhor Hoje: 0</span>
-        </div>
+        <div class="mode-card-btn">Jogar Modo Versus &rarr;</div>
       </div>
 
-      <div class="mg-versus-stage">
-        <div class="mg-question-prompt">
-          <div class="mg-question-kicker" id="streak-kicker">SEQUÊNCIA DE ACERTOS</div>
-          <h2 class="mg-question-title" id="streak-question">Carregando desafio...</h2>
-          <div class="mg-question-unit" id="streak-unit">Um único erro encerra a tentativa atual</div>
-        </div>
-
-        <div class="mg-duel-grid" id="streak-duel-grid">
-          <div class="mg-duel-card" id="streak-card-a" data-choice="0">
-            <span class="mg-duel-state" id="streak-uf-a">UF</span>
-            <div class="mg-duel-name" id="streak-name-a">Opção A</div>
-            <div class="mg-duel-value" id="streak-val-a">?</div>
-          </div>
-          <div class="mg-duel-vs">VS</div>
-          <div class="mg-duel-card" id="streak-card-b" data-choice="1">
-            <span class="mg-duel-state" id="streak-uf-b">UF</span>
-            <div class="mg-duel-name" id="streak-name-b">Opção B</div>
-            <div class="mg-duel-value" id="streak-val-b">?</div>
+      <!-- 3. MODO STREAK -->
+      <div class="mode-card" onclick="openGameMode('versus-streak')">
+        <div>
+          <div class="mode-card-title">3 - Modo Streak</div>
+          <div class="mode-card-desc">
+            Quantas cidades você consegue acertar em sequência? O jogo continua indefinidamente acumulando seu Streak até o primeiro erro.
           </div>
         </div>
-
-        <div class="mg-feedback-box" id="streak-feedback">
-          <div id="streak-feedback-text" style="font-size:14px; font-weight:600;"></div>
-          <button class="mg-btn-primary" id="streak-next-btn">Continuar &rarr;</button>
-        </div>
-
-        <div class="mg-SaveScore-banner" id="streak-save-banner">
-          <div>
-            <strong id="streak-finish-title">Fim da sequência!</strong>
-            <div id="streak-finish-desc" style="font-size:13px; color:#3d5246;">Salve sua sequência no placar online.</div>
-          </div>
-          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-            <input type="text" class="mg-input-inline" id="streak-player-name" placeholder="Seu nome ou apelido" maxlength="25">
-            <button class="mg-btn-primary" id="streak-save-btn">Salvar Recorde</button>
-          </div>
-        </div>
+        <div class="mode-card-btn">Jogar Modo Streak &rarr;</div>
       </div>
-    </div>
-
-    <!-- ==================== PANEL 4: LEADERBOARD ONLINE ==================== -->
-    <div class="mg-panel" id="panel-leaderboard">
-      <div class="mg-toolbar">
-        <div class="mg-diff-group">
-          <span class="mg-diff-label">Filtrar Modo:</span>
-          <button class="mg-diff-btn active" data-lbfilter="all">Todos</button>
-          <button class="mg-diff-btn" data-lbfilter="grid-easy">Modo Grid (Estados)</button>
-          <button class="mg-diff-btn" data-lbfilter="grid-hard">Modo Grid (Municípios)</button>
-          <button class="mg-diff-btn" data-lbfilter="versus">Modo Versus</button>
-          <button class="mg-diff-btn" data-lbfilter="streak">Modo Streak</button>
-        </div>
-        <div class="mg-stats-bar">
-          <span class="mg-stat-pill" id="lb-sync-status">Sincronizado</span>
-          <button class="mg-btn-secondary" id="lb-refresh-btn">Atualizar Placar</button>
-        </div>
-      </div>
-
-      <table class="mg-lb-table">
-        <thead>
-          <tr>
-            <th style="width:65px;">Pos.</th>
-            <th>Jogador</th>
-            <th>Modo de Jogo</th>
-            <th>Pontuação</th>
-            <th>Detalhe</th>
-            <th>Data</th>
-          </tr>
-        </thead>
-        <tbody id="mg-lb-tbody">
-          <!-- Populated by JS -->
-        </tbody>
-      </table>
     </div>
   </div>
-</div>
 
-<!-- Modal for selecting municipality/state in Grid Mode -->
-<div class="mg-modal-backdrop" id="mg-search-modal">
-  <div class="mg-modal">
-    <div class="mg-modal-header">
-      <h3 class="mg-modal-title">Selecionar Localidade</h3>
-      <button class="mg-btn-secondary" id="mg-modal-close">Fechar</button>
-    </div>
-    <div class="mg-modal-criteria" id="mg-modal-criteria-text"></div>
-    <input type="text" class="mg-search-input" id="mg-search-input" placeholder="Digite para filtrar..." autocomplete="off">
-    <div class="mg-search-list" id="mg-search-list"></div>
+  <!-- NAVEGACAO SUPERIOR FIXA (QUANDO EM JOGO) -->
+  <div class="hub-switcher" id="top-nav-switcher" style="display: none;">
+    <button class="hub-btn" id="btn-tab-home" onclick="openGameMode('home')">&larr; Início / Modos</button>
+    <button class="hub-btn" id="btn-tab-grid" onclick="openGameMode('grid')">1 - Modo Grid</button>
+    <button class="hub-btn" id="btn-tab-v-daily" onclick="openGameMode('versus-daily')">2 - Modo Versus</button>
+    <button class="hub-btn" id="btn-tab-v-streak" onclick="openGameMode('versus-streak')">3 - Modo Streak</button>
+    <button class="hub-btn" id="btn-tab-scores" onclick="openGameMode('scores')">Placar &amp; Recordes</button>
   </div>
-</div>
 
-<!-- Rodape Institucional (Padrao PRs Data Zoom Amazonia) -->
-<div class="rodape_viz">
-  <h1>INFORMAÇÕES SOBRE A BASE DE DADOS UTILIZADA NESSA VISUALIZAÇÃO</h1>
-  <p>
-    Os desafios diários do <b>Datazoom minigames</b> são gerados diretamente a partir das bases oficiais processadas pelo pacote
-    <code>datazoom.amazonia</code> para os <b>9 estados</b> e os <b>772 municípios</b> que compõem oficialmente a Amazônia Legal
-    (filtro oficial <code>legal_amazon == 1</code> em <code>datazoom.amazonia::municipalities</code>).
-  </p>
-  <p>
-    <b>Fontes e anos de referência consolidados:</b><br>
-    &bull; <b>Cobertura e Uso da Terra (2024):</b> Projeto MapBiomas Coleção 9, extraído via <code>load_mapbiomas()</code>.<br>
-    &bull; <b>Efetivo da Pecuária Municipal (2024):</b> IBGE / Pesquisa da Pecuária Municipal (PPM), extraído via <code>load_ppm()</code>.<br>
-    &bull; <b>Produção Agrícola Municipal (2024):</b> IBGE / Produção Agrícola Municipal (PAM — Soja, Milho, Mandioca e Arroz), extraído via <code>load_pam()</code>.<br>
-    &bull; <b>Exportações Municipais (2025):</b> MDIC / Comex Stat (último ano calendário fechado, em US$ FOB nominais), extraído via <code>load_br_trade()</code>.<br>
-    &bull; <b>Desmatamento na Amazônia Legal (até 2023):</b> INPE / Projeto PRODES, extraído via <code>load_prodes()</code>.<br>
-    &bull; <b>PIB Municipal, População e Cadastro Central de Empresas (2020):</b> IBGE / PIB dos Municípios e CEMPRE, extraídos via <code>load_pibmunic()</code>, <code>load_population()</code> e <code>load_cempre()</code>.<br>
-    &bull; <b>Índice de Progresso Social (2021):</b> IMAZON / IPS Amazônia, extraído via <code>load_ips()</code>.
-  </p>
-  <div class="aviso_rodape">
-    As bases de dados utilizadas nos jogos passaram pelo tratamento disponibilizado pelo pacote <b>datazoom.amazonia</b> no R e exportadas pelo script auditado <code>scripts/export_minigames_web.R</code>.
+  <!-- =========================================================
+       PAINEL 1: MODO GRID (2 NIVEIS: ESTADOS E MUNICIPIOS)
+       ========================================================= -->
+  <div class="game-panel" id="panel-grid">
+    <div class="control-strip">
+      <div class="level-picker">
+        <span class="level-label">Dificuldade:</span>
+        <button class="level-btn active" id="lvl-easy" onclick="setGridDifficulty('easy')">Fácil (Estados)</button>
+        <button class="level-btn" id="lvl-hard" onclick="setGridDifficulty('hard')">Difícil (Municípios)</button>
+      </div>
+      <div>
+        <span style="font-size: 12px; font-weight: 700; color: #556066;">1 Desafio Diário por Nível</span>
+      </div>
+    </div>
+
+    <!-- Barra de Status com Timer Individual do Grid -->
+    <div class="status-bar-tech">
+      <div class="status-item">PONTUAÇÃO: <span class="status-val" id="grid-score">1000</span> pts</div>
+      <div class="status-item">ACERTOS: <span class="status-val" id="grid-hits">0</span> / 9</div>
+      <div class="status-item">TENTATIVAS: <span class="status-val" id="grid-tries">10</span></div>
+      <div class="status-item">TEMPO: <span class="status-val" id="grid-timer">00:00</span></div>
+    </div>
+
+    <!-- SELECAO DA CELULA (ABRE EM CIMA DO TABULEIRO) -->
+    <div class="cell-select-modal" id="cell-input-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+        <span style="font-weight: 700; font-size: 13px; color: #223824;" id="input-target-title">Preenchendo Célula</span>
+        <button onclick="closeCellInput()" style="background: none; border: none; font-size: 16px; cursor: pointer; color: #888;">&times; Fechar</button>
+      </div>
+
+      <!-- Alerta in-app -->
+      <div class="grid-inline-alert" id="grid-error-alert"></div>
+
+      <div class="search-box-wrap">
+        <input type="text" id="grid-search-field" class="search-input" placeholder="Digite para filtrar..." oninput="renderOptionsList(this.value)" autocomplete="off">
+      </div>
+
+      <div class="options-list-scroll" id="grid-options-container"></div>
+
+      <div id="hints-panel" style="display: none; margin-top: 12px;">
+        <div class="hint-container">
+          <button class="hint-btn" onclick="requestHint(1)">Dica 1: Revelar UF (-100 pts)</button>
+          <button class="hint-btn" onclick="requestHint(2)">Dica 2: Revelar Primeira Letra (-200 pts)</button>
+        </div>
+        <div id="hint-display" style="font-size: 11px; color: #3b5240; font-style: italic; margin-top: 6px;"></div>
+      </div>
+    </div>
+
+    <!-- Tabuleiro 3x3 -->
+    <div class="grid-board" id="grid-board-table">
+      <div style="background: transparent;"></div>
+      <div class="grid-header-col" id="col-header-0">COLUNA 1</div>
+      <div class="grid-header-col" id="col-header-1">COLUNA 2</div>
+      <div class="grid-header-col" id="col-header-2">COLUNA 3</div>
+
+      <div class="grid-header-row" id="row-header-0">LINHA 1</div>
+      <div class="grid-cell" id="cell-0-0" onclick="openCellInput(0, 0)"><span>Selecionar</span></div>
+      <div class="grid-cell" id="cell-0-1" onclick="openCellInput(0, 1)"><span>Selecionar</span></div>
+      <div class="grid-cell" id="cell-0-2" onclick="openCellInput(0, 2)"><span>Selecionar</span></div>
+
+      <div class="grid-header-row" id="row-header-1">LINHA 2</div>
+      <div class="grid-cell" id="cell-1-0" onclick="openCellInput(1, 0)"><span>Selecionar</span></div>
+      <div class="grid-cell" id="cell-1-1" onclick="openCellInput(1, 1)"><span>Selecionar</span></div>
+      <div class="grid-cell" id="cell-1-2" onclick="openCellInput(1, 2)"><span>Selecionar</span></div>
+
+      <div class="grid-header-row" id="row-header-2">LINHA 3</div>
+      <div class="grid-cell" id="cell-2-0" onclick="openCellInput(2, 0)"><span>Selecionar</span></div>
+      <div class="grid-cell" id="cell-2-1" onclick="openCellInput(2, 1)"><span>Selecionar</span></div>
+      <div class="grid-cell" id="cell-2-2" onclick="openCellInput(2, 2)"><span>Selecionar</span></div>
+    </div>
+
+    <!-- TELA FINAL DO GRID (IN-PAGE) -->
+    <div class="completion-panel" id="grid-completion-panel">
+      <h3 id="grid-completion-title" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Desafio Concluído!</h3>
+      <p id="grid-completion-msg" style="color: #4a5c4a; font-size: 14px; margin-bottom: 14px;"></p>
+
+      <div class="player-name-wrap">
+        <input type="text" id="grid-player-name" class="player-name-input" placeholder="Seu nome para o placar...">
+        <button class="modal-btn" onclick="saveGridRecordWithName()">Salvar Recorde</button>
+      </div>
+
+      <div class="countdown-box">
+        Próximo Grid Diário disponível em: <br>
+        <span class="countdown-timer" id="grid-countdown">--:--:--</span>
+      </div>
+      <div style="margin-top: 18px;" id="grid-completion-actions">
+        <button class="modal-btn" id="btn-show-grid-answers" onclick="showGridAnswers()">Ver Gabarito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       PAINEL 2: MODO VERSUS / STREAK
+       ========================================================= -->
+  <div class="game-panel" id="panel-versus">
+    <!-- Status Bar Versus / Streak com Timer Individual -->
+    <div class="status-bar-tech">
+      <div class="status-item" id="v-status-score-wrap">ACERTOS: <span class="status-val" id="versus-score-badge">0 / 5</span></div>
+      <div class="status-item">STREAK: <span class="status-val" id="versus-streak-badge">0</span></div>
+      <div class="status-item" id="v-status-chances-wrap" style="display: none;">CHANCES RESTANTES HOJE: <span class="status-val" id="streak-chances-badge">3 / 3</span></div>
+      <div class="status-item">TEMPO DO DESAFIO: <span class="status-val" id="versus-timer">00:00</span></div>
+      <div id="versus-reset-btn-wrap" style="display: none;">
+        <button onclick="resetCurrentVersusMode()" class="level-btn" style="color: #666;" id="versus-reset-btn">Reiniciar Tentativa</button>
+      </div>
+    </div>
+
+    <!-- Seletor do Versus Diário (Para navegação ou revisão) -->
+    <div class="daily-selector-bar" id="versus-daily-selector" style="display: none;">
+      <span style="font-size: 12px; font-weight: 700; color: #2f7d32; width: 100%; text-align: center; margin-bottom: 4px;">
+        5 DESAFIOS DIÁRIOS:
+      </span>
+      <div id="versus-pill-buttons" style="display: flex; flex-wrap: wrap; gap: 4px; justify-content: center;">
+        <button class="daily-pill-btn active" id="vpill-0" onclick="loadVersusDailyQuestion(0)">#1</button>
+        <button class="daily-pill-btn" id="vpill-1" onclick="loadVersusDailyQuestion(1)">#2</button>
+        <button class="daily-pill-btn" id="vpill-2" onclick="loadVersusDailyQuestion(2)">#3</button>
+        <button class="daily-pill-btn" id="vpill-3" onclick="loadVersusDailyQuestion(3)">#4</button>
+        <button class="daily-pill-btn" id="vpill-4" onclick="loadVersusDailyQuestion(4)">#5</button>
+      </div>
+    </div>
+
+    <!-- Container do Jogo Versus -->
+    <div class="versus-container" id="versus-game-container">
+      <span id="versus-category" class="versus-category-tag">CATEGORIA</span>
+      <h3 id="versus-question" class="versus-question-title">Carregando pergunta...</h3>
+
+      <!-- Arena dos dois cards: Usuário clica no que considera MAIOR -->
+      <div class="versus-arena">
+        <div class="versus-card" id="vcard-left" onclick="handleVersusSelection('left')">
+          <span class="versus-state-badge" id="vcard-left-uf">UF</span>
+          <div class="versus-name" id="vcard-left-name">Cidade A</div>
+          <div class="versus-value-reveal" id="vcard-left-val">--</div>
+        </div>
+
+        <div class="versus-divider">VS</div>
+
+        <div class="versus-card" id="vcard-right" onclick="handleVersusSelection('right')">
+          <span class="versus-state-badge" id="vcard-right-uf">UF</span>
+          <div class="versus-name" id="vcard-right-name">Cidade B</div>
+          <div class="versus-value-reveal" id="vcard-right-val">--</div>
+        </div>
+      </div>
+
+      <!-- Explicacao dos Dados -->
+      <div class="feedback-box" id="versus-feedback-box">
+        <div style="font-weight: 700; margin-bottom: 4px;" id="versus-feedback-status">Resultado</div>
+        <div id="versus-feedback-text"></div>
+        <div style="margin-top: 12px; text-align: right;">
+          <button class="modal-btn" id="versus-btn-next" onclick="goToNextVersus()">Próximo Desafio &rarr;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TELA FINAL DO VERSUS / STREAK -->
+    <div class="completion-panel" id="versus-completion-panel">
+      <h3 id="versus-completion-title" style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Desafio Concluído!</h3>
+      <p id="versus-completion-msg" style="color: #4a5c4a; font-size: 14px; margin-bottom: 14px;"></p>
+
+      <div class="player-name-wrap">
+        <input type="text" id="versus-player-name" class="player-name-input" placeholder="Seu nome para o placar...">
+        <button class="modal-btn" onclick="saveVersusRecordWithName()">Salvar Recorde</button>
+      </div>
+
+      <div class="countdown-box">
+        Novas chances e desafios disponíveis em: <br>
+        <span class="countdown-timer" id="versus-countdown">--:--:--</span>
+      </div>
+      <div style="margin-top: 18px;" id="versus-completion-actions"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       PAINEL 3: RECORDES E PLACAR
+       ========================================================= -->
+  <div class="game-panel" id="panel-scores">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+      <h3 style="font-size: 16px; font-weight: 700; color: #1e3320; margin: 0;">Placar Oficial de Recordes</h3>
+      <span style="font-size: 11px; color: #2e4d32; font-weight: 600;" id="lb-sync-badge">Sincronizado</span>
+    </div>
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Jogador</th>
+          <th>Modo</th>
+          <th>Resultado / Pontuação</th>
+          <th>Tempo</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard-body">
+        <tr><td colspan="5" style="text-align: center; color: #888;">Carregando recordes...</td></tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
 <script>
-(function() {
-  var BASE_URL = "{{ site.baseurl }}";
-  var DATA_JSON_URL = BASE_URL + "/assets/data/minigames_data.json";
-  var STATIC_LB_URL = BASE_URL + "/assets/data/leaderboard.json";
-  var LOCAL_API_LB_URL = BASE_URL + "/api/leaderboard";
-  // URL opcional do Google Apps Script Web App (ver scripts/leaderboard_apps_script.gs)
-  var REMOTE_LEADERBOARD_ENDPOINT = window.DZ_LEADERBOARD_API_URL || "";
+// ==============================================================================
+// BASES DE DADOS OFICIAIS (CARREGAMENTO DINAMICO DE MINIGAMES_DATA.JSON)
+// ==============================================================================
+var BASE_URL = "{{ site.baseurl }}";
+var DATA_JSON_URL = BASE_URL + "/assets/data/minigames_data.json";
+var STATIC_LB_URL = BASE_URL + "/assets/data/leaderboard.json";
+var LOCAL_API_LB_URL = BASE_URL + "/api/leaderboard";
+var REMOTE_LEADERBOARD_ENDPOINT = window.DZ_LEADERBOARD_API_URL || "";
 
-  // Estado carregado do JSON oficial (.rds -> minigames_data.json)
-  var DATA_META = null;
-  var DATA_DICT = {};
-  var DATA_STATES = [];
-  var DATA_MUNIS = [];
+var DATA_STATES = [];
+var DATA_HARD = [];
 
-  // Chave do dia local (YYYY-MM-DD)
-  var now = new Date();
-  var TODAY_KEY = now.getFullYear() + "-" +
-                  String(now.getMonth() + 1).padStart(2, "0") + "-" +
-                  String(now.getDate()).padStart(2, "0");
-  var TODAY_BR = now.toLocaleDateString("pt-BR");
+// Municipios prioritarios para o Arco do Desmatamento (MMA / INPE)
+var ARCO_DESMATAMENTO_NAMES = {
+  "Acrelândia": true, "Alta Floresta": true, "Altamira": true, "Anapu": true,
+  "Apuí": true, "Aripuanã": true, "Ariquemes": true, "Boca do Acre": true,
+  "Brasil Novo": true, "Brasiléia": true, "Brasnorte": true, "Bujari": true,
+  "Buritis": true, "Cacoal": true, "Candeias do Jamari": true, "Canutama": true,
+  "Capixaba": true, "Castanheira": true, "Cláudia": true, "Colniza": true,
+  "Cotriguaçu": true, "Cujubim": true, "Cumaru do Norte": true, "Feijó": true,
+  "Feliz Natal": true, "Humaitá": true, "Itaituba": true, "Jacareacanga": true,
+  "Juara": true, "Juína": true, "Lábrea": true, "Machadinho D'Oeste": true,
+  "Marabá": true, "Marcelândia": true, "Medicilândia": true, "Monte Negro": true,
+  "Nova Bandeirantes": true, "Nova Canaã do Norte": true, "Nova Maringá": true,
+  "Novo Progresso": true, "Novo Repartimento": true, "Pacajá": true, "Paragominas": true,
+  "Parauapebas": true, "Peixoto de Azevedo": true, "Plácido de Castro": true,
+  "Porto dos Gaúchos": true, "Porto Velho": true, "Prainha": true, "Rio Branco": true,
+  "Rio Crespo": true, "Rondolândia": true, "Rondon do Pará": true, "Santa Luzia": true,
+  "Santana do Araguaia": true, "Santarém": true, "Senador Guiomard": true,
+  "Sena Madureira": true, "Sinop": true, "São Félix do Xingu": true, "Tarauacá": true,
+  "Tailândia": true, "Trairão": true, "Urupá": true, "Uruará": true, "Vila Rica": true
+};
 
-  document.getElementById("mg-daily-date").textContent = "Desafio Diário · " + TODAY_BR;
-  document.getElementById("versus-date-label").textContent =
-    "5 perguntas oficiais de hoje (" + TODAY_BR + ")";
-
-  // Utilitarios de formatacao pt-BR
-  function fmtInt(n) {
-    return Math.round(Number(n) || 0).toLocaleString("pt-BR");
+function formatMetricUnit(val, unit) {
+  var num = Math.round(Number(val) || 0);
+  if (unit === 'US$ FOB') {
+    if (num >= 1e9) return "US$ " + (num / 1e9).toFixed(1).replace(".", ",") + " bi";
+    if (num >= 1e6) return "US$ " + (num / 1e6).toFixed(1).replace(".", ",") + " mi";
+    return "US$ " + num.toLocaleString('pt-BR');
   }
-  function fmtDec(n, d) {
-    return (Number(n) || 0).toLocaleString("pt-BR", {
-      minimumFractionDigits: d,
-      maximumFractionDigits: d
-    });
+  if (unit === 'R$') return "R$ " + num.toLocaleString('pt-BR');
+  return num.toLocaleString('pt-BR') + (unit ? " " + unit : "");
+}
+
+// ==============================================================================
+// CRITERIOS DO MODO GRID (ESTADOS E MUNICIPIOS)
+// ==============================================================================
+var GRID_SETS_EASY = [
+  {
+    cols: [
+      { id: "col_pop_hi", name: "População > 3 milhões", desc: "IBGE (2020)", check: function(d) { return d.pop > 3000000; } },
+      { id: "col_pop_mid", name: "População entre 850 mil e 3,6 mi", desc: "IBGE (2020)", check: function(d) { return d.pop >= 850000 && d.pop <= 3600000; } },
+      { id: "col_pop_lo", name: "População < 1,8 milhão", desc: "IBGE (2020)", check: function(d) { return d.pop < 1800000; } }
+    ],
+    rows: [
+      { id: "row_florest_hi", name: "Cobertura Florestal > 74%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 74; } },
+      { id: "row_florest_mid", name: "Cobertura entre 55% e 83%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) >= 55 && (d.forest_pct || 0) <= 83; } },
+      { id: "row_florest_lo", name: "Cobertura Florestal < 73%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) < 73; } }
+    ]
+  },
+  {
+    cols: [
+      { id: "col_exp_hi", name: "Exportações > US$ 3 bilhões", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 3000000000; } },
+      { id: "col_exp_mid", name: "Exportações entre US$ 250 mi e US$ 5,5 bi", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) >= 250000000 && (d.exports_usd || 0) <= 5500000000; } },
+      { id: "col_exp_lo", name: "Exportações < US$ 1 bilhão", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) < 1000000000; } }
+    ],
+    rows: [
+      { id: "row_pib_hi", name: "PIB per capita > R$ 27.000", desc: "IBGE (2020)", check: function(d) { return (d.gd_ppc || 0) > 27000; } },
+      { id: "row_pib_mid", name: "PIB per capita entre R$ 21 mil e R$ 28 mil", desc: "IBGE (2020)", check: function(d) { return (d.gd_ppc || 0) >= 21000 && (d.gd_ppc || 0) <= 28000; } },
+      { id: "row_pib_lo", name: "PIB per capita < R$ 25.500", desc: "IBGE (2020)", check: function(d) { return (d.gd_ppc || 0) < 25500; } }
+    ]
+  },
+  {
+    cols: [
+      { id: "col_gado_hi", name: "Rebanho Bovino > 11 milhões", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 11000000; } },
+      { id: "col_gado_mid", name: "Rebanho entre 2 mi e 19 mi cabeças", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) >= 2000000 && (d.cattle || 0) <= 19000000; } },
+      { id: "col_gado_lo", name: "Rebanho Bovino < 5,5 milhões", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) < 5500000; } }
+    ],
+    rows: [
+      { id: "row_ips_hi", name: "IPS Amazônia >= 59,6", desc: "IMAZON (2021)", check: function(d) { return (d.ips || 0) >= 59.6; } },
+      { id: "row_ips_mid", name: "IPS entre 56,5 e 60,0", desc: "IMAZON (2021)", check: function(d) { return (d.ips || 0) >= 56.5 && (d.ips || 0) <= 60.0; } },
+      { id: "row_ips_lo", name: "IPS Amazônia < 58,0", desc: "IMAZON (2021)", check: function(d) { return (d.ips || 0) < 58.0; } }
+    ]
   }
-  function fmtUSD(n) {
-    var val = Number(n) || 0;
-    if (val >= 1e9) return "US$ " + fmtDec(val / 1e9, 2) + " bi";
-    if (val >= 1e6) return "US$ " + fmtDec(val / 1e6, 1) + " mi";
-    if (val >= 1e3) return "US$ " + fmtInt(val / 1e3) + " mil";
-    return "US$ " + fmtInt(val);
+];
+
+var GRID_SETS_HARD = [
+  {
+    cols: [
+      { id: "col_pa", name: "Pertence ao Pará (PA)", desc: "144 municípios oficiais", check: function(d) { return d.uf === "PA"; } },
+      { id: "col_mt", name: "Pertence ao Mato Grosso (MT)", desc: "141 municípios oficiais", check: function(d) { return d.uf === "MT"; } },
+      { id: "col_am_ro", name: "Pertence ao Amazonas (AM) ou Rondônia (RO)", desc: "AM ou RO", check: function(d) { return d.uf === "AM" || d.uf === "RO"; } }
+    ],
+    rows: [
+      { id: "row_florest_muni", name: "Cobertura Florestal > 75%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 75; } },
+      { id: "row_gado_muni", name: "Rebanho Bovino > 150.000 cabeças", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 150000; } },
+      { id: "row_pib_muni", name: "PIB per capita > R$ 25.000", desc: "IBGE (2020)", check: function(d) { return (d.gd_ppc || 0) > 25000; } }
+    ]
+  },
+  {
+    cols: [
+      { id: "col_ma_to", name: "Pertence ao Maranhão (MA) ou Tocantins (TO)", desc: "MA ou TO", check: function(d) { return d.uf === "MA" || d.uf === "TO"; } },
+      { id: "col_pa2", name: "Pertence ao Pará (PA)", desc: "144 municípios oficiais", check: function(d) { return d.uf === "PA"; } },
+      { id: "col_outros", name: "Pertence ao AC, AP ou RR", desc: "AC, AP ou RR", check: function(d) { return d.uf === "AC" || d.uf === "AP" || d.uf === "RR"; } }
+    ],
+    rows: [
+      { id: "row_ips_muni", name: "IPS Amazônia >= 60,0 pontos", desc: "IMAZON (2021)", check: function(d) { return (d.ips || 0) >= 60.0; } },
+      { id: "row_milho", name: "Produção de Milho > 10.000 ton", desc: "IBGE PAM (2024)", check: function(d) { return (d.corn || 0) > 10000; } },
+      { id: "row_desm", name: "Desmatamento Acum. > 1.500 km²", desc: "INPE PRODES", check: function(d) { return (d.deforest_acc_km2 || 0) > 1500; } }
+    ]
+  },
+  {
+    cols: [
+      { id: "col_pop_hi_muni", name: "População > 100.000 hab.", desc: "IBGE (2020)", check: function(d) { return d.pop > 100000; } },
+      { id: "col_pop_mid_muni", name: "População entre 25 mil e 100 mil hab.", desc: "IBGE (2020)", check: function(d) { return d.pop >= 25000 && d.pop <= 100000; } },
+      { id: "col_pop_lo_muni", name: "População < 25.000 hab.", desc: "IBGE (2020)", check: function(d) { return d.pop < 25000; } }
+    ],
+    rows: [
+      { id: "row_exp_muni", name: "Exportações > US$ 10 milhões FOB", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 10000000; } },
+      { id: "row_soja_muni", name: "Produtor de Soja (> 20.000 ton)", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) > 20000; } },
+      { id: "row_mandioca", name: "Produtor de Mandioca (> 15.000 ton)", desc: "IBGE PAM (2024)", check: function(d) { return (d.cassava || 0) > 15000; } }
+    ]
   }
-  function formatMetricValue(metric, val) {
-    if (metric === "exports_usd") return fmtUSD(val);
-    if (metric === "gd_ppc") return "R$ " + fmtInt(val);
-    if (metric === "gdp_mil") return "R$ " + fmtDec((Number(val) || 0) / 1e6, 2) + " bi";
-    if (metric === "forest_pct") return fmtDec(val, 1) + "%";
-    if (metric === "ips") return fmtDec(val, 1) + " pts";
-    if (metric === "area_km2" || metric === "forest_km2" || metric === "pasture_km2" || metric === "deforest_acc_km2" || metric === "deforest_inc_km2") {
-      return fmtInt(val) + " km²";
-    }
-    if (metric === "soy" || metric === "corn" || metric === "cassava" || metric === "rice") {
-      return fmtInt(val) + " t";
-    }
-    if (metric === "cattle") return fmtInt(val) + " cabeças";
-    if (metric === "pop") return fmtInt(val) + " hab.";
-    if (metric === "empresas") return fmtInt(val) + " empresas";
-    if (metric === "ocupados") return fmtInt(val) + " ocupados";
-    return fmtInt(val);
-  }
+];
 
-  // PRNG deterministico por semente textual (Mulberry32 + FNV-1a)
-  function hashSeed(str) {
-    var h = 2166136261 >>> 0;
-    for (var i = 0; i < str.length; i++) {
-      h ^= str.charCodeAt(i);
-      h = Math.imul(h, 16777619);
-    }
-    return h >>> 0;
-  }
-  function makeRng(seedStr) {
-    var a = hashSeed(seedStr);
-    return function() {
-      var t = (a += 0x6D2B79F5);
-      t = Math.imul(t ^ (t >>> 15), t | 1);
-      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-    };
-  }
-
-  function itemKey(item) {
-    return item.name + "__" + item.uf;
-  }
-
-  // ============================================================================
-  // ALGORITMO DE CASAMENTO BIPARTIDO (SDR / Hall's Marriage Theorem)
-  // Garante matematicamente que qualquer tabuleiro 3x3 selecionado possui
-  // 9 respostas distintas validas (nenhuma celula sem gabarito ou repetida).
-  // ============================================================================
-  function solveBoardMatching(dataset, rows, cols, prefilledCells) {
-    var candidates = [];
-    for (var r = 0; r < 3; r++) {
-      for (var c = 0; c < 3; c++) {
-        var idx = r * 3 + c;
-        var valid = dataset.filter(function(item) {
-          return rows[r].fn(item) && cols[c].fn(item);
-        });
-        // Ordena por maior populacao para priorizar localidades conhecidas no gabarito
-        valid.sort(function(a, b) { return (b.pop || 0) - (a.pop || 0); });
-        candidates.push(valid);
-        if (valid.length === 0) return null;
-      }
-    }
-
-    var solution = new Array(9).fill(null);
-    var used = {};
-
-    if (prefilledCells) {
-      for (var k = 0; k < 9; k++) {
-        if (prefilledCells[k] && prefilledCells[k].status === "correct") {
-          solution[k] = prefilledCells[k];
-          used[prefilledCells[k].name + "__" + prefilledCells[k].uf] = true;
-        }
-      }
-    }
-
-    var openIndices = [];
-    for (var i = 0; i < 9; i++) {
-      if (!solution[i]) openIndices.push(i);
-    }
-    openIndices.sort(function(a, b) {
-      return candidates[a].length - candidates[b].length;
-    });
-
-    function backtrack(pos) {
-      if (pos >= openIndices.length) return true;
-      var cellIdx = openIndices[pos];
-      var list = candidates[cellIdx];
-      var limit = Math.min(list.length, 45);
-      for (var i = 0; i < limit; i++) {
-        var cand = list[i];
-        var key = itemKey(cand);
-        if (!used[key]) {
-          used[key] = true;
-          solution[cellIdx] = cand;
-          if (backtrack(pos + 1)) return true;
-          solution[cellIdx] = null;
-          delete used[key];
-        }
-      }
-      return false;
-    }
-
-    if (backtrack(0)) return solution;
-    return null;
-  }
-
-  // Construtor de pools de tabuleiros 3x3 validados sobre o grao oficial
-  var VALID_BOARDS_EASY = [];
-  var VALID_BOARDS_HARD = [];
-
-  function buildValidatedGridPools() {
-    var stateRowSets = [
-      [
-        { label: "População > 3 milhões", sub: "IBGE (2020)", fn: function(d) { return d.pop > 3000000; } },
-        { label: "População entre 850 mil e 3,6 mi", sub: "IBGE (2020)", fn: function(d) { return d.pop >= 850000 && d.pop <= 3600000; } },
-        { label: "População < 1,8 milhão", sub: "IBGE (2020)", fn: function(d) { return d.pop < 1800000; } }
-      ],
-      [
-        { label: "Exportações > US$ 3 bilhões", sub: "Comex Stat (2025)", fn: function(d) { return d.exports_usd > 3000000000; } },
-        { label: "Exportações entre US$ 250 mi e US$ 5,5 bi", sub: "Comex Stat (2025)", fn: function(d) { return d.exports_usd >= 250000000 && d.exports_usd <= 5500000000; } },
-        { label: "Exportações < US$ 1 bilhão", sub: "Comex Stat (2025)", fn: function(d) { return d.exports_usd < 1000000000; } }
-      ],
-      [
-        { label: "Rebanho Bovino > 11 milhões", sub: "IBGE PPM (2024)", fn: function(d) { return d.cattle > 11000000; } },
-        { label: "Rebanho entre 2 mi e 19 mi cabeças", sub: "IBGE PPM (2024)", fn: function(d) { return d.cattle >= 2000000 && d.cattle <= 19000000; } },
-        { label: "Rebanho Bovino < 5,5 milhões", sub: "IBGE PPM (2024)", fn: function(d) { return d.cattle < 5500000; } }
-      ],
-      [
-        { label: "Desmatamento Acum. > 95 mil km²", sub: "INPE PRODES", fn: function(d) { return d.deforest_acc_km2 > 95000; } },
-        { label: "Desmatamento entre 25 mil e 110 mil km²", sub: "INPE PRODES", fn: function(d) { return d.deforest_acc_km2 >= 25000 && d.deforest_acc_km2 <= 110000; } },
-        { label: "Desmatamento Acum. < 50 mil km²", sub: "INPE PRODES", fn: function(d) { return d.deforest_acc_km2 < 50000; } }
-      ],
-      [
-        { label: "Mais de 34 mil empresas ativas", sub: "IBGE CEMPRE (2020)", fn: function(d) { return d.empresas > 34000; } },
-        { label: "Entre 8 mil e 60 mil empresas", sub: "IBGE CEMPRE (2020)", fn: function(d) { return d.empresas >= 8000 && d.empresas <= 60000; } },
-        { label: "Menos de 30 mil empresas ativas", sub: "IBGE CEMPRE (2020)", fn: function(d) { return d.empresas < 30000; } }
-      ]
-    ];
-
-    var stateColSets = [
-      [
-        { label: "Cobertura Florestal > 74%", sub: "MapBiomas (2024)", fn: function(d) { return d.forest_pct > 74; } },
-        { label: "Cobertura Florestal entre 55% e 83%", sub: "MapBiomas (2024)", fn: function(d) { return d.forest_pct >= 55 && d.forest_pct <= 83; } },
-        { label: "Cobertura Florestal < 73%", sub: "MapBiomas (2024)", fn: function(d) { return d.forest_pct < 73; } }
-      ],
-      [
-        { label: "PIB per capita > R$ 27.000", sub: "IBGE PIB (2020)", fn: function(d) { return d.gd_ppc > 27000; } },
-        { label: "PIB per capita entre R$ 21 mil e R$ 28 mil", sub: "IBGE PIB (2020)", fn: function(d) { return d.gd_ppc >= 21000 && d.gd_ppc <= 28000; } },
-        { label: "PIB per capita < R$ 25.500", sub: "IBGE PIB (2020)", fn: function(d) { return d.gd_ppc < 25500; } }
-      ],
-      [
-        { label: "Produção de Soja > 2 milhões t", sub: "IBGE PAM (2024)", fn: function(d) { return d.soy > 2000000; } },
-        { label: "Soja entre 60 mil e 3,8 mi t", sub: "IBGE PAM (2024)", fn: function(d) { return d.soy >= 60000 && d.soy <= 3800000; } },
-        { label: "Produção de Soja < 500 mil t", sub: "IBGE PAM (2024)", fn: function(d) { return d.soy < 500000; } }
-      ],
-      [
-        { label: "IPS Amazônia >= 59,6", sub: "IMAZON (2021)", fn: function(d) { return d.ips >= 59.6; } },
-        { label: "IPS Amazônia entre 56,5 e 60,0", sub: "IMAZON (2021)", fn: function(d) { return d.ips >= 56.5 && d.ips <= 60.0; } },
-        { label: "IPS Amazônia < 58,0", sub: "IMAZON (2021)", fn: function(d) { return d.ips < 58.0; } }
-      ],
-      [
-        { label: "Produção de Mandioca > 350 mil t", sub: "IBGE PAM (2024)", fn: function(d) { return d.cassava > 350000; } },
-        { label: "Mandioca entre 100 mil e 500 mil t", sub: "IBGE PAM (2024)", fn: function(d) { return d.cassava >= 100000 && d.cassava <= 500000; } },
-        { label: "Produção de Mandioca < 300 mil t", sub: "IBGE PAM (2024)", fn: function(d) { return d.cassava < 300000; } }
-      ]
-    ];
-
-    VALID_BOARDS_EASY = [];
-    for (var i = 0; i < stateRowSets.length; i++) {
-      for (var j = 0; j < stateColSets.length; j++) {
-        if (solveBoardMatching(DATA_STATES, stateRowSets[i], stateColSets[j], null)) {
-          VALID_BOARDS_EASY.push({ rows: stateRowSets[i], cols: stateColSets[j] });
-        }
-      }
-    }
-
-    var muniRowSets = [
-      [
-        { label: "Pertence ao Pará (PA)", sub: "144 municípios na Amazônia Legal", fn: function(d) { return d.uf === "PA"; } },
-        { label: "Pertence ao Mato Grosso (MT)", sub: "141 municípios na Amazônia Legal", fn: function(d) { return d.uf === "MT"; } },
-        { label: "Pertence ao Amazonas (AM) ou Rondônia (RO)", sub: "AM (62) ou RO (52)", fn: function(d) { return d.uf === "AM" || d.uf === "RO"; } }
-      ],
-      [
-        { label: "Pertence ao Maranhão (MA) ou Tocantins (TO)", sub: "MA (181) ou TO (139)", fn: function(d) { return d.uf === "MA" || d.uf === "TO"; } },
-        { label: "Pertence ao Pará (PA)", sub: "144 municípios na Amazônia Legal", fn: function(d) { return d.uf === "PA"; } },
-        { label: "Pertence ao Acre (AC), Amapá (AP) ou Roraima (RR)", sub: "AC, AP ou RR", fn: function(d) { return d.uf === "AC" || d.uf === "AP" || d.uf === "RR"; } }
-      ],
-      [
-        { label: "População > 100.000 hab.", sub: "IBGE (2020)", fn: function(d) { return d.pop > 100000; } },
-        { label: "População entre 25 mil e 100 mil hab.", sub: "IBGE (2020)", fn: function(d) { return d.pop >= 25000 && d.pop <= 100000; } },
-        { label: "População < 25.000 hab.", sub: "IBGE (2020)", fn: function(d) { return d.pop < 25000; } }
-      ],
-      [
-        { label: "Exportador (> US$ 10 milhões FOB)", sub: "Comex Stat (2025)", fn: function(d) { return d.exports_usd > 10000000; } },
-        { label: "Produtor de Soja (> 20.000 ton)", sub: "IBGE PAM (2024)", fn: function(d) { return d.soy > 20000; } },
-        { label: "Produtor de Mandioca (> 15.000 ton)", sub: "IBGE PAM (2024)", fn: function(d) { return d.cassava > 15000; } }
-      ],
-      [
-        { label: "Rebanho Bovino > 250.000 cabeças", sub: "IBGE PPM (2024)", fn: function(d) { return d.cattle > 250000; } },
-        { label: "Cobertura Florestal > 80%", sub: "MapBiomas (2024)", fn: function(d) { return d.forest_pct > 80; } },
-        { label: "Mais de 1.000 empresas ativas", sub: "IBGE CEMPRE (2020)", fn: function(d) { return d.empresas > 1000; } }
-      ]
-    ];
-
-    var muniColSets = [
-      [
-        { label: "Cobertura Florestal > 75%", sub: "MapBiomas (2024)", fn: function(d) { return d.forest_pct > 75; } },
-        { label: "Rebanho Bovino > 150.000 cabeças", sub: "IBGE PPM (2024)", fn: function(d) { return d.cattle > 150000; } },
-        { label: "PIB per capita > R$ 25.000", sub: "IBGE PIB (2020)", fn: function(d) { return d.gd_ppc > 25000; } }
-      ],
-      [
-        { label: "IPS Amazônia >= 60,0 pontos", sub: "IMAZON (2021)", fn: function(d) { return d.ips >= 60.0; } },
-        { label: "Produção de Milho > 10.000 ton", sub: "IBGE PAM (2024)", fn: function(d) { return d.corn > 10000; } },
-        { label: "Desmatamento Acum. > 1.500 km²", sub: "INPE PRODES", fn: function(d) { return d.deforest_acc_km2 > 1500; } }
-      ],
-      [
-        { label: "Área Territorial > 8.000 km²", sub: "MapBiomas / IBGE", fn: function(d) { return d.area_km2 > 8000; } },
-        { label: "Exportações > US$ 1 milhão FOB", sub: "Comex Stat (2025)", fn: function(d) { return d.exports_usd > 1000000; } },
-        { label: "População > 40.000 hab.", sub: "IBGE (2020)", fn: function(d) { return d.pop > 40000; } }
-      ],
-      [
-        { label: "Produção de Mandioca > 10.000 ton", sub: "IBGE PAM (2024)", fn: function(d) { return d.cassava > 10000; } },
-        { label: "Mais de 500 empresas ativas", sub: "IBGE CEMPRE (2020)", fn: function(d) { return d.empresas > 500; } },
-        { label: "Cobertura Florestal < 50%", sub: "MapBiomas (2024)", fn: function(d) { return d.forest_pct < 50; } }
-      ]
-    ];
-
-    VALID_BOARDS_HARD = [];
-    for (var m = 0; m < muniRowSets.length; m++) {
-      for (var n = 0; n < muniColSets.length; n++) {
-        if (solveBoardMatching(DATA_MUNIS, muniRowSets[m], muniColSets[n], null)) {
-          VALID_BOARDS_HARD.push({ rows: muniRowSets[m], cols: muniColSets[n] });
-        }
-      }
-    }
-  }
-
-  // ============================================================================
-  // GERADOR DE PERGUNTAS COM SENTIDO ESTATISTICO (VERSUS DIARIO E STREAK)
-  // Filtra apenas municipios com atividade relevante na metrica consultada
-  // e exige diferenca minima real entre A e B.
-  // ============================================================================
-  var QUESTION_SPECS = [
-    {
-      metric: "pop",
-      qState: "Qual estado da Amazônia Legal possui MAIOR população residente?",
-      qMuni: "Qual município possui MAIOR população residente?",
-      unit: "População residente · IBGE (2020) · load_population()",
-      minVal: 30000,
-      minRatio: 1.45,
-      maxRatio: 18.0
-    },
-    {
-      metric: "gd_ppc",
-      qState: "Qual estado apresenta MAIOR PIB per capita na Amazônia Legal?",
-      qMuni: "Qual município apresenta MAIOR PIB per capita?",
-      unit: "PIB per capita em R$ · IBGE (2020) · load_pibmunic()",
-      minVal: 12000,
-      minPop: 35000,
-      minRatio: 1.38,
-      maxRatio: 8.0
-    },
-    {
-      metric: "cattle",
-      qState: "Qual estado possui o MAIOR rebanho bovino na Amazônia Legal?",
-      qMuni: "Qual município possui o MAIOR efetivo de bovinos?",
-      unit: "Cabeças de gado · IBGE PPM (2024) · load_ppm()",
-      minVal: 120000,
-      minPop: 18000,
-      minRatio: 1.45,
-      maxRatio: 15.0
-    },
-    {
-      metric: "soy",
-      qState: "Qual estado colheu a MAIOR safra de soja na Amazônia Legal?",
-      qMuni: "Qual município produziu MAIS soja em 2024?",
-      unit: "Toneladas produzidas · IBGE PAM (2024) · load_pam()",
-      minVal: 25000,
-      minPop: 15000,
-      minRatio: 1.50,
-      maxRatio: 20.0
-    },
-    {
-      metric: "corn",
-      qState: "Qual estado produziu MAIS milho na Amazônia Legal?",
-      qMuni: "Qual município teve MAIOR produção de milho em 2024?",
-      unit: "Toneladas produzidas · IBGE PAM (2024) · load_pam()",
-      minVal: 25000,
-      minPop: 15000,
-      minRatio: 1.50,
-      maxRatio: 20.0
-    },
-    {
-      metric: "cassava",
-      qState: "Qual estado teve MAIOR produção de mandioca na Amazônia Legal?",
-      qMuni: "Qual município produziu MAIS mandioca em 2024?",
-      unit: "Toneladas produzidas · IBGE PAM (2024) · load_pam()",
-      minVal: 18000,
-      minPop: 20000,
-      minRatio: 1.45,
-      maxRatio: 18.0
-    },
-    {
-      metric: "exports_usd",
-      qState: "Qual estado registrou MAIOR valor de exportações (US$ FOB)?",
-      qMuni: "Qual município exportou MAIS em valor FOB (2025)?",
-      unit: "Valor FOB em US$ · MDIC Comex Stat (2025) · load_br_trade()",
-      minVal: 15000000,
-      minPop: 20000,
-      minRatio: 1.50,
-      maxRatio: 25.0
-    },
-    {
-      metric: "forest_pct",
-      qState: "Qual estado mantém MAIOR proporção de cobertura florestal nativa?",
-      qMuni: "Qual município preserva MAIOR percentual de cobertura florestal?",
-      unit: "% da área com cobertura florestal · MapBiomas (2024) · load_mapbiomas()",
-      minVal: 15,
-      minPop: 40000,
-      minDiffAbs: 14.0
-    },
-    {
-      metric: "deforest_acc_km2",
-      qState: "Qual estado acumula MAIOR área desmatada histórica no PRODES?",
-      qMuni: "Qual município possui MAIOR área de desmatamento acumulado (PRODES)?",
-      unit: "Área acumulada em km² · INPE PRODES · load_prodes()",
-      minVal: 800,
-      minPop: 25000,
-      minRatio: 1.45,
-      maxRatio: 15.0
-    },
-    {
-      metric: "ips",
-      qState: "Qual estado apresenta MAIOR Índice de Progresso Social (IPS)?",
-      qMuni: "Qual município possui MAIOR Índice de Progresso Social (IPS)?",
-      unit: "Pontuação IPS (0 a 100) · IMAZON / IPS Amazônia (2021) · load_ips()",
-      minVal: 45,
-      minPop: 40000,
-      minDiffAbs: 4.0
-    },
-    {
-      metric: "empresas",
-      qState: "Qual estado concentra MAIS empresas e organizações ativas (CEMPRE)?",
-      qMuni: "Qual município possui MAIS empresas ativas no Cadastro Central do IBGE?",
-      unit: "Unidades locais ativas · IBGE CEMPRE (2020) · load_cempre()",
-      minVal: 600,
-      minPop: 35000,
-      minRatio: 1.45,
-      maxRatio: 16.0
-    }
-  ];
-
-  function generateMeaningfulPair(rng, spec, useStates, forceWinnerSide) {
-    var pool;
-    if (useStates) {
-      pool = DATA_STATES.slice();
-    } else {
-      var minPop = spec.minPop || 25000;
-      pool = DATA_MUNIS.filter(function(m) {
-        return (m[spec.metric] || 0) >= (spec.minVal || 1) && (m.pop || 0) >= minPop;
+// Algoritmo de casamento bipartido (Garante 9 respostas distintas no gabarito)
+function solveMatchingSolution(dataset, rows, cols) {
+  var candidates = [];
+  for (var r = 0; r < 3; r++) {
+    for (var c = 0; c < 3; c++) {
+      var valid = dataset.filter(function(item) {
+        return rows[r].check(item) && cols[c].check(item);
       });
-      if (pool.length < 12) {
-        pool = DATA_MUNIS.filter(function(m) {
-          return (m[spec.metric] || 0) > 0;
-        });
-      }
+      valid.sort(function(a, b) { return (b.pop || 0) - (a.pop || 0); });
+      if (valid.length === 0) return null;
+      candidates.push(valid);
     }
-
-    for (var attempt = 0; attempt < 160; attempt++) {
-      var idxA = Math.floor(rng() * pool.length);
-      var idxB = Math.floor(rng() * pool.length);
-      if (idxA === idxB) continue;
-
-      var candA = pool[idxA];
-      var candB = pool[idxB];
-      var valA = Number(candA[spec.metric]) || 0;
-      var valB = Number(candB[spec.metric]) || 0;
-      if (valA === valB) continue;
-
-      var hi = Math.max(valA, valB);
-      var lo = Math.min(valA, valB);
-
-      if (spec.minDiffAbs) {
-        if ((hi - lo) < spec.minDiffAbs) continue;
-      } else {
-        var ratio = hi / Math.max(lo, 1);
-        var minR = useStates ? 1.18 : (spec.minRatio || 1.35);
-        var maxR = useStates ? 60.0 : (spec.maxRatio || 25.0);
-        if (ratio < minR || ratio > maxR) continue;
-      }
-
-      var higherItem = valA > valB ? candA : candB;
-      var lowerItem = valA > valB ? candB : candA;
-      var winSide = (forceWinnerSide === 0 || forceWinnerSide === 1)
-        ? forceWinnerSide
-        : (rng() < 0.5 ? 0 : 1);
-
-      var itemA = winSide === 0 ? higherItem : lowerItem;
-      var itemB = winSide === 0 ? lowerItem : higherItem;
-
-      var explain = higherItem.name + " (" + higherItem.uf + ") registra " +
-                    formatMetricValue(spec.metric, higherItem[spec.metric]) +
-                    ", frente a " + formatMetricValue(spec.metric, lowerItem[spec.metric]) +
-                    " de " + lowerItem.name + " (" + lowerItem.uf + ").";
-
-      return {
-        q: useStates ? spec.qState : spec.qMuni,
-        unit: spec.unit,
-        metric: spec.metric,
-        a: { name: itemA.name, uf: itemA.uf, val: itemA[spec.metric] },
-        b: { name: itemB.name, uf: itemB.uf, val: itemB[spec.metric] },
-        explain: explain
-      };
-    }
-
-    // Fallback deterministico ordenado caso o filtro aleatorio nao convirja
-    var sorted = pool.slice().sort(function(x, y) {
-      return (y[spec.metric] || 0) - (x[spec.metric] || 0);
-    });
-    var topItem = sorted[0];
-    var midItem = sorted[Math.min(4, sorted.length - 1)];
-    return {
-      q: useStates ? spec.qState : spec.qMuni,
-      unit: spec.unit,
-      metric: spec.metric,
-      a: { name: topItem.name, uf: topItem.uf, val: topItem[spec.metric] },
-      b: { name: midItem.name, uf: midItem.uf, val: midItem[spec.metric] },
-      explain: topItem.name + " (" + topItem.uf + ") lidera com " + formatMetricValue(spec.metric, topItem[spec.metric]) + "."
-    };
   }
 
-  function getDailyVersusQuestions() {
-    var rng = makeRng("dz_versus_daily_" + TODAY_KEY);
-    // Embaralha especificacoes para escolher 5 metricas distintas para o dia
-    var specsCopy = QUESTION_SPECS.slice();
-    for (var i = specsCopy.length - 1; i > 0; i--) {
-      var j = Math.floor(rng() * (i + 1));
-      var tmp = specsCopy[i];
-      specsCopy[i] = specsCopy[j];
-      specsCopy[j] = tmp;
-    }
-
-    var questions = [];
-    for (var k = 0; k < 5; k++) {
-      var spec = specsCopy[k];
-      // Alterna estados (2 perguntas) e municipios relevantes (3 perguntas)
-      var useStates = (k === 1 || k === 3);
-      var winSide = (rng() < 0.5) ? 0 : 1;
-      questions.push(generateMeaningfulPair(rng, spec, useStates, winSide));
-    }
-    return questions;
-  }
-
-  // ============================================================================
-  // TABS NAVIGATION
-  // ============================================================================
-  var tabBtns = document.querySelectorAll(".mg-tab-btn");
-  var panels = {
-    grid: document.getElementById("panel-grid"),
-    versus: document.getElementById("panel-versus"),
-    streak: document.getElementById("panel-streak"),
-    leaderboard: document.getElementById("panel-leaderboard")
-  };
-
-  tabBtns.forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      var target = btn.getAttribute("data-tab");
-      tabBtns.forEach(function(b) { b.classList.remove("active"); });
-      btn.classList.add("active");
-      Object.keys(panels).forEach(function(k) {
-        panels[k].classList.toggle("active", k === target);
-      });
-      if (target === "leaderboard") renderLeaderboard();
-    });
+  var solution = new Array(9).fill(null);
+  var used = {};
+  var order = [0, 1, 2, 3, 4, 5, 6, 7, 8].sort(function(a, b) {
+    return candidates[a].length - candidates[b].length;
   });
 
-  // ============================================================================
-  // MODO 1: GRID 3x3 (ESTADOS E MUNICIPIOS, ESTADO INDEPENDENTE POR NIVEL)
-  // ============================================================================
-  var GRID_STORAGE_PREFIX = "dz_amz_grid_v2_" + TODAY_KEY + "_";
-  var gridState = {
-    diff: "easy",
+  function backtrack(pos) {
+    if (pos >= 9) return true;
+    var idx = order[pos];
+    var list = candidates[idx];
+    var limit = Math.min(list.length, 30);
+    for (var i = 0; i < limit; i++) {
+      var cand = list[i];
+      var key = cand.name + "__" + cand.uf;
+      if (!used[key]) {
+        used[key] = true;
+        solution[idx] = cand;
+        if (backtrack(pos + 1)) return true;
+        solution[idx] = null;
+        delete used[key];
+      }
+    }
+    return false;
+  }
+
+  if (backtrack(0)) return solution;
+  return null;
+}
+
+// ==============================================================================
+// CONTROLE DE ESTADO GLOBAL
+// ==============================================================================
+var currentActiveMode = 'home';
+var activeGridDifficulty = 'easy';
+var gridTimerSeconds = 0;
+var gridTimerInterval = null;
+var pendingGridResult = null;
+
+var gridDifficultyStates = {
+  easy: {
     boardIndex: 0,
-    cells: new Array(9).fill(null),
-    guessesLeft: 10,
-    score: 0,
-    finished: false,
-    saved: false,
-    activeCell: null
+    cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
+    triesLeft: 10,
+    score: 1000,
+    hits: 0,
+    completed: false
+  },
+  hard: {
+    boardIndex: 0,
+    cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
+    triesLeft: 10,
+    score: 1000,
+    hits: 0,
+    completed: false
+  }
+};
+
+var currentInputCell = null;
+var activeVersusSubMode = 'daily';
+var versusDailyIndex = 0;
+var versusDailyScore = 0;
+var versusDailyAnswers = [null, null, null, null, null];
+var versusTimerSeconds = 0;
+var versusTimerInterval = null;
+var pendingVersusResult = null;
+
+var streakCount = 0;
+var currentStreakPuzzle = null;
+
+function getDailySeedString() {
+  var now = new Date();
+  return now.getFullYear() + "-" +
+    String(now.getMonth() + 1).padStart(2, '0') + "-" +
+    String(now.getDate()).padStart(2, '0');
+}
+
+function hashSeed(str) {
+  var h = 2166136261 >>> 0;
+  for (var i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function makeRng(seedStr) {
+  var a = hashSeed(seedStr);
+  return function() {
+    var t = (a += 0x6D2B79F5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// ==============================================================================
+// NAVEGACAO ENTRE MODOS
+// ==============================================================================
+function openGameMode(modeKey) {
+  currentActiveMode = modeKey;
+
+  document.getElementById('panel-home').style.display = (modeKey === 'home') ? 'block' : 'none';
+  document.getElementById('panel-grid').style.display = (modeKey === 'grid') ? 'block' : 'none';
+  document.getElementById('panel-versus').style.display = (modeKey === 'versus-daily' || modeKey === 'versus-streak') ? 'block' : 'none';
+  document.getElementById('panel-scores').style.display = (modeKey === 'scores') ? 'block' : 'none';
+
+  document.getElementById('top-nav-switcher').style.display = (modeKey === 'home') ? 'none' : 'flex';
+
+  var btns = ['home', 'grid', 'v-daily', 'v-streak', 'scores'];
+  btns.forEach(function(b) {
+    var el = document.getElementById('btn-tab-' + b);
+    if (el) el.classList.remove('active');
+  });
+
+  if (modeKey === 'grid') {
+    document.getElementById('btn-tab-grid').classList.add('active');
+    initGridUI();
+  } else if (modeKey === 'versus-daily') {
+    document.getElementById('btn-tab-v-daily').classList.add('active');
+    activeVersusSubMode = 'daily';
+    initVersusDailyUI();
+  } else if (modeKey === 'versus-streak') {
+    document.getElementById('btn-tab-v-streak').classList.add('active');
+    activeVersusSubMode = 'streak';
+    initVersusStreakUI();
+  } else if (modeKey === 'scores') {
+    document.getElementById('btn-tab-scores').classList.add('active');
+    renderLeaderboard();
+  }
+}
+
+// ==============================================================================
+// MODO GRID
+// ==============================================================================
+function getGridSetsForCurrentDifficulty() {
+  return (activeGridDifficulty === 'easy') ? GRID_SETS_EASY : GRID_SETS_HARD;
+}
+
+function getCurrentGridSet() {
+  var sets = getGridSetsForCurrentDifficulty();
+  var state = gridDifficultyStates[activeGridDifficulty];
+  return sets[state.boardIndex % sets.length];
+}
+
+function getCurrentGridDataPool() {
+  return (activeGridDifficulty === 'easy') ? DATA_STATES : DATA_HARD;
+}
+
+function setGridDifficulty(diff) {
+  if (activeGridDifficulty === diff) return;
+  activeGridDifficulty = diff;
+
+  document.getElementById('lvl-easy').classList.toggle('active', diff === 'easy');
+  document.getElementById('lvl-hard').classList.toggle('active', diff === 'hard');
+
+  var state = gridDifficultyStates[activeGridDifficulty];
+  var currentSet = getCurrentGridSet();
+
+  document.getElementById('col-header-0').innerHTML = currentSet.cols[0].name + `<br><small style="font-weight:400;color:#555">${currentSet.cols[0].desc}</small>`;
+  document.getElementById('col-header-1').innerHTML = currentSet.cols[1].name + `<br><small style="font-weight:400;color:#555">${currentSet.cols[1].desc}</small>`;
+  document.getElementById('col-header-2').innerHTML = currentSet.cols[2].name + `<br><small style="font-weight:400;color:#555">${currentSet.cols[2].desc}</small>`;
+
+  document.getElementById('row-header-0').innerHTML = currentSet.rows[0].name + `<br><small style="font-weight:400;color:#555">${currentSet.rows[0].desc}</small>`;
+  document.getElementById('row-header-1').innerHTML = currentSet.rows[1].name + `<br><small style="font-weight:400;color:#555">${currentSet.rows[1].desc}</small>`;
+  document.getElementById('row-header-2').innerHTML = currentSet.rows[2].name + `<br><small style="font-weight:400;color:#555">${currentSet.rows[2].desc}</small>`;
+
+  document.getElementById('grid-score').innerText = state.score;
+  document.getElementById('grid-hits').innerText = state.hits;
+  document.getElementById('grid-tries').innerText = state.triesLeft;
+
+  renderGridBoardFromState();
+
+  var compPanel = document.getElementById('grid-completion-panel');
+  if (state.completed) {
+    compPanel.style.display = 'block';
+    document.getElementById('grid-completion-title').innerText = (state.hits === 9) ? "Desafio Gabaritado!" : "Fim de Jogo!";
+    document.getElementById('grid-completion-title').style.color = (state.hits === 9) ? "var(--green-btn)" : "var(--danger-red)";
+    document.getElementById('grid-completion-msg').innerText = `Você finalizou com ${state.hits} acerto(s) e ${state.score} pontos.`;
+  } else {
+    compPanel.style.display = 'none';
+  }
+
+  closeCellInput();
+}
+
+function initGridUI() {
+  var seedRng = makeRng("dz_grid_" + getDailySeedString());
+  gridDifficultyStates.easy.boardIndex = Math.floor(seedRng() * GRID_SETS_EASY.length);
+  gridDifficultyStates.hard.boardIndex = Math.floor(seedRng() * GRID_SETS_HARD.length);
+
+  setGridDifficulty(activeGridDifficulty);
+  startGridTimer();
+}
+
+function startGridTimer() {
+  clearInterval(gridTimerInterval);
+  var state = gridDifficultyStates[activeGridDifficulty];
+  if (state.completed) return;
+
+  gridTimerSeconds = 0;
+  document.getElementById('grid-timer').innerText = "00:00";
+  gridTimerInterval = setInterval(function() {
+    gridTimerSeconds++;
+    var mins = String(Math.floor(gridTimerSeconds / 60)).padStart(2, '0');
+    var secs = String(gridTimerSeconds % 60).padStart(2, '0');
+    document.getElementById('grid-timer').innerText = mins + ":" + secs;
+  }, 1000);
+}
+
+function renderGridBoardFromState() {
+  var state = gridDifficultyStates[activeGridDifficulty];
+  for (var r = 0; r < 3; r++) {
+    for (var c = 0; c < 3; c++) {
+      var cellEl = document.getElementById(`cell-${r}-${c}`);
+      var cellVal = state.cells[r][c];
+
+      cellEl.classList.remove('filled', 'gabarito-cell');
+      if (cellVal) {
+        if (cellVal.isGabarito) {
+          cellEl.classList.add('gabarito-cell');
+          cellEl.innerHTML = `
+            <div class="grid-cell-city" style="color: #c62828;">${cellVal.name} (${cellVal.uf})</div>
+            <div class="grid-cell-meta" style="color: #c62828; font-weight:700;">Gabarito</div>
+          `;
+        } else {
+          cellEl.classList.add('filled');
+          cellEl.innerHTML = `
+            <div class="grid-cell-city">${cellVal.name} (${cellVal.uf})</div>
+            <div class="grid-cell-meta">Acerto</div>
+          `;
+        }
+      } else {
+        cellEl.innerHTML = `<span>Selecionar</span>`;
+      }
+    }
+  }
+}
+
+function openCellInput(row, col) {
+  var state = gridDifficultyStates[activeGridDifficulty];
+  if (state.completed || state.cells[row][col]) return;
+
+  currentInputCell = { r: row, c: col };
+  var currentSet = getCurrentGridSet();
+  var rowDef = currentSet.rows[row];
+  var colDef = currentSet.cols[col];
+
+  document.getElementById('input-target-title').innerText =
+    `Preenchendo Célula: [${rowDef.name}] × [${colDef.name}]`;
+
+  document.getElementById('grid-error-alert').style.display = 'none';
+  document.getElementById('hints-panel').style.display = 'block';
+  document.getElementById('hint-display').innerText = '';
+
+  var searchField = document.getElementById('grid-search-field');
+  searchField.value = '';
+  document.getElementById('cell-input-panel').style.display = 'block';
+  renderOptionsList('');
+  searchField.focus();
+}
+
+function closeCellInput() {
+  document.getElementById('cell-input-panel').style.display = 'none';
+  currentInputCell = null;
+}
+
+function renderOptionsList(filterText) {
+  var container = document.getElementById('grid-options-container');
+  var pool = getCurrentGridDataPool();
+  var state = gridDifficultyStates[activeGridDifficulty];
+
+  var usedMap = {};
+  for (var r = 0; r < 3; r++) {
+    for (var c = 0; c < 3; c++) {
+      if (state.cells[r][c]) {
+        usedMap[state.cells[r][c].id] = true;
+      }
+    }
+  }
+
+  var normFilter = (filterText || '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+  var matches = pool.filter(function(item) {
+    if (usedMap[item.id]) return false;
+    var normName = item.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    var normUf = item.uf.toLowerCase();
+    return normName.indexOf(normFilter) !== -1 || normUf === normFilter;
+  });
+
+  if (matches.length === 0) {
+    container.innerHTML = '<div style="padding: 12px; color: #888; text-align: center; font-size: 13px;">Nenhuma localidade disponível encontrada.</div>';
+    return;
+  }
+
+  container.innerHTML = matches.slice(0, 50).map(function(item) {
+    return `
+      <div class="option-row" onclick="submitGridGuess('${item.id}')">
+        <span><strong>${item.name}</strong> <small style="color: #666;">(${item.uf})</small></span>
+        <span style="font-size: 11px; color: #2e4d32; font-weight: 700;">Selecionar &rarr;</span>
+      </div>
+    `;
+  }).join('');
+}
+
+function submitGridGuess(itemId) {
+  if (!currentInputCell) return;
+  var state = gridDifficultyStates[activeGridDifficulty];
+  var pool = getCurrentGridDataPool();
+  var candidate = pool.find(function(it) { return it.id === itemId; });
+  if (!candidate) return;
+
+  var currentSet = getCurrentGridSet();
+  var r = currentInputCell.r;
+  var c = currentInputCell.c;
+  var rowValid = currentSet.rows[r].check(candidate);
+  var colValid = currentSet.cols[c].check(candidate);
+
+  if (rowValid && colValid) {
+    state.cells[r][c] = { id: candidate.id, name: candidate.name, uf: candidate.uf, isGabarito: false };
+    state.hits++;
+    state.score += 100;
+
+    document.getElementById('grid-hits').innerText = state.hits;
+    document.getElementById('grid-score').innerText = state.score;
+
+    renderGridBoardFromState();
+    closeCellInput();
+
+    if (state.hits === 9) {
+      finishGridGame(true);
+    }
+  } else {
+    state.triesLeft--;
+    state.score = Math.max(0, state.score - 50);
+
+    document.getElementById('grid-tries').innerText = state.triesLeft;
+    document.getElementById('grid-score').innerText = state.score;
+
+    var alertEl = document.getElementById('grid-error-alert');
+    alertEl.className = 'grid-inline-alert wrong';
+    alertEl.innerText = `${candidate.name} (${candidate.uf}) não atende aos critérios da Linha ou da Coluna!`;
+    alertEl.style.display = 'block';
+
+    if (state.triesLeft <= 0) {
+      closeCellInput();
+      finishGridGame(false);
+    }
+  }
+}
+
+function requestHint(type) {
+  if (!currentInputCell) return;
+  var state = gridDifficultyStates[activeGridDifficulty];
+  var pool = getCurrentGridDataPool();
+  var currentSet = getCurrentGridSet();
+  var r = currentInputCell.r;
+  var c = currentInputCell.c;
+
+  var validOnes = pool.filter(function(it) {
+    return currentSet.rows[r].check(it) && currentSet.cols[c].check(it);
+  });
+
+  if (validOnes.length === 0) return;
+  var sample = validOnes[0];
+  var hintText = '';
+
+  if (type === 1) {
+    state.score = Math.max(0, state.score - 100);
+    hintText = `Dica UF: Uma das respostas válidas pertence ao estado: ${sample.uf}`;
+  } else {
+    state.score = Math.max(0, state.score - 200);
+    hintText = `Dica Letra: Uma das respostas válidas começa com a letra "${sample.name.charAt(0)}"`;
+  }
+
+  document.getElementById('grid-score').innerText = state.score;
+  document.getElementById('hint-display').innerText = hintText;
+}
+
+function finishGridGame(gabari) {
+  var state = gridDifficultyStates[activeGridDifficulty];
+  state.completed = true;
+  clearInterval(gridTimerInterval);
+
+  var panel = document.getElementById('grid-completion-panel');
+  var title = document.getElementById('grid-completion-title');
+  var msg = document.getElementById('grid-completion-msg');
+
+  if (gabari) {
+    title.innerText = "Desafio Gabaritado!";
+    title.style.color = "var(--green-btn)";
+    msg.innerText = `Parabéns! Você completou todas as 9 células em ${document.getElementById('grid-timer').innerText} com pontuação final de ${state.score} pts.`;
+  } else {
+    title.innerText = "Fim de Jogo!";
+    title.style.color = "var(--danger-red)";
+    msg.innerText = `Suas tentativas acabaram! Você acertou ${state.hits} de 9 células. Pontuação final: ${state.score} pts.`;
+  }
+
+  pendingGridResult = {
+    mode: `Modo Grid (${activeGridDifficulty === 'easy' ? 'Estados' : 'Municípios'})`,
+    score: `${state.score} pts (${state.hits}/9)`,
+    time: document.getElementById('grid-timer').innerText
   };
 
-  function getDatasetForDiff(diff) {
-    return diff === "easy" ? DATA_STATES : DATA_MUNIS;
-  }
+  panel.style.display = 'block';
+  updateMidnightCountdown();
+}
 
-  function getBoardsForDiff(diff) {
-    return diff === "easy" ? VALID_BOARDS_EASY : VALID_BOARDS_HARD;
-  }
+function showGridAnswers() {
+  var state = gridDifficultyStates[activeGridDifficulty];
+  var pool = getCurrentGridDataPool();
+  var currentSet = getCurrentGridSet();
 
-  function getDailyBoardIndex(diff) {
-    var boards = getBoardsForDiff(diff);
-    if (!boards.length) return 0;
-    var rng = makeRng("dz_grid_daily_" + TODAY_KEY + "_" + diff);
-    return Math.floor(rng() * boards.length);
-  }
-
-  function saveGridProgress() {
-    try {
-      localStorage.setItem(GRID_STORAGE_PREFIX + gridState.diff, JSON.stringify({
-        boardIndex: gridState.boardIndex,
-        cells: gridState.cells,
-        guessesLeft: gridState.guessesLeft,
-        score: gridState.score,
-        finished: gridState.finished,
-        saved: gridState.saved
-      }));
-    } catch (e) {}
-  }
-
-  function initGrid(diff, forceReset) {
-    gridState.diff = diff || gridState.diff;
-    gridState.activeCell = null;
-
-    if (!forceReset) {
-      try {
-        var raw = localStorage.getItem(GRID_STORAGE_PREFIX + gridState.diff);
-        if (raw) {
-          var savedState = JSON.parse(raw);
-          var boards = getBoardsForDiff(gridState.diff);
-          if (savedState && Array.isArray(savedState.cells) && savedState.cells.length === 9 && savedState.boardIndex < boards.length) {
-            gridState.boardIndex = savedState.boardIndex;
-            gridState.cells = savedState.cells;
-            gridState.guessesLeft = typeof savedState.guessesLeft === "number" ? savedState.guessesLeft : 10;
-            gridState.score = typeof savedState.score === "number" ? savedState.score : 0;
-            gridState.finished = !!savedState.finished;
-            gridState.saved = !!savedState.saved;
-            renderGrid();
-            return;
-          }
-        }
-      } catch (e) {}
-    }
-
-    gridState.boardIndex = getDailyBoardIndex(gridState.diff);
-    gridState.cells = new Array(9).fill(null);
-    gridState.guessesLeft = 10;
-    gridState.score = 0;
-    gridState.finished = false;
-    gridState.saved = false;
-    saveGridProgress();
-    renderGrid();
-  }
-
-  function renderGrid() {
-    var boards = getBoardsForDiff(gridState.diff);
-    var board = boards[gridState.boardIndex % boards.length];
-    var container = document.getElementById("mg-grid-board");
-    container.innerHTML = "";
-
-    var corner = document.createElement("div");
-    corner.className = "mg-grid-corner";
-    corner.innerHTML = "<span>CRITÉRIOS</span><span style='font-size:11px;font-weight:400;margin-top:3px;'>Linha × Coluna</span>";
-    container.appendChild(corner);
-
-    board.cols.forEach(function(col) {
-      var ch = document.createElement("div");
-      ch.className = "mg-axis-header";
-      ch.innerHTML = "<div>" + col.label + "</div><div class='mg-axis-sub'>" + col.sub + "</div>";
-      container.appendChild(ch);
-    });
-
+  var solution = solveMatchingSolution(pool, currentSet.rows, currentSet.cols);
+  if (solution) {
     for (var r = 0; r < 3; r++) {
-      var rh = document.createElement("div");
-      rh.className = "mg-axis-header";
-      rh.innerHTML = "<div>" + board.rows[r].label + "</div><div class='mg-axis-sub'>" + board.rows[r].sub + "</div>";
-      container.appendChild(rh);
-
       for (var c = 0; c < 3; c++) {
         var idx = r * 3 + c;
-        var cellData = gridState.cells[idx];
-        var cell = document.createElement("div");
-        cell.className = "mg-cell";
-        if (cellData) {
-          cell.classList.add("locked");
-          cell.classList.add(cellData.status === "correct" ? "correct" : "revealed");
-          cell.innerHTML =
-            "<div class='mg-cell-name'>" + cellData.name + "</div>" +
-            "<span class='mg-cell-uf'>" + cellData.uf + (cellData.status === "revealed" ? " · Gabarito" : "") + "</span>";
-        } else {
-          if (gridState.finished) cell.classList.add("locked");
-          cell.innerHTML = "<div class='mg-cell-plus'>+</div><div class='mg-cell-hint'>Selecionar</div>";
-          (function(cellIndex, rowObj, colObj) {
-            cell.addEventListener("click", function() {
-              if (gridState.finished || gridState.cells[cellIndex]) return;
-              openSearchModal(cellIndex, rowObj, colObj);
-            });
-          })(idx, board.rows[r], board.cols[c]);
-        }
-        container.appendChild(cell);
-      }
-    }
-
-    document.getElementById("grid-score-pill").textContent = "Acertos: " + gridState.score + " / 9";
-    document.getElementById("grid-guesses-pill").textContent = "Tentativas restantes: " + gridState.guessesLeft;
-
-    var banner = document.getElementById("grid-save-banner");
-    var saveBtn = document.getElementById("grid-save-btn");
-    var nameInput = document.getElementById("grid-player-name");
-    if (gridState.finished) {
-      banner.classList.add("show");
-      document.getElementById("grid-finish-title").textContent =
-        gridState.score === 9 ? "Parabéns! Você gabaritou o Grid 3x3!" : "Fim de jogo no Grid (" + gridState.score + "/9 acertos)";
-      if (gridState.saved) {
-        saveBtn.disabled = true;
-        saveBtn.textContent = "Salvo!";
-        nameInput.disabled = true;
-      } else {
-        saveBtn.disabled = false;
-        saveBtn.textContent = "Salvar no Placar";
-        nameInput.disabled = false;
-      }
-    } else {
-      banner.classList.remove("show");
-    }
-  }
-
-  var modal = document.getElementById("mg-search-modal");
-  var searchInput = document.getElementById("mg-search-input");
-  var searchList = document.getElementById("mg-search-list");
-
-  function openSearchModal(cellIdx, rowObj, colObj) {
-    gridState.activeCell = { idx: cellIdx, row: rowObj, col: colObj };
-    document.getElementById("mg-modal-criteria-text").innerHTML =
-      "<strong>Linha:</strong> " + rowObj.label + "<br><strong>Coluna:</strong> " + colObj.label;
-    searchInput.value = "";
-    modal.classList.add("open");
-    renderSearchItems("");
-    setTimeout(function() { searchInput.focus(); }, 40);
-  }
-
-  function closeSearchModal() {
-    modal.classList.remove("open");
-    gridState.activeCell = null;
-  }
-
-  document.getElementById("mg-modal-close").addEventListener("click", closeSearchModal);
-  modal.addEventListener("click", function(e) {
-    if (e.target === modal) closeSearchModal();
-  });
-
-  searchInput.addEventListener("input", function() {
-    renderSearchItems(searchInput.value);
-  });
-
-  function normalizeStr(s) {
-    return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  }
-
-  function renderSearchItems(query) {
-    var dataset = getDatasetForDiff(gridState.diff);
-    var q = normalizeStr(query.trim());
-    var usedKeys = {};
-    gridState.cells.forEach(function(c) {
-      if (c) usedKeys[c.name + "__" + c.uf] = true;
-    });
-
-    var filtered = dataset.filter(function(item) {
-      if (!q) return true;
-      return normalizeStr(item.name).indexOf(q) !== -1 || normalizeStr(item.uf).indexOf(q) !== -1;
-    }).slice(0, 80);
-
-    searchList.innerHTML = "";
-    if (filtered.length === 0) {
-      searchList.innerHTML = "<div style='padding:12px;color:#6c7d73;font-size:13px;'>Nenhuma localidade encontrada na Amazônia Legal.</div>";
-      return;
-    }
-
-    filtered.forEach(function(item) {
-      var key = itemKey(item);
-      var isUsed = !!usedKeys[key];
-      var row = document.createElement("div");
-      row.className = "mg-search-item" + (isUsed ? " used" : "");
-      row.innerHTML = "<span><strong>" + item.name + "</strong></span><span class='mg-cell-uf'>" + item.uf + (isUsed ? " (Já usado)" : "") + "</span>";
-      if (!isUsed) {
-        row.addEventListener("click", function() {
-          handleGridGuess(item);
-        });
-      }
-      searchList.appendChild(row);
-    });
-  }
-
-  function handleGridGuess(item) {
-    if (!gridState.activeCell || gridState.finished) return;
-    var cellIdx = gridState.activeCell.idx;
-    var rowObj = gridState.activeCell.row;
-    var colObj = gridState.activeCell.col;
-    closeSearchModal();
-
-    gridState.guessesLeft--;
-    var isValid = rowObj.fn(item) && colObj.fn(item);
-
-    if (isValid) {
-      gridState.cells[cellIdx] = { name: item.name, uf: item.uf, status: "correct" };
-      gridState.score++;
-      if (gridState.score === 9 || gridState.guessesLeft <= 0) {
-        gridState.finished = true;
-      }
-      saveGridProgress();
-      renderGrid();
-    } else {
-      if (gridState.guessesLeft <= 0) {
-        gridState.finished = true;
-        revealRemainingGridCells();
-      }
-      saveGridProgress();
-      renderGrid();
-      var cellEls = document.querySelectorAll("#mg-grid-board .mg-cell");
-      if (cellEls[cellIdx]) {
-        cellEls[cellIdx].classList.add("wrong-flash");
-        setTimeout(function() {
-          if (cellEls[cellIdx]) cellEls[cellIdx].classList.remove("wrong-flash");
-        }, 450);
-      }
-    }
-  }
-
-  function revealRemainingGridCells() {
-    var boards = getBoardsForDiff(gridState.diff);
-    var board = boards[gridState.boardIndex % boards.length];
-    var dataset = getDatasetForDiff(gridState.diff);
-
-    // Exibe gabarito completo de 9 respostas distintas para as 9 celulas
-    var fullSolution = solveBoardMatching(dataset, board.rows, board.cols, null);
-    if (fullSolution) {
-      for (var k = 0; k < 9; k++) {
-        gridState.cells[k] = {
-          name: fullSolution[k].name,
-          uf: fullSolution[k].uf,
-          status: "revealed"
+        state.cells[r][c] = {
+          id: solution[idx].id,
+          name: solution[idx].name,
+          uf: solution[idx].uf,
+          isGabarito: true
         };
       }
     }
   }
 
-  document.querySelectorAll("#panel-grid .mg-diff-btn").forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      document.querySelectorAll("#panel-grid .mg-diff-btn").forEach(function(b) { b.classList.remove("active"); });
-      btn.classList.add("active");
-      initGrid(btn.getAttribute("data-diff"), false);
-    });
-  });
+  renderGridBoardFromState();
+  var btn = document.getElementById('btn-show-grid-answers');
+  if (btn) btn.style.display = 'none';
+}
 
-  document.getElementById("grid-giveup-btn").addEventListener("click", function() {
-    if (gridState.finished) return;
-    gridState.finished = true;
-    revealRemainingGridCells();
-    saveGridProgress();
-    renderGrid();
-  });
+function saveGridRecordWithName() {
+  var nameInput = document.getElementById('grid-player-name');
+  var pName = nameInput.value.trim() || 'Jogador Anônimo';
+  if (pendingGridResult) {
+    saveRecord(pName, pendingGridResult.mode, pendingGridResult.score, pendingGridResult.time);
+    alert(`Recorde de ${pName} salvo no Placar!`);
+    nameInput.disabled = true;
+  }
+}
 
-  document.getElementById("grid-save-btn").addEventListener("click", function() {
-    var name = document.getElementById("grid-player-name").value.trim() || "Jogador Anônimo";
-    var modeKey = gridState.diff === "easy" ? "grid-easy" : "grid-hard";
-    var modeLabel = gridState.diff === "easy" ? "Grid (Estados)" : "Grid (Municípios)";
-    var usedGuesses = 10 - gridState.guessesLeft;
-    addLeaderboardEntry({
-      name: name,
-      mode: modeKey,
-      modeLabel: modeLabel,
-      score: gridState.score,
-      maxScore: 9,
-      detail: gridState.score + "/9 células · " + usedGuesses + " palpites"
-    });
-    gridState.saved = true;
-    saveGridProgress();
-    renderGrid();
-  });
+// ==============================================================================
+// MODO 2: VERSUS DIARIO & MODO 3: STREAK
+// ==============================================================================
+var QUESTION_SPECS = [
+  {
+    category: "Demografia / População",
+    metric: "pop",
+    unit: "habitantes",
+    question: "Qual cidade possui MAIOR população residente?",
+    source: "IBGE / Estimativas & Censo (load_population)",
+    minVal: 30000,
+    minRatio: 1.45
+  },
+  {
+    category: "Pecuária / Rebanho",
+    metric: "cattle",
+    unit: "cabeças de gado",
+    question: "Qual cidade possui o MAIOR rebanho bovino?",
+    source: "IBGE / Pesquisa da Pecuária Municipal (load_ppm)",
+    minVal: 120000,
+    minRatio: 1.45
+  },
+  {
+    category: "Agricultura / Grãos",
+    metric: "soy",
+    unit: "toneladas de soja",
+    question: "Qual cidade produziu MAIS soja em 2024?",
+    source: "IBGE / Produção Agrícola Municipal (load_pam)",
+    minVal: 25000,
+    minRatio: 1.50
+  },
+  {
+    category: "Economia / Exportações",
+    metric: "exports_usd",
+    unit: "US$ FOB",
+    question: "Qual cidade exportou MAIOR valor FOB (2025)?",
+    source: "MDIC / Comex Stat (load_br_trade)",
+    minVal: 15000000,
+    minRatio: 1.50
+  },
+  {
+    category: "Economia / Renda",
+    metric: "gd_ppc",
+    unit: "R$",
+    question: "Qual cidade apresenta MAIOR PIB per capita?",
+    source: "IBGE / PIB dos Municípios (load_pibmunic)",
+    minVal: 12000,
+    minRatio: 1.38
+  },
+  {
+    category: "Meio Ambiente / Cobertura",
+    metric: "forest_pct",
+    unit: "% floresta",
+    question: "Qual cidade possui MAIOR percentual de cobertura florestal?",
+    source: "MapBiomas Coleção 9 (load_mapbiomas)",
+    minVal: 15,
+    minRatio: 1.25
+  }
+];
 
-  // ============================================================================
-  // MODO 2: VERSUS (5 DESAFIOS DIARIOS DETERMINISTICOS)
-  // ============================================================================
-  var VERSUS_STORAGE_KEY = "dz_amz_versus_v2_" + TODAY_KEY;
-  var versusState = {
-    questions: [],
-    idx: 0,
-    score: 0,
-    answered: false,
-    finished: false,
-    reviewMode: false,
-    saved: false,
-    choices: []
+function generateVersusPair(rng, spec, forceWinner) {
+  var pool = DATA_HARD.filter(function(m) {
+    return (m[spec.metric] || 0) >= (spec.minVal || 1);
+  });
+  if (pool.length < 10) pool = DATA_HARD;
+
+  for (var i = 0; i < 150; i++) {
+    var a = pool[Math.floor(rng() * pool.length)];
+    var b = pool[Math.floor(rng() * pool.length)];
+    if (a.id === b.id) continue;
+
+    var valA = Number(a[spec.metric]) || 0;
+    var valB = Number(b[spec.metric]) || 0;
+    if (valA === valB) continue;
+
+    var ratio = Math.max(valA, valB) / Math.max(Math.min(valA, valB), 1);
+    if (ratio < (spec.minRatio || 1.35)) continue;
+
+    var winnerSide = (forceWinner === 'left' || forceWinner === 'right') ? forceWinner : (rng() < 0.5 ? 'left' : 'right');
+    var leftCity = winnerSide === 'left' ? (valA > valB ? a : b) : (valA < valB ? a : b);
+    var rightCity = winnerSide === 'left' ? (valA < valB ? a : b) : (valA > valB ? a : b);
+
+    return {
+      category: spec.category,
+      question: spec.question,
+      source: spec.source,
+      left: {
+        id: leftCity.id,
+        name: leftCity.name,
+        uf: leftCity.uf,
+        val: formatMetricUnit(leftCity[spec.metric], spec.unit)
+      },
+      right: {
+        id: rightCity.id,
+        name: rightCity.name,
+        uf: rightCity.uf,
+        val: formatMetricUnit(rightCity[spec.metric], spec.unit)
+      },
+      winner: winnerSide
+    };
+  }
+
+  // Fallback
+  return {
+    category: spec.category,
+    question: spec.question,
+    source: spec.source,
+    left: { id: pool[0].id, name: pool[0].name, uf: pool[0].uf, val: formatMetricUnit(pool[0][spec.metric], spec.unit) },
+    right: { id: pool[1].id, name: pool[1].name, uf: pool[1].uf, val: formatMetricUnit(pool[1][spec.metric], spec.unit) },
+    winner: 'left'
   };
+}
 
-  function saveVersusProgress() {
-    try {
-      localStorage.setItem(VERSUS_STORAGE_KEY, JSON.stringify({
-        idx: versusState.idx,
-        score: versusState.score,
-        finished: versusState.finished,
-        saved: versusState.saved,
-        choices: versusState.choices
-      }));
-    } catch (e) {}
+var VERSUS_DAILY_PUZZLES = [];
+
+function buildDailyVersusPuzzles() {
+  var rng = makeRng("dz_versus_daily_" + getDailySeedString());
+  VERSUS_DAILY_PUZZLES = [];
+  var specs = QUESTION_SPECS.slice();
+  for (var k = 0; k < 5; k++) {
+    var spec = specs[k % specs.length];
+    var winner = (k % 2 === 0) ? 'left' : 'right';
+    VERSUS_DAILY_PUZZLES.push(generateVersusPair(rng, spec, winner));
+  }
+}
+
+function initVersusDailyUI() {
+  document.getElementById('v-status-score-wrap').style.display = 'block';
+  document.getElementById('v-status-chances-wrap').style.display = 'none';
+  document.getElementById('versus-reset-btn-wrap').style.display = 'none';
+  document.getElementById('versus-daily-selector').style.display = 'flex';
+  document.getElementById('versus-completion-panel').style.display = 'none';
+  document.getElementById('versus-game-container').style.display = 'block';
+
+  buildDailyVersusPuzzles();
+  loadVersusDailyQuestion(0);
+}
+
+function loadVersusDailyQuestion(qIndex) {
+  versusDailyIndex = qIndex;
+  for (var i = 0; i < 5; i++) {
+    var pill = document.getElementById(`vpill-${i}`);
+    if (pill) pill.classList.toggle('active', i === qIndex);
   }
 
-  function initVersus() {
-    versusState.questions = getDailyVersusQuestions();
-    try {
-      var raw = localStorage.getItem(VERSUS_STORAGE_KEY);
-      if (raw) {
-        var saved = JSON.parse(raw);
-        if (saved && Array.isArray(saved.choices)) {
-          versusState.choices = saved.choices;
-          versusState.score = saved.score || 0;
-          versusState.finished = !!saved.finished;
-          versusState.saved = !!saved.saved;
-          versusState.reviewMode = false;
-          versusState.idx = versusState.finished ? 4 : Math.min(saved.choices.length, 4);
-          versusState.answered = versusState.finished;
-          renderVersusQuestion();
-          return;
-        }
-      }
-    } catch (e) {}
+  var puzzle = VERSUS_DAILY_PUZZLES[versusDailyIndex];
+  renderVersusArenaQuestion(puzzle);
 
-    versusState.idx = 0;
-    versusState.score = 0;
-    versusState.answered = false;
-    versusState.finished = false;
-    versusState.reviewMode = false;
-    versusState.saved = false;
-    versusState.choices = [];
-    renderVersusQuestion();
+  var prevAns = versusDailyAnswers[qIndex];
+  if (prevAns !== null) {
+    renderVersusAnswerResult(prevAns, puzzle);
+    clearInterval(versusTimerInterval);
+    document.getElementById('versus-btn-next').innerText =
+      (qIndex < 4) ? "Próximo Desafio &rarr;" : "Ver Resultado Final &rarr;";
+  } else {
+    startQuestionTimer();
+  }
+}
+
+function initVersusStreakUI() {
+  document.getElementById('v-status-score-wrap').style.display = 'none';
+  document.getElementById('v-status-chances-wrap').style.display = 'block';
+  document.getElementById('versus-reset-btn-wrap').style.display = 'block';
+  document.getElementById('versus-daily-selector').style.display = 'none';
+  document.getElementById('versus-completion-panel').style.display = 'none';
+  document.getElementById('versus-game-container').style.display = 'block';
+
+  streakCount = 0;
+  document.getElementById('versus-streak-badge').innerText = streakCount;
+
+  var leftChances = getStreakChancesRemaining();
+  document.getElementById('streak-chances-badge').innerText = `${leftChances} / 3`;
+
+  if (leftChances <= 0) {
+    showStreakExhaustedPanel();
+    return;
   }
 
-  function renderVersusQuestion() {
-    var q = versusState.questions[versusState.idx];
-    document.getElementById("versus-kicker").textContent =
-      (versusState.reviewMode ? "REVISÃO DO GABARITO · " : "DESAFIO DIÁRIO · ") +
-      "PERGUNTA #" + (versusState.idx + 1) + " DE 5";
-    document.getElementById("versus-question").textContent = q.q;
-    document.getElementById("versus-unit").textContent = q.unit;
-    document.getElementById("versus-progress-pill").textContent = "Pergunta: " + (versusState.idx + 1) + " / 5";
-    document.getElementById("versus-score-pill").textContent = "Acertos hoje: " + versusState.score + " / 5";
+  loadNextStreakRound();
+}
 
-    var cardA = document.getElementById("versus-card-a");
-    var cardB = document.getElementById("versus-card-b");
-    cardA.className = "mg-duel-card";
-    cardB.className = "mg-duel-card";
+function loadNextStreakRound() {
+  var rng = makeRng("dz_streak_" + getDailySeedString() + "_" + streakCount + "_" + Date.now());
+  var spec = QUESTION_SPECS[Math.floor(rng() * QUESTION_SPECS.length)];
+  currentStreakPuzzle = generateVersusPair(rng, spec, null);
+  renderVersusArenaQuestion(currentStreakPuzzle);
+  startQuestionTimer();
+}
 
-    document.getElementById("versus-uf-a").textContent = q.a.uf;
-    document.getElementById("versus-name-a").textContent = q.a.name;
-    document.getElementById("versus-val-a").textContent = "?";
+function renderVersusArenaQuestion(puzzle) {
+  document.getElementById('versus-category').innerText = puzzle.category;
+  document.getElementById('versus-question').innerText = puzzle.question;
 
-    document.getElementById("versus-uf-b").textContent = q.b.uf;
-    document.getElementById("versus-name-b").textContent = q.b.name;
-    document.getElementById("versus-val-b").textContent = "?";
+  var cardL = document.getElementById('vcard-left');
+  var cardR = document.getElementById('vcard-right');
+  var valL = document.getElementById('vcard-left-val');
+  var valR = document.getElementById('vcard-right-val');
+  var feedback = document.getElementById('versus-feedback-box');
 
-    var fb = document.getElementById("versus-feedback");
-    var banner = document.getElementById("versus-save-banner");
+  cardL.className = 'versus-card';
+  cardR.className = 'versus-card';
+  valL.style.display = 'none';
+  valR.style.display = 'none';
+  feedback.style.display = 'none';
 
-    if (versusState.reviewMode) {
-      var prevChoice = versusState.choices[versusState.idx];
-      showVersusResolution(q, prevChoice !== undefined ? prevChoice : -1);
-      fb.classList.add("show");
-      document.getElementById("versus-next-btn").textContent =
-        versusState.idx < 4 ? "Próxima Pergunta (" + (versusState.idx + 2) + "/5) →" : "Voltar à Pergunta #1";
-      banner.classList.add("show");
-    } else if (versusState.finished) {
-      var lastChoice = versusState.choices[versusState.idx];
-      showVersusResolution(q, lastChoice !== undefined ? lastChoice : -1);
-      fb.classList.remove("show");
-      banner.classList.add("show");
-      document.getElementById("versus-finish-title").textContent =
-        "Você já completou o Desafio Diário de hoje (" + versusState.score + "/5 acertos)!";
-      var saveBtn = document.getElementById("versus-save-btn");
-      var nameInp = document.getElementById("versus-player-name");
-      if (versusState.saved) {
-        saveBtn.disabled = true;
-        saveBtn.textContent = "Salvo no Placar";
-        nameInp.disabled = true;
-      } else {
-        saveBtn.disabled = false;
-        saveBtn.textContent = "Salvar no Placar";
-        nameInp.disabled = false;
-      }
-    } else {
-      fb.classList.remove("show");
-      banner.classList.remove("show");
+  document.getElementById('vcard-left-name').innerText = puzzle.left.name;
+  document.getElementById('vcard-left-uf').innerText = puzzle.left.uf;
+  valL.innerText = puzzle.left.val;
+
+  document.getElementById('vcard-right-name').innerText = puzzle.right.name;
+  document.getElementById('vcard-right-uf').innerText = puzzle.right.uf;
+  valR.innerText = puzzle.right.val;
+}
+
+function handleVersusSelection(chosenSide) {
+  var timeTaken = document.getElementById('versus-timer').innerText;
+
+  if (activeVersusSubMode === 'daily') {
+    if (versusDailyAnswers[versusDailyIndex] !== null) return;
+    clearInterval(versusTimerInterval);
+    var puzzle = VERSUS_DAILY_PUZZLES[versusDailyIndex];
+    var isCorrect = (chosenSide === puzzle.winner);
+
+    versusDailyAnswers[versusDailyIndex] = { chosen: chosenSide, correct: isCorrect, time: timeTaken };
+    if (isCorrect) versusDailyScore++;
+    document.getElementById('versus-score-badge').innerText = `${versusDailyScore} / 5`;
+
+    renderVersusAnswerResult(versusDailyAnswers[versusDailyIndex], puzzle);
+
+    var pill = document.getElementById(`vpill-${versusDailyIndex}`);
+    if (pill) {
+      pill.style.background = isCorrect ? '#2f7d32' : '#c62828';
+      pill.style.color = '#ffffff';
+      pill.style.borderColor = isCorrect ? '#2f7d32' : '#c62828';
     }
-  }
+  } else {
+    // MODO STREAK
+    clearInterval(versusTimerInterval);
+    var puzzle = currentStreakPuzzle;
+    var isCorrect = (chosenSide === puzzle.winner);
 
-  function showVersusResolution(q, choice) {
-    var cardA = document.getElementById("versus-card-a");
-    var cardB = document.getElementById("versus-card-b");
-    cardA.classList.add("disabled");
-    cardB.classList.add("disabled");
-
-    var winChoice = q.a.val >= q.b.val ? 0 : 1;
-    var isCorrect = (choice === winChoice);
-
-    document.getElementById("versus-val-a").textContent = formatMetricValue(q.metric, q.a.val);
-    document.getElementById("versus-val-b").textContent = formatMetricValue(q.metric, q.b.val);
-
-    if (winChoice === 0) {
-      cardA.classList.add("winner");
-      if (choice === 1) cardB.classList.add("loser");
-    } else {
-      cardB.classList.add("winner");
-      if (choice === 0) cardA.classList.add("loser");
-    }
-
-    var fbText = document.getElementById("versus-feedback-text");
-    if (choice === -1) {
-      fbText.textContent = q.explain;
-      fbText.style.color = "#165634";
-    } else {
-      fbText.textContent = (isCorrect ? "Correto! " : "Incorreto. ") + q.explain;
-      fbText.style.color = isCorrect ? "#165634" : "#a82828";
-    }
-  }
-
-  function handleVersusChoice(choice) {
-    if (versusState.answered || versusState.finished || versusState.reviewMode) return;
-    versusState.answered = true;
-    var q = versusState.questions[versusState.idx];
-    var winChoice = q.a.val >= q.b.val ? 0 : 1;
-    if (choice === winChoice) versusState.score++;
-    versusState.choices[versusState.idx] = choice;
-
-    showVersusResolution(q, choice);
-    document.getElementById("versus-score-pill").textContent = "Acertos hoje: " + versusState.score + " / 5";
-
-    if (versusState.idx < 4) {
-      var fb = document.getElementById("versus-feedback");
-      fb.classList.add("show");
-      document.getElementById("versus-next-btn").textContent = "Próxima Pergunta →";
-    } else {
-      versusState.finished = true;
-      var banner = document.getElementById("versus-save-banner");
-      banner.classList.add("show");
-      document.getElementById("versus-finish-title").textContent =
-        "Desafio Diário Concluído! Você acertou " + versusState.score + " de 5.";
-    }
-    saveVersusProgress();
-  }
-
-  document.getElementById("versus-card-a").addEventListener("click", function() { handleVersusChoice(0); });
-  document.getElementById("versus-card-b").addEventListener("click", function() { handleVersusChoice(1); });
-
-  document.getElementById("versus-next-btn").addEventListener("click", function() {
-    if (versusState.reviewMode) {
-      versusState.idx = (versusState.idx + 1) % 5;
-      renderVersusQuestion();
-      return;
-    }
-    if (versusState.idx < 4) {
-      versusState.idx++;
-      versusState.answered = false;
-      saveVersusProgress();
-      renderVersusQuestion();
-    }
-  });
-
-  document.getElementById("versus-review-btn").addEventListener("click", function() {
-    versusState.reviewMode = true;
-    versusState.idx = 0;
-    renderVersusQuestion();
-  });
-
-  document.getElementById("versus-save-btn").addEventListener("click", function() {
-    if (versusState.saved) return;
-    var name = document.getElementById("versus-player-name").value.trim() || "Jogador Anônimo";
-    addLeaderboardEntry({
-      name: name,
-      mode: "versus",
-      modeLabel: "Modo Versus",
-      score: versusState.score,
-      maxScore: 5,
-      detail: versusState.score + "/5 no desafio diário (" + TODAY_BR + ")"
-    });
-    versusState.saved = true;
-    saveVersusProgress();
-    renderVersusQuestion();
-  });
-
-  // ============================================================================
-  // MODO 3: STREAK (3 CHANCES DIARIAS)
-  // ============================================================================
-  var STREAK_STORAGE_KEY = "dz_amz_streak_v2_" + TODAY_KEY;
-  var MAX_STREAK_CHANCES = 3;
-
-  var streakState = {
-    current: 0,
-    bestToday: 0,
-    attemptsUsed: 0,
-    step: 0,
-    answered: false,
-    gameOver: false,
-    savedThisRun: false,
-    activePair: null
-  };
-
-  function loadStreakProgress() {
-    try {
-      var raw = localStorage.getItem(STREAK_STORAGE_KEY);
-      if (raw) {
-        var parsed = JSON.parse(raw);
-        streakState.bestToday = parsed.bestToday || 0;
-        streakState.attemptsUsed = parsed.attemptsUsed || 0;
-        streakState.step = parsed.step || 0;
-      }
-    } catch (e) {}
-  }
-
-  function saveStreakProgress() {
-    try {
-      localStorage.setItem(STREAK_STORAGE_KEY, JSON.stringify({
-        bestToday: streakState.bestToday,
-        attemptsUsed: streakState.attemptsUsed,
-        step: streakState.step
-      }));
-    } catch (e) {}
-  }
-
-  function generateStreakPair() {
-    streakState.step++;
-    var rng = makeRng("dz_streak_" + TODAY_KEY + "_run_" + streakState.attemptsUsed + "_step_" + streakState.step);
-    var spec = QUESTION_SPECS[Math.floor(rng() * QUESTION_SPECS.length)];
-    var useStates = (streakState.step % 4 === 1);
-    var winSide = rng() < 0.5 ? 0 : 1;
-    return generateMeaningfulPair(rng, spec, useStates, winSide);
-  }
-
-  function initStreak() {
-    loadStreakProgress();
-    streakState.current = 0;
-    streakState.answered = false;
-    streakState.savedThisRun = false;
-    document.getElementById("streak-save-banner").classList.remove("show");
-
-    if (streakState.attemptsUsed >= MAX_STREAK_CHANCES) {
-      streakState.gameOver = true;
-      renderStreakLocked();
-      return;
-    }
-
-    streakState.gameOver = false;
-    nextStreakRound();
-  }
-
-  function renderStreakLocked() {
-    var chancesLeft = Math.max(0, MAX_STREAK_CHANCES - streakState.attemptsUsed);
-    document.getElementById("streak-lives-pill").textContent = "Chances hoje: " + chancesLeft + " / " + MAX_STREAK_CHANCES;
-    document.getElementById("streak-current-pill").textContent = "Sequência Atual: " + streakState.current;
-    document.getElementById("streak-best-pill").textContent = "Melhor Hoje: " + streakState.bestToday;
-
-    document.getElementById("streak-kicker").textContent = "LIMITE DIÁRIO ATINGIDO (" + TODAY_BR + ")";
-    document.getElementById("streak-question").textContent =
-      "Você já utilizou suas 3 chances diárias no Modo Streak!";
-    document.getElementById("streak-unit").textContent =
-      "Sua melhor sequência de hoje foi de " + streakState.bestToday + " acertos seguidos. Volte amanhã para 3 novas chances!";
-
-    document.getElementById("streak-card-a").className = "mg-duel-card disabled";
-    document.getElementById("streak-card-b").className = "mg-duel-card disabled";
-    document.getElementById("streak-feedback").classList.remove("show");
-
-    var banner = document.getElementById("streak-save-banner");
-    banner.classList.add("show");
-    document.getElementById("streak-finish-title").textContent =
-      "Chances de hoje encerradas! Melhor marca hoje: " + streakState.bestToday + " acertos.";
-    document.getElementById("streak-finish-desc").textContent =
-      "Registre sua melhor marca de hoje no placar online.";
-  }
-
-  function nextStreakRound() {
-    streakState.answered = false;
-    streakState.activePair = generateStreakPair();
-    var p = streakState.activePair;
-
-    var chancesLeft = Math.max(0, MAX_STREAK_CHANCES - streakState.attemptsUsed);
-    document.getElementById("streak-lives-pill").textContent = "Chances hoje: " + chancesLeft + " / " + MAX_STREAK_CHANCES;
-    document.getElementById("streak-current-pill").textContent = "Sequência Atual: " + streakState.current;
-    document.getElementById("streak-best-pill").textContent = "Melhor Hoje: " + streakState.bestToday;
-
-    document.getElementById("streak-kicker").textContent =
-      "RODADA #" + (streakState.current + 1) + " · TENTATIVA " + (streakState.attemptsUsed + 1) + " DE 3";
-    document.getElementById("streak-question").textContent = p.q;
-    document.getElementById("streak-unit").textContent = p.unit;
-
-    var cardA = document.getElementById("streak-card-a");
-    var cardB = document.getElementById("streak-card-b");
-    cardA.className = "mg-duel-card";
-    cardB.className = "mg-duel-card";
-
-    document.getElementById("streak-uf-a").textContent = p.a.uf;
-    document.getElementById("streak-name-a").textContent = p.a.name;
-    document.getElementById("streak-val-a").textContent = "?";
-
-    document.getElementById("streak-uf-b").textContent = p.b.uf;
-    document.getElementById("streak-name-b").textContent = p.b.name;
-    document.getElementById("streak-val-b").textContent = "?";
-
-    document.getElementById("streak-feedback").classList.remove("show");
-  }
-
-  function handleStreakChoice(choice) {
-    if (streakState.answered || streakState.gameOver) return;
-    streakState.answered = true;
-    var p = streakState.activePair;
-    var cardA = document.getElementById("streak-card-a");
-    var cardB = document.getElementById("streak-card-b");
-    cardA.classList.add("disabled");
-    cardB.classList.add("disabled");
-
-    var winChoice = p.a.val >= p.b.val ? 0 : 1;
-    var isCorrect = (choice === winChoice);
-
-    document.getElementById("streak-val-a").textContent = formatMetricValue(p.metric, p.a.val);
-    document.getElementById("streak-val-b").textContent = formatMetricValue(p.metric, p.b.val);
-
-    if (winChoice === 0) {
-      cardA.classList.add("winner");
-      if (!isCorrect) cardB.classList.add("loser");
-    } else {
-      cardB.classList.add("winner");
-      if (!isCorrect) cardA.classList.add("loser");
-    }
-
-    var fb = document.getElementById("streak-feedback");
-    var fbText = document.getElementById("streak-feedback-text");
-    var nextBtn = document.getElementById("streak-next-btn");
+    renderVersusAnswerResult({ chosen: chosenSide, correct: isCorrect, time: timeTaken }, puzzle);
 
     if (isCorrect) {
-      streakState.current++;
-      if (streakState.current > streakState.bestToday) {
-        streakState.bestToday = streakState.current;
-      }
-      saveStreakProgress();
-      document.getElementById("streak-current-pill").textContent = "Sequência Atual: " + streakState.current;
-      document.getElementById("streak-best-pill").textContent = "Melhor Hoje: " + streakState.bestToday;
-
-      fbText.textContent = "Correto! Sequência em " + streakState.current + ". " + p.explain;
-      fbText.style.color = "#165634";
-      nextBtn.style.display = "inline-block";
-      nextBtn.textContent = "Próximo Desafio →";
-      fb.classList.add("show");
+      streakCount++;
+      document.getElementById('versus-streak-badge').innerText = streakCount;
+      document.getElementById('versus-btn-next').innerText = "Continuar Streak &rarr;";
     } else {
-      streakState.attemptsUsed++;
-      streakState.gameOver = true;
-      saveStreakProgress();
-
-      var chancesLeft = Math.max(0, MAX_STREAK_CHANCES - streakState.attemptsUsed);
-      document.getElementById("streak-lives-pill").textContent = "Chances hoje: " + chancesLeft + " / " + MAX_STREAK_CHANCES;
-
-      fbText.textContent = "Fim da tentativa! Você alcançou " + streakState.current + " acertos seguidos. (" + chancesLeft + " chance(s) restante(s) hoje)";
-      fbText.style.color = "#a82828";
-
-      if (chancesLeft > 0) {
-        nextBtn.style.display = "inline-block";
-        nextBtn.textContent = "Usar Próxima Chance (" + chancesLeft + " restante) →";
-      } else {
-        nextBtn.style.display = "none";
-      }
-      fb.classList.add("show");
-
-      var banner = document.getElementById("streak-save-banner");
-      banner.classList.add("show");
-      document.getElementById("streak-finish-title").textContent =
-        "Tentativa encerrada com " + streakState.current + " acertos seguidos!";
-      document.getElementById("streak-finish-desc").textContent =
-        chancesLeft > 0
-          ? "Salve sua pontuação ou clique em 'Usar Próxima Chance' acima."
-          : "Você concluiu suas 3 chances de hoje! Salve sua melhor pontuação no placar.";
+      consumeStreakChance();
+      var leftChances = getStreakChancesRemaining();
+      document.getElementById('streak-chances-badge').innerText = `${leftChances} / 3`;
+      document.getElementById('versus-btn-next').innerText = "Ver Resultado Final &rarr;";
     }
   }
+}
 
-  document.getElementById("streak-card-a").addEventListener("click", function() { handleStreakChoice(0); });
-  document.getElementById("streak-card-b").addEventListener("click", function() { handleStreakChoice(1); });
+function renderVersusAnswerResult(ans, puzzle) {
+  var cardL = document.getElementById('vcard-left');
+  var cardR = document.getElementById('vcard-right');
+  var valL = document.getElementById('vcard-left-val');
+  var valR = document.getElementById('vcard-right-val');
+  var feedback = document.getElementById('versus-feedback-box');
+  var statusTitle = document.getElementById('versus-feedback-status');
+  var feedbackText = document.getElementById('versus-feedback-text');
 
-  document.getElementById("streak-next-btn").addEventListener("click", function() {
-    if (streakState.gameOver) {
-      if (streakState.attemptsUsed < MAX_STREAK_CHANCES) {
-        streakState.current = 0;
-        streakState.gameOver = false;
-        streakState.savedThisRun = false;
-        document.getElementById("streak-save-banner").classList.remove("show");
-        nextStreakRound();
-      } else {
-        renderStreakLocked();
-      }
-      return;
+  valL.style.display = 'block';
+  valR.style.display = 'block';
+
+  if (puzzle.winner === 'left') {
+    cardL.classList.add('correct');
+    if (ans.chosen === 'right') cardR.classList.add('wrong');
+  } else {
+    cardR.classList.add('correct');
+    if (ans.chosen === 'left') cardL.classList.add('wrong');
+  }
+
+  if (ans.correct) {
+    feedback.className = 'feedback-box correct';
+    statusTitle.innerText = "Correto!";
+    feedbackText.innerHTML = `
+      <strong>${puzzle.winner === 'left' ? puzzle.left.name : puzzle.right.name} (${puzzle.winner === 'left' ? puzzle.left.uf : puzzle.right.uf})</strong> 
+      possui <strong>${puzzle.winner === 'left' ? puzzle.left.val : puzzle.right.val}</strong>, superando 
+      <strong>${puzzle.winner === 'left' ? puzzle.right.name : puzzle.left.name} (${puzzle.winner === 'left' ? puzzle.right.uf : puzzle.left.uf})</strong> 
+      com <strong>${puzzle.winner === 'left' ? puzzle.right.val : puzzle.left.val}</strong>.<br>
+      <span style="font-size: 11px; color: #556055; margin-top: 4px; display: inline-block;"><strong>Fonte Oficial:</strong> ${puzzle.source}</span>
+    `;
+  } else {
+    feedback.className = 'feedback-box wrong';
+    statusTitle.innerText = "Incorreto!";
+    feedbackText.innerHTML = `
+      <strong>${puzzle.winner === 'left' ? puzzle.left.name : puzzle.right.name} (${puzzle.winner === 'left' ? puzzle.left.uf : puzzle.right.uf})</strong> 
+      é quem possui o maior valor com <strong>${puzzle.winner === 'left' ? puzzle.left.val : puzzle.right.val}</strong>, enquanto 
+      <strong>${puzzle.winner === 'left' ? puzzle.right.name : puzzle.left.name} (${puzzle.winner === 'left' ? puzzle.right.uf : puzzle.left.uf})</strong> 
+      possui <strong>${puzzle.winner === 'left' ? puzzle.right.val : puzzle.left.val}</strong>.<br>
+      <span style="font-size: 11px; color: #721c24; margin-top: 4px; display: inline-block;"><strong>Fonte Oficial:</strong> ${puzzle.source}</span>
+    `;
+  }
+  feedback.style.display = 'block';
+}
+
+function goToNextVersus() {
+  if (activeVersusSubMode === 'daily') {
+    if (versusDailyIndex < 4) {
+      loadVersusDailyQuestion(versusDailyIndex + 1);
+    } else {
+      showVersusDailyFinalScreen();
     }
-    nextStreakRound();
-  });
-
-  document.getElementById("streak-save-btn").addEventListener("click", function() {
-    var scoreToSave = Math.max(streakState.current, streakState.bestToday);
-    if (scoreToSave <= 0 || streakState.savedThisRun) return;
-    var name = document.getElementById("streak-player-name").value.trim() || "Jogador Anônimo";
-    addLeaderboardEntry({
-      name: name,
-      mode: "streak",
-      modeLabel: "Modo Streak",
-      score: scoreToSave,
-      maxScore: null,
-      detail: scoreToSave + " acertos seguidos (" + TODAY_BR + ")"
-    });
-    streakState.savedThisRun = true;
-    document.getElementById("streak-save-btn").textContent = "Recorde Salvo!";
-  });
-
-  // ============================================================================
-  // MODO 4: LEADERBOARD ONLINE HIBRIDO (Static JSON + Serverless API + Local Sync)
-  // ============================================================================
-  var LB_STORAGE_KEY = "dz_amz_leaderboard_v3";
-  var lbFilter = "all";
-  var lbEntriesCache = [];
-  var lbSyncChannel = (typeof BroadcastChannel !== "undefined")
-    ? new BroadcastChannel("dz_amz_leaderboard_sync")
-    : null;
-
-  if (lbSyncChannel) {
-    lbSyncChannel.onmessage = function() {
-      syncLeaderboardOnline(false);
-    };
+  } else {
+    var lastAns = document.getElementById('versus-feedback-status').innerText;
+    if (lastAns === "Incorreto!") {
+      showStreakFinalScreen();
+    } else {
+      loadNextStreakRound();
+    }
   }
+}
 
-  function getLocalLbEntries() {
-    try {
-      var raw = localStorage.getItem(LB_STORAGE_KEY);
-      if (raw) {
-        var parsed = JSON.parse(raw);
-        if (Array.isArray(parsed)) return parsed;
-      }
-    } catch (e) {}
-    return [];
+function showVersusDailyFinalScreen() {
+  document.getElementById('versus-game-container').style.display = 'none';
+  var panel = document.getElementById('versus-completion-panel');
+  var title = document.getElementById('versus-completion-title');
+  var msg = document.getElementById('versus-completion-msg');
+
+  title.innerText = "Modo Versus Diário Concluído!";
+  title.style.color = "var(--green-btn)";
+  msg.innerText = `Você finalizou os 5 desafios de hoje! Total de Acertos: ${versusDailyScore} de 5 perguntas.`;
+
+  pendingVersusResult = {
+    mode: 'Modo Versus',
+    score: `${versusDailyScore} de 5 acertos`,
+    time: '5 Desafios'
+  };
+
+  document.getElementById('versus-completion-actions').innerHTML = `
+    <button class="level-btn" onclick="reviewVersusDailyQuestions()">Rever Perguntas de Hoje</button>
+  `;
+  panel.style.display = 'block';
+  updateMidnightCountdown();
+}
+
+function reviewVersusDailyQuestions() {
+  document.getElementById('versus-completion-panel').style.display = 'none';
+  document.getElementById('versus-game-container').style.display = 'block';
+  loadVersusDailyQuestion(0);
+}
+
+function showStreakFinalScreen() {
+  document.getElementById('versus-game-container').style.display = 'none';
+  var panel = document.getElementById('versus-completion-panel');
+  var title = document.getElementById('versus-completion-title');
+  var msg = document.getElementById('versus-completion-msg');
+
+  var leftChances = getStreakChancesRemaining();
+  title.innerText = "Fim da Corrida de Streak!";
+  title.style.color = "var(--danger-red)";
+  msg.innerText = `Você atingiu uma sequência de ${streakCount} acertos consecutivos. Restam ${leftChances} chance(s) para hoje.`;
+
+  pendingVersusResult = {
+    mode: 'Modo Streak',
+    score: `Streak: ${streakCount}`,
+    time: `Sequência Concluída`
+  };
+
+  var actionHtml = '';
+  if (leftChances > 0) {
+    actionHtml = `<button class="modal-btn" onclick="initVersusStreakUI()">Usar Próxima Chance (${leftChances} restantes) &rarr;</button>`;
+  } else {
+    actionHtml = `<span style="color:#888; font-size:13px;">Chances diárias esgotadas. Volte amanhã às 00:00!</span>`;
   }
+  document.getElementById('versus-completion-actions').innerHTML = actionHtml;
+  panel.style.display = 'block';
+  updateMidnightCountdown();
+}
 
-  function saveLocalLbEntries(entries) {
-    try {
-      localStorage.setItem(LB_STORAGE_KEY, JSON.stringify(entries.slice(0, 150)));
-    } catch (e) {}
+function showStreakExhaustedPanel() {
+  clearInterval(versusTimerInterval);
+  document.getElementById('versus-game-container').style.display = 'none';
+  var panel = document.getElementById('versus-completion-panel');
+  var title = document.getElementById('versus-completion-title');
+  var msg = document.getElementById('versus-completion-msg');
+
+  title.innerText = "Chances Esgotadas Hoje!";
+  title.style.color = "var(--danger-red)";
+  msg.innerText = "Você utilizou todas as suas 3 chances diárias no Modo Streak. Volte amanhã para novas tentativas!";
+  
+  document.getElementById('versus-completion-actions').innerHTML = `
+    <button class="level-btn" onclick="openGameMode('home')">Voltar ao Menu Principal</button>
+  `;
+  panel.style.display = 'block';
+  updateMidnightCountdown();
+}
+
+function saveVersusRecordWithName() {
+  var nameInput = document.getElementById('versus-player-name');
+  var pName = nameInput.value.trim() || 'Jogador Anônimo';
+  if (pendingVersusResult) {
+    saveRecord(pName, pendingVersusResult.mode, pendingVersusResult.score, pendingVersusResult.time);
+    alert(`Recorde de ${pName} salvo no Placar!`);
+    nameInput.disabled = true;
   }
+}
 
-  function mergeLbEntries(lists) {
-    var map = {};
-    lists.forEach(function(list) {
-      if (!Array.isArray(list)) return;
-      list.forEach(function(item) {
-        if (!item || !item.name || !(Number(item.score) > 0)) return;
-        var key = item.id || (item.name + "__" + item.mode + "__" + item.score + "__" + item.date);
-        map[key] = {
-          id: key,
-          name: String(item.name).slice(0, 28),
-          mode: item.mode,
-          modeLabel: item.modeLabel || item.mode,
-          score: Number(item.score),
-          maxScore: item.maxScore === undefined ? null : item.maxScore,
-          detail: item.detail || "",
-          date: item.date || TODAY_BR
-        };
-      });
-    });
-    var merged = Object.keys(map).map(function(k) { return map[k]; });
-    merged.sort(function(a, b) { return b.score - a.score; });
-    return merged;
+function resetCurrentVersusMode() {
+  if (activeVersusSubMode === 'streak') {
+    initVersusStreakUI();
   }
+}
 
-  function syncLeaderboardOnline(showRefreshing) {
-    var statusEl = document.getElementById("lb-sync-status");
-    if (showRefreshing && statusEl) statusEl.textContent = "Sincronizando...";
+function startQuestionTimer() {
+  clearInterval(versusTimerInterval);
+  versusTimerSeconds = 0;
+  document.getElementById('versus-timer').innerText = "00:00";
+  versusTimerInterval = setInterval(function() {
+    versusTimerSeconds++;
+    var mins = String(Math.floor(versusTimerSeconds / 60)).padStart(2, '0');
+    var secs = String(versusTimerSeconds % 60).padStart(2, '0');
+    document.getElementById('versus-timer').innerText = mins + ":" + secs;
+  }, 1000);
+}
 
-    var localList = getLocalLbEntries();
+function getStreakChancesRemaining() {
+  var key = `streak_chances_${getDailySeedString()}`;
+  var used = parseInt(localStorage.getItem(key) || '0', 10);
+  return Math.max(0, 3 - used);
+}
 
-    // 1. Carrega assets/data/leaderboard.json (sempre disponivel no GitHub Pages e local)
-    fetch(STATIC_LB_URL, { cache: "no-store" })
-      .then(function(r) { return r.ok ? r.json() : { entries: [] }; })
-      .catch(function() { return { entries: [] }; })
-      .then(function(staticData) {
-        var baseEntries = (staticData && Array.isArray(staticData.entries)) ? staticData.entries : [];
-        lbEntriesCache = mergeLbEntries([baseEntries, localList]);
-        renderLeaderboard();
+function consumeStreakChance() {
+  var key = `streak_chances_${getDailySeedString()}`;
+  var used = parseInt(localStorage.getItem(key) || '0', 10);
+  localStorage.setItem(key, String(used + 1));
+}
 
-        // 2. Se houver endpoint serverless configurado ou API local ativa, sincroniza em seguida
-        var apiTarget = REMOTE_LEADERBOARD_ENDPOINT || LOCAL_API_LB_URL;
-        return fetch(apiTarget, { cache: "no-store" })
-          .then(function(r) { return r.ok ? r.json() : null; })
-          .catch(function() { return null; });
+function updateMidnightCountdown() {
+  function tick() {
+    var now = new Date();
+    var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    var diff = tomorrow - now;
+    var hrs = String(Math.floor(diff / 3600000)).padStart(2, '0');
+    var mins = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+    var secs = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+
+    var text = `${hrs}:${mins}:${secs}`;
+    var gEl = document.getElementById('grid-countdown');
+    var vEl = document.getElementById('versus-countdown');
+    if (gEl) gEl.innerText = text;
+    if (vEl) vEl.innerText = text;
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+// ==============================================================================
+// PLACAR OFICIAL (ONLINE HIBRIDO: JSON + API + LOCALSTORAGE)
+// ==============================================================================
+function saveRecord(playerName, mode, scoreVal, timeStr) {
+  var newEntry = {
+    id: "dz-" + Date.now(),
+    name: playerName,
+    mode: mode,
+    modeLabel: mode,
+    score: scoreVal,
+    time: timeStr,
+    detail: `${scoreVal} em ${timeStr}`,
+    date: new Date().toLocaleDateString('pt-BR')
+  };
+
+  try {
+    var list = JSON.parse(localStorage.getItem('datazoom_records') || '[]');
+    list.unshift(newEntry);
+    localStorage.setItem('datazoom_records', JSON.stringify(list.slice(0, 50)));
+  } catch (e) {}
+
+  var targets = [LOCAL_API_LB_URL];
+  if (REMOTE_LEADERBOARD_ENDPOINT) targets.unshift(REMOTE_LEADERBOARD_ENDPOINT);
+
+  targets.forEach(function(url) {
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({
+        id: newEntry.id,
+        name: playerName,
+        mode: mode.indexOf('Grid (Estados)') !== -1 ? 'grid-easy' :
+              mode.indexOf('Grid (Municípios)') !== -1 ? 'grid-hard' :
+              mode.indexOf('Versus') !== -1 ? 'versus' : 'streak',
+        score: parseInt(String(scoreVal).replace(/\D/g, '') || '1', 10),
+        detail: newEntry.detail,
+        date: newEntry.date
       })
-      .then(function(remoteData) {
-        if (remoteData && Array.isArray(remoteData.entries)) {
-          lbEntriesCache = mergeLbEntries([lbEntriesCache, remoteData.entries]);
-          saveLocalLbEntries(lbEntriesCache);
-          if (statusEl) {
-            statusEl.textContent = REMOTE_LEADERBOARD_ENDPOINT
-              ? "Online · Nuvem Data Zoom"
-              : "Online · Servidor Sincronizado";
-          }
-          renderLeaderboard();
-        } else if (statusEl) {
-          statusEl.textContent = "Online · Base Oficial Data Zoom";
+    }).catch(function() {});
+  });
+}
+
+function renderLeaderboard() {
+  var tbody = document.getElementById('leaderboard-body');
+  var badge = document.getElementById('lb-sync-badge');
+
+  fetch(STATIC_LB_URL, { cache: "no-store" })
+    .then(function(r) { return r.ok ? r.json() : { entries: [] }; })
+    .catch(function() { return { entries: [] }; })
+    .then(function(staticData) {
+      var staticList = (staticData && Array.isArray(staticData.entries)) ? staticData.entries : [];
+      var localList = [];
+      try { localList = JSON.parse(localStorage.getItem('datazoom_records') || '[]'); } catch (e) {}
+
+      var merged = [];
+      var map = {};
+
+      localList.forEach(function(it) {
+        var k = it.name + "__" + it.mode + "__" + it.score;
+        map[k] = true;
+        merged.push(it);
+      });
+
+      staticList.forEach(function(it) {
+        var k = it.name + "__" + it.modeLabel + "__" + it.score;
+        if (!map[k]) {
+          merged.push({
+            name: it.name,
+            mode: it.modeLabel || it.mode,
+            score: it.score + (it.maxScore ? ` / ${it.maxScore}` : ' pts'),
+            time: it.detail || '--:--',
+            date: it.date
+          });
         }
       });
-  }
 
-  function addLeaderboardEntry(entry) {
-    var newEntry = {
-      id: "dz-" + Date.now() + "-" + Math.floor(Math.random() * 1000),
-      name: entry.name,
-      mode: entry.mode,
-      modeLabel: entry.modeLabel,
-      score: entry.score,
-      maxScore: entry.maxScore,
-      detail: entry.detail,
-      date: TODAY_BR
-    };
+      if (merged.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #888;">Nenhuma partida concluída ainda.</td></tr>';
+        return;
+      }
 
-    var localList = getLocalLbEntries();
-    localList.push(newEntry);
-    saveLocalLbEntries(localList);
-    lbEntriesCache = mergeLbEntries([lbEntriesCache, [newEntry]]);
-    renderLeaderboard();
+      tbody.innerHTML = merged.slice(0, 30).map(function(item) {
+        return `
+          <tr>
+            <td><strong>${item.name || 'Jogador'}</strong></td>
+            <td>${item.mode}</td>
+            <td><span style="font-family: monospace; font-weight: 700; color: var(--green-btn);">${item.score}</span></td>
+            <td>${item.time}</td>
+            <td style="color: #666; font-size: 11px;">${item.date}</td>
+          </tr>
+        `;
+      }).join('');
 
-    if (lbSyncChannel) {
-      try { lbSyncChannel.postMessage({ type: "new_score" }); } catch (e) {}
+      if (badge) badge.innerText = "Online · Sincronizado";
+    });
+}
+
+// ==============================================================================
+// INICIALIZACAO: CARREGA O GRAO OFICIAL DE MINIGAMES_DATA.JSON
+// ==============================================================================
+fetch(DATA_JSON_URL)
+  .then(function(r) {
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  })
+  .then(function(payload) {
+    DATA_STATES = payload.states.map(function(s) {
+      return {
+        id: s.uf,
+        name: s.name,
+        uf: s.uf,
+        pop: s.pop,
+        cattle: s.cattle,
+        soy: s.soy,
+        corn: s.corn,
+        cassava: s.cassava,
+        exports_usd: s.exports_usd,
+        forest_pct: s.forest_pct,
+        deforest_acc_km2: s.deforest_acc_km2,
+        ips: s.ips,
+        gd_ppc: s.gd_ppc,
+        is_uf: true
+      };
+    });
+
+    DATA_HARD = payload.municipalities.map(function(m) {
+      return {
+        id: m.id,
+        name: m.name,
+        uf: m.uf,
+        pop: m.pop,
+        cattle: m.cattle,
+        soy: m.soy,
+        corn: m.corn,
+        cassava: m.cassava,
+        exports_usd: m.exports_usd,
+        forest_pct: m.forest_pct,
+        deforest_acc_km2: m.deforest_acc_km2,
+        ips: m.ips,
+        gd_ppc: m.gd_ppc,
+        in_arco: !!ARCO_DESMATAMENTO_NAMES[m.name]
+      };
+    });
+
+    var homeBadge = document.getElementById('home-data-badge');
+    if (homeBadge) {
+      homeBadge.innerText = `${DATA_STATES.length} Estados e ${DATA_HARD.length} Municípios Oficiais da Amazônia Legal (.rds)`;
     }
-
-    // Envia para API local (em desenvolvimento) e/ou Google Apps Script Web App (em producao)
-    var targets = [LOCAL_API_LB_URL];
-    if (REMOTE_LEADERBOARD_ENDPOINT) targets.unshift(REMOTE_LEADERBOARD_ENDPOINT);
-
-    targets.forEach(function(url) {
-      fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(newEntry)
-      })
-        .then(function(r) { return r.ok ? r.json() : null; })
-        .then(function(resp) {
-          if (resp && Array.isArray(resp.entries)) {
-            lbEntriesCache = mergeLbEntries([lbEntriesCache, resp.entries]);
-            renderLeaderboard();
-          }
-        })
-        .catch(function() {});
-    });
-
-    document.querySelector('[data-tab="leaderboard"]').click();
-  }
-
-  function renderLeaderboard() {
-    var tbody = document.getElementById("mg-lb-tbody");
-    if (!tbody) return;
-    var filtered = lbEntriesCache.filter(function(item) {
-      if (lbFilter === "all") return true;
-      return item.mode === lbFilter;
-    });
-
-    filtered.sort(function(a, b) { return b.score - a.score; });
-
-    tbody.innerHTML = "";
-    if (filtered.length === 0) {
-      tbody.innerHTML = "<tr><td colspan='6' style='text-align:center;color:#6c7d73;padding:24px;'>Nenhum registro neste modo ainda. Jogue uma partida e salve seu recorde!</td></tr>";
-      return;
-    }
-
-    filtered.slice(0, 50).forEach(function(item, idx) {
-      var tr = document.createElement("tr");
-      var scoreText = item.maxScore ? (item.score + " / " + item.maxScore) : (item.score + " pts");
-      tr.innerHTML =
-        "<td><span class='mg-rank-badge'>" + (idx + 1) + "º</span></td>" +
-        "<td><strong>" + item.name + "</strong></td>" +
-        "<td>" + item.modeLabel + "</td>" +
-        "<td><strong>" + scoreText + "</strong></td>" +
-        "<td style='color:#4f6358;'>" + item.detail + "</td>" +
-        "<td style='color:#6b7d73;'>" + item.date + "</td>";
-      tbody.appendChild(tr);
-    });
-  }
-
-  document.querySelectorAll("[data-lbfilter]").forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      document.querySelectorAll("[data-lbfilter]").forEach(function(b) { b.classList.remove("active"); });
-      btn.classList.add("active");
-      lbFilter = btn.getAttribute("data-lbfilter");
-      renderLeaderboard();
-    });
+  })
+  .catch(function(err) {
+    var homeBadge = document.getElementById('home-data-badge');
+    if (homeBadge) homeBadge.innerText = "Erro ao carregar dados oficiais.";
   });
 
-  document.getElementById("lb-refresh-btn").addEventListener("click", function() {
-    syncLeaderboardOnline(true);
-  });
-
-  // ============================================================================
-  // BOOTSTRAP: CARREGA O GRAO OFICIAL (assets/data/minigames_data.json)
-  // ============================================================================
-  function loadOfficialGameData() {
-    var loadingBox = document.getElementById("mg-loading-state");
-    var errorBox = document.getElementById("mg-error-state");
-    var appContent = document.getElementById("mg-app-content");
-    var statusBadge = document.getElementById("mg-data-status");
-
-    loadingBox.style.display = "block";
-    errorBox.style.display = "none";
-    appContent.style.display = "none";
-
-    fetch(DATA_JSON_URL)
-      .then(function(resp) {
-        if (!resp.ok) throw new Error("HTTP " + resp.status + " ao carregar " + DATA_JSON_URL);
-        return resp.json();
-      })
-      .then(function(payload) {
-        if (!payload || !Array.isArray(payload.states) || !Array.isArray(payload.municipalities)) {
-          throw new Error("Formato de minigames_data.json inválido.");
-        }
-        DATA_META = payload.meta || {};
-        DATA_DICT = payload.dictionary || {};
-        DATA_STATES = payload.states;
-        DATA_MUNIS = payload.municipalities;
-
-        buildValidatedGridPools();
-
-        loadingBox.style.display = "none";
-        appContent.style.display = "block";
-        statusBadge.textContent =
-          DATA_STATES.length + " Estados · " + DATA_MUNIS.length + " Municípios Oficiais (.rds)";
-
-        initGrid("easy", false);
-        initVersus();
-        initStreak();
-        syncLeaderboardOnline(false);
-      })
-      .catch(function(err) {
-        loadingBox.style.display = "none";
-        errorBox.style.display = "block";
-        statusBadge.textContent = "Erro ao carregar base";
-        document.getElementById("mg-error-msg").textContent =
-          "Detalhe técnico: " + (err && err.message ? err.message : String(err));
-      });
-  }
-
-  document.getElementById("mg-retry-btn").addEventListener("click", loadOfficialGameData);
-
-  loadOfficialGameData();
-})();
+window.addEventListener('DOMContentLoaded', function() {
+  openGameMode('home');
+});
 </script>
