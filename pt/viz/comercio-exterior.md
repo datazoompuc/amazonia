@@ -50,8 +50,25 @@ description: "Comércio exterior na Amazônia Legal: valor e quantidade exportad
       <p>
         Dados coletados e tratados pela <a href="https://www.gov.br/produtividade-e-comercio-exterior/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta/" target="_blank" rel="noreferrer noopener">Comex Stat</a>.
         O conjunto de dados Comex reúne dados extraídos do Siscomex (Sistema Integrado de Comércio Exterior), que é um banco de dados
-        contendo informações de todos os produtos importados ou exportados do Brasil.<br><br>
-        Quer explorar mais? Acesse o nosso <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
+        contendo informações de todos os produtos importados ou exportados do Brasil.
+      </p>
+
+      <p>
+        <strong>Quer os dados por trás deste gráfico?</strong> Eles saem do nosso pacote
+        <strong>datazoom.amazonia</strong>, em <strong>R</strong>. No seu console:
+      </p>
+      <pre class="dzam-code"><code>install.packages("datazoom.amazonia")
+
+dados &lt;- datazoom.amazonia::load_br_trade(
+  dataset     = "export_mun",
+  time_period = 1997:2026,
+  language    = "pt"
+)</code></pre>
+      <p>
+        O mesmo pacote dá acesso aos outros dados da Amazônia Legal que usamos nas
+        visualizações. A lista completa, com exemplos, está em
+        <a href="{{ site.baseurl }}/pt/codigos-e-dados/">Códigos e Dados</a>; o código do pacote
+        está no <a href="https://github.com/datazoompuc/datazoom.amazonia" target="_blank" rel="noreferrer noopener">GitHub</a>.
       </p>
      <br>
       <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
@@ -113,6 +130,8 @@ description: "Comércio exterior na Amazônia Legal: valor e quantidade exportad
      que as visualizações antigas usavam. vh para preencher a tela, com um piso para
      telas baixas. -->
 <style>
+  /* mesmo bloco de código usado em Códigos e Dados */
+  .dzam-code { background:#f6f8fa; border:1px solid #e1e4e8; border-radius:8px; padding:12px; overflow:auto; }
   .viz-embed { height: calc(100vh - 180px); min-height: 760px; display: block; }
   @media (max-width: 992px) { .viz-embed { height: 80vh !important; min-height: 620px; } }
   @media (max-width: 576px) { .viz-embed { height: 85vh !important; min-height: 560px; } }

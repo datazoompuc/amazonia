@@ -51,8 +51,24 @@ description: "Foreign trade in the Legal Amazon: export value and quantity by mu
       <p>
         Data collected and treated by <a href="https://www.gov.br/mdic/pt-br/assuntos/comercio-exterior/estatisticas/base-de-dados-bruta/" target="_blank" rel="noreferrer noopener">Comex Stat</a>.
         The Comex data set gathers data extracted from Siscomex (Integrated Foreign Trade System), which is a database
-        containing information on all products imported or exported from Brazil.<br><br>
-        Want to explore more? Access our <a href="https://github.com/datazoompuc" target="_blank" rel="noreferrer noopener">Github</a>.
+        containing information on all products imported or exported from Brazil.
+      </p>
+
+      <p>
+        <strong>Want the data behind this chart?</strong> It comes from our
+        <strong>datazoom.amazonia</strong> package, in <strong>R</strong>. In your console:
+      </p>
+      <pre class="dzam-code"><code>install.packages("datazoom.amazonia")
+
+data &lt;- datazoom.amazonia::load_br_trade(
+  dataset     = "export_mun",
+  time_period = 1997:2026
+)</code></pre>
+      <p>
+        The same package gives you the other Legal Amazon datasets behind our visualizations.
+        The full list, with examples, is in
+        <a href="{{ site.baseurl }}/en/codigos-e-dados/">Codes and Data</a>; the package source
+        is on <a href="https://github.com/datazoompuc/datazoom.amazonia" target="_blank" rel="noreferrer noopener">GitHub</a>.
       </p>
      <br>
       <p style="background:#f0f0f0;border:1px solid #dbdbdb;border-radius:6px; padding:15px 15px 15px 30px; text-align: justify;">
@@ -114,6 +130,8 @@ description: "Foreign trade in the Legal Amazon: export value and quantity by mu
 <!-- The app is a dashboard with a sidebar: it needs height, not the 800px band
      the older visualizations used. vh to fill the screen, with a floor for short ones. -->
 <style>
+  /* same code block used in Codes and Data */
+  .dzam-code { background:#f6f8fa; border:1px solid #e1e4e8; border-radius:8px; padding:12px; overflow:auto; }
   .viz-embed { height: calc(100vh - 180px); min-height: 760px; display: block; }
   @media (max-width: 992px) { .viz-embed { height: 80vh !important; min-height: 620px; } }
   @media (max-width: 576px) { .viz-embed { height: 85vh !important; min-height: 560px; } }
