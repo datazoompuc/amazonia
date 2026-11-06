@@ -26,7 +26,7 @@ description: "Comércio exterior na Amazônia Legal: valor e quantidade exportad
 <div class="container-fluid p-0">
   <iframe
     class="viz-embed"
-    src="https://datazoom.com.br/datazoom_viz/comex_exp_municipio/"
+    src="{{ site.viz_app_base }}/comex_exp_municipio/"
     width="100%"
     frameborder="0"
     allowfullscreen
