@@ -22,11 +22,14 @@ description: "Comércio exterior na Amazônia Legal: valor e quantidade exportad
 
 <br>
 
-<!-- O app estático, servido pelo GitHub Pages do repositório datazoom_viz -->
+<!-- O app estático, servido pelo GitHub Pages do repositório datazoom_viz.
+       ?embed=1 esconde o que esta página já mostra: marca, descrição, logo e o
+       seletor de idioma (quem troca o idioma aqui é a nav bar, que recarrega a
+       página inteira; o do app trocaria só o iframe). -->
 <div class="container-fluid p-0">
   <iframe
     class="viz-embed"
-    src="{{ site.viz_app_base }}/comex_exp_municipio/"
+    src="{{ site.viz_app_base }}/comex_exp_municipio/?embed=1"
     width="100%"
     frameborder="0"
     allowfullscreen

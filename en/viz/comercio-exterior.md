@@ -23,11 +23,14 @@ description: "Foreign trade in the Legal Amazon: export value and quantity by mu
 
 <br>
 
-<!-- The static app, served by GitHub Pages from the datazoom_viz repository -->
+<!-- The static app, served by GitHub Pages from the datazoom_viz repository.
+       ?embed=1 hides what this page already shows: brand, description, logo and the
+       language toggle (the nav bar owns language here, reloading the whole page;
+       the app's own toggle would switch only the iframe). -->
 <div class="container-fluid p-0">
   <iframe
     class="viz-embed"
-    src="{{ site.viz_app_base }}/comex_exp_municipio/?lang=en"
+    src="{{ site.viz_app_base }}/comex_exp_municipio/?lang=en&amp;embed=1"
     width="100%"
     frameborder="0"
     allowfullscreen
