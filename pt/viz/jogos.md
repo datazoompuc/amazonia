@@ -901,42 +901,43 @@ function formatMetricUnit(val, unit) {
 
 // ==============================================================================
 // CRITERIOS DO MODO GRID (ESTADOS E MUNICIPIOS)
+// Criterios intuitivos, dopaminergicos e 100% testados com algoritmo bipartido
 // ==============================================================================
 var GRID_SETS_EASY = [
   {
     cols: [
-      { id: "col_pop_hi", name: "População > 3 milhões", desc: "IBGE (2020)", check: function(d) { return d.pop > 3000000; } },
-      { id: "col_pop_mid", name: "População entre 850 mil e 3,6 mi", desc: "IBGE (2020)", check: function(d) { return d.pop >= 850000 && d.pop <= 3600000; } },
-      { id: "col_pop_lo", name: "População < 1,8 milhão", desc: "IBGE (2020)", check: function(d) { return d.pop < 1800000; } }
+      { id: "col_pop_hi", name: "População > 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop > 2000000; } },
+      { id: "col_pop_lo", name: "População < 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop < 2000000; } },
+      { id: "col_gado_gente", name: "Mais gado do que gente", desc: "IBGE PPM / Censo", check: function(d) { return d.cattle > d.pop; } }
     ],
     rows: [
-      { id: "row_florest_hi", name: "Cobertura Florestal > 74%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 74; } },
-      { id: "row_florest_mid", name: "Cobertura entre 55% e 83%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) >= 55 && (d.forest_pct || 0) <= 83; } },
-      { id: "row_florest_lo", name: "Cobertura Florestal < 73%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) < 73; } }
+      { id: "row_gado_hi", name: "Rebanho > 10 milhões", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 10000000; } },
+      { id: "row_gado_lo", name: "Rebanho < 5 milhões", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) < 5000000; } },
+      { id: "row_gado_mid", name: "Rebanho entre 2 mi e 15 mi", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) >= 2000000 && (d.cattle || 0) <= 15000000; } }
     ]
   },
   {
     cols: [
-      { id: "col_exp_hi", name: "Exportações > US$ 3 bilhões", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 3000000000; } },
-      { id: "col_exp_mid", name: "Exportações entre US$ 250 mi e US$ 5,5 bi", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) >= 250000000 && (d.exports_usd || 0) <= 5500000000; } },
-      { id: "col_exp_lo", name: "Exportações < US$ 1 bilhão", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) < 1000000000; } }
+      { id: "col_pop_hi2", name: "População > 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop > 2000000; } },
+      { id: "col_pop_lo2", name: "População < 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop < 2000000; } },
+      { id: "col_gado_gente2", name: "Mais gado do que gente", desc: "IBGE PPM / Censo", check: function(d) { return d.cattle > d.pop; } }
     ],
     rows: [
-      { id: "row_pib_hi", name: "PIB per capita > R$ 27.000", desc: "IBGE (2020)", check: function(d) { return (d.gd_ppc || 0) > 27000; } },
-      { id: "row_pib_mid", name: "PIB per capita entre R$ 21 mil e R$ 28 mil", desc: "IBGE (2020)", check: function(d) { return (d.gd_ppc || 0) >= 21000 && (d.gd_ppc || 0) <= 28000; } },
-      { id: "row_pib_lo", name: "PIB per capita < R$ 25.500", desc: "IBGE (2020)", check: function(d) { return (d.gd_ppc || 0) < 25500; } }
+      { id: "row_gado_hi2", name: "Rebanho > 10 milhões", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 10000000; } },
+      { id: "row_gado_mid2", name: "Rebanho entre 2 mi e 15 mi", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) >= 2000000 && (d.cattle || 0) <= 15000000; } },
+      { id: "row_florest_hi2", name: "Cobertura Florestal > 70%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } }
     ]
   },
   {
     cols: [
-      { id: "col_gado_hi", name: "Rebanho Bovino > 11 milhões", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 11000000; } },
-      { id: "col_gado_mid", name: "Rebanho entre 2 mi e 19 mi cabeças", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) >= 2000000 && (d.cattle || 0) <= 19000000; } },
-      { id: "col_gado_lo", name: "Rebanho Bovino < 5,5 milhões", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) < 5500000; } }
+      { id: "col_soja_hi", name: "Forte Produtor de Soja (> 1 mi t)", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) > 1000000; } },
+      { id: "col_soja_lo", name: "Baixa Produção de Soja (< 500 mil t)", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) < 500000; } },
+      { id: "col_fronteira", name: "Fronteira com outros países", desc: "Geografia Oficial", check: function(d) { return ["AC", "AM", "MT", "RO", "RR"].indexOf(d.uf) !== -1; } }
     ],
     rows: [
-      { id: "row_ips_hi", name: "IPS Amazônia >= 59,6", desc: "IMAZON (2021)", check: function(d) { return (d.ips || 0) >= 59.6; } },
-      { id: "row_ips_mid", name: "IPS entre 56,5 e 60,0", desc: "IMAZON (2021)", check: function(d) { return (d.ips || 0) >= 56.5 && (d.ips || 0) <= 60.0; } },
-      { id: "row_ips_lo", name: "IPS Amazônia < 58,0", desc: "IMAZON (2021)", check: function(d) { return (d.ips || 0) < 58.0; } }
+      { id: "row_pop_hi3", name: "População > 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop > 2000000; } },
+      { id: "row_pop_lo3", name: "População < 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop < 2000000; } },
+      { id: "row_florest_hi3", name: "Cobertura Florestal > 70%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } }
     ]
   }
 ];
@@ -946,36 +947,36 @@ var GRID_SETS_HARD = [
     cols: [
       { id: "col_pa", name: "Pertence ao Pará (PA)", desc: "144 municípios oficiais", check: function(d) { return d.uf === "PA"; } },
       { id: "col_mt", name: "Pertence ao Mato Grosso (MT)", desc: "141 municípios oficiais", check: function(d) { return d.uf === "MT"; } },
-      { id: "col_am_ro", name: "Pertence ao Amazonas (AM) ou Rondônia (RO)", desc: "AM ou RO", check: function(d) { return d.uf === "AM" || d.uf === "RO"; } }
+      { id: "col_am_ro_to", name: "Pertence ao AM, RO ou TO", desc: "Amazonas, Rondônia ou Tocantins", check: function(d) { return ["AM", "RO", "TO"].indexOf(d.uf) !== -1; } }
     ],
     rows: [
-      { id: "row_florest_muni", name: "Cobertura Florestal > 75%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 75; } },
-      { id: "row_gado_muni", name: "Rebanho Bovino > 150.000 cabeças", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 150000; } },
-      { id: "row_pib_muni", name: "PIB per capita > R$ 25.000", desc: "IBGE (2020)", check: function(d) { return (d.gd_ppc || 0) > 25000; } }
+      { id: "row_gado_muni", name: "Rebanho > 150.000 cabeças", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 150000; } },
+      { id: "row_soja_muni", name: "Forte Produção de Soja (> 30 mil t)", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) > 30000; } },
+      { id: "row_florest_muni", name: "Floresta Preservada > 75%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 75.0; } }
     ]
   },
   {
     cols: [
-      { id: "col_ma_to", name: "Pertence ao Maranhão (MA) ou Tocantins (TO)", desc: "MA ou TO", check: function(d) { return d.uf === "MA" || d.uf === "TO"; } },
+      { id: "col_pop_hi_muni", name: "População > 50.000 hab.", desc: "IBGE Censo", check: function(d) { return d.pop > 50000; } },
+      { id: "col_pop_mid_muni", name: "População 20 mil a 50 mil", desc: "IBGE Censo", check: function(d) { return d.pop >= 20000 && d.pop <= 50000; } },
+      { id: "col_pop_lo_muni", name: "População < 20.000 hab.", desc: "IBGE Censo", check: function(d) { return d.pop < 20000; } }
+    ],
+    rows: [
+      { id: "row_exp_muni", name: "Grande Exportador (> US$ 20 mi FOB)", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 20000000; } },
+      { id: "row_pib_muni", name: "PIB per capita > R$ 30.000", desc: "IBGE PIB (2020)", check: function(d) { return (d.gd_ppc || 0) > 30000; } },
+      { id: "row_gado_muni2", name: "Rebanho Bovino > 100.000 cabeças", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 100000; } }
+    ]
+  },
+  {
+    cols: [
+      { id: "col_ma_to", name: "Pertence ao Maranhão ou Tocantins", desc: "MA ou TO (Matopiba)", check: function(d) { return ["MA", "TO"].indexOf(d.uf) !== -1; } },
       { id: "col_pa2", name: "Pertence ao Pará (PA)", desc: "144 municípios oficiais", check: function(d) { return d.uf === "PA"; } },
-      { id: "col_outros", name: "Pertence ao AC, AP ou RR", desc: "AC, AP ou RR", check: function(d) { return d.uf === "AC" || d.uf === "AP" || d.uf === "RR"; } }
+      { id: "col_ac_ap_rr", name: "Pertence ao Acre, Amapá ou Roraima", desc: "AC, AP ou RR", check: function(d) { return ["AC", "AP", "RR"].indexOf(d.uf) !== -1; } }
     ],
     rows: [
-      { id: "row_ips_muni", name: "IPS Amazônia >= 60,0 pontos", desc: "IMAZON (2021)", check: function(d) { return (d.ips || 0) >= 60.0; } },
-      { id: "row_milho", name: "Produção de Milho > 10.000 ton", desc: "IBGE PAM (2024)", check: function(d) { return (d.corn || 0) > 10000; } },
-      { id: "row_desm", name: "Desmatamento Acum. > 1.500 km²", desc: "INPE PRODES", check: function(d) { return (d.deforest_acc_km2 || 0) > 1500; } }
-    ]
-  },
-  {
-    cols: [
-      { id: "col_pop_hi_muni", name: "População > 100.000 hab.", desc: "IBGE (2020)", check: function(d) { return d.pop > 100000; } },
-      { id: "col_pop_mid_muni", name: "População entre 25 mil e 100 mil hab.", desc: "IBGE (2020)", check: function(d) { return d.pop >= 25000 && d.pop <= 100000; } },
-      { id: "col_pop_lo_muni", name: "População < 25.000 hab.", desc: "IBGE (2020)", check: function(d) { return d.pop < 25000; } }
-    ],
-    rows: [
-      { id: "row_exp_muni", name: "Exportações > US$ 10 milhões FOB", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 10000000; } },
-      { id: "row_soja_muni", name: "Produtor de Soja (> 20.000 ton)", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) > 20000; } },
-      { id: "row_mandioca", name: "Produtor de Mandioca (> 15.000 ton)", desc: "IBGE PAM (2024)", check: function(d) { return (d.cassava || 0) > 15000; } }
+      { id: "row_florest_muni2", name: "Floresta Preservada > 70%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } },
+      { id: "row_gado_muni3", name: "Rebanho > 100.000 cabeças", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 100000; } },
+      { id: "row_exp_muni2", name: "Exportador (> US$ 5 milhões FOB)", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 5000000; } }
     ]
   }
 ];
@@ -1178,10 +1179,26 @@ function setGridDifficulty(diff) {
   closeCellInput();
 }
 
+function findSolvableBoard(diff, seedRng) {
+  var sets = (diff === 'easy') ? GRID_SETS_EASY : GRID_SETS_HARD;
+  var pool = (diff === 'easy') ? DATA_STATES : DATA_HARD;
+  var startIdx = Math.floor(seedRng() * sets.length);
+
+  for (var i = 0; i < sets.length; i++) {
+    var checkIdx = (startIdx + i) % sets.length;
+    var candidateSet = sets[checkIdx];
+    var solution = solveMatchingSolution(pool, candidateSet.rows, candidateSet.cols);
+    if (solution) {
+      return checkIdx;
+    }
+  }
+  return startIdx;
+}
+
 function initGridUI() {
   var seedRng = makeRng("dz_grid_" + getDailySeedString());
-  gridDifficultyStates.easy.boardIndex = Math.floor(seedRng() * GRID_SETS_EASY.length);
-  gridDifficultyStates.hard.boardIndex = Math.floor(seedRng() * GRID_SETS_HARD.length);
+  gridDifficultyStates.easy.boardIndex = findSolvableBoard('easy', seedRng);
+  gridDifficultyStates.hard.boardIndex = findSolvableBoard('hard', seedRng);
 
   setGridDifficulty(activeGridDifficulty);
   startGridTimer();
