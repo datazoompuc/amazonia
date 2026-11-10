@@ -901,43 +901,44 @@ function formatMetricUnit(val, unit) {
 
 // ==============================================================================
 // CRITERIOS DO MODO GRID (ESTADOS E MUNICIPIOS)
-// Criterios intuitivos, dopaminergicos e 100% testados com algoritmo bipartido
+// Padrao GeoGrid: 6 dimensoes COMPLETAMENTE DIFERENTES por tabuleiro
+// Sem repeticao de metrica no mesmo eixo, intuitivo, dopaminergico e com solucao
 // ==============================================================================
 var GRID_SETS_EASY = [
   {
     cols: [
-      { id: "col_pop_hi", name: "População > 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop > 2000000; } },
-      { id: "col_pop_lo", name: "População < 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop < 2000000; } },
-      { id: "col_gado_gente", name: "Mais gado do que gente", desc: "IBGE PPM / Censo", check: function(d) { return d.cattle > d.pop; } }
+      { id: "col_fronteira", name: "Fronteira com outro país", desc: "Geografia Oficial", check: function(d) { return ["AC", "AM", "MT", "RO", "RR"].indexOf(d.uf) !== -1; } },
+      { id: "col_floresta_70", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } },
+      { id: "col_pop_15m", name: "População maior que 1,5 milhão", desc: "IBGE Censo", check: function(d) { return d.pop > 1500000; } }
     ],
     rows: [
-      { id: "row_gado_hi", name: "Rebanho > 10 milhões", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 10000000; } },
-      { id: "row_gado_lo", name: "Rebanho < 5 milhões", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) < 5000000; } },
-      { id: "row_gado_mid", name: "Rebanho entre 2 mi e 15 mi", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) >= 2000000 && (d.cattle || 0) <= 15000000; } }
+      { id: "row_gado_gente", name: "Mais gado do que pessoas", desc: "IBGE PPM / Censo", check: function(d) { return d.cattle > d.pop; } },
+      { id: "row_exp_2bi", name: "Exportador > US$ 2 bilhões", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 2000000000; } },
+      { id: "row_letra_a", name: "Nome começa com a letra 'A'", desc: "Acre, Amapá ou Amazonas", check: function(d) { return d.name.charAt(0) === 'A'; } }
     ]
   },
   {
     cols: [
-      { id: "col_pop_hi2", name: "População > 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop > 2000000; } },
-      { id: "col_pop_lo2", name: "População < 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop < 2000000; } },
-      { id: "col_gado_gente2", name: "Mais gado do que gente", desc: "IBGE PPM / Censo", check: function(d) { return d.cattle > d.pop; } }
+      { id: "col_norte", name: "Pertence à Região Norte", desc: "Divisão Regional IBGE", check: function(d) { return ["AC", "AP", "AM", "PA", "RO", "RR", "TO"].indexOf(d.uf) !== -1; } },
+      { id: "col_floresta_70_2", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } },
+      { id: "col_pop_3m", name: "População maior que 3 milhões", desc: "IBGE Censo", check: function(d) { return d.pop > 3000000; } }
     ],
     rows: [
-      { id: "row_gado_hi2", name: "Rebanho > 10 milhões", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 10000000; } },
-      { id: "row_gado_mid2", name: "Rebanho entre 2 mi e 15 mi", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) >= 2000000 && (d.cattle || 0) <= 15000000; } },
-      { id: "row_florest_hi2", name: "Cobertura Florestal > 70%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } }
+      { id: "row_gado_gente_2", name: "Mais gado do que pessoas", desc: "IBGE PPM / Censo", check: function(d) { return d.cattle > d.pop; } },
+      { id: "row_exp_2bi_2", name: "Exportador > US$ 2 bilhões", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 2000000000; } },
+      { id: "row_letra_a_2", name: "Nome começa com a letra 'A'", desc: "Acre, Amapá ou Amazonas", check: function(d) { return d.name.charAt(0) === 'A'; } }
     ]
   },
   {
     cols: [
-      { id: "col_soja_hi", name: "Forte Produtor de Soja (> 1 mi t)", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) > 1000000; } },
-      { id: "col_soja_lo", name: "Baixa Produção de Soja (< 500 mil t)", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) < 500000; } },
-      { id: "col_fronteira", name: "Fronteira com outros países", desc: "Geografia Oficial", check: function(d) { return ["AC", "AM", "MT", "RO", "RR"].indexOf(d.uf) !== -1; } }
+      { id: "col_fronteira_2", name: "Fronteira com outro país", desc: "Geografia Oficial", check: function(d) { return ["AC", "AM", "MT", "RO", "RR"].indexOf(d.uf) !== -1; } },
+      { id: "col_floresta_70_3", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } },
+      { id: "col_pop_15m_2", name: "População maior que 1,5 milhão", desc: "IBGE Censo", check: function(d) { return d.pop > 1500000; } }
     ],
     rows: [
-      { id: "row_pop_hi3", name: "População > 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop > 2000000; } },
-      { id: "row_pop_lo3", name: "População < 2 milhões", desc: "IBGE Censo", check: function(d) { return d.pop < 2000000; } },
-      { id: "row_florest_hi3", name: "Cobertura Florestal > 70%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } }
+      { id: "row_soja_1m", name: "Colhe mais de 1 mi t de Soja", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) > 1000000; } },
+      { id: "row_pib_pc_25k", name: "PIB per capita > R$ 25.000", desc: "IBGE PIB (2020)", check: function(d) { return (d.gd_ppc || 0) > 25000; } },
+      { id: "row_letra_a_3", name: "Nome começa com a letra 'A'", desc: "Acre, Amapá ou Amazonas", check: function(d) { return d.name.charAt(0) === 'A'; } }
     ]
   }
 ];
@@ -946,37 +947,37 @@ var GRID_SETS_HARD = [
   {
     cols: [
       { id: "col_pa", name: "Pertence ao Pará (PA)", desc: "144 municípios oficiais", check: function(d) { return d.uf === "PA"; } },
+      { id: "col_floresta_65", name: "Mais de 65% de Floresta Preservada", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 65.0; } },
+      { id: "col_pop_50k", name: "População > 50.000 habitantes", desc: "IBGE Censo", check: function(d) { return d.pop > 50000; } }
+    ],
+    rows: [
+      { id: "row_rebanho_100k", name: "Rebanho > 100.000 cabeças de gado", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 100000; } },
+      { id: "row_exp_10m", name: "Exportador (> US$ 10 milhões FOB)", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 10000000; } },
+      { id: "row_pib_pc_30k", name: "PIB per capita > R$ 30.000", desc: "IBGE PIB (2020)", check: function(d) { return (d.gd_ppc || 0) > 30000; } }
+    ]
+  },
+  {
+    cols: [
       { id: "col_mt", name: "Pertence ao Mato Grosso (MT)", desc: "141 municípios oficiais", check: function(d) { return d.uf === "MT"; } },
-      { id: "col_am_ro_to", name: "Pertence ao AM, RO ou TO", desc: "Amazonas, Rondônia ou Tocantins", check: function(d) { return ["AM", "RO", "TO"].indexOf(d.uf) !== -1; } }
+      { id: "col_floresta_80", name: "Mais de 80% de Floresta Preservada", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 80.0; } },
+      { id: "col_pop_20k", name: "População > 20.000 habitantes", desc: "IBGE Censo", check: function(d) { return d.pop > 20000; } }
     ],
     rows: [
-      { id: "row_gado_muni", name: "Rebanho > 150.000 cabeças", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 150000; } },
-      { id: "row_soja_muni", name: "Forte Produção de Soja (> 30 mil t)", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) > 30000; } },
-      { id: "row_florest_muni", name: "Floresta Preservada > 75%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 75.0; } }
+      { id: "row_soja_20k", name: "Produtor de Soja (> 20 mil toneladas)", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) > 20000; } },
+      { id: "row_exp_1m", name: "Exportador (> US$ 1 milhão FOB)", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 1000000; } },
+      { id: "row_gado_gente_muni", name: "Mais gado do que habitantes", desc: "IBGE PPM / Censo", check: function(d) { return d.cattle > d.pop; } }
     ]
   },
   {
     cols: [
-      { id: "col_pop_hi_muni", name: "População > 50.000 hab.", desc: "IBGE Censo", check: function(d) { return d.pop > 50000; } },
-      { id: "col_pop_mid_muni", name: "População 20 mil a 50 mil", desc: "IBGE Censo", check: function(d) { return d.pop >= 20000 && d.pop <= 50000; } },
-      { id: "col_pop_lo_muni", name: "População < 20.000 hab.", desc: "IBGE Censo", check: function(d) { return d.pop < 20000; } }
+      { id: "col_am_ro", name: "Pertence ao Amazonas ou Rondônia", desc: "AM ou RO", check: function(d) { return ["AM", "RO"].indexOf(d.uf) !== -1; } },
+      { id: "col_floresta_65_2", name: "Mais de 65% de Floresta Preservada", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 65.0; } },
+      { id: "col_empresas_500", name: "Mais de 500 empresas ativas", desc: "IBGE CEMPRE (2020)", check: function(d) { return (d.empresas || 0) > 500; } }
     ],
     rows: [
-      { id: "row_exp_muni", name: "Grande Exportador (> US$ 20 mi FOB)", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 20000000; } },
-      { id: "row_pib_muni", name: "PIB per capita > R$ 30.000", desc: "IBGE PIB (2020)", check: function(d) { return (d.gd_ppc || 0) > 30000; } },
-      { id: "row_gado_muni2", name: "Rebanho Bovino > 100.000 cabeças", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 100000; } }
-    ]
-  },
-  {
-    cols: [
-      { id: "col_ma_to", name: "Pertence ao Maranhão ou Tocantins", desc: "MA ou TO (Matopiba)", check: function(d) { return ["MA", "TO"].indexOf(d.uf) !== -1; } },
-      { id: "col_pa2", name: "Pertence ao Pará (PA)", desc: "144 municípios oficiais", check: function(d) { return d.uf === "PA"; } },
-      { id: "col_ac_ap_rr", name: "Pertence ao Acre, Amapá ou Roraima", desc: "AC, AP ou RR", check: function(d) { return ["AC", "AP", "RR"].indexOf(d.uf) !== -1; } }
-    ],
-    rows: [
-      { id: "row_florest_muni2", name: "Floresta Preservada > 70%", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } },
-      { id: "row_gado_muni3", name: "Rebanho > 100.000 cabeças", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 100000; } },
-      { id: "row_exp_muni2", name: "Exportador (> US$ 5 milhões FOB)", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 5000000; } }
+      { id: "row_rebanho_100k_2", name: "Rebanho > 100.000 cabeças de gado", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 100000; } },
+      { id: "row_pib_pc_30k_2", name: "PIB per capita > R$ 30.000", desc: "IBGE PIB (2020)", check: function(d) { return (d.gd_ppc || 0) > 30000; } },
+      { id: "row_exp_10m_2", name: "Exportador (> US$ 10 milhões FOB)", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 10000000; } }
     ]
   }
 ];
