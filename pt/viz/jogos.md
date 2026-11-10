@@ -1143,7 +1143,6 @@ function getCurrentGridDataPool() {
 }
 
 function setGridDifficulty(diff) {
-  if (activeGridDifficulty === diff) return;
   activeGridDifficulty = diff;
 
   document.getElementById('lvl-easy').classList.toggle('active', diff === 'easy');
