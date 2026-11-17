@@ -1154,30 +1154,37 @@ var ARCO_DESMATAMENTO_NAMES = {
 
 function formatMetricUnit(val, unit) {
   var num = Math.round(Number(val) || 0);
+  if (unit === 'US$ FOB / hab') {
+    return "US$ " + num.toLocaleString('pt-BR') + " / hab";
+  }
   if (unit === 'US$ FOB') {
     if (num >= 1e9) return "US$ " + (num / 1e9).toFixed(1).replace(".", ",") + " bi";
     if (num >= 1e6) return "US$ " + (num / 1e6).toFixed(1).replace(".", ",") + " mi";
     return "US$ " + num.toLocaleString('pt-BR');
+  }
+  if (unit === 'milhões R$') {
+    if (num >= 1e6) return "R$ " + (num / 1e6).toFixed(1).replace(".", ",") + " tri";
+    if (num >= 1e3) return "R$ " + (num / 1e3).toFixed(1).replace(".", ",") + " bi";
+    return "R$ " + num.toLocaleString('pt-BR') + " mi";
   }
   if (unit === 'R$') return "R$ " + num.toLocaleString('pt-BR');
   return num.toLocaleString('pt-BR') + (unit ? " " + unit : "");
 }
 
 // ==============================================================================
-// DIMENSOES ATOMICAS PARA O GERADOR PROCEDURAL DO MODO GRID
+// DIMENSOES ATOMICAS PARA O GERADOR PROCEDURAL DO MODO GRID (BASES AUDITADAS)
 // ==============================================================================
 var STATE_GRID_DIMENSIONS = [
   { id: "st_fronteira", name: "Fronteira internacional", desc: "Geografia Oficial", check: function(s) { return ["AC", "AM", "MT", "RO", "RR"].indexOf(s.uf) !== -1; } },
   { id: "st_norte", name: "Pertence à Região Norte", desc: "Divisão Regional IBGE", check: function(s) { return ["AC", "AP", "AM", "PA", "RO", "RR", "TO"].indexOf(s.uf) !== -1; } },
   { id: "st_forest_70", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(s) { return (s.forest_pct || 0) > 70.0; } },
-  { id: "st_pop_15m", name: "População maior que 1,5 milhão", desc: "IBGE Censo", check: function(s) { return s.pop > 1500000; } },
-  { id: "st_cattle_pop", name: "Mais gado do que pessoas", desc: "IBGE PPM / Censo", check: function(s) { return (s.cattle || 0) > s.pop; } },
-  { id: "st_cattle_5m", name: "Rebanho bovino > 5 milhões", desc: "IBGE PPM (2024)", check: function(s) { return (s.cattle || 0) > 5000000; } },
+  { id: "st_pop_15m", name: "População maior que 1,5 milhão", desc: "IBGE Censo / Estimativas", check: function(s) { return s.pop > 1500000; } },
   { id: "st_exp_1bi", name: "Exportações > US$ 1 bilhão FOB", desc: "Comex Stat (2025)", check: function(s) { return (s.exports_usd || 0) > 1000000000; } },
   { id: "st_exp_2bi", name: "Exportações > US$ 2 bilhões FOB", desc: "Comex Stat (2025)", check: function(s) { return (s.exports_usd || 0) > 2000000000; } },
+  { id: "st_exp_pc_1k", name: "Exportação > US$ 1.000 / hab", desc: "Comex Stat / IBGE", check: function(s) { return (s.exports_pc || 0) > 1000.0; } },
   { id: "st_letra_a", name: "Nome começa com a letra A", desc: "Toponímia oficial", check: function(s) { return s.name.charAt(0) === 'A'; } },
   { id: "st_letra_mprt", name: "Nome começa com M, P, R ou T", desc: "Toponímia oficial", check: function(s) { return ["M", "P", "R", "T"].indexOf(s.name.charAt(0)) !== -1; } },
-  { id: "st_gd_ppc_25k", name: "PIB per capita > R$ 25.000", desc: "IBGE PIB (2020)", check: function(s) { return (s.gd_ppc || 0) > 25000; } }
+  { id: "st_gd_ppc_25k", name: "PIB per capita > R$ 25.000", desc: "IBGE PIB dos Municípios", check: function(s) { return (s.gd_ppc || 0) > 25000; } }
 ];
 
 var MUNI_GRID_DIMENSIONS = [
@@ -1185,17 +1192,16 @@ var MUNI_GRID_DIMENSIONS = [
   { id: "mu_mt", name: "Pertence ao Mato Grosso (MT)", desc: "141 municípios oficiais", check: function(m) { return m.uf === "MT"; } },
   { id: "mu_am_ro", name: "Pertence ao Amazonas ou Rondônia", desc: "AM ou RO", check: function(m) { return ["AM", "RO"].indexOf(m.uf) !== -1; } },
   { id: "mu_ma_to", name: "Pertence ao Maranhão ou Tocantins", desc: "MA ou TO", check: function(m) { return ["MA", "TO"].indexOf(m.uf) !== -1; } },
-  { id: "mu_pop_50k", name: "População > 50.000 habitantes", desc: "IBGE Censo", check: function(m) { return m.pop > 50000; } },
-  { id: "mu_pop_20k", name: "População > 20.000 habitantes", desc: "IBGE Censo", check: function(m) { return m.pop > 20000; } },
-  { id: "mu_pop_sub15k", name: "População < 15.000 habitantes", desc: "IBGE Censo", check: function(m) { return m.pop < 15000; } },
-  { id: "mu_forest_70", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(m) { return (m.forest_pct || 0) > 70.0; } },
+  { id: "mu_pop_50k", name: "População > 50.000 habitantes", desc: "IBGE Censo / Estimativas", check: function(m) { return m.pop > 50000; } },
+  { id: "mu_pop_20k", name: "População > 20.000 habitantes", desc: "IBGE Censo / Estimativas", check: function(m) { return m.pop > 20000; } },
+  { id: "mu_pop_sub15k", name: "População < 15.000 habitantes", desc: "IBGE Censo / Estimativas", check: function(m) { return m.pop < 15000; } },
+  { id: "mu_forest_75", name: "Mais de 75% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(m) { return (m.forest_pct || 0) > 75.0; } },
   { id: "mu_forest_sub50", name: "Menos de 50% de Cobertura Florestal", desc: "MapBiomas (2024)", check: function(m) { return (m.forest_pct || 0) < 50.0; } },
-  { id: "mu_cattle_100k", name: "Rebanho > 100.000 cabeças de gado", desc: "IBGE PPM (2024)", check: function(m) { return (m.cattle || 0) > 100000; } },
-  { id: "mu_cattle_pop", name: "Mais gado do que habitantes", desc: "IBGE PPM / Censo", check: function(m) { return (m.cattle || 0) > m.pop; } },
-  { id: "mu_soy_10k", name: "Produtor de Soja (> 10 mil toneladas)", desc: "IBGE PAM (2024)", check: function(m) { return (m.soy || 0) > 10000; } },
   { id: "mu_exp_1m", name: "Exportador (> US$ 1 milhão FOB)", desc: "Comex Stat (2025)", check: function(m) { return (m.exports_usd || 0) > 1000000; } },
   { id: "mu_exp_10m", name: "Exportador (> US$ 10 milhões FOB)", desc: "Comex Stat (2025)", check: function(m) { return (m.exports_usd || 0) > 10000000; } },
-  { id: "mu_gd_ppc_30k", name: "PIB per capita > R$ 30.000", desc: "IBGE PIB (2020)", check: function(m) { return (m.gd_ppc || 0) > 30000; } },
+  { id: "mu_exp_pc_500", name: "Exportação > US$ 500 / hab", desc: "Comex Stat / IBGE", check: function(m) { return (m.exports_pc || 0) > 500.0; } },
+  { id: "mu_gd_ppc_35k", name: "PIB per capita > R$ 35.000", desc: "IBGE PIB dos Municípios", check: function(m) { return (m.gd_ppc || 0) > 35000; } },
+  { id: "mu_gdp_500m", name: "PIB Municipal > R$ 500 milhões", desc: "IBGE PIB dos Municípios", check: function(m) { return (m.gdp_mil || 0) > 500000; } },
   { id: "mu_letra_smp", name: "Nome começa com S, M ou P", desc: "Toponímia oficial", check: function(m) { return ["S", "M", "P"].indexOf(m.name.charAt(0)) !== -1; } },
   { id: "mu_arco", name: "Município no Arco do Desmatamento", desc: "Ministério do Meio Ambiente", check: function(m) { return !!ARCO_DESMATAMENTO_NAMES[m.name]; } }
 ];
@@ -1907,90 +1913,104 @@ function saveGridRecordWithName() {
 }
 
 // ==============================================================================
-// MODO 2: VERSUS DIARIO & MODO 3: STREAK
+// MODO 2: VERSUS DIARIO & MODO 3: STREAK (BASES AUDITADAS E PAREADAS)
 // ==============================================================================
 var QUESTION_SPECS = [
+  {
+    category: "Comércio Exterior / Intensidade",
+    metric: "exports_pc",
+    unit: "US$ FOB / hab",
+    question: "Qual cidade possui MAIOR valor de exportações por habitante (US$ FOB / hab)?",
+    hint: "Normaliza o valor total exportado pelo tamanho da população residente, medindo a real intensidade e inserção exportadora per capita do município.",
+    source: "MDIC / Comex Stat (2025) & IBGE",
+    rCode: "dados <- datazoom.amazonia::load_br_trade(dataset = 'exportation')",
+    filterFn: function(m) { return (m.exports_pc || 0) >= 80 && m.pop >= 15000; },
+    isPeer: function(a, b) {
+      var popRatio = Math.max(a.pop, b.pop) / Math.max(Math.min(a.pop, b.pop), 1);
+      return popRatio <= 2.8; // Cidades de porte populacional comparavel
+    },
+    minRatio: 1.45
+  },
+  {
+    category: "Economia / Renda per capita",
+    metric: "gd_ppc",
+    unit: "R$",
+    question: "Qual cidade apresenta MAIOR PIB per capita?",
+    hint: "O PIB per capita divide o valor adicionado de toda a economia local pelo número de habitantes, revelando a produtividade econômica média do município.",
+    source: "IBGE / PIB dos Municípios",
+    rCode: "dados <- datazoom.amazonia::load_pibmunic()",
+    filterFn: function(m) { return m.pop >= 15000 && (m.gd_ppc || 0) >= 15000; },
+    isPeer: function(a, b) {
+      var popRatio = Math.max(a.pop, b.pop) / Math.max(Math.min(a.pop, b.pop), 1);
+      return popRatio <= 2.2; // Cidades de mesmo estrato populacional
+    },
+    minRatio: 1.40
+  },
+  {
+    category: "Economia / Produção Municipal",
+    metric: "gdp_mil",
+    unit: "milhões R$",
+    question: "Qual cidade possui MAIOR PIB total (produção econômica municipal)?",
+    hint: "Soma de todos os bens e serviços finais produzidos a preços correntes no município, refletindo a escala econômica agregada da localidade.",
+    source: "IBGE / PIB dos Municípios",
+    rCode: "dados <- datazoom.amazonia::load_pibmunic()",
+    filterFn: function(m) { return m.pop >= 25000 && (m.gdp_mil || 0) >= 300000; },
+    isPeer: function(a, b) {
+      var popRatio = Math.max(a.pop, b.pop) / Math.max(Math.min(a.pop, b.pop), 1);
+      return popRatio <= 2.5; // Cidades polos de relevância comparavel
+    },
+    minRatio: 1.45
+  },
+  {
+    category: "Meio Ambiente / Cobertura Nativa",
+    metric: "forest_pct",
+    unit: "% floresta",
+    question: "Qual cidade possui MAIOR proporção de floresta nativa preservada (% do território)?",
+    hint: "Calculado pela razão oficial entre a área de cobertura florestal natural e a área territorial total do município monitorada por satélite.",
+    source: "MapBiomas Coleção 9 (2024)",
+    rCode: "dados <- datazoom.amazonia::load_mapbiomas(dataset = 'municipality_coverage')",
+    filterFn: function(m) { return m.pop >= 10000 && (m.forest_pct || 0) >= 5; },
+    isPeer: function(a, b) {
+      return true; // Duelo direto de preservação territorial
+    },
+    minRatio: 1.35
+  },
   {
     category: "Demografia / População",
     metric: "pop",
     unit: "habitantes",
     question: "Qual cidade possui MAIOR população residente?",
+    hint: "População residente estimada pelos levantamentos demográficos e Censos oficiais do IBGE.",
     source: "IBGE / Estimativas & Censo",
-    rCode: "datazoom.amazonia::load_population()",
-    minVal: 30000,
-    minRatio: 1.45
-  },
-  {
-    category: "Pecuária / Rebanho",
-    metric: "cattle",
-    unit: "cabeças de gado",
-    question: "Qual cidade possui o MAIOR rebanho bovino?",
-    source: "IBGE / Pesquisa da Pecuária Municipal",
-    rCode: "datazoom.amazonia::load_ppm(dataset = 'livestock_inventory')",
-    minVal: 120000,
-    minRatio: 1.45
-  },
-  {
-    category: "Agricultura / Grãos",
-    metric: "soy",
-    unit: "toneladas de soja",
-    question: "Qual cidade produziu MAIS soja em 2024?",
-    source: "IBGE / Produção Agrícola Municipal",
-    rCode: "datazoom.amazonia::load_pam()",
-    minVal: 25000,
-    minRatio: 1.50
-  },
-  {
-    category: "Economia / Exportações",
-    metric: "exports_usd",
-    unit: "US$ FOB",
-    question: "Qual cidade teve MAIOR valor em exportações (US$ FOB)?",
-    hint: "Valor FOB (Free on Board) indica o preço oficial das mercadorias exportadas posto a bordo no porto ou ponto de saída, sem frete internacional ou seguro.",
-    source: "MDIC / Comex Stat (2025)",
-    rCode: "datazoom.amazonia::load_br_trade(dataset = 'exportation')",
-    minVal: 15000000,
-    minRatio: 1.50
-  },
-  {
-    category: "Economia / Renda",
-    metric: "gd_ppc",
-    unit: "R$",
-    question: "Qual cidade apresenta MAIOR PIB per capita?",
-    hint: "O PIB per capita divide a renda econômica total do município pelo número de habitantes.",
-    source: "IBGE / PIB dos Municípios",
-    rCode: "datazoom.amazonia::load_pibmunic()",
-    minVal: 12000,
-    minRatio: 1.38
-  },
-  {
-    category: "Meio Ambiente / Cobertura",
-    metric: "forest_pct",
-    unit: "% floresta",
-    question: "Qual cidade possui MAIOR proporção de floresta nativa preservada?",
-    hint: "Calculado pela razão entre a área de cobertura florestal natural e a área territorial total do município.",
-    source: "MapBiomas Coleção 9 (2024)",
-    rCode: "datazoom.amazonia::load_mapbiomas(dataset = 'municipality_coverage')",
-    minVal: 15,
-    minRatio: 1.25
+    rCode: "dados <- datazoom.amazonia::load_population()",
+    filterFn: function(m) { return m.pop >= 20000; },
+    isPeer: function(a, b) {
+      // Cidades do mesmo estado ou com ordem de grandeza populacional próxima
+      return (a.uf === b.uf) || (Math.abs(a.pop - b.pop) < 80000);
+    },
+    minRatio: 1.40
   }
 ];
 
 function generateVersusPair(rng, spec, forceWinner) {
   var pool = DATA_HARD.filter(function(m) {
+    if (spec.filterFn) return spec.filterFn(m);
     return (m[spec.metric] || 0) >= (spec.minVal || 1);
   });
   if (pool.length < 10) pool = DATA_HARD;
 
-  for (var i = 0; i < 150; i++) {
+  for (var i = 0; i < 250; i++) {
     var a = pool[Math.floor(rng() * pool.length)];
     var b = pool[Math.floor(rng() * pool.length)];
     if (a.id === b.id) continue;
+
+    if (spec.isPeer && !spec.isPeer(a, b)) continue;
 
     var valA = Number(a[spec.metric]) || 0;
     var valB = Number(b[spec.metric]) || 0;
     if (valA === valB) continue;
 
-    var ratio = Math.max(valA, valB) / Math.max(Math.min(valA, valB), 1);
+    var ratio = Math.max(valA, valB) / Math.max(Math.min(valA, valB), 0.0001);
     if (ratio < (spec.minRatio || 1.35)) continue;
 
     var winnerSide = (forceWinner === 'left' || forceWinner === 'right') ? forceWinner : (rng() < 0.5 ? 'left' : 'right');
@@ -2019,15 +2039,17 @@ function generateVersusPair(rng, spec, forceWinner) {
     };
   }
 
-  // Fallback
+  // Fallback seguro caso necessario
+  var first = pool[0];
+  var second = pool[1] || pool[0];
   return {
     category: spec.category,
     question: spec.question,
     hint: spec.hint || "",
     source: spec.source,
     rCode: spec.rCode,
-    left: { id: pool[0].id, name: pool[0].name, uf: pool[0].uf, val: formatMetricUnit(pool[0][spec.metric], spec.unit) },
-    right: { id: pool[1].id, name: pool[1].name, uf: pool[1].uf, val: formatMetricUnit(pool[1][spec.metric], spec.unit) },
+    left: { id: first.id, name: first.name, uf: first.uf, val: formatMetricUnit(first[spec.metric], spec.unit) },
+    right: { id: second.id, name: second.name, uf: second.uf, val: formatMetricUnit(second[spec.metric], spec.unit) },
     winner: 'left'
   };
 }
@@ -2507,15 +2529,11 @@ fetch(DATA_JSON_URL)
         name: s.name,
         uf: s.uf,
         pop: s.pop,
-        cattle: s.cattle,
-        soy: s.soy,
-        corn: s.corn,
-        cassava: s.cassava,
-        exports_usd: s.exports_usd,
-        forest_pct: s.forest_pct,
-        deforest_acc_km2: s.deforest_acc_km2,
-        ips: s.ips,
+        gdp_mil: s.gdp_mil,
         gd_ppc: s.gd_ppc,
+        exports_usd: s.exports_usd,
+        exports_pc: s.exports_pc || (s.pop ? Math.round(s.exports_usd / s.pop) : 0),
+        forest_pct: s.forest_pct,
         is_uf: true
       };
     });
@@ -2526,15 +2544,12 @@ fetch(DATA_JSON_URL)
         name: m.name,
         uf: m.uf,
         pop: m.pop,
-        cattle: m.cattle,
-        soy: m.soy,
-        corn: m.corn,
-        cassava: m.cassava,
-        exports_usd: m.exports_usd,
-        forest_pct: m.forest_pct,
-        deforest_acc_km2: m.deforest_acc_km2,
-        ips: m.ips,
+        area_km2: m.area_km2,
+        gdp_mil: m.gdp_mil,
         gd_ppc: m.gd_ppc,
+        exports_usd: m.exports_usd,
+        exports_pc: m.exports_pc || (m.pop ? Math.round(m.exports_usd / m.pop) : 0),
+        forest_pct: m.forest_pct,
         in_arco: !!ARCO_DESMATAMENTO_NAMES[m.name]
       };
     });
