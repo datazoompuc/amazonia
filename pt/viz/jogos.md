@@ -391,8 +391,15 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
     font-size: 20px;
     font-weight: 800;
     color: #111111;
-    margin: 6px 0 20px 0;
+    margin: 6px 0 6px 0;
     line-height: 1.3;
+  }
+  .versus-question-subtitle {
+    font-size: 13px;
+    color: #4f6356;
+    margin: 0 auto 20px auto;
+    max-width: 620px;
+    line-height: 1.4;
   }
   .versus-arena {
     display: grid;
@@ -783,6 +790,7 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
     <div class="versus-container" id="versus-game-container">
       <span id="versus-category" class="versus-category-tag">CATEGORIA</span>
       <h3 id="versus-question" class="versus-question-title">Carregando pergunta...</h3>
+      <div id="versus-subtitle" class="versus-question-subtitle" style="display: none;"></div>
 
       <!-- Arena dos dois cards: Usuário clica no que considera MAIOR -->
       <div class="versus-arena">
@@ -1488,8 +1496,9 @@ var QUESTION_SPECS = [
     category: "Economia / Exportações",
     metric: "exports_usd",
     unit: "US$ FOB",
-    question: "Qual cidade exportou MAIOR valor FOB (2025)?",
-    source: "MDIC / Comex Stat (load_br_trade)",
+    question: "Qual cidade teve MAIOR valor em exportações (US$ FOB)?",
+    hint: "Valor FOB (Free on Board) indica o preço oficial das mercadorias exportadas posto a bordo no porto ou ponto de saída, sem frete internacional ou seguro.",
+    source: "MDIC / Comex Stat (2025) · load_br_trade()",
     minVal: 15000000,
     minRatio: 1.50
   },
@@ -1498,6 +1507,7 @@ var QUESTION_SPECS = [
     metric: "gd_ppc",
     unit: "R$",
     question: "Qual cidade apresenta MAIOR PIB per capita?",
+    hint: "O PIB per capita divide a renda econômica total do município pelo número de habitantes.",
     source: "IBGE / PIB dos Municípios (load_pibmunic)",
     minVal: 12000,
     minRatio: 1.38
@@ -1506,7 +1516,8 @@ var QUESTION_SPECS = [
     category: "Meio Ambiente / Cobertura",
     metric: "forest_pct",
     unit: "% floresta",
-    question: "Qual cidade possui MAIOR percentual de cobertura florestal?",
+    question: "Qual cidade possui MAIOR proporção de floresta nativa preservada?",
+    hint: "Calculado pela razão entre a área de cobertura florestal natural e a área territorial total do município.",
     source: "MapBiomas Coleção 9 (load_mapbiomas)",
     minVal: 15,
     minRatio: 1.25
@@ -1538,6 +1549,7 @@ function generateVersusPair(rng, spec, forceWinner) {
     return {
       category: spec.category,
       question: spec.question,
+      hint: spec.hint || "",
       source: spec.source,
       left: {
         id: leftCity.id,
@@ -1559,6 +1571,7 @@ function generateVersusPair(rng, spec, forceWinner) {
   return {
     category: spec.category,
     question: spec.question,
+    hint: spec.hint || "",
     source: spec.source,
     left: { id: pool[0].id, name: pool[0].name, uf: pool[0].uf, val: formatMetricUnit(pool[0][spec.metric], spec.unit) },
     right: { id: pool[1].id, name: pool[1].name, uf: pool[1].uf, val: formatMetricUnit(pool[1][spec.metric], spec.unit) },
@@ -1645,6 +1658,16 @@ function loadNextStreakRound() {
 function renderVersusArenaQuestion(puzzle) {
   document.getElementById('versus-category').innerText = puzzle.category;
   document.getElementById('versus-question').innerText = puzzle.question;
+
+  var subEl = document.getElementById('versus-subtitle');
+  if (subEl) {
+    if (puzzle.hint) {
+      subEl.innerText = puzzle.hint;
+      subEl.style.display = 'block';
+    } else {
+      subEl.style.display = 'none';
+    }
+  }
 
   var cardL = document.getElementById('vcard-left');
   var cardR = document.getElementById('vcard-right');
