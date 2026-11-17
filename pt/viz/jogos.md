@@ -630,6 +630,152 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
     margin-top: 8px;
     font-style: italic;
   }
+
+  /* CALENDARIO & STREAK LOCAL DO MODO GRID */
+  .grid-streak-calendar-card {
+    background: #ffffff;
+    border: 1px solid #c2d6c2;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 22px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .gsc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2ece2;
+  }
+  .gsc-title-block h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: #1e3d28;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .gsc-subtitle {
+    font-size: 12px;
+    color: #556055;
+    margin-top: 2px;
+  }
+  .gsc-stats {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .gsc-stat-pill {
+    background: #f4f8f4;
+    border: 1px solid #d2e2d2;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .gsc-stat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--green-btn);
+    display: block;
+    line-height: 1.1;
+  }
+  .gsc-stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #556055;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .gsc-calendar-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .gsc-month-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #2e4d32;
+    text-align: center;
+    margin-bottom: 4px;
+    text-transform: capitalize;
+  }
+  .gsc-cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    max-width: 420px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .gsc-day-header {
+    font-size: 10px;
+    font-weight: 700;
+    color: #8da1af;
+    text-align: center;
+    padding: 2px 0;
+  }
+  .gsc-day-cell {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #4a5c4a;
+    background: #fafcfa;
+    border: 1px solid #eef3ee;
+    transition: all 0.15s ease;
+    position: relative;
+  }
+  .gsc-day-cell.empty {
+    background: transparent;
+    border: none;
+  }
+  .gsc-day-cell.today {
+    border: 2px solid var(--green-btn);
+    font-weight: 800;
+    color: #111;
+  }
+  .gsc-day-cell.completed {
+    background: #e2f2e2;
+    border-color: #8ac08a;
+    color: #1b4d24;
+    font-weight: 800;
+  }
+  .gsc-day-cell.completed::after {
+    content: "✓";
+    font-size: 9px;
+    font-weight: 900;
+    color: var(--green-btn);
+    position: absolute;
+    bottom: 2px;
+    line-height: 1;
+  }
+  .gsc-legend {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #667;
+  }
+  .gsc-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .gsc-legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
 </style>
 
 <div class="jogos-wrapper">
@@ -699,6 +845,50 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
       </div>
       <div>
         <span style="font-size: 12px; font-weight: 700; color: #556066;">1 Desafio Diário por Nível</span>
+      </div>
+    </div>
+
+    <!-- CALENDARIO E STREAK DO MODO GRID -->
+    <div class="grid-streak-calendar-card" id="grid-streak-calendar">
+      <div class="gsc-header">
+        <div class="gsc-title-block">
+          <h3>Progresso Diário do Grid</h3>
+          <div class="gsc-subtitle">Complete ao menos um desafio diário (Estados ou Municípios) para manter sua sequência.</div>
+        </div>
+        <div class="gsc-stats">
+          <div class="gsc-stat-pill">
+            <span class="gsc-stat-num" id="gsc-current-streak">0</span>
+            <span class="gsc-stat-label">Streak Atual</span>
+          </div>
+          <div class="gsc-stat-pill">
+            <span class="gsc-stat-num" id="gsc-best-streak">0</span>
+            <span class="gsc-stat-label">Melhor Streak</span>
+          </div>
+          <div class="gsc-stat-pill">
+            <span class="gsc-stat-num" id="gsc-month-total">0</span>
+            <span class="gsc-stat-label">Dias no Mês</span>
+          </div>
+        </div>
+      </div>
+      <div class="gsc-calendar-wrap">
+        <div class="gsc-month-title" id="gsc-calendar-month-name">Mês / Ano</div>
+        <div class="gsc-cal-grid" id="gsc-calendar-grid">
+          <!-- Gerado via JavaScript -->
+        </div>
+        <div class="gsc-legend">
+          <div class="gsc-legend-item">
+            <span class="gsc-legend-swatch" style="border: 2px solid var(--green-btn); background: #fafcfa;"></span>
+            <span>Hoje</span>
+          </div>
+          <div class="gsc-legend-item">
+            <span class="gsc-legend-swatch" style="background: #e2f2e2; border: 1px solid #8ac08a;"></span>
+            <span>Grid Concluído</span>
+          </div>
+          <div class="gsc-legend-item">
+            <span class="gsc-legend-swatch" style="background: #fafcfa; border: 1px solid #eef3ee;"></span>
+            <span>Pendente</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1055,6 +1245,166 @@ function solveMatchingSolution(dataset, rows, cols) {
 }
 
 // ==============================================================================
+// GESTAO DA STREAK LOCAL E CALENDARIO DIARIO DO MODO GRID
+// ==============================================================================
+var GRID_STREAK_STORAGE_KEY = 'datazoom_grid_streak_history';
+
+function getGridCompletionHistory() {
+  try {
+    return JSON.parse(localStorage.getItem(GRID_STREAK_STORAGE_KEY) || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function recordGridDailyCompletion() {
+  var history = getGridCompletionHistory();
+  var todayStr = getDailySeedString();
+  if (history.indexOf(todayStr) === -1) {
+    history.push(todayStr);
+    history.sort();
+    try {
+      localStorage.setItem(GRID_STREAK_STORAGE_KEY, JSON.stringify(history));
+    } catch (e) {}
+  }
+  renderGridStreakCalendar();
+}
+
+function computeGridStreaks(history) {
+  if (!history || history.length === 0) {
+    return { current: 0, best: 0 };
+  }
+
+  var sorted = history.slice().sort();
+  var set = {};
+  sorted.forEach(function(d) { set[d] = true; });
+
+  // Calcular melhor streak historica
+  var best = 0;
+  var currentRun = 0;
+  var prevDate = null;
+
+  for (var i = 0; i < sorted.length; i++) {
+    var parts = sorted[i].split('-').map(Number);
+    var d = new Date(parts[0], parts[1] - 1, parts[2]);
+
+    if (!prevDate) {
+      currentRun = 1;
+    } else {
+      var diffDays = Math.round((d.getTime() - prevDate.getTime()) / (1000 * 3600 * 24));
+      if (diffDays === 1) {
+        currentRun++;
+      } else if (diffDays > 1) {
+        currentRun = 1;
+      }
+    }
+    prevDate = d;
+    if (currentRun > best) best = currentRun;
+  }
+
+  // Calcular streak atual terminando hoje ou ontem
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var yest = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+
+  function formatDate(dt) {
+    return dt.getFullYear() + "-" +
+      String(dt.getMonth() + 1).padStart(2, '0') + "-" +
+      String(dt.getDate()).padStart(2, '0');
+  }
+
+  var todayStr = formatDate(today);
+  var yestStr = formatDate(yest);
+
+  var currentStreak = 0;
+  var checkDate = null;
+
+  if (set[todayStr]) {
+    checkDate = today;
+  } else if (set[yestStr]) {
+    checkDate = yest;
+  }
+
+  if (checkDate) {
+    var runner = new Date(checkDate.getTime());
+    while (set[formatDate(runner)]) {
+      currentStreak++;
+      runner.setDate(runner.getDate() - 1);
+    }
+  }
+
+  return { current: currentStreak, best: best };
+}
+
+function renderGridStreakCalendar() {
+  var history = getGridCompletionHistory();
+  var streaks = computeGridStreaks(history);
+  var historySet = {};
+  history.forEach(function(d) { historySet[d] = true; });
+
+  var curEl = document.getElementById('gsc-current-streak');
+  var bestEl = document.getElementById('gsc-best-streak');
+  var totalEl = document.getElementById('gsc-month-total');
+  var titleEl = document.getElementById('gsc-calendar-month-name');
+  var gridEl = document.getElementById('gsc-calendar-grid');
+
+  if (curEl) curEl.innerText = streaks.current;
+  if (bestEl) bestEl.innerText = streaks.best;
+
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.getMonth();
+  var todayDate = now.getDate();
+
+  var monthNames = [
+    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+    'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+  ];
+  if (titleEl) {
+    titleEl.innerText = `${monthNames[month]} de ${year}`;
+  }
+
+  var firstDayIndex = new Date(year, month, 1).getDay(); // 0 = Dom, 1 = Seg...
+  var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  var countInMonth = 0;
+  for (var day = 1; day <= daysInMonth; day++) {
+    var dStr = year + "-" + String(month + 1).padStart(2, '0') + "-" + String(day).padStart(2, '0');
+    if (historySet[dStr]) countInMonth++;
+  }
+  if (totalEl) totalEl.innerText = `${countInMonth} / ${daysInMonth}`;
+
+  if (!gridEl) return;
+
+  var dayLabels = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+  var html = '';
+
+  dayLabels.forEach(function(lbl) {
+    html += `<div class="gsc-day-header">${lbl}</div>`;
+  });
+
+  // Dias vazios no comeco
+  for (var pad = 0; pad < firstDayIndex; pad++) {
+    html += `<div class="gsc-day-cell empty"></div>`;
+  }
+
+  // Dias do mes
+  for (var d = 1; d <= daysInMonth; d++) {
+    var dateString = year + "-" + String(month + 1).padStart(2, '0') + "-" + String(d).padStart(2, '0');
+    var isToday = (d === todayDate);
+    var isDone = !!historySet[dateString];
+
+    var classes = ['gsc-day-cell'];
+    if (isToday) classes.push('today');
+    if (isDone) classes.push('completed');
+
+    html += `<div class="${classes.join(' ')}" title="${d} de ${monthNames[month]} ${isDone ? '· Concluído' : ''}">${d}</div>`;
+  }
+
+  gridEl.innerHTML = html;
+}
+
+// ==============================================================================
 // CONTROLE DE ESTADO GLOBAL
 // ==============================================================================
 var currentActiveMode = 'home';
@@ -1232,6 +1582,7 @@ function initGridUI() {
 
   setGridDifficulty(activeGridDifficulty);
   startGridTimer();
+  renderGridStreakCalendar();
 }
 
 function startGridTimer() {
@@ -1431,6 +1782,7 @@ function finishGridGame(gabari) {
     title.innerText = "Desafio Gabaritado!";
     title.style.color = "var(--green-btn)";
     msg.innerText = `Parabéns! Você completou todas as 9 células em ${document.getElementById('grid-timer').innerText} com pontuação final de ${state.score} pts.`;
+    recordGridDailyCompletion();
   } else {
     title.innerText = "Fim de Jogo!";
     title.style.color = "var(--danger-red)";
