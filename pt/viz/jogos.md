@@ -733,10 +733,24 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
     border: 1px solid #eef3ee;
     transition: all 0.15s ease;
     position: relative;
+    cursor: pointer;
+  }
+  .gsc-day-cell:hover:not(.empty):not(.future) {
+    border-color: var(--green-btn);
+    background: #f0f7f0;
   }
   .gsc-day-cell.empty {
     background: transparent;
     border: none;
+    cursor: default;
+  }
+  .gsc-day-cell.future {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .gsc-day-cell.selected-day {
+    outline: 2px solid #2e4d32;
+    box-shadow: 0 0 0 3px rgba(46,77,50,0.2);
   }
   .gsc-day-cell.today {
     border: 2px solid var(--green-btn);
@@ -757,6 +771,29 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
     position: absolute;
     bottom: 2px;
     line-height: 1;
+  }
+  .past-day-banner {
+    display: none;
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-left: 4px solid #ffb300;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    color: #795548;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .past-day-banner button {
+    background: #ffb300;
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    cursor: pointer;
   }
   .gsc-legend {
     display: flex;
@@ -846,6 +883,14 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
       <div>
         <span style="font-size: 12px; font-weight: 700; color: #556066;">1 Desafio Diário por Nível</span>
       </div>
+    </div>
+
+    <!-- AVISO DE JOGO DE DIA ANTERIOR (MODO TREINO / SEM PONTUACAO) -->
+    <div class="past-day-banner" id="grid-past-day-alert">
+      <span>
+        <strong>Modo Histórico:</strong> Você está jogando o tabuleiro do dia <span id="grid-selected-day-label" style="font-weight: 700;">--/--/----</span>. Esta partida é livre para treino e <strong>não pontua no placar nem altera a streak diária</strong>.
+      </span>
+      <button onclick="selectGridDate(getTodayDateString())">Voltar para o Desafio de Hoje</button>
     </div>
 
     <!-- CALENDARIO E STREAK DO MODO GRID -->
@@ -1119,87 +1164,72 @@ function formatMetricUnit(val, unit) {
 }
 
 // ==============================================================================
-// CRITERIOS DO MODO GRID (ESTADOS E MUNICIPIOS)
-// Padrao GeoGrid: 6 dimensoes COMPLETAMENTE DIFERENTES por tabuleiro
-// Sem repeticao de metrica no mesmo eixo, intuitivo, dopaminergico e com solucao
+// DIMENSOES ATOMICAS PARA O GERADOR PROCEDURAL DO MODO GRID
 // ==============================================================================
-var GRID_SETS_EASY = [
-  {
-    cols: [
-      { id: "col_fronteira", name: "Fronteira com outro país", desc: "Geografia Oficial", check: function(d) { return ["AC", "AM", "MT", "RO", "RR"].indexOf(d.uf) !== -1; } },
-      { id: "col_floresta_70", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } },
-      { id: "col_pop_15m", name: "População maior que 1,5 milhão", desc: "IBGE Censo", check: function(d) { return d.pop > 1500000; } }
-    ],
-    rows: [
-      { id: "row_gado_gente", name: "Mais gado do que pessoas", desc: "IBGE PPM / Censo", check: function(d) { return d.cattle > d.pop; } },
-      { id: "row_exp_2bi", name: "Exportador > US$ 2 bilhões", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 2000000000; } },
-      { id: "row_letra_a", name: "Nome começa com a letra 'A'", desc: "Acre, Amapá ou Amazonas", check: function(d) { return d.name.charAt(0) === 'A'; } }
-    ]
-  },
-  {
-    cols: [
-      { id: "col_norte", name: "Pertence à Região Norte", desc: "Divisão Regional IBGE", check: function(d) { return ["AC", "AP", "AM", "PA", "RO", "RR", "TO"].indexOf(d.uf) !== -1; } },
-      { id: "col_floresta_70_2", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } },
-      { id: "col_pop_3m", name: "População maior que 3 milhões", desc: "IBGE Censo", check: function(d) { return d.pop > 3000000; } }
-    ],
-    rows: [
-      { id: "row_gado_gente_2", name: "Mais gado do que pessoas", desc: "IBGE PPM / Censo", check: function(d) { return d.cattle > d.pop; } },
-      { id: "row_exp_2bi_2", name: "Exportador > US$ 2 bilhões", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 2000000000; } },
-      { id: "row_letra_a_2", name: "Nome começa com a letra 'A'", desc: "Acre, Amapá ou Amazonas", check: function(d) { return d.name.charAt(0) === 'A'; } }
-    ]
-  },
-  {
-    cols: [
-      { id: "col_fronteira_2", name: "Fronteira com outro país", desc: "Geografia Oficial", check: function(d) { return ["AC", "AM", "MT", "RO", "RR"].indexOf(d.uf) !== -1; } },
-      { id: "col_floresta_70_3", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 70.0; } },
-      { id: "col_pop_15m_2", name: "População maior que 1,5 milhão", desc: "IBGE Censo", check: function(d) { return d.pop > 1500000; } }
-    ],
-    rows: [
-      { id: "row_soja_1m", name: "Colhe mais de 1 mi t de Soja", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) > 1000000; } },
-      { id: "row_pib_pc_25k", name: "PIB per capita > R$ 25.000", desc: "IBGE PIB (2020)", check: function(d) { return (d.gd_ppc || 0) > 25000; } },
-      { id: "row_letra_a_3", name: "Nome começa com a letra 'A'", desc: "Acre, Amapá ou Amazonas", check: function(d) { return d.name.charAt(0) === 'A'; } }
-    ]
-  }
+var STATE_GRID_DIMENSIONS = [
+  { id: "st_fronteira", name: "Fronteira internacional", desc: "Geografia Oficial", check: function(s) { return ["AC", "AM", "MT", "RO", "RR"].indexOf(s.uf) !== -1; } },
+  { id: "st_norte", name: "Pertence à Região Norte", desc: "Divisão Regional IBGE", check: function(s) { return ["AC", "AP", "AM", "PA", "RO", "RR", "TO"].indexOf(s.uf) !== -1; } },
+  { id: "st_forest_70", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(s) { return (s.forest_pct || 0) > 70.0; } },
+  { id: "st_pop_15m", name: "População maior que 1,5 milhão", desc: "IBGE Censo", check: function(s) { return s.pop > 1500000; } },
+  { id: "st_cattle_pop", name: "Mais gado do que pessoas", desc: "IBGE PPM / Censo", check: function(s) { return (s.cattle || 0) > s.pop; } },
+  { id: "st_cattle_5m", name: "Rebanho bovino > 5 milhões", desc: "IBGE PPM (2024)", check: function(s) { return (s.cattle || 0) > 5000000; } },
+  { id: "st_exp_1bi", name: "Exportações > US$ 1 bilhão FOB", desc: "Comex Stat (2025)", check: function(s) { return (s.exports_usd || 0) > 1000000000; } },
+  { id: "st_exp_2bi", name: "Exportações > US$ 2 bilhões FOB", desc: "Comex Stat (2025)", check: function(s) { return (s.exports_usd || 0) > 2000000000; } },
+  { id: "st_letra_a", name: "Nome começa com a letra A", desc: "Toponímia oficial", check: function(s) { return s.name.charAt(0) === 'A'; } },
+  { id: "st_letra_mprt", name: "Nome começa com M, P, R ou T", desc: "Toponímia oficial", check: function(s) { return ["M", "P", "R", "T"].indexOf(s.name.charAt(0)) !== -1; } },
+  { id: "st_gd_ppc_25k", name: "PIB per capita > R$ 25.000", desc: "IBGE PIB (2020)", check: function(s) { return (s.gd_ppc || 0) > 25000; } }
 ];
 
-var GRID_SETS_HARD = [
-  {
-    cols: [
-      { id: "col_pa", name: "Pertence ao Pará (PA)", desc: "144 municípios oficiais", check: function(d) { return d.uf === "PA"; } },
-      { id: "col_floresta_65", name: "Mais de 65% de Floresta Preservada", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 65.0; } },
-      { id: "col_pop_50k", name: "População > 50.000 habitantes", desc: "IBGE Censo", check: function(d) { return d.pop > 50000; } }
-    ],
-    rows: [
-      { id: "row_rebanho_100k", name: "Rebanho > 100.000 cabeças de gado", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 100000; } },
-      { id: "row_exp_10m", name: "Exportador (> US$ 10 milhões FOB)", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 10000000; } },
-      { id: "row_pib_pc_30k", name: "PIB per capita > R$ 30.000", desc: "IBGE PIB (2020)", check: function(d) { return (d.gd_ppc || 0) > 30000; } }
-    ]
-  },
-  {
-    cols: [
-      { id: "col_mt", name: "Pertence ao Mato Grosso (MT)", desc: "141 municípios oficiais", check: function(d) { return d.uf === "MT"; } },
-      { id: "col_floresta_80", name: "Mais de 80% de Floresta Preservada", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 80.0; } },
-      { id: "col_pop_20k", name: "População > 20.000 habitantes", desc: "IBGE Censo", check: function(d) { return d.pop > 20000; } }
-    ],
-    rows: [
-      { id: "row_soja_20k", name: "Produtor de Soja (> 20 mil toneladas)", desc: "IBGE PAM (2024)", check: function(d) { return (d.soy || 0) > 20000; } },
-      { id: "row_exp_1m", name: "Exportador (> US$ 1 milhão FOB)", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 1000000; } },
-      { id: "row_gado_gente_muni", name: "Mais gado do que habitantes", desc: "IBGE PPM / Censo", check: function(d) { return d.cattle > d.pop; } }
-    ]
-  },
-  {
-    cols: [
-      { id: "col_am_ro", name: "Pertence ao Amazonas ou Rondônia", desc: "AM ou RO", check: function(d) { return ["AM", "RO"].indexOf(d.uf) !== -1; } },
-      { id: "col_floresta_65_2", name: "Mais de 65% de Floresta Preservada", desc: "MapBiomas (2024)", check: function(d) { return (d.forest_pct || 0) > 65.0; } },
-      { id: "col_empresas_500", name: "Mais de 500 empresas ativas", desc: "IBGE CEMPRE (2020)", check: function(d) { return (d.empresas || 0) > 500; } }
-    ],
-    rows: [
-      { id: "row_rebanho_100k_2", name: "Rebanho > 100.000 cabeças de gado", desc: "IBGE PPM (2024)", check: function(d) { return (d.cattle || 0) > 100000; } },
-      { id: "row_pib_pc_30k_2", name: "PIB per capita > R$ 30.000", desc: "IBGE PIB (2020)", check: function(d) { return (d.gd_ppc || 0) > 30000; } },
-      { id: "row_exp_10m_2", name: "Exportador (> US$ 10 milhões FOB)", desc: "Comex Stat (2025)", check: function(d) { return (d.exports_usd || 0) > 10000000; } }
-    ]
-  }
+var MUNI_GRID_DIMENSIONS = [
+  { id: "mu_pa", name: "Pertence ao Pará (PA)", desc: "144 municípios oficiais", check: function(m) { return m.uf === "PA"; } },
+  { id: "mu_mt", name: "Pertence ao Mato Grosso (MT)", desc: "141 municípios oficiais", check: function(m) { return m.uf === "MT"; } },
+  { id: "mu_am_ro", name: "Pertence ao Amazonas ou Rondônia", desc: "AM ou RO", check: function(m) { return ["AM", "RO"].indexOf(m.uf) !== -1; } },
+  { id: "mu_ma_to", name: "Pertence ao Maranhão ou Tocantins", desc: "MA ou TO", check: function(m) { return ["MA", "TO"].indexOf(m.uf) !== -1; } },
+  { id: "mu_pop_50k", name: "População > 50.000 habitantes", desc: "IBGE Censo", check: function(m) { return m.pop > 50000; } },
+  { id: "mu_pop_20k", name: "População > 20.000 habitantes", desc: "IBGE Censo", check: function(m) { return m.pop > 20000; } },
+  { id: "mu_pop_sub15k", name: "População < 15.000 habitantes", desc: "IBGE Censo", check: function(m) { return m.pop < 15000; } },
+  { id: "mu_forest_70", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(m) { return (m.forest_pct || 0) > 70.0; } },
+  { id: "mu_forest_sub50", name: "Menos de 50% de Cobertura Florestal", desc: "MapBiomas (2024)", check: function(m) { return (m.forest_pct || 0) < 50.0; } },
+  { id: "mu_cattle_100k", name: "Rebanho > 100.000 cabeças de gado", desc: "IBGE PPM (2024)", check: function(m) { return (m.cattle || 0) > 100000; } },
+  { id: "mu_cattle_pop", name: "Mais gado do que habitantes", desc: "IBGE PPM / Censo", check: function(m) { return (m.cattle || 0) > m.pop; } },
+  { id: "mu_soy_10k", name: "Produtor de Soja (> 10 mil toneladas)", desc: "IBGE PAM (2024)", check: function(m) { return (m.soy || 0) > 10000; } },
+  { id: "mu_exp_1m", name: "Exportador (> US$ 1 milhão FOB)", desc: "Comex Stat (2025)", check: function(m) { return (m.exports_usd || 0) > 1000000; } },
+  { id: "mu_exp_10m", name: "Exportador (> US$ 10 milhões FOB)", desc: "Comex Stat (2025)", check: function(m) { return (m.exports_usd || 0) > 10000000; } },
+  { id: "mu_gd_ppc_30k", name: "PIB per capita > R$ 30.000", desc: "IBGE PIB (2020)", check: function(m) { return (m.gd_ppc || 0) > 30000; } },
+  { id: "mu_letra_smp", name: "Nome começa com S, M ou P", desc: "Toponímia oficial", check: function(m) { return ["S", "M", "P"].indexOf(m.name.charAt(0)) !== -1; } },
+  { id: "mu_arco", name: "Município no Arco do Desmatamento", desc: "Ministério do Meio Ambiente", check: function(m) { return !!ARCO_DESMATAMENTO_NAMES[m.name]; } }
 ];
+
+// Gerador procedimental garantido por data:
+function generateProceduralGridSet(diff, dateStr) {
+  var pool = (diff === 'easy') ? DATA_STATES : DATA_HARD;
+  var dims = (diff === 'easy') ? STATE_GRID_DIMENSIONS : MUNI_GRID_DIMENSIONS;
+
+  for (var attempt = 0; attempt < 250; attempt++) {
+    var seedStr = "dz_proc_grid_" + diff + "_" + dateStr + "_" + attempt;
+    var rng = makeRng(seedStr);
+    var shuffled = dims.slice();
+    for (var i = shuffled.length - 1; i > 0; i--) {
+      var j = Math.floor(rng() * (i + 1));
+      var temp = shuffled[i];
+      shuffled[i] = shuffled[j];
+      shuffled[j] = temp;
+    }
+    var cols = shuffled.slice(0, 3);
+    var rows = shuffled.slice(3, 6);
+    var sol = solveMatchingSolution(pool, rows, cols);
+    if (sol) {
+      return { cols: cols, rows: rows, solution: sol };
+    }
+  }
+
+  // Fallback seguro caso necessario
+  return {
+    cols: dims.slice(0, 3),
+    rows: dims.slice(3, 6),
+    solution: null
+  };
+}
 
 // Algoritmo de casamento bipartido (Garante 9 respostas distintas no gabarito)
 function solveMatchingSolution(dataset, rows, cols) {
@@ -1258,8 +1288,12 @@ function getGridCompletionHistory() {
 }
 
 function recordGridDailyCompletion() {
+  if (!isPlayingTodayGrid()) {
+    // Dias anteriores sao para treino livre e nao alteram a streak
+    return;
+  }
   var history = getGridCompletionHistory();
-  var todayStr = getDailySeedString();
+  var todayStr = getTodayDateString();
   if (history.indexOf(todayStr) === -1) {
     history.push(todayStr);
     history.sort();
@@ -1393,12 +1427,18 @@ function renderGridStreakCalendar() {
     var dateString = year + "-" + String(month + 1).padStart(2, '0') + "-" + String(d).padStart(2, '0');
     var isToday = (d === todayDate);
     var isDone = !!historySet[dateString];
+    var isFuture = (dateString > getTodayDateString());
+    var isSelected = (dateString === selectedGridDate);
 
     var classes = ['gsc-day-cell'];
     if (isToday) classes.push('today');
     if (isDone) classes.push('completed');
+    if (isFuture) classes.push('future');
+    if (isSelected) classes.push('selected-day');
 
-    html += `<div class="${classes.join(' ')}" title="${d} de ${monthNames[month]} ${isDone ? '· Concluído' : ''}">${d}</div>`;
+    var clickAttr = isFuture ? '' : `onclick="selectGridDate('${dateString}')"`;
+
+    html += `<div class="${classes.join(' ')}" ${clickAttr} title="${d} de ${monthNames[month]} ${isDone ? '· Concluído' : ''} ${isFuture ? '· Futuro' : '· Clique para jogar'}">${d}</div>`;
   }
 
   gridEl.innerHTML = html;
@@ -1444,11 +1484,61 @@ var pendingVersusResult = null;
 var streakCount = 0;
 var currentStreakPuzzle = null;
 
-function getDailySeedString() {
+function getTodayDateString() {
   var now = new Date();
   return now.getFullYear() + "-" +
     String(now.getMonth() + 1).padStart(2, '0') + "-" +
     String(now.getDate()).padStart(2, '0');
+}
+
+function getDailySeedString() {
+  return selectedGridDate || getTodayDateString();
+}
+
+var selectedGridDate = getTodayDateString();
+
+function isPlayingTodayGrid() {
+  return selectedGridDate === getTodayDateString();
+}
+
+function selectGridDate(dateStr) {
+  var todayStr = getTodayDateString();
+  if (dateStr > todayStr) return; // Nao permitir datas futuras
+
+  selectedGridDate = dateStr;
+
+  // Atualizar banner de dia anterior
+  var banner = document.getElementById('grid-past-day-alert');
+  var bannerLabel = document.getElementById('grid-selected-day-label');
+  if (banner) {
+    if (!isPlayingTodayGrid()) {
+      var parts = dateStr.split('-');
+      if (bannerLabel) bannerLabel.innerText = `${parts[2]}/${parts[1]}/${parts[0]}`;
+      banner.style.display = 'flex';
+    } else {
+      banner.style.display = 'none';
+    }
+  }
+
+  // Resetar estados das dificuldades para a data selecionada
+  gridDifficultyStates.easy = {
+    boardSet: null,
+    cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
+    triesLeft: 10,
+    score: 1000,
+    hits: 0,
+    completed: false
+  };
+  gridDifficultyStates.hard = {
+    boardSet: null,
+    cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
+    triesLeft: 10,
+    score: 1000,
+    hits: 0,
+    completed: false
+  };
+
+  initGridUI();
 }
 
 function hashSeed(str) {
@@ -1509,14 +1599,12 @@ function openGameMode(modeKey) {
 // ==============================================================================
 // MODO GRID
 // ==============================================================================
-function getGridSetsForCurrentDifficulty() {
-  return (activeGridDifficulty === 'easy') ? GRID_SETS_EASY : GRID_SETS_HARD;
-}
-
 function getCurrentGridSet() {
-  var sets = getGridSetsForCurrentDifficulty();
   var state = gridDifficultyStates[activeGridDifficulty];
-  return sets[state.boardIndex % sets.length];
+  if (!state.boardSet) {
+    state.boardSet = generateProceduralGridSet(activeGridDifficulty, selectedGridDate);
+  }
+  return state.boardSet;
 }
 
 function getCurrentGridDataPool() {
@@ -1559,27 +1647,7 @@ function setGridDifficulty(diff) {
   closeCellInput();
 }
 
-function findSolvableBoard(diff, seedRng) {
-  var sets = (diff === 'easy') ? GRID_SETS_EASY : GRID_SETS_HARD;
-  var pool = (diff === 'easy') ? DATA_STATES : DATA_HARD;
-  var startIdx = Math.floor(seedRng() * sets.length);
-
-  for (var i = 0; i < sets.length; i++) {
-    var checkIdx = (startIdx + i) % sets.length;
-    var candidateSet = sets[checkIdx];
-    var solution = solveMatchingSolution(pool, candidateSet.rows, candidateSet.cols);
-    if (solution) {
-      return checkIdx;
-    }
-  }
-  return startIdx;
-}
-
 function initGridUI() {
-  var seedRng = makeRng("dz_grid_" + getDailySeedString());
-  gridDifficultyStates.easy.boardIndex = findSolvableBoard('easy', seedRng);
-  gridDifficultyStates.hard.boardIndex = findSolvableBoard('hard', seedRng);
-
   setGridDifficulty(activeGridDifficulty);
   startGridTimer();
   renderGridStreakCalendar();
@@ -1804,7 +1872,7 @@ function showGridAnswers() {
   var pool = getCurrentGridDataPool();
   var currentSet = getCurrentGridSet();
 
-  var solution = solveMatchingSolution(pool, currentSet.rows, currentSet.cols);
+  var solution = currentSet.solution || solveMatchingSolution(pool, currentSet.rows, currentSet.cols);
   if (solution) {
     for (var r = 0; r < 3; r++) {
       for (var c = 0; c < 3; c++) {
@@ -1825,6 +1893,10 @@ function showGridAnswers() {
 }
 
 function saveGridRecordWithName() {
+  if (!isPlayingTodayGrid()) {
+    alert("Partidas de dias anteriores são apenas para treino e não pontuam no Placar Oficial.");
+    return;
+  }
   var nameInput = document.getElementById('grid-player-name');
   var pName = nameInput.value.trim() || 'Jogador Anônimo';
   if (pendingGridResult) {
