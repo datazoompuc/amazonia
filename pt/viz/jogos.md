@@ -481,6 +481,27 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
   }
 
   /* FEEDBACK BOX */
+  .feedback-r-box {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: #ffffff;
+    border: 1px solid #d0e0d5;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #1e3d28;
+    line-height: 1.5;
+  }
+  .feedback-r-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: #2f7d32;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   .feedback-box {
     display: none;
     border-radius: 4px;
@@ -1470,7 +1491,8 @@ var QUESTION_SPECS = [
     metric: "pop",
     unit: "habitantes",
     question: "Qual cidade possui MAIOR população residente?",
-    source: "IBGE / Estimativas & Censo (load_population)",
+    source: "IBGE / Estimativas & Censo",
+    rCode: "datazoom.amazonia::load_population()",
     minVal: 30000,
     minRatio: 1.45
   },
@@ -1479,7 +1501,8 @@ var QUESTION_SPECS = [
     metric: "cattle",
     unit: "cabeças de gado",
     question: "Qual cidade possui o MAIOR rebanho bovino?",
-    source: "IBGE / Pesquisa da Pecuária Municipal (load_ppm)",
+    source: "IBGE / Pesquisa da Pecuária Municipal",
+    rCode: "datazoom.amazonia::load_ppm(dataset = 'livestock_inventory')",
     minVal: 120000,
     minRatio: 1.45
   },
@@ -1488,7 +1511,8 @@ var QUESTION_SPECS = [
     metric: "soy",
     unit: "toneladas de soja",
     question: "Qual cidade produziu MAIS soja em 2024?",
-    source: "IBGE / Produção Agrícola Municipal (load_pam)",
+    source: "IBGE / Produção Agrícola Municipal",
+    rCode: "datazoom.amazonia::load_pam()",
     minVal: 25000,
     minRatio: 1.50
   },
@@ -1498,7 +1522,8 @@ var QUESTION_SPECS = [
     unit: "US$ FOB",
     question: "Qual cidade teve MAIOR valor em exportações (US$ FOB)?",
     hint: "Valor FOB (Free on Board) indica o preço oficial das mercadorias exportadas posto a bordo no porto ou ponto de saída, sem frete internacional ou seguro.",
-    source: "MDIC / Comex Stat (2025) · load_br_trade()",
+    source: "MDIC / Comex Stat (2025)",
+    rCode: "datazoom.amazonia::load_br_trade(dataset = 'exportation')",
     minVal: 15000000,
     minRatio: 1.50
   },
@@ -1508,7 +1533,8 @@ var QUESTION_SPECS = [
     unit: "R$",
     question: "Qual cidade apresenta MAIOR PIB per capita?",
     hint: "O PIB per capita divide a renda econômica total do município pelo número de habitantes.",
-    source: "IBGE / PIB dos Municípios (load_pibmunic)",
+    source: "IBGE / PIB dos Municípios",
+    rCode: "datazoom.amazonia::load_pibmunic()",
     minVal: 12000,
     minRatio: 1.38
   },
@@ -1518,7 +1544,8 @@ var QUESTION_SPECS = [
     unit: "% floresta",
     question: "Qual cidade possui MAIOR proporção de floresta nativa preservada?",
     hint: "Calculado pela razão entre a área de cobertura florestal natural e a área territorial total do município.",
-    source: "MapBiomas Coleção 9 (load_mapbiomas)",
+    source: "MapBiomas Coleção 9 (2024)",
+    rCode: "datazoom.amazonia::load_mapbiomas(dataset = 'municipality_coverage')",
     minVal: 15,
     minRatio: 1.25
   }
@@ -1551,6 +1578,7 @@ function generateVersusPair(rng, spec, forceWinner) {
       question: spec.question,
       hint: spec.hint || "",
       source: spec.source,
+      rCode: spec.rCode,
       left: {
         id: leftCity.id,
         name: leftCity.name,
@@ -1573,6 +1601,7 @@ function generateVersusPair(rng, spec, forceWinner) {
     question: spec.question,
     hint: spec.hint || "",
     source: spec.source,
+    rCode: spec.rCode,
     left: { id: pool[0].id, name: pool[0].name, uf: pool[0].uf, val: formatMetricUnit(pool[0][spec.metric], spec.unit) },
     right: { id: pool[1].id, name: pool[1].name, uf: pool[1].uf, val: formatMetricUnit(pool[1][spec.metric], spec.unit) },
     winner: 'left'
@@ -1618,7 +1647,7 @@ function loadVersusDailyQuestion(qIndex) {
   if (prevAns !== null) {
     renderVersusAnswerResult(prevAns, puzzle);
     clearInterval(versusTimerInterval);
-    document.getElementById('versus-btn-next').innerText =
+    document.getElementById('versus-btn-next').innerHTML =
       (qIndex < 4) ? "Próximo Desafio &rarr;" : "Ver Resultado Final &rarr;";
   } else {
     startQuestionTimer();
@@ -1722,12 +1751,12 @@ function handleVersusSelection(chosenSide) {
     if (isCorrect) {
       streakCount++;
       document.getElementById('versus-streak-badge').innerText = streakCount;
-      document.getElementById('versus-btn-next').innerText = "Continuar Streak &rarr;";
+      document.getElementById('versus-btn-next').innerHTML = "Continuar Streak &rarr;";
     } else {
       consumeStreakChance();
       var leftChances = getStreakChancesRemaining();
       document.getElementById('streak-chances-badge').innerText = `${leftChances} / 3`;
-      document.getElementById('versus-btn-next').innerText = "Ver Resultado Final &rarr;";
+      document.getElementById('versus-btn-next').innerHTML = "Ver Resultado Final &rarr;";
     }
   }
 }
@@ -1752,6 +1781,19 @@ function renderVersusAnswerResult(ans, puzzle) {
     if (ans.chosen === 'left') cardL.classList.add('wrong');
   }
 
+  var rSnippetHtml = '';
+  if (puzzle.rCode) {
+    rSnippetHtml = `
+      <div class="feedback-r-box">
+        <div class="feedback-r-title">
+          <span>Como consultar esses dados no R (pacote oficial):</span>
+          <span style="font-size: 10px; color: #666; font-family: sans-serif;">datazoom.amazonia</span>
+        </div>
+        <code># Instalação: remotes::install_github("datazoompuc/datazoom.amazonia")<br>dados <- ${puzzle.rCode}</code>
+      </div>
+    `;
+  }
+
   if (ans.correct) {
     feedback.className = 'feedback-box correct';
     statusTitle.innerText = "Correto!";
@@ -1761,6 +1803,7 @@ function renderVersusAnswerResult(ans, puzzle) {
       <strong>${puzzle.winner === 'left' ? puzzle.right.name : puzzle.left.name} (${puzzle.winner === 'left' ? puzzle.right.uf : puzzle.left.uf})</strong> 
       com <strong>${puzzle.winner === 'left' ? puzzle.right.val : puzzle.left.val}</strong>.<br>
       <span style="font-size: 11px; color: #556055; margin-top: 4px; display: inline-block;"><strong>Fonte Oficial:</strong> ${puzzle.source}</span>
+      ${rSnippetHtml}
     `;
   } else {
     feedback.className = 'feedback-box wrong';
@@ -1771,6 +1814,7 @@ function renderVersusAnswerResult(ans, puzzle) {
       <strong>${puzzle.winner === 'left' ? puzzle.right.name : puzzle.left.name} (${puzzle.winner === 'left' ? puzzle.right.uf : puzzle.left.uf})</strong> 
       possui <strong>${puzzle.winner === 'left' ? puzzle.right.val : puzzle.left.val}</strong>.<br>
       <span style="font-size: 11px; color: #721c24; margin-top: 4px; display: inline-block;"><strong>Fonte Oficial:</strong> ${puzzle.source}</span>
+      ${rSnippetHtml}
     `;
   }
   feedback.style.display = 'block';
