@@ -1923,11 +1923,11 @@ var QUESTION_SPECS = [
     question: "Qual cidade possui MAIOR valor de exportações por habitante (US$ FOB / hab)?",
     hint: "Normaliza o valor total exportado pelo tamanho da população residente, medindo a real intensidade e inserção exportadora per capita do município.",
     source: "MDIC / Comex Stat (2025) & IBGE",
-    rCode: "dados <- datazoom.amazonia::load_br_trade(dataset = 'exportation')",
+    rCode: "datazoom.amazonia::load_br_trade(dataset = 'exportation')",
     filterFn: function(m) { return (m.exports_pc || 0) >= 80 && m.pop >= 15000; },
     isPeer: function(a, b) {
       var popRatio = Math.max(a.pop, b.pop) / Math.max(Math.min(a.pop, b.pop), 1);
-      return popRatio <= 2.8; // Cidades de porte populacional comparavel
+      return popRatio <= 2.2; // Cidades de porte populacional rigorosamente comparavel
     },
     minRatio: 1.45
   },
@@ -1938,11 +1938,11 @@ var QUESTION_SPECS = [
     question: "Qual cidade apresenta MAIOR PIB per capita?",
     hint: "O PIB per capita divide o valor adicionado de toda a economia local pelo número de habitantes, revelando a produtividade econômica média do município.",
     source: "IBGE / PIB dos Municípios",
-    rCode: "dados <- datazoom.amazonia::load_pibmunic()",
+    rCode: "datazoom.amazonia::load_pibmunic()",
     filterFn: function(m) { return m.pop >= 15000 && (m.gd_ppc || 0) >= 15000; },
     isPeer: function(a, b) {
       var popRatio = Math.max(a.pop, b.pop) / Math.max(Math.min(a.pop, b.pop), 1);
-      return popRatio <= 2.2; // Cidades de mesmo estrato populacional
+      return popRatio <= 2.0; // Cidades de mesmo estrato populacional
     },
     minRatio: 1.40
   },
@@ -1953,11 +1953,11 @@ var QUESTION_SPECS = [
     question: "Qual cidade possui MAIOR PIB total (produção econômica municipal)?",
     hint: "Soma de todos os bens e serviços finais produzidos a preços correntes no município, refletindo a escala econômica agregada da localidade.",
     source: "IBGE / PIB dos Municípios",
-    rCode: "dados <- datazoom.amazonia::load_pibmunic()",
+    rCode: "datazoom.amazonia::load_pibmunic()",
     filterFn: function(m) { return m.pop >= 25000 && (m.gdp_mil || 0) >= 300000; },
     isPeer: function(a, b) {
       var popRatio = Math.max(a.pop, b.pop) / Math.max(Math.min(a.pop, b.pop), 1);
-      return popRatio <= 2.5; // Cidades polos de relevância comparavel
+      return popRatio <= 2.2; // Cidades polos de relevância comparavel
     },
     minRatio: 1.45
   },
@@ -1968,10 +1968,11 @@ var QUESTION_SPECS = [
     question: "Qual cidade possui MAIOR proporção de floresta nativa preservada (% do território)?",
     hint: "Calculado pela razão oficial entre a área de cobertura florestal natural e a área territorial total do município monitorada por satélite.",
     source: "MapBiomas Coleção 9 (2024)",
-    rCode: "dados <- datazoom.amazonia::load_mapbiomas(dataset = 'municipality_coverage')",
-    filterFn: function(m) { return m.pop >= 10000 && (m.forest_pct || 0) >= 5; },
+    rCode: "datazoom.amazonia::load_mapbiomas(dataset = 'municipality_coverage')",
+    filterFn: function(m) { return m.pop >= 15000 && (m.forest_pct || 0) >= 5; },
     isPeer: function(a, b) {
-      return true; // Duelo direto de preservação territorial
+      var popRatio = Math.max(a.pop, b.pop) / Math.max(Math.min(a.pop, b.pop), 1);
+      return popRatio <= 2.5; // Municípios comparáveis em escala com contraste florestal real
     },
     minRatio: 1.35
   },
@@ -1982,11 +1983,12 @@ var QUESTION_SPECS = [
     question: "Qual cidade possui MAIOR população residente?",
     hint: "População residente estimada pelos levantamentos demográficos e Censos oficiais do IBGE.",
     source: "IBGE / Estimativas & Censo",
-    rCode: "dados <- datazoom.amazonia::load_population()",
+    rCode: "datazoom.amazonia::load_population()",
     filterFn: function(m) { return m.pop >= 20000; },
     isPeer: function(a, b) {
-      // Cidades do mesmo estado ou com ordem de grandeza populacional próxima
-      return (a.uf === b.uf) || (Math.abs(a.pop - b.pop) < 80000);
+      // Cidades vizinhas do mesmo estado ou estados limítrofes com porte próximo (ratio <= 2.0)
+      var popRatio = Math.max(a.pop, b.pop) / Math.max(Math.min(a.pop, b.pop), 1);
+      return popRatio <= 2.0;
     },
     minRatio: 1.40
   }
