@@ -1175,7 +1175,7 @@ function formatMetricUnit(val, unit) {
 // DIMENSOES ATOMICAS PARA O GERADOR PROCEDURAL DO MODO GRID (BASES AUDITADAS)
 // ==============================================================================
 var STATE_GRID_DIMENSIONS = [
-  { id: "st_fronteira", name: "Fronteira internacional", desc: "Geografia Oficial", check: function(s) { return ["AC", "AM", "MT", "RO", "RR"].indexOf(s.uf) !== -1; } },
+  { id: "st_fronteira", name: "Fronteira internacional", desc: "Geografia Oficial", check: function(s) { return ["AC", "AM", "AP", "MT", "PA", "RO", "RR"].indexOf(s.uf) !== -1; } },
   { id: "st_norte", name: "Pertence à Região Norte", desc: "Divisão Regional IBGE", check: function(s) { return ["AC", "AP", "AM", "PA", "RO", "RR", "TO"].indexOf(s.uf) !== -1; } },
   { id: "st_forest_70", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(s) { return (s.forest_pct || 0) > 70.0; } },
   { id: "st_pop_15m", name: "População maior que 1,5 milhão", desc: "IBGE Censo / Estimativas", check: function(s) { return s.pop > 1500000; } },
