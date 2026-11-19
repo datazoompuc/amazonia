@@ -86,49 +86,6 @@ dados &lt;- datazoom.amazonia::load_br_trade(
   </div>
 </div>
 
-<br>
-
-<h2 class="title-about" style="font-size: 28px;">Outras visualizações de comércio exterior</h2>
-
-<br>
-
-<div class="imagens-container">
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/sankey-do-volume-de-exportacao-da-amazonia-por-pais-de-destino" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_sankey_exp.jpg" alt="ícone viz">
-    </a><br>
-    <p>Sankeys do Volume de Exportação da Amazônia por País de Destino</p>
-   </div>
-
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/ranking-prop-exportacoes-mundiais-amazonia" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_prop_exp.jpg" alt="ícone viz">
-    </a><br>
-    <p>Ranking da Proporção das Exportações Mundiais Oriundas da Amazônia Legal</p>
-   </div>
-
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/series-temporais-exportacao-pais" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_bens_paises_exp.png" alt="ícone viz">
-    </a><br>
-    <p>Séries Temporais do Valor Exportado pela Amazônia Legal por País de Destino</p>
-   </div>
-
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/series-temporais-valores-exportacao-destino" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_series-temporais-valores-exportacao-destino.png" alt="ícone viz">
-    </a><br>
-    <p>Séries Temporais de Valor Total Exportado por País de Destino</p>
-   </div>
-
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/pt/viz/ranking-campeoes-de-importacao" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ranking-campeoes-de-importacao.png" alt="ícone viz">
-    </a><br>
-    <p>Ranking de Países que Mais Importam da Amazônia Legal</p>
-   </div>
-</div>
-
 <!-- O app é um painel com barra lateral: precisa de altura, não da faixa de 800px
      que as visualizações antigas usavam. vh para preencher a tela, com um piso para
      telas baixas. -->

@@ -87,49 +87,6 @@ data &lt;- datazoom.amazonia::load_br_trade(
   </div>
 </div>
 
-<br>
-
-<h2 class="title-about" style="font-size: 28px;">Other foreign trade visualizations</h2>
-
-<br>
-
-<div class="imagens-container">
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/sankey-do-volume-de-exportacao-da-amazonia-por-pais-de-destino" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_sankey_exp.jpg" alt="viz icon">
-    </a><br>
-    <p>Sankeys of Export Volume per Destination Country</p>
-   </div>
-
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/ranking-prop-exportacoes-mundiais-amazonia" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_prop_exp.jpg" alt="viz icon">
-    </a><br>
-    <p>Ranking of Products by World Exportation from Legal Amazon</p>
-   </div>
-
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/series-temporais-exportacao-pais" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ts_bens_paises_exp.png" alt="viz icon">
-    </a><br>
-    <p>Time Series of the Legal Amazon's Export Value by Destination Country</p>
-   </div>
-
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/series-temporais-valores-exportacao-destino" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_series-temporais-valores-exportacao-destino.png" alt="viz icon">
-    </a><br>
-    <p>Time Series of Total Exports Value by Destination Country</p>
-   </div>
-
-   <div class="icone-bloco">
-    <a href="{{ site.baseurl }}/en/viz/ranking-campeoes-de-importacao" target="_blank" rel="noopener noreferrer">
-      <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_ranking-campeoes-de-importacao.png" alt="viz icon">
-    </a><br>
-    <p>Ranking of Countries that Import from the Legal Amazon</p>
-   </div>
-</div>
-
 <!-- The app is a dashboard with a sidebar: it needs height, not the 800px band
      the older visualizations used. vh to fill the screen, with a floor for short ones. -->
 <style>
