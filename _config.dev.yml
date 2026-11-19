@@ -1,0 +1,7 @@
+# Sobrescreve o _config.yml para desenvolvimento local.
+#
+#   bundle exec jekyll serve --config _config.yml,_config.dev.yml
+#
+# Aponta os apps web para o ambiente que está no ar hoje, para dar para ver a
+# página inteira funcionando antes do Pages do datazoom_viz existir.
+viz_app_base: "https://datazoom.com.br/datazoom_viz_web"

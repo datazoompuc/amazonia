@@ -25,6 +25,14 @@ description: >- # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "/amazonia" # the subpath of your site, e.g. /blog
+
+# Base dos apps web estáticos (repositório datazoom_viz, servido pelo Pages).
+# Está aqui, e não cravado em cada página, por dois motivos: o endereço vai
+# mudar quando o Pages do datazoom_viz entrar no ar, e dá para apontar para
+# outro ambiente ao testar local, sem editar as páginas:
+#
+#   bundle exec jekyll serve --config _config.yml,_config.dev.yml
+viz_app_base: "https://datazoom.com.br/datazoom_viz"
 url: 'https://datazoom.com.br' # the base hostname & protocol for your site, e.g. http://example.com
 
 google_analytics: "G-L6RV800DBQ"
