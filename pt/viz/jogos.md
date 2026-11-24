@@ -227,11 +227,39 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
   .status-item {
     font-size: 12px;
     color: #556066;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
   .status-val {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 700;
     color: #1e2d24;
+  }
+  .assist-toggle-btn {
+    background: #fff8e1;
+    color: #b78103;
+    border: 1px solid #ffe082;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.15s ease;
+  }
+  .assist-toggle-btn:hover {
+    background: #ffecb3;
+    border-color: #ffd54f;
+    color: #8c6000;
+  }
+  .assist-toggle-btn.active {
+    background: #ffc107;
+    color: #3e2723;
+    border-color: #ffa000;
+    box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.3);
   }
 
   /* TABULEIRO DATAGRID */
@@ -1039,7 +1067,16 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
 
     <!-- Barra de Status com Timer Individual do Grid -->
     <div class="status-bar-tech">
-      <div class="status-item">PONTUAÇÃO: <span class="status-val" id="grid-score">1000</span> pts</div>
+      <div class="status-item">
+        <span>PONTUAÇÃO:</span>
+        <span class="status-val" id="grid-score">1000</span> pts
+        <button type="button" class="assist-toggle-btn" id="btn-toggle-assist" onclick="toggleAssistMode()" title="Ativa o Modo Facilitado com 10 opções (corta a pontuação pela metade)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" style="vertical-align: middle;">
+            <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7zM9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/>
+          </svg>
+          <span id="assist-btn-label">Modo Facilitado: 10 Opções (-50% pts)</span>
+        </button>
+      </div>
       <div class="status-item">ACERTOS: <span class="status-val" id="grid-hits">0</span> / 9</div>
       <div class="status-item">TENTATIVAS: <span class="status-val" id="grid-tries">10</span></div>
       <div class="status-item">TEMPO: <span class="status-val" id="grid-timer">00:00</span></div>
@@ -1063,7 +1100,6 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
 
       <div id="hints-panel" style="display: none; margin-top: 12px;">
         <div class="hint-container">
-          <button class="hint-btn" id="btn-hint-10opts" onclick="requestHint(3)">Modo Facilitado: 10 Opções (-200 pts)</button>
           <button class="hint-btn" onclick="requestHint(1)">Dica UF (-100 pts)</button>
           <button class="hint-btn" onclick="requestHint(2)">Dica 1ª Letra (-150 pts)</button>
         </div>
@@ -1633,7 +1669,9 @@ var gridDifficultyStates = {
     triesLeft: 10,
     score: 1000,
     hits: 0,
-    completed: false
+    completed: false,
+    assistEnabled: false,
+    scoreCutApplied: false
   }
 };
 
@@ -1700,7 +1738,9 @@ function selectGridDate(dateStr) {
     triesLeft: 10,
     score: 1000,
     hits: 0,
-    completed: false
+    completed: false,
+    assistEnabled: false,
+    scoreCutApplied: false
   };
 
   closeGridCalendar();
@@ -1798,6 +1838,21 @@ function setGridDifficulty(diff) {
   document.getElementById('grid-hits').innerText = state.hits;
   document.getElementById('grid-tries').innerText = state.triesLeft;
 
+  // Atualizar visibilidade e estado do botao de Modo Facilitado (lampada amarela)
+  var assistBtn = document.getElementById('btn-toggle-assist');
+  var assistLabel = document.getElementById('assist-btn-label');
+  if (assistBtn) {
+    if (diff === 'hard') {
+      assistBtn.style.display = 'inline-flex';
+      assistBtn.classList.toggle('active', !!state.assistEnabled);
+      if (assistLabel) {
+        assistLabel.innerText = state.assistEnabled ? "Modo Facilitado Ativo (10 Opções)" : "Modo Facilitado: 10 Opções (-50% pts)";
+      }
+    } else {
+      assistBtn.style.display = 'none';
+    }
+  }
+
   renderGridBoardFromState();
 
   var compPanel = document.getElementById('grid-completion-panel');
@@ -1863,14 +1918,44 @@ function renderGridBoardFromState() {
   }
 }
 
-var showTenOptionsForCurrentCell = false;
+function toggleAssistMode() {
+  if (activeGridDifficulty !== 'hard') return;
+  var state = gridDifficultyStates.hard;
+  if (state.completed) return;
+
+  state.assistEnabled = !state.assistEnabled;
+
+  // Corta pontuacao pela metade na primeira ativacao
+  if (state.assistEnabled && !state.scoreCutApplied) {
+    state.score = Math.floor(state.score / 2);
+    state.scoreCutApplied = true;
+  }
+
+  var assistBtn = document.getElementById('btn-toggle-assist');
+  var assistLabel = document.getElementById('assist-btn-label');
+  if (assistBtn) {
+    assistBtn.classList.toggle('active', !!state.assistEnabled);
+    if (assistLabel) {
+      assistLabel.innerText = state.assistEnabled ? "Modo Facilitado Ativo (10 Opções)" : "Modo Facilitado: 10 Opções (-50% pts)";
+    }
+  }
+
+  document.getElementById('grid-score').innerText = state.score;
+
+  if (currentInputCell) {
+    var searchBoxWrap = document.querySelector('#cell-input-panel .search-box-wrap');
+    if (searchBoxWrap) {
+      searchBoxWrap.style.display = state.assistEnabled ? 'none' : 'block';
+    }
+    renderOptionsList('');
+  }
+}
 
 function openCellInput(row, col) {
   var state = gridDifficultyStates[activeGridDifficulty];
   if (state.completed || state.cells[row][col]) return;
 
   currentInputCell = { r: row, c: col };
-  showTenOptionsForCurrentCell = false;
   var currentSet = getCurrentGridSet();
   var rowDef = currentSet.rows[row];
   var colDef = currentSet.cols[col];
@@ -1882,27 +1967,24 @@ function openCellInput(row, col) {
   document.getElementById('hints-panel').style.display = 'block';
   document.getElementById('hint-display').innerText = '';
 
-  var hint10Btn = document.getElementById('btn-hint-10opts');
-  if (hint10Btn) {
-    hint10Btn.style.display = (activeGridDifficulty === 'hard') ? 'inline-block' : 'none';
-  }
-
+  var isAssist = (activeGridDifficulty === 'hard' && state.assistEnabled);
   var searchBoxWrap = document.querySelector('#cell-input-panel .search-box-wrap');
   if (searchBoxWrap) {
-    searchBoxWrap.style.display = 'block';
+    searchBoxWrap.style.display = isAssist ? 'none' : 'block';
   }
 
   var searchField = document.getElementById('grid-search-field');
   searchField.value = '';
   document.getElementById('cell-input-panel').style.display = 'block';
   renderOptionsList('');
-  searchField.focus();
+  if (!isAssist) {
+    searchField.focus();
+  }
 }
 
 function closeCellInput() {
   document.getElementById('cell-input-panel').style.display = 'none';
   currentInputCell = null;
-  showTenOptionsForCurrentCell = false;
 }
 
 function renderOptionsList(filterText) {
@@ -1920,8 +2002,9 @@ function renderOptionsList(filterText) {
     }
   }
 
-  // DICA "MODO FACILITADO": Sorteia 10 opcoes (exatamente 1 correta e 9 distratores)
-  if (showTenOptionsForCurrentCell && currentInputCell) {
+  // MODO FACILITADO (10 opcoes: 1 correta e 9 distratores)
+  var isAssist = (activeGridDifficulty === 'hard' && state.assistEnabled);
+  if (isAssist && currentInputCell) {
     var cellR = currentInputCell.r;
     var cellC = currentInputCell.c;
     var rowDef = currentSet.rows[cellR];
@@ -2078,13 +2161,6 @@ function requestHint(type) {
   } else if (type === 2) {
     state.score = Math.max(0, state.score - 150);
     hintText = `Dica Letra: Uma das respostas válidas começa com a letra "${sample.name.charAt(0)}"`;
-  } else if (type === 3) {
-    state.score = Math.max(0, state.score - 200);
-    hintText = `Modo Facilitado ativado: Escolha 1 entre as 10 opções listadas abaixo (apenas 1 é correta).`;
-    showTenOptionsForCurrentCell = true;
-    var searchBoxWrap = document.querySelector('#cell-input-panel .search-box-wrap');
-    if (searchBoxWrap) searchBoxWrap.style.display = 'none';
-    renderOptionsList('');
   }
 
   document.getElementById('grid-score').innerText = state.score;
