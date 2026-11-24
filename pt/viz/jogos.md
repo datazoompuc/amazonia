@@ -1175,18 +1175,42 @@ function formatMetricUnit(val, unit) {
 // DIMENSOES ATOMICAS PARA O GERADOR PROCEDURAL DO MODO GRID (BASES AUDITADAS)
 // ==============================================================================
 var STATE_GRID_DIMENSIONS = [
+  // 1. Geografia Política & Fronteiras
   { id: "st_fronteira", name: "Fronteira internacional", desc: "Geografia Oficial", check: function(s) { return ["AC", "AM", "AP", "MT", "PA", "RO", "RR"].indexOf(s.uf) !== -1; } },
   { id: "st_norte", name: "Pertence à Região Norte", desc: "Divisão Regional IBGE", check: function(s) { return ["AC", "AP", "AM", "PA", "RO", "RR", "TO"].indexOf(s.uf) !== -1; } },
   { id: "st_ocidental", name: "Amazônia Ocidental", desc: "AC, AM, RO ou RR (SUFRAMA)", check: function(s) { return ["AC", "AM", "RO", "RR"].indexOf(s.uf) !== -1; } },
   { id: "st_oriental", name: "Amazônia Oriental", desc: "AP, MA, MT, PA ou TO", check: function(s) { return ["AP", "MA", "MT", "PA", "TO"].indexOf(s.uf) !== -1; } },
-  { id: "st_forest_70", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(s) { return (s.forest_pct || 0) > 70.0; } },
+  { id: "st_litoral", name: "Possui costa litorânea (marítima)", desc: "AP, MA ou PA (IBGE)", check: function(s) { return ["AP", "MA", "PA"].indexOf(s.uf) !== -1; } },
+
+  // 2. Malha Municipal & Dimensão Territorial
+  { id: "st_munis_100", name: "Mais de 100 municípios", desc: "IBGE Malha Municipal", check: function(s) { return (s.n_munis || 0) > 100; } },
+  { id: "st_munis_sub70", name: "Menos de 70 municípios", desc: "IBGE Malha Municipal", check: function(s) { return (s.n_munis || 0) < 70; } },
+  { id: "st_area_500k", name: "Área Territorial > 500.000 km²", desc: "IBGE Malha Municipal", check: function(s) { return (s.area_km2 || 0) > 500000; } },
+  { id: "st_area_sub300k", name: "Área Territorial < 300.000 km²", desc: "IBGE Malha Municipal", check: function(s) { return (s.area_km2 || 0) < 300000; } },
+
+  // 3. Demografia
   { id: "st_pop_15m", name: "População maior que 1,5 milhão", desc: "IBGE Censo / Estimativas", check: function(s) { return s.pop > 1500000; } },
   { id: "st_pop_sub1m", name: "População menor que 1 milhão", desc: "IBGE Censo / Estimativas", check: function(s) { return s.pop < 1000000; } },
+
+  // 4. Uso da Terra e Floresta (MapBiomas)
+  { id: "st_forest_70", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(s) { return (s.forest_pct || 0) > 70.0; } },
+  { id: "st_forest_80", name: "Mais de 80% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(s) { return (s.forest_pct || 0) > 80.0; } },
+  { id: "st_forest_sub60", name: "Menos de 60% de Cobertura Florestal", desc: "MapBiomas (2024)", check: function(s) { return (s.forest_pct || 0) < 60.0; } },
+
+  // 5. Agropecuária (IBGE PPM & PAM)
+  { id: "st_cattle_pop", name: "Mais gado bovino do que habitantes", desc: "IBGE PPM / Censo", check: function(s) { return (s.cattle || 0) > (s.pop || 0); } },
+  { id: "st_cattle_10m", name: "Rebanho bovino > 10 milhões de cabeças", desc: "IBGE PPM (2024)", check: function(s) { return (s.cattle || 0) > 10000000; } },
+  { id: "st_soy_1m", name: "Produção de Soja > 1 milhão de toneladas", desc: "IBGE PAM (2024)", check: function(s) { return (s.soy || 0) > 1000000; } },
+
+  // 6. Economia & Comércio Exterior
   { id: "st_exp_1bi", name: "Exportações > US$ 1 bilhão FOB", desc: "Comex Stat (2025)", check: function(s) { return (s.exports_usd || 0) > 1000000000; } },
   { id: "st_exp_pc_1k", name: "Exportação > US$ 1.000 / hab", desc: "Comex Stat / IBGE", check: function(s) { return (s.exports_pc || 0) > 1000.0; } },
+  { id: "st_gdp_50bi", name: "PIB Estadual > R$ 50 bilhões", desc: "IBGE Contas Regionais", check: function(s) { return (s.gdp_mil || 0) > 50000000; } },
+  { id: "st_gd_ppc_25k", name: "PIB per capita > R$ 25.000", desc: "IBGE Contas Regionais", check: function(s) { return (s.gd_ppc || 0) > 25000; } },
+
+  // 7. Toponímia
   { id: "st_letra_a", name: "Nome começa com a letra A", desc: "Toponímia oficial", check: function(s) { return s.name.charAt(0) === 'A'; } },
-  { id: "st_letra_mprt", name: "Nome começa com M, P, R ou T", desc: "Toponímia oficial", check: function(s) { return ["M", "P", "R", "T"].indexOf(s.name.charAt(0)) !== -1; } },
-  { id: "st_gd_ppc_25k", name: "PIB per capita > R$ 25.000", desc: "IBGE PIB dos Municípios", check: function(s) { return (s.gd_ppc || 0) > 25000; } }
+  { id: "st_letra_mprt", name: "Nome começa com M, P, R ou T", desc: "Toponímia oficial", check: function(s) { return ["M", "P", "R", "T"].indexOf(s.name.charAt(0)) !== -1; } }
 ];
 
 var MUNI_GRID_DIMENSIONS = [
@@ -2573,6 +2597,10 @@ fetch(DATA_JSON_URL)
         name: s.name,
         uf: s.uf,
         pop: s.pop,
+        n_munis: s.n_munis,
+        area_km2: s.area_km2,
+        cattle: s.cattle,
+        soy: s.soy,
         gdp_mil: s.gdp_mil,
         gd_ppc: s.gd_ppc,
         exports_usd: s.exports_usd,
