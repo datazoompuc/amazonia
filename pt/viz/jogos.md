@@ -969,7 +969,6 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
       <div class="level-picker">
         <span class="level-label">Dificuldade:</span>
         <button class="level-btn active" id="lvl-easy" onclick="setGridDifficulty('easy')">Fácil (Estados)</button>
-        <button class="level-btn" id="lvl-assist" onclick="setGridDifficulty('assist')">Assistido (Municípios)</button>
         <button class="level-btn" id="lvl-hard" onclick="setGridDifficulty('hard')">Difícil (Municípios)</button>
       </div>
       <div class="grid-cal-corner-wrap">
@@ -1064,8 +1063,9 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
 
       <div id="hints-panel" style="display: none; margin-top: 12px;">
         <div class="hint-container">
-          <button class="hint-btn" onclick="requestHint(1)">Dica 1: Revelar UF (-100 pts)</button>
-          <button class="hint-btn" onclick="requestHint(2)">Dica 2: Revelar Primeira Letra (-200 pts)</button>
+          <button class="hint-btn" id="btn-hint-10opts" onclick="requestHint(3)">Modo Facilitado: 10 Opções (-200 pts)</button>
+          <button class="hint-btn" onclick="requestHint(1)">Dica UF (-100 pts)</button>
+          <button class="hint-btn" onclick="requestHint(2)">Dica 1ª Letra (-150 pts)</button>
         </div>
         <div id="hint-display" style="font-size: 11px; color: #3b5240; font-style: italic; margin-top: 6px;"></div>
       </div>
@@ -1627,14 +1627,6 @@ var gridDifficultyStates = {
     hits: 0,
     completed: false
   },
-  assist: {
-    boardIndex: 0,
-    cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
-    triesLeft: 10,
-    score: 1000,
-    hits: 0,
-    completed: false
-  },
   hard: {
     boardIndex: 0,
     cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
@@ -1695,14 +1687,6 @@ function selectGridDate(dateStr) {
 
   // Resetar estados das dificuldades para a data selecionada
   gridDifficultyStates.easy = {
-    boardSet: null,
-    cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
-    triesLeft: 10,
-    score: 1000,
-    hits: 0,
-    completed: false
-  };
-  gridDifficultyStates.assist = {
     boardSet: null,
     cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
     triesLeft: 10,
@@ -1797,8 +1781,6 @@ function setGridDifficulty(diff) {
   activeGridDifficulty = diff;
 
   document.getElementById('lvl-easy').classList.toggle('active', diff === 'easy');
-  var assistBtn = document.getElementById('lvl-assist');
-  if (assistBtn) assistBtn.classList.toggle('active', diff === 'assist');
   document.getElementById('lvl-hard').classList.toggle('active', diff === 'hard');
 
   var state = gridDifficultyStates[activeGridDifficulty];
@@ -1881,11 +1863,14 @@ function renderGridBoardFromState() {
   }
 }
 
+var showTenOptionsForCurrentCell = false;
+
 function openCellInput(row, col) {
   var state = gridDifficultyStates[activeGridDifficulty];
   if (state.completed || state.cells[row][col]) return;
 
   currentInputCell = { r: row, c: col };
+  showTenOptionsForCurrentCell = false;
   var currentSet = getCurrentGridSet();
   var rowDef = currentSet.rows[row];
   var colDef = currentSet.cols[col];
@@ -1897,23 +1882,27 @@ function openCellInput(row, col) {
   document.getElementById('hints-panel').style.display = 'block';
   document.getElementById('hint-display').innerText = '';
 
+  var hint10Btn = document.getElementById('btn-hint-10opts');
+  if (hint10Btn) {
+    hint10Btn.style.display = (activeGridDifficulty === 'hard') ? 'inline-block' : 'none';
+  }
+
   var searchBoxWrap = document.querySelector('#cell-input-panel .search-box-wrap');
   if (searchBoxWrap) {
-    searchBoxWrap.style.display = (activeGridDifficulty === 'assist') ? 'none' : 'block';
+    searchBoxWrap.style.display = 'block';
   }
 
   var searchField = document.getElementById('grid-search-field');
   searchField.value = '';
   document.getElementById('cell-input-panel').style.display = 'block';
   renderOptionsList('');
-  if (activeGridDifficulty !== 'assist') {
-    searchField.focus();
-  }
+  searchField.focus();
 }
 
 function closeCellInput() {
   document.getElementById('cell-input-panel').style.display = 'none';
   currentInputCell = null;
+  showTenOptionsForCurrentCell = false;
 }
 
 function renderOptionsList(filterText) {
@@ -1931,8 +1920,8 @@ function renderOptionsList(filterText) {
     }
   }
 
-  // MODO ASSISTENTE: Sorteia 10 opcoes (exatamente 1 correta e 9 distratores)
-  if (activeGridDifficulty === 'assist' && currentInputCell) {
+  // DICA "MODO FACILITADO": Sorteia 10 opcoes (exatamente 1 correta e 9 distratores)
+  if (showTenOptionsForCurrentCell && currentInputCell) {
     var cellR = currentInputCell.r;
     var cellC = currentInputCell.c;
     var rowDef = currentSet.rows[cellR];
@@ -1978,7 +1967,7 @@ function renderOptionsList(filterText) {
 
     container.innerHTML = `
       <div style="padding: 6px 10px 10px; font-size: 12px; color: #2e4d32; font-weight: 600; border-bottom: 1px solid #e2ede2; margin-bottom: 6px;">
-        Selecione 1 entre os 10 municípios abaixo (apenas 1 é o correto):
+        Dica Ativada: Selecione 1 entre as 10 opções abaixo (apenas 1 é correta):
       </div>
     ` + tenOptions.map(function(item) {
       return `
@@ -2080,9 +2069,16 @@ function requestHint(type) {
   if (type === 1) {
     state.score = Math.max(0, state.score - 100);
     hintText = `Dica UF: Uma das respostas válidas pertence ao estado: ${sample.uf}`;
-  } else {
-    state.score = Math.max(0, state.score - 200);
+  } else if (type === 2) {
+    state.score = Math.max(0, state.score - 150);
     hintText = `Dica Letra: Uma das respostas válidas começa com a letra "${sample.name.charAt(0)}"`;
+  } else if (type === 3) {
+    state.score = Math.max(0, state.score - 200);
+    hintText = `Modo Facilitado ativado: Escolha 1 entre as 10 opções listadas abaixo (apenas 1 é correta).`;
+    showTenOptionsForCurrentCell = true;
+    var searchBoxWrap = document.querySelector('#cell-input-panel .search-box-wrap');
+    if (searchBoxWrap) searchBoxWrap.style.display = 'none';
+    renderOptionsList('');
   }
 
   document.getElementById('grid-score').innerText = state.score;
@@ -2110,7 +2106,7 @@ function finishGridGame(gabari) {
   }
 
   pendingGridResult = {
-    mode: `Modo Grid (${activeGridDifficulty === 'easy' ? 'Estados' : activeGridDifficulty === 'assist' ? 'Municípios (Assistido)' : 'Municípios'})`,
+    mode: `Modo Grid (${activeGridDifficulty === 'easy' ? 'Estados' : 'Municípios'})`,
     score: `${state.score} pts (${state.hits}/9)`,
     time: document.getElementById('grid-timer').innerText
   };
@@ -2734,7 +2730,6 @@ function saveRecord(playerName, mode, scoreVal, timeStr) {
         id: newEntry.id,
         name: playerName,
         mode: mode.indexOf('Grid (Estados)') !== -1 ? 'grid-easy' :
-              mode.indexOf('Assistido') !== -1 ? 'grid-assist' :
               mode.indexOf('Grid (Municípios)') !== -1 ? 'grid-hard' :
               mode.indexOf('Versus') !== -1 ? 'versus' : 'streak',
         score: parseInt(String(scoreVal).replace(/\D/g, '') || '1', 10),
