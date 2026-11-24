@@ -82,8 +82,8 @@ function doPost(e) {
     const body = JSON.parse(raw);
 
     const allowedModes = {
-      "grid-easy": { label: "Grid (Estados)", max: 9 },
-      "grid-hard": { label: "Grid (Municípios)", max: 9 },
+      "grid-easy": { label: "Grid (Estados)", max: 1000000 },
+      "grid-hard": { label: "Grid (Municípios)", max: 1000000 },
       "versus": { label: "Modo Versus", max: 5 },
       "streak": { label: "Modo Streak", max: 200 }
     };
@@ -104,11 +104,30 @@ function doPost(e) {
     }
 
     const id = String(body.id || ("gas-" + new Date().getTime()));
-    const maxScore = mode === "streak" ? "" : allowedModes[mode].max;
+    const maxScore = (mode === "streak" || mode.indexOf("grid") !== -1) ? "" : allowedModes[mode].max;
     const detail = String(body.detail || "").slice(0, 50);
     const date = String(body.date || new Date().toLocaleDateString("pt-BR")).slice(0, 16);
 
     const sheet = getSheet_();
+
+    // TRAVA 1: 1 REGISTRO POR NOME E POR DIA POR MODO (ANTI-FRAUDE/LIMPEZA DE CACHE)
+    const existingValues = sheet.getDataRange().getValues();
+    const normalizedName = name.toLowerCase();
+
+    for (let i = 1; i < existingValues.length; i++) {
+      const rowName = String(existingValues[i][1] || "").toLowerCase().trim();
+      const rowMode = String(existingValues[i][2] || "").trim();
+      const rowDate = String(existingValues[i][7] || "").trim();
+
+      // Se o jogador ja enviou um recorde hoje para esse mesmo modo, rejeita o reenvio
+      if (rowName === normalizedName && rowMode === mode && rowDate === date) {
+        return jsonResponse_({
+          ok: false,
+          error: "Você já enviou um recorde hoje para este desafio com esse nome. Apenas 1 envio diário é permitido."
+        });
+      }
+    }
+
     sheet.appendRow([
       id,
       name,
