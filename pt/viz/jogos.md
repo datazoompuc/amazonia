@@ -1265,7 +1265,7 @@ var BASE_URL = "{{ site.baseurl }}";
 var DATA_JSON_URL = BASE_URL + "/assets/data/minigames_data.json";
 var STATIC_LB_URL = BASE_URL + "/assets/data/leaderboard.json";
 var LOCAL_API_LB_URL = BASE_URL + "/api/leaderboard";
-var REMOTE_LEADERBOARD_ENDPOINT = window.DZ_LEADERBOARD_API_URL || "";
+var REMOTE_LEADERBOARD_ENDPOINT = window.DZ_LEADERBOARD_API_URL || "https://script.google.com/macros/s/AKfycbzGKVQyYif1LPMCq-YsDVaEj3GWpbm6NLwh0hiJQKFIs-9dC4ER8krpI5YH6Iklfa_vOQ/exec";
 
 var DATA_STATES = [];
 var DATA_HARD = [];
