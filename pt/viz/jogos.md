@@ -1980,7 +1980,13 @@ function renderOptionsList(filterText) {
     return;
   }
 
-  var normFilter = (filterText || '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  var normFilter = (filterText || '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+  // No modo dificil (municipios), exige pelo menos 2 letras digitadas para nao listar cidades antes da busca
+  if (activeGridDifficulty === 'hard' && normFilter.length < 2) {
+    container.innerHTML = '<div style="padding: 18px 12px; color: #738a75; text-align: center; font-size: 13px;">Digite pelo menos <strong>2 letras</strong> do nome da cidade para buscar...</div>';
+    return;
+  }
 
   var matches = pool.filter(function(item) {
     if (usedMap[item.id]) return false;
