@@ -1177,10 +1177,12 @@ function formatMetricUnit(val, unit) {
 var STATE_GRID_DIMENSIONS = [
   { id: "st_fronteira", name: "Fronteira internacional", desc: "Geografia Oficial", check: function(s) { return ["AC", "AM", "AP", "MT", "PA", "RO", "RR"].indexOf(s.uf) !== -1; } },
   { id: "st_norte", name: "Pertence à Região Norte", desc: "Divisão Regional IBGE", check: function(s) { return ["AC", "AP", "AM", "PA", "RO", "RR", "TO"].indexOf(s.uf) !== -1; } },
+  { id: "st_ocidental", name: "Amazônia Ocidental", desc: "AC, AM, RO ou RR (SUFRAMA)", check: function(s) { return ["AC", "AM", "RO", "RR"].indexOf(s.uf) !== -1; } },
+  { id: "st_oriental", name: "Amazônia Oriental", desc: "AP, MA, MT, PA ou TO", check: function(s) { return ["AP", "MA", "MT", "PA", "TO"].indexOf(s.uf) !== -1; } },
   { id: "st_forest_70", name: "Mais de 70% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(s) { return (s.forest_pct || 0) > 70.0; } },
   { id: "st_pop_15m", name: "População maior que 1,5 milhão", desc: "IBGE Censo / Estimativas", check: function(s) { return s.pop > 1500000; } },
+  { id: "st_pop_sub1m", name: "População menor que 1 milhão", desc: "IBGE Censo / Estimativas", check: function(s) { return s.pop < 1000000; } },
   { id: "st_exp_1bi", name: "Exportações > US$ 1 bilhão FOB", desc: "Comex Stat (2025)", check: function(s) { return (s.exports_usd || 0) > 1000000000; } },
-  { id: "st_exp_2bi", name: "Exportações > US$ 2 bilhões FOB", desc: "Comex Stat (2025)", check: function(s) { return (s.exports_usd || 0) > 2000000000; } },
   { id: "st_exp_pc_1k", name: "Exportação > US$ 1.000 / hab", desc: "Comex Stat / IBGE", check: function(s) { return (s.exports_pc || 0) > 1000.0; } },
   { id: "st_letra_a", name: "Nome começa com a letra A", desc: "Toponímia oficial", check: function(s) { return s.name.charAt(0) === 'A'; } },
   { id: "st_letra_mprt", name: "Nome começa com M, P, R ou T", desc: "Toponímia oficial", check: function(s) { return ["M", "P", "R", "T"].indexOf(s.name.charAt(0)) !== -1; } },
@@ -1192,9 +1194,12 @@ var MUNI_GRID_DIMENSIONS = [
   { id: "mu_mt", name: "Pertence ao Mato Grosso (MT)", desc: "141 municípios oficiais", check: function(m) { return m.uf === "MT"; } },
   { id: "mu_am_ro", name: "Pertence ao Amazonas ou Rondônia", desc: "AM ou RO", check: function(m) { return ["AM", "RO"].indexOf(m.uf) !== -1; } },
   { id: "mu_ma_to", name: "Pertence ao Maranhão ou Tocantins", desc: "MA ou TO", check: function(m) { return ["MA", "TO"].indexOf(m.uf) !== -1; } },
+  { id: "mu_ac_ap_rr", name: "Pertence ao Acre, Amapá ou Roraima", desc: "AC, AP ou RR", check: function(m) { return ["AC", "AP", "RR"].indexOf(m.uf) !== -1; } },
   { id: "mu_pop_50k", name: "População > 50.000 habitantes", desc: "IBGE Censo / Estimativas", check: function(m) { return m.pop > 50000; } },
   { id: "mu_pop_20k", name: "População > 20.000 habitantes", desc: "IBGE Censo / Estimativas", check: function(m) { return m.pop > 20000; } },
   { id: "mu_pop_sub15k", name: "População < 15.000 habitantes", desc: "IBGE Censo / Estimativas", check: function(m) { return m.pop < 15000; } },
+  { id: "mu_area_10k", name: "Área Territorial > 10.000 km²", desc: "IBGE Malha Municipal", check: function(m) { return (m.area_km2 || 0) > 10000; } },
+  { id: "mu_area_sub2k", name: "Área Territorial < 2.000 km²", desc: "IBGE Malha Municipal", check: function(m) { return (m.area_km2 || 0) < 2000; } },
   { id: "mu_forest_75", name: "Mais de 75% de Floresta Nativa", desc: "MapBiomas (2024)", check: function(m) { return (m.forest_pct || 0) > 75.0; } },
   { id: "mu_forest_sub50", name: "Menos de 50% de Cobertura Florestal", desc: "MapBiomas (2024)", check: function(m) { return (m.forest_pct || 0) < 50.0; } },
   { id: "mu_exp_1m", name: "Exportador (> US$ 1 milhão FOB)", desc: "Comex Stat (2025)", check: function(m) { return (m.exports_usd || 0) > 1000000; } },
@@ -1991,6 +1996,36 @@ var QUESTION_SPECS = [
       return popRatio <= 2.0;
     },
     minRatio: 1.40
+  },
+  {
+    category: "Geografia / Dimensão Territorial",
+    metric: "area_km2",
+    unit: "km²",
+    question: "Qual cidade possui MAIOR extensão territorial (área em km²)?",
+    hint: "Área territorial total oficial da malha municipal calculada pelo IBGE e MapBiomas.",
+    source: "IBGE / Malha Municipal & MapBiomas",
+    rCode: "datazoom.amazonia::load_mapbiomas(dataset = 'municipality_coverage')",
+    filterFn: function(m) { return m.pop >= 10000 && (m.area_km2 || 0) >= 1000; },
+    isPeer: function(a, b) {
+      var popRatio = Math.max(a.pop, b.pop) / Math.max(Math.min(a.pop, b.pop), 1);
+      return popRatio <= 2.2;
+    },
+    minRatio: 1.50
+  },
+  {
+    category: "Comércio Exterior / Volume Total",
+    metric: "exports_usd",
+    unit: "US$ FOB",
+    question: "Qual cidade possui MAIOR volume total de exportações (US$ FOB)?",
+    hint: "Volume financeiro total das mercadorias exportadas pelo município a preços correntes FOB.",
+    source: "MDIC / Comex Stat (2025)",
+    rCode: "datazoom.amazonia::load_br_trade(dataset = 'exportation')",
+    filterFn: function(m) { return (m.exports_usd || 0) >= 10000000 && m.pop >= 15000; },
+    isPeer: function(a, b) {
+      var popRatio = Math.max(a.pop, b.pop) / Math.max(Math.min(a.pop, b.pop), 1);
+      return popRatio <= 2.2;
+    },
+    minRatio: 1.50
   }
 ];
 
@@ -2062,6 +2097,13 @@ function buildDailyVersusPuzzles() {
   var rng = makeRng("dz_versus_daily_" + getDailySeedString());
   VERSUS_DAILY_PUZZLES = [];
   var specs = QUESTION_SPECS.slice();
+  // Embaralha as categorias diariamente para que cada dia tenha uma sequencia unica
+  for (var i = specs.length - 1; i > 0; i--) {
+    var j = Math.floor(rng() * (i + 1));
+    var temp = specs[i];
+    specs[i] = specs[j];
+    specs[j] = temp;
+  }
   for (var k = 0; k < 5; k++) {
     var spec = specs[k % specs.length];
     var winner = (k % 2 === 0) ? 'left' : 'right';
