@@ -969,6 +969,7 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
       <div class="level-picker">
         <span class="level-label">Dificuldade:</span>
         <button class="level-btn active" id="lvl-easy" onclick="setGridDifficulty('easy')">Fácil (Estados)</button>
+        <button class="level-btn" id="lvl-assist" onclick="setGridDifficulty('assist')">Assistido (Municípios)</button>
         <button class="level-btn" id="lvl-hard" onclick="setGridDifficulty('hard')">Difícil (Municípios)</button>
       </div>
       <div class="grid-cal-corner-wrap">
@@ -1341,9 +1342,10 @@ var MUNI_GRID_DIMENSIONS = [
 function generateProceduralGridSet(diff, dateStr) {
   var pool = (diff === 'easy') ? DATA_STATES : DATA_HARD;
   var dims = (diff === 'easy') ? STATE_GRID_DIMENSIONS : MUNI_GRID_DIMENSIONS;
+  var seedDiff = (diff === 'assist') ? 'hard' : diff;
 
   for (var attempt = 0; attempt < 250; attempt++) {
-    var seedStr = "dz_proc_grid_" + diff + "_" + dateStr + "_" + attempt;
+    var seedStr = "dz_proc_grid_" + seedDiff + "_" + dateStr + "_" + attempt;
     var rng = makeRng(seedStr);
     var shuffled = dims.slice();
     for (var i = shuffled.length - 1; i > 0; i--) {
@@ -1625,6 +1627,14 @@ var gridDifficultyStates = {
     hits: 0,
     completed: false
   },
+  assist: {
+    boardIndex: 0,
+    cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
+    triesLeft: 10,
+    score: 1000,
+    hits: 0,
+    completed: false
+  },
   hard: {
     boardIndex: 0,
     cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
@@ -1685,6 +1695,14 @@ function selectGridDate(dateStr) {
 
   // Resetar estados das dificuldades para a data selecionada
   gridDifficultyStates.easy = {
+    boardSet: null,
+    cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
+    triesLeft: 10,
+    score: 1000,
+    hits: 0,
+    completed: false
+  };
+  gridDifficultyStates.assist = {
     boardSet: null,
     cells: Array(3).fill(null).map(function() { return Array(3).fill(null); }),
     triesLeft: 10,
@@ -1779,6 +1797,8 @@ function setGridDifficulty(diff) {
   activeGridDifficulty = diff;
 
   document.getElementById('lvl-easy').classList.toggle('active', diff === 'easy');
+  var assistBtn = document.getElementById('lvl-assist');
+  if (assistBtn) assistBtn.classList.toggle('active', diff === 'assist');
   document.getElementById('lvl-hard').classList.toggle('active', diff === 'hard');
 
   var state = gridDifficultyStates[activeGridDifficulty];
@@ -1877,11 +1897,18 @@ function openCellInput(row, col) {
   document.getElementById('hints-panel').style.display = 'block';
   document.getElementById('hint-display').innerText = '';
 
+  var searchBoxWrap = document.querySelector('#cell-input-panel .search-box-wrap');
+  if (searchBoxWrap) {
+    searchBoxWrap.style.display = (activeGridDifficulty === 'assist') ? 'none' : 'block';
+  }
+
   var searchField = document.getElementById('grid-search-field');
   searchField.value = '';
   document.getElementById('cell-input-panel').style.display = 'block';
   renderOptionsList('');
-  searchField.focus();
+  if (activeGridDifficulty !== 'assist') {
+    searchField.focus();
+  }
 }
 
 function closeCellInput() {
@@ -1893,6 +1920,7 @@ function renderOptionsList(filterText) {
   var container = document.getElementById('grid-options-container');
   var pool = getCurrentGridDataPool();
   var state = gridDifficultyStates[activeGridDifficulty];
+  var currentSet = getCurrentGridSet();
 
   var usedMap = {};
   for (var r = 0; r < 3; r++) {
@@ -1901,6 +1929,66 @@ function renderOptionsList(filterText) {
         usedMap[state.cells[r][c].id] = true;
       }
     }
+  }
+
+  // MODO ASSISTENTE: Sorteia 10 opcoes (exatamente 1 correta e 9 distratores)
+  if (activeGridDifficulty === 'assist' && currentInputCell) {
+    var cellR = currentInputCell.r;
+    var cellC = currentInputCell.c;
+    var rowDef = currentSet.rows[cellR];
+    var colDef = currentSet.cols[cellC];
+
+    // Candidatos validos e invalidos para esta celula
+    var validMunis = pool.filter(function(it) {
+      return !usedMap[it.id] && rowDef.check(it) && colDef.check(it);
+    });
+    var invalidMunis = pool.filter(function(it) {
+      return !usedMap[it.id] && !(rowDef.check(it) && colDef.check(it));
+    });
+
+    if (validMunis.length === 0) {
+      container.innerHTML = '<div style="padding: 12px; color: #888; text-align: center; font-size: 13px;">Nenhuma localidade válida restante para esta célula.</div>';
+      return;
+    }
+
+    var cellSeed = "dz_assist_" + getDailySeedString() + "_" + cellR + "_" + cellC;
+    var rng = makeRng(cellSeed);
+
+    // 1 municipio correto (prioriza o do gabarito ou um aleatorio deterministico)
+    var correctPick = validMunis[Math.floor(rng() * validMunis.length)];
+
+    // 9 distratores invalidos
+    var shuffledInvalid = invalidMunis.slice();
+    for (var i = shuffledInvalid.length - 1; i > 0; i--) {
+      var j = Math.floor(rng() * (i + 1));
+      var temp = shuffledInvalid[i];
+      shuffledInvalid[i] = shuffledInvalid[j];
+      shuffledInvalid[j] = temp;
+    }
+    var distractorPicks = shuffledInvalid.slice(0, 9);
+
+    // Combina e embaralha as 10 opcoes
+    var tenOptions = [correctPick].concat(distractorPicks);
+    for (var k = tenOptions.length - 1; k > 0; k--) {
+      var idx = Math.floor(rng() * (k + 1));
+      var t = tenOptions[k];
+      tenOptions[k] = tenOptions[idx];
+      tenOptions[idx] = t;
+    }
+
+    container.innerHTML = `
+      <div style="padding: 6px 10px 10px; font-size: 12px; color: #2e4d32; font-weight: 600; border-bottom: 1px solid #e2ede2; margin-bottom: 6px;">
+        Selecione 1 entre os 10 municípios abaixo (apenas 1 é o correto):
+      </div>
+    ` + tenOptions.map(function(item) {
+      return `
+        <div class="option-row" onclick="submitGridGuess('${item.id}')" style="cursor: pointer; padding: 10px 12px;">
+          <span><strong>${item.name}</strong> <small style="color: #666;">(${item.uf})</small></span>
+          <span style="font-size: 11px; color: #2e4d32; font-weight: 700;">Escolher &rarr;</span>
+        </div>
+      `;
+    }).join('');
+    return;
   }
 
   var normFilter = (filterText || '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -2022,7 +2110,7 @@ function finishGridGame(gabari) {
   }
 
   pendingGridResult = {
-    mode: `Modo Grid (${activeGridDifficulty === 'easy' ? 'Estados' : 'Municípios'})`,
+    mode: `Modo Grid (${activeGridDifficulty === 'easy' ? 'Estados' : activeGridDifficulty === 'assist' ? 'Municípios (Assistido)' : 'Municípios'})`,
     score: `${state.score} pts (${state.hits}/9)`,
     time: document.getElementById('grid-timer').innerText
   };
@@ -2646,6 +2734,7 @@ function saveRecord(playerName, mode, scoreVal, timeStr) {
         id: newEntry.id,
         name: playerName,
         mode: mode.indexOf('Grid (Estados)') !== -1 ? 'grid-easy' :
+              mode.indexOf('Assistido') !== -1 ? 'grid-assist' :
               mode.indexOf('Grid (Municípios)') !== -1 ? 'grid-hard' :
               mode.indexOf('Versus') !== -1 ? 'versus' : 'streak',
         score: parseInt(String(scoreVal).replace(/\D/g, '') || '1', 10),
