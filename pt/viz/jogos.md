@@ -1923,10 +1923,16 @@ function toggleAssistMode() {
   var state = gridDifficultyStates.hard;
   if (state.completed) return;
 
-  state.assistEnabled = !state.assistEnabled;
+  // Se ja estiver ativado, nao permite desativar (irreversivel na partida atual)
+  if (state.assistEnabled) {
+    alert("O Modo Facilitado já está ativado para esta partida e não pode ser desfeito.");
+    return;
+  }
 
-  // Corta pontuacao pela metade na primeira ativacao
-  if (state.assistEnabled && !state.scoreCutApplied) {
+  state.assistEnabled = true;
+
+  // Corta pontuacao pela metade na ativacao
+  if (!state.scoreCutApplied) {
     state.score = Math.floor(state.score / 2);
     state.scoreCutApplied = true;
   }
@@ -1934,9 +1940,11 @@ function toggleAssistMode() {
   var assistBtn = document.getElementById('btn-toggle-assist');
   var assistLabel = document.getElementById('assist-btn-label');
   if (assistBtn) {
-    assistBtn.classList.toggle('active', !!state.assistEnabled);
+    assistBtn.classList.add('active');
+    assistBtn.style.cursor = 'default';
+    assistBtn.title = "Modo Facilitado ativado (permanente para esta partida)";
     if (assistLabel) {
-      assistLabel.innerText = state.assistEnabled ? "Modo Facilitado Ativo (10 Opções)" : "Modo Facilitado: 10 Opções (-50% pts)";
+      assistLabel.innerText = "Modo Facilitado Ativo (10 Opções)";
     }
   }
 
@@ -1945,7 +1953,7 @@ function toggleAssistMode() {
   if (currentInputCell) {
     var searchBoxWrap = document.querySelector('#cell-input-panel .search-box-wrap');
     if (searchBoxWrap) {
-      searchBoxWrap.style.display = state.assistEnabled ? 'none' : 'block';
+      searchBoxWrap.style.display = 'none';
     }
     renderOptionsList('');
   }
