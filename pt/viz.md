@@ -37,7 +37,7 @@ lang: pt
 
   <div class="imagens-track">
     <div class="icone-bloco">
-      <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-mais-dinamicas" target="_blank" rel="noopener noreferrer">
+      <a href="{{ site.baseurl }}/pt/viz/ranking-atividades-economicas-ocupacoes/" target="_blank" rel="noopener noreferrer">
         <img src="{{ site.baseurl }}/assets/img/icons_viz/icon_rk_atividades_dinamicas.png" alt="ícone ranking das atividades mais dinâmicas">
       </a><br>
       <p>Ranking das Atividades Econômicas mais Dinâmicas</p>
