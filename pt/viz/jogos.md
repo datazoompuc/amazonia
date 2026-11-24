@@ -631,89 +631,117 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
     font-style: italic;
   }
 
-  /* CALENDARIO & STREAK LOCAL DO MODO GRID */
-  .grid-streak-calendar-card {
+  /* CALENDARIO & STREAK LOCAL DISCRETO NO CANTO DO MODO GRID */
+  .grid-cal-corner-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .gsc-toggle-btn {
+    background: #ffffff;
+    border: 1px solid #c2d6c2;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #2e4d32;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .gsc-toggle-btn:hover {
+    background: #f0f7f0;
+    border-color: var(--green-btn);
+  }
+  .grid-cal-popover {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    width: 268px;
+    z-index: 60;
     background: #ffffff;
     border: 1px solid #c2d6c2;
     border-radius: 6px;
-    padding: 16px 20px;
-    margin-bottom: 22px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    padding: 12px;
+    box-shadow: 0 8px 24px rgba(26, 46, 26, 0.14);
   }
-  .gsc-header {
+  .grid-cal-popover.open {
+    display: block;
+  }
+  .gsc-popover-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 14px;
-    padding-bottom: 12px;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
     border-bottom: 1px solid #e2ece2;
   }
-  .gsc-title-block h3 {
-    margin: 0;
-    font-size: 15px;
+  .gsc-popover-head span {
+    font-size: 12px;
     font-weight: 800;
     color: #1e3d28;
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
-  .gsc-subtitle {
-    font-size: 12px;
-    color: #556055;
-    margin-top: 2px;
+  .gsc-popover-close {
+    background: none;
+    border: none;
+    font-size: 16px;
+    line-height: 1;
+    color: #667;
+    cursor: pointer;
+    padding: 0 2px;
   }
   .gsc-stats {
-    display: flex;
-    gap: 16px;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 10px;
   }
   .gsc-stat-pill {
     background: #f4f8f4;
     border: 1px solid #d2e2d2;
-    padding: 6px 12px;
+    padding: 5px 4px;
     border-radius: 4px;
     text-align: center;
   }
   .gsc-stat-num {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 800;
     color: var(--green-btn);
     display: block;
     line-height: 1.1;
   }
   .gsc-stat-label {
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
     color: #556055;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
   }
   .gsc-calendar-wrap {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
   }
   .gsc-month-title {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     color: #2e4d32;
     text-align: center;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     text-transform: capitalize;
   }
   .gsc-cal-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
-    max-width: 420px;
-    margin: 0 auto;
+    gap: 3px;
     width: 100%;
   }
   .gsc-day-header {
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 700;
     color: #8da1af;
     text-align: center;
@@ -726,7 +754,7 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 600;
     color: #4a5c4a;
     background: #fafcfa;
@@ -750,7 +778,7 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
   }
   .gsc-day-cell.selected-day {
     outline: 2px solid #2e4d32;
-    box-shadow: 0 0 0 3px rgba(46,77,50,0.2);
+    box-shadow: 0 0 0 2px rgba(46,77,50,0.2);
   }
   .gsc-day-cell.today {
     border: 2px solid var(--green-btn);
@@ -765,11 +793,11 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
   }
   .gsc-day-cell.completed::after {
     content: "✓";
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 900;
     color: var(--green-btn);
     position: absolute;
-    bottom: 2px;
+    bottom: 1px;
     line-height: 1;
   }
   .past-day-banner {
@@ -798,20 +826,83 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
   .gsc-legend {
     display: flex;
     justify-content: center;
-    gap: 16px;
-    margin-top: 10px;
-    font-size: 11px;
+    gap: 10px;
+    margin-top: 8px;
+    font-size: 10px;
     color: #667;
   }
   .gsc-legend-item {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
   }
   .gsc-legend-swatch {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 2px;
+  }
+
+  .leaderboard-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media (max-width: 680px) {
+    .jogos-wrapper { padding: 12px 10px 40px 10px; }
+    .hub-welcome { padding: 20px 14px; margin: 10px 0 18px 0; }
+    .hub-title { font-size: 22px; }
+    .hub-subtitle { font-size: 13px; margin-bottom: 18px; }
+    .mode-cards-grid { grid-template-columns: 1fr; gap: 12px; }
+    .mode-card { padding: 16px 14px; }
+    .hub-switcher { gap: 6px; margin: 10px 0 14px 0; }
+    .hub-btn { font-size: 12px; padding: 7px 10px; flex: 1 1 auto; text-align: center; }
+    .game-panel { padding: 14px 10px; }
+    .control-strip { padding: 10px 12px; gap: 8px; }
+    .level-picker { width: 100%; flex-wrap: wrap; }
+    .level-btn { font-size: 11px; padding: 6px 8px; flex: 1; text-align: center; }
+    .grid-cal-corner-wrap { width: 100%; justify-content: flex-end; }
+    .grid-cal-popover { width: min(272px, calc(100vw - 36px)); right: 0; }
+    .past-day-banner { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .past-day-banner button { width: 100%; padding: 7px 10px; }
+    .status-bar-tech { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 12px; margin-bottom: 14px; }
+    .grid-board { grid-template-columns: 84px repeat(3, minmax(0, 1fr)); grid-gap: 5px; }
+    .grid-header-col, .grid-header-row {
+      padding: 6px 4px;
+      font-size: 10px;
+      line-height: 1.2;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      min-height: 40px;
+    }
+    .grid-header-col small, .grid-header-row small {
+      font-size: 8.5px;
+      display: block;
+      margin-top: 2px;
+    }
+    .grid-cell { min-height: 70px; padding: 5px 3px; }
+    .grid-cell > span { font-size: 11px; }
+    .grid-cell-city { font-size: 10.5px; line-height: 1.2; word-break: break-word; }
+    .grid-cell-meta { font-size: 9.5px; }
+    .cell-select-modal { padding: 12px; }
+    .search-input, .player-name-input { font-size: 16px; }
+    .hint-container { flex-direction: column; }
+    .hint-btn { width: 100%; padding: 8px 10px; }
+    .versus-question-title { font-size: 17px; }
+    .versus-question-subtitle { font-size: 12px; margin-bottom: 14px; }
+    .versus-card { min-height: 110px; padding: 16px 14px; }
+    .versus-name { font-size: 16px; }
+    .versus-divider { width: 34px; height: 34px; font-size: 13px; }
+    .feedback-box { padding: 12px; font-size: 12.5px; }
+    .feedback-r-box { overflow-x: auto; font-size: 10.5px; word-break: break-word; }
+    .completion-panel { padding: 20px 14px; }
+    .leaderboard-table th, .leaderboard-table td { padding: 7px 8px; font-size: 12px; white-space: nowrap; }
+  }
+
+  @media (max-width: 420px) {
+    .grid-board { grid-template-columns: 72px repeat(3, minmax(0, 1fr)); grid-gap: 4px; }
+    .grid-header-col, .grid-header-row { font-size: 9.5px; padding: 5px 3px; }
+    .player-name-wrap { flex-direction: column; }
   }
 </style>
 
@@ -880,8 +971,61 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
         <button class="level-btn active" id="lvl-easy" onclick="setGridDifficulty('easy')">Fácil (Estados)</button>
         <button class="level-btn" id="lvl-hard" onclick="setGridDifficulty('hard')">Difícil (Municípios)</button>
       </div>
-      <div>
-        <span style="font-size: 12px; font-weight: 700; color: #556066;">1 Desafio Diário por Nível</span>
+      <div class="grid-cal-corner-wrap">
+        <button type="button" class="gsc-toggle-btn" id="gsc-toggle-btn" onclick="toggleGridCalendar(event)" title="Calendário e Streak do Grid">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span id="gsc-trigger-date">--/--</span>
+          <span style="color:#9ab09a;">·</span>
+          <span>Streak: <strong id="gsc-trigger-streak">0</strong></span>
+          <span style="font-size:10px; color:#556055;">▾</span>
+        </button>
+
+        <!-- POPOVER DISCRETO DO CALENDARIO E STREAK DO MODO GRID -->
+        <div class="grid-cal-popover" id="grid-streak-calendar" onclick="event.stopPropagation()">
+          <div class="gsc-popover-head">
+            <span>Progresso do Grid</span>
+            <button type="button" class="gsc-popover-close" onclick="closeGridCalendar()" aria-label="Fechar calendário">&times;</button>
+          </div>
+          <div class="gsc-stats">
+            <div class="gsc-stat-pill">
+              <span class="gsc-stat-num" id="gsc-current-streak">0</span>
+              <span class="gsc-stat-label">Atual</span>
+            </div>
+            <div class="gsc-stat-pill">
+              <span class="gsc-stat-num" id="gsc-best-streak">0</span>
+              <span class="gsc-stat-label">Recorde</span>
+            </div>
+            <div class="gsc-stat-pill">
+              <span class="gsc-stat-num" id="gsc-month-total">0</span>
+              <span class="gsc-stat-label">Mês</span>
+            </div>
+          </div>
+          <div class="gsc-calendar-wrap">
+            <div class="gsc-month-title" id="gsc-calendar-month-name">Mês / Ano</div>
+            <div class="gsc-cal-grid" id="gsc-calendar-grid">
+              <!-- Gerado via JavaScript -->
+            </div>
+            <div class="gsc-legend">
+              <div class="gsc-legend-item">
+                <span class="gsc-legend-swatch" style="border: 2px solid var(--green-btn); background: #fafcfa;"></span>
+                <span>Hoje</span>
+              </div>
+              <div class="gsc-legend-item">
+                <span class="gsc-legend-swatch" style="background: #e2f2e2; border: 1px solid #8ac08a;"></span>
+                <span>Concluído</span>
+              </div>
+              <div class="gsc-legend-item">
+                <span class="gsc-legend-swatch" style="background: #fafcfa; border: 1px solid #eef3ee;"></span>
+                <span>Pendente</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -891,50 +1035,6 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
         <strong>Modo Histórico:</strong> Você está jogando o tabuleiro do dia <span id="grid-selected-day-label" style="font-weight: 700;">--/--/----</span>. Esta partida é livre para treino e <strong>não pontua no placar nem altera a streak diária</strong>.
       </span>
       <button onclick="selectGridDate(getTodayDateString())">Voltar para o Desafio de Hoje</button>
-    </div>
-
-    <!-- CALENDARIO E STREAK DO MODO GRID -->
-    <div class="grid-streak-calendar-card" id="grid-streak-calendar">
-      <div class="gsc-header">
-        <div class="gsc-title-block">
-          <h3>Progresso Diário do Grid</h3>
-          <div class="gsc-subtitle">Complete ao menos um desafio diário (Estados ou Municípios) para manter sua sequência.</div>
-        </div>
-        <div class="gsc-stats">
-          <div class="gsc-stat-pill">
-            <span class="gsc-stat-num" id="gsc-current-streak">0</span>
-            <span class="gsc-stat-label">Streak Atual</span>
-          </div>
-          <div class="gsc-stat-pill">
-            <span class="gsc-stat-num" id="gsc-best-streak">0</span>
-            <span class="gsc-stat-label">Melhor Streak</span>
-          </div>
-          <div class="gsc-stat-pill">
-            <span class="gsc-stat-num" id="gsc-month-total">0</span>
-            <span class="gsc-stat-label">Dias no Mês</span>
-          </div>
-        </div>
-      </div>
-      <div class="gsc-calendar-wrap">
-        <div class="gsc-month-title" id="gsc-calendar-month-name">Mês / Ano</div>
-        <div class="gsc-cal-grid" id="gsc-calendar-grid">
-          <!-- Gerado via JavaScript -->
-        </div>
-        <div class="gsc-legend">
-          <div class="gsc-legend-item">
-            <span class="gsc-legend-swatch" style="border: 2px solid var(--green-btn); background: #fafcfa;"></span>
-            <span>Hoje</span>
-          </div>
-          <div class="gsc-legend-item">
-            <span class="gsc-legend-swatch" style="background: #e2f2e2; border: 1px solid #8ac08a;"></span>
-            <span>Grid Concluído</span>
-          </div>
-          <div class="gsc-legend-item">
-            <span class="gsc-legend-swatch" style="background: #fafcfa; border: 1px solid #eef3ee;"></span>
-            <span>Pendente</span>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Barra de Status com Timer Individual do Grid -->
@@ -1101,20 +1201,22 @@ description: "Explore os microdados oficiais da Amazônia Legal pelos nossos min
       <h3 style="font-size: 16px; font-weight: 700; color: #1e3320; margin: 0;">Placar Oficial de Recordes</h3>
       <span style="font-size: 11px; color: #2e4d32; font-weight: 600;" id="lb-sync-badge">Sincronizado</span>
     </div>
-    <table class="leaderboard-table">
-      <thead>
-        <tr>
-          <th>Jogador</th>
-          <th>Modo</th>
-          <th>Resultado / Pontuação</th>
-          <th>Tempo</th>
-          <th>Data</th>
-        </tr>
-      </thead>
-      <tbody id="leaderboard-body">
-        <tr><td colspan="5" style="text-align: center; color: #888;">Carregando recordes...</td></tr>
-      </tbody>
-    </table>
+    <div class="leaderboard-table-wrap">
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>Jogador</th>
+            <th>Modo</th>
+            <th>Resultado / Pontuação</th>
+            <th>Tempo</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard-body">
+          <tr><td colspan="5" style="text-align: center; color: #888;">Carregando recordes...</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
@@ -1405,6 +1507,23 @@ function computeGridStreaks(history) {
   return { current: currentStreak, best: best };
 }
 
+function toggleGridCalendar(e) {
+  if (e) e.stopPropagation();
+  var cal = document.getElementById('grid-streak-calendar');
+  if (cal) cal.classList.toggle('open');
+}
+
+function closeGridCalendar() {
+  var cal = document.getElementById('grid-streak-calendar');
+  if (cal) cal.classList.remove('open');
+}
+
+document.addEventListener('click', function(e) {
+  if (!e.target || !e.target.closest || !e.target.closest('.grid-cal-corner-wrap')) {
+    closeGridCalendar();
+  }
+});
+
 function renderGridStreakCalendar() {
   var history = getGridCompletionHistory();
   var streaks = computeGridStreaks(history);
@@ -1416,9 +1535,18 @@ function renderGridStreakCalendar() {
   var totalEl = document.getElementById('gsc-month-total');
   var titleEl = document.getElementById('gsc-calendar-month-name');
   var gridEl = document.getElementById('gsc-calendar-grid');
+  var trigStreakEl = document.getElementById('gsc-trigger-streak');
+  var trigDateEl = document.getElementById('gsc-trigger-date');
 
   if (curEl) curEl.innerText = streaks.current;
   if (bestEl) bestEl.innerText = streaks.best;
+  if (trigStreakEl) trigStreakEl.innerText = streaks.current;
+  if (trigDateEl && selectedGridDate) {
+    var dParts = selectedGridDate.split('-');
+    if (dParts.length === 3) {
+      trigDateEl.innerText = `${dParts[2]}/${dParts[1]}`;
+    }
+  }
 
   var now = new Date();
   var year = now.getFullYear();
@@ -1573,6 +1701,7 @@ function selectGridDate(dateStr) {
     completed: false
   };
 
+  closeGridCalendar();
   initGridUI();
 }
 
