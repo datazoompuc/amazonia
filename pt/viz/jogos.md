@@ -1301,10 +1301,14 @@ function formatMetricUnit(val, unit) {
     if (num >= 1e6) return "US$ " + (num / 1e6).toFixed(1).replace(".", ",") + " mi";
     return "US$ " + num.toLocaleString('pt-BR');
   }
-  if (unit === 'milhões R$') {
-    if (num >= 1e6) return "R$ " + (num / 1e6).toFixed(1).replace(".", ",") + " tri";
-    if (num >= 1e3) return "R$ " + (num / 1e3).toFixed(1).replace(".", ",") + " bi";
-    return "R$ " + num.toLocaleString('pt-BR') + " mi";
+  if (unit === 'milhões R$' || unit === 'Mil R$') {
+    // A variavel gdp_mil esta em milhares de R$ (1.000 R$) conforme o dicionario oficial do IBGE.
+    // Exemplo: 1.366.721 mil R$ = 1.366.721.000 R$ = R$ 1,4 bi (nao tri!)
+    var reais = num * 1000;
+    if (reais >= 1e12) return "R$ " + (reais / 1e12).toFixed(1).replace(".", ",") + " tri";
+    if (reais >= 1e9) return "R$ " + (reais / 1e9).toFixed(1).replace(".", ",") + " bi";
+    if (reais >= 1e6) return "R$ " + (reais / 1e6).toFixed(1).replace(".", ",") + " mi";
+    return "R$ " + reais.toLocaleString('pt-BR');
   }
   if (unit === 'R$') return "R$ " + num.toLocaleString('pt-BR');
   return num.toLocaleString('pt-BR') + (unit ? " " + unit : "");
