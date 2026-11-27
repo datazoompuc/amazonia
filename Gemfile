@@ -16,6 +16,11 @@ gem "minima", "~> 2.5"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
+  # Gera uma pagina de redirecionamento para cada `redirect_to` no front matter.
+  # Usado nas visualizacoes de comercio exterior que foram incorporadas ao app
+  # unico em /pt/viz/comercio-exterior/ ou descontinuadas em nov/2026: a URL
+  # antiga continua respondendo e leva ao lugar certo, em vez de dar 404.
+  gem "jekyll-redirect-from", "~> 0.16"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
